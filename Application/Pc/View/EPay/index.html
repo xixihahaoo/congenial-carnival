@@ -1,0 +1,439 @@
+<include file="Base:header"/>
+<title data-n-head="true">{$Think.lang.select_currency}</title>
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<style data-vue-ssr-id="7b30fe60:0 765aacbb:0 309b0fcd:0">div, li, ul {
+	margin: 0;
+	padding: 0
+}
+
+li, ul {
+	list-style: none outside none
+}
+
+.p-cen[data-v-383e5a05] {
+	text-align: center;
+	font-size: .1rem
+}
+
+label[data-v-383e5a05] {
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	height: 100%
+}
+
+.fee[data-v-383e5a05] {
+	position: absolute;
+	overflow: hidden;
+	font-size: 11px;
+	color: #ddd;
+	right: -.1em;
+	width: .9rem;
+	text-align: right;
+	padding-right: .1rem
+}
+
+.layer-container[data-v-383e5a05] {
+	z-index: 22;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5)
+}
+
+.layer-box1[data-v-383e5a05] {
+	width: 2.78rem;
+	position: absolute;
+	left: 50%;
+	top: 25%;
+	margin-left: -1.39rem;
+	background: #fff;
+	padding-bottom: .2rem
+}
+
+.layer-box1 p[data-v-383e5a05] {
+	text-align: center;
+	font-size: .17rem;
+	color: #333
+}
+
+.layer-box1 img[data-v-383e5a05] {
+	display: block;
+	margin: 0 auto;
+	margin-top: -.2rem;
+	width: 70%
+}
+
+.layer-box1 .ipt-btn[data-v-383e5a05] {
+	width: 1.4rem;
+	font-size: .15rem;
+	background: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);
+	background: linear-gradient(-229deg, #1254a8, #0c62c1);
+	margin: 0 auto
+}
+
+.layer-box h3[data-v-383e5a05] {
+	line-height: .45rem;
+	position: relative;
+	text-align: center;
+	font-size: .17rem;
+	font-weight: 400;
+	color: #030303;
+	border-bottom: .01rem solid #ddd
+}
+
+.layer-money em[data-v-383e5a05] {
+	font-size: .4rem;
+	margin-top: .05rem;
+	margin-bottom: .05rem;
+	color: #222;
+	display: block;
+	text-align: center
+}
+
+ul[data-v-383e5a05] {
+	overflow: hidden;
+	background: #fff;
+	border: 0 solid #4d4d4d;
+	width: 2.4rem;
+	margin: 0 auto .16rem
+}
+
+li[data-v-383e5a05] {
+	float: left;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: .01rem solid #ddd;
+	border-right: none;
+	width: .4rem;
+	height: .4rem;
+	line-height: .4rem;
+	font-size: .4rem;
+	text-align: center
+}
+
+li[data-v-383e5a05]:last-child {
+	border-right: .01rem solid #ddd
+}
+
+.keyboard > div[data-v-383e5a05] {
+	width: 33.3%;
+	height: .45rem;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-bottom: .01rem solid #ddd;
+	border-right: .01rem solid #ddd;
+	float: left
+}
+
+b[data-v-383e5a05] {
+	display: block;
+	text-align: center;
+	font-weight: 400
+}
+
+b[data-v-383e5a05]:first-child {
+	font-size: .24rem;
+	line-height: .24rem;
+	margin-top: .05rem
+}
+
+b[data-v-383e5a05]:last-child {
+	-webkit-text-size-adjust: none;
+	font-size: .11rem;
+	color: #030303;
+	font-weight: 400
+}
+
+.k-blank > img[data-v-383e5a05] {
+	width: .23rem;
+	height: .16rem;
+	margin-top: .2rem
+}
+
+.bank[data-v-383e5a05] {
+	position: relative;
+	left: -.15rem;
+	color: #222
+}
+
+.bank-a[data-v-383e5a05] {
+	position: relative;
+	color: #77abf4;
+}
+
+/*.bank-a[data-v-383e5a05]:after {*/
+/*content: "";*/
+/*position: absolute;*/
+/*display: block;*/
+/*width: .08rem;*/
+/*height: .08rem;*/
+/*border-top: .01rem solid #acabb1;*/
+/*border-right: .01rem solid #acabb1;*/
+/*-webkit-transform: rotate(45deg);*/
+/*-ms-transform: rotate(45deg);*/
+/*transform: rotate(45deg);*/
+/*top: .17rem;*/
+/*right: .1rem*/
+/*}*/
+
+.content[data-v-383e5a05] {
+	/*border-top: .01rem solid #444;*/
+	padding-top: 0
+}
+
+.ipt-group[data-v-383e5a05] {
+	overflow: hidden;
+	/*background: #f5f5f5;*/
+	border-radius: 5px;
+	line-height: .45rem;
+	font-size: .15rem;
+	position: relative;
+	width: 92%;
+	margin: .1rem auto 0
+}
+
+.ipt-group[data-v-383e5a05]:last-child {
+	border-bottom: none
+}
+
+.ipt-before[data-v-383e5a05] {
+	overflow: hidden;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	width: .8rem;
+	float: left;
+	/*padding-left: .1rem*/
+}
+
+.ipt-before em[data-v-383e5a05] {
+	/*color: #ddd*/
+	color: #acabb1;
+}
+
+.ipt-before em[data-v-383e5a05]:first-of-type {
+	float: left
+}
+
+.ipt-before em[data-v-383e5a05]:nth-of-type(2) {
+	float: right;
+	margin-right: .05rem;
+	color: #77abf4;
+}
+
+input[data-v-383e5a05] {
+	float: left;
+	position: relative;
+	top: .1rem;
+	width: 90%;
+	height: 26px;
+	padding-left: 12px;
+	background: #fff;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+p[data-v-383e5a05] {
+	/*padding: .09rem .14rem .23rem;*/
+	padding: 10px 116px;
+	font-size: .1rem;
+	color: #ddd
+}
+
+span[data-v-383e5a05] {
+	color: #ffbf23;
+}
+
+.ipt-btn[data-v-383e5a05] {
+	margin: 30px auto 0;
+	line-height: .4rem;
+	text-align: center;
+	font-size: .15rem;
+	width: 30%;
+	border-radius: .04rem;
+	background: #7baeed;
+	color: #fff;
+}
+
+.btnColor[data-v-383e5a05] {
+	/*background: -o-linear-gradient(319deg, #1254a8, #0c62c1);*/
+	/*background: linear-gradient(-229deg, #1254a8, #0c62c1)*/
+	background: #ffbf23;
+	
+}
+
+.ipt-money[data-v-383e5a05] {
+	width: 92%;
+	margin: 0 auto;
+	height: .45rem;
+	line-height: .45rem;
+	font-size: 14px;
+	color: #acabb1;
+	position: relative
+}
+
+.ipt-money span[data-v-383e5a05] {
+	font-size: 14px;
+	color: #77abf4;
+	letter-spacing: 0;
+	display: inline-block;
+	/*margin-left: .1rem*/
+}
+
+.lookmx[data-v-383e5a05] {
+	position: absolute;
+	font-size: 14px;
+	color: #77abf4;
+	letter-spacing: 0;
+	top: 0;
+	right: .25rem
+}
+
+#inputmoney {
+	border: 1px solid #A67D25;
+	padding: .05rem .1rem;
+	border-radius: .06rem;
+	width: 70%;
+	color: #ddd;
+}
+
+.lookmx[data-v-383e5a05]:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: .08rem;
+	height: .08rem;
+	border-top: .01rem solid #77abf4;
+	border-right: .01rem solid #77abf4;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: .18rem;
+	right: -.15rem
+}
+
+/*新增css*/
+body, html {
+	height: 100%;
+	width: 100%;
+	background: #262b41 !important;
+}
+
+.page-main {
+	background: #212139;
+	min-height: 600px;
+	margin: 30px auto !important;
+	padding: 0 80px !important;
+}
+
+.page-main h3 {
+	line-height: 110px;
+	text-align: center;
+	position: relative;
+}
+
+.page-main h3 span {
+	color: #ddd;
+}
+
+.page-main h3 a {
+	position: absolute;
+	font-size: 14px;
+	color: #77abf4;
+	top: 0;
+	right: 160px;
+}
+
+.page-main .content {
+	padding: 40px 80px;
+	background: #262b41;
+}
+</style>
+</head>
+<body data-n-head="" style="background: #1c1a25">
+<div data-server-rendered="true" id="__nuxt">
+	<div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+	<div data-v-383e5a05="">
+		
+		<!--引入导航条-->
+		<include file="Base:footer"/>
+		<form id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+			<section class="page-main" data-v-383e5a05="">
+				<h3>
+					<span>{$Think.lang.select_currency}</span>
+					<a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+				</h3>
+				<div class="content" data-v-383e5a05="" style="text-align: center">
+					
+					<div class="ipt-money" data-v-383e5a05="">
+						<div data-v-383e5a05="">
+							{$Think.lang.pay_amount}：<span data-v-383e5a05="" style="margin-left: 26px;"> ${$amount}</span>
+						</div>
+					</div>
+					
+					<div class="ipt-group" style="margin-top:0" data-v-383e5a05="">
+						<label data-v-383e5a05="">
+							<div class="ipt-before" data-v-383e5a05="" style="position: absolute;margin-left: 41.2%">
+								<em data-v-383e5a05="">{$Think.lang.select_currency}:</em></div>
+							
+							<div class="bank-a" data-v-383e5a05="">
+								<select name="currency" id="currency" style="margin-left:10.5%;width: 80px;height: 37px; padding: 0 0 0 20px;">
+									<volist name="currency" id="vo">
+										<option value="{$vo.code}" data-true_amount="{$vo.true_amount}">{$vo.code}
+										</option>
+									</volist>
+								
+								</select>
+							</div>
+						</label>
+					</div>
+					
+					<div class="ipt-money" data-v-383e5a05="">
+						<div data-v-383e5a05="">
+							{$Think.lang.ture_amount}：<span id="true_amount" data-v-383e5a05="" style="margin-left: 26px;"> </span>
+						</div>
+					</div>
+				
+				</div>
+				<div class="ipt-btn" data-v-383e5a05="" id="submit">{$Think.lang.pay}</div>
+				<p class="p-cen" data-v-383e5a05="">{$Think.lang.select_currency_pay}</p>
+			</section>
+		</form>
+		<include file="Base:trueFooter"/>
+	</div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+
+    $('#submit').on('click', function () {
+
+        var code = $('#currency option:selected').val();
+        var balanceno = "{$balanceno}";
+
+        top.location.href = "{:U('pay')}" + '?balanceno=' + balanceno + '&code=' + code;
+    });
+
+
+    $('#currency').on('change', function () {
+        var currency_code = $(this).val();
+        var true_amount = $(this).find("option:selected").attr("data-true_amount");
+
+        $('#true_amount').html(true_amount + '&nbsp;' + currency_code);
+    });
+
+    $(function () {
+        var currency_code = $('#currency option:selected').val();
+        var true_amount = $('#currency option:selected').attr('data-true_amount');
+
+        $('#true_amount').html(true_amount + '&nbsp;' + currency_code);
+    });
+
+</script>

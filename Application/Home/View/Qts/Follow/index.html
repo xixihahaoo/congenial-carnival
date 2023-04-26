@@ -1,0 +1,446 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.following_management}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="2b122a9a:0 309b0fcd:0 29409f98:0 5e000063:0">.page-main[data-v-148c9be6] {
+        padding: .5rem 0 0;
+        background: #1c1a25;
+    }
+
+    .fixmain[data-v-148c9be6] {
+        position: fixed;
+        top: .5rem;
+        width: 100%;
+        z-index: 200
+    }
+
+    #head[data-v-148c9be6] {
+        z-index: 299
+    }
+
+    .title[data-v-148c9be6] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99
+    }
+
+    .title2[data-v-148c9be6], .title[data-v-148c9be6] {
+        width: 100%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        background: #1c1a25;
+        border-bottom: 1px solid #444
+    }
+
+    .title span[data-v-148c9be6], .title2 span[data-v-148c9be6] {
+        line-height: .4rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        color: #999;
+        font-size: .15rem;
+        position: relative
+    }
+
+    .title span.on[data-v-148c9be6], .title2 span.on[data-v-148c9be6] {
+        color: #ffbf23;
+    }
+
+    .title span.on[data-v-148c9be6]:after, .title2 span.on[data-v-148c9be6]:after {
+        content: "";
+        display: block;
+        width: .25rem;
+        height: 0;
+        border-bottom: .02rem solid #ffbf23;
+        position: absolute;
+        top: .38rem;
+        left: 50%;
+        margin-left: -.12rem
+    }
+
+    .followmain[data-v-148c9be6] {
+        padding: 0 .14rem;
+        width: 100%;
+        background: #1c1a25;
+    }
+
+    .mainfir[data-v-148c9be6] {
+        width: 100%;
+        padding: .18rem 0 .2rem;
+        overflow: hidden
+    }
+
+    .mainfir p[data-v-148c9be6] {
+        font-size: 15px;
+        color: #666;
+        float: left;
+        letter-spacing: 0
+    }
+
+    .mainfir span[data-v-148c9be6] {
+        padding-top: .08rem;
+        text-align: left;
+        display: inline-block;
+        margin-left: .1rem
+    }
+
+    .mainfir img[data-v-148c9be6] {
+        width: .28rem;
+        top: .05rem;
+        position: relative
+    }
+
+    .isred[data-v-148c9be6] {
+        color: #f64e43;
+        font-size: .18rem
+    }
+
+    .followcut[data-v-148c9be6] {
+        /*background: #fff;*/
+        height: .65rem;
+        border-radius: .1rem .1rem 0 0;
+        padding: .14rem;
+        width: 100%;
+        margin-top: .15rem
+    }
+
+    .cutchange span[data-v-148c9be6] {
+        display: inline-block;
+        font-size: 14px;
+        color: #333;
+        height: .34rem;
+        background: #e5e5e5;
+        border-radius: 4px;
+        line-height: .34rem;
+        margin-right: .1rem;
+        position: relative
+    }
+
+    .cutchange .on[data-v-148c9be6] {
+        color: #fff;
+        background: #ffbf23;
+    }
+
+    .cutchange img[data-v-148c9be6] {
+        display: none
+    }
+
+    .cutchange .on img[data-v-148c9be6] {
+        width: .18rem;
+        position: absolute;
+        bottom: -.09rem;
+        left: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block
+    }
+
+    .cutchange .on b[data-v-148c9be6] {
+        color: #ffbf23;
+    }
+
+    .cutchange b[data-v-148c9be6] {
+        display: inline-block;
+        padding: 0 .02rem;
+        height: .18rem;
+        min-width: .18rem;
+        border-radius: .08rem;
+        text-align: center;
+        line-height: .18rem;
+        background: #fff;
+        font-size: 12px;
+        color: #333
+    }
+
+    .followtab[data-v-148c9be6] {
+        height: .24rem;
+        background: #171520
+    }
+
+    .followtab li[data-v-148c9be6] {
+        float: left;
+        width: 50%;
+        height: 100%;
+        line-height: .24rem;
+        text-align: center;
+        font-size: 14px;
+        color: #999
+    }
+
+    #delfir[data-v-148c9be6] {
+        padding: 0 .15rem
+    }
+
+    #delsec[data-v-148c9be6] {
+        text-align: center;
+        padding: 0 .15rem
+    }
+
+    #delfour[data-v-148c9be6], #delthird[data-v-148c9be6] {
+        padding: 0 .15rem
+    }
+
+    .tofloow[data-v-148c9be6] {
+        float: right;
+        width: .7rem;
+        height: .24rem;
+        text-align: center;
+        line-height: .24rem;
+        background: #ffbf23;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #000;
+        margin-top: .05rem
+    }
+
+    .ourlist[data-v-5061d562] {
+        padding: 0 0 0 .14rem
+    }
+
+    .ourlist li[data-v-5061d562] {
+        height: .65rem;
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .listleft[data-v-5061d562], .listright[data-v-5061d562] {
+        float: left;
+        width: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%
+    }
+
+    .listleft img[data-v-5061d562] {
+        display: inline-block;
+        width: .3rem;
+        height: .3rem;
+        border-radius: 50%;
+        margin-top: .16rem
+    }
+
+    .listleft .usermess[data-v-5061d562] {
+        margin-top: .15rem;
+        margin-left: .05rem
+    }
+
+    .listleft .usermess p[data-v-5061d562] {
+        font-size: 14px;
+        color: #ffffff;
+        letter-spacing: 0;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .listleft .usermess span[data-v-5061d562] {
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .listright[data-v-5061d562] {
+        position: relative
+    }
+
+    .listright a[data-v-5061d562] {
+        position: absolute;
+        right: .14rem;
+        top: .23rem;
+        width: .35rem;
+        height: .2rem;
+        text-align: center;
+        line-height: .2rem;
+        border: 1px solid #ffbf23;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #ffbf23;
+    }
+
+    .listright p[data-v-5061d562] {
+        height: 100%;
+        text-align: center;
+        line-height: .65rem;
+        width: 100%
+    }
+
+    .isred[data-v-5061d562] {
+        color: #f64e43
+    }
+
+    .textNone_content div[data-v-ea184226] {
+        width: 1.5rem;
+        height: 1.23rem;
+        margin: 0 auto
+    }
+
+    .textNone_content p[data-v-ea184226] {
+        width: 100%;
+        text-align: center;
+        color: #b3b3b3;
+        font-size: .15rem;
+        line-height: .4rem
+    }
+
+    </style>
+</head>
+<body data-n-head="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+    <div class="content" data-v-148c9be6="">
+        <div id="head" data-v-148c9be6="">
+            <div class="head_content"><h3 class="product-name"><span>{$Think.lang.following_management}</span><em></em></h3>
+                <div class="left" onclick="window.history.back()"><a class="arrow_left"></a></div>
+                <a href="{:U('rule')}"><div class="right arrow_right"><b>{$Think.lang.rules}</b></div></a>
+            </div>
+        </div>
+        <section class="page-main" data-v-148c9be6="">
+            <div class="fixmain" data-v-148c9be6="">
+                <div class="title2" data-v-148c9be6="">
+                    <span class="on" data-v-148c9be6="">{$Think.lang.i_follower}</span>
+                    <span data-v-148c9be6="" onclick="window.location.href='{:U('userTrade')}'">{$Think.lang.i_trader}</span>
+                </div>
+
+                <div class="followmain" data-v-148c9be6="">
+                    <div class="mainfir" data-v-148c9be6="">
+                        <p data-v-148c9be6="">
+                            {$Think.lang.follow_total}:<span class="isred" data-v-148c9be6="">${$data.follow_profit}</span>
+                        </p>
+                        <a href="{:U('Index/profitAll')}">
+                            <div class="tofloow" data-v-148c9be6="">{$Think.lang.follow_traders}</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="followcut" data-v-148c9be6="">
+                    <div class="cutchange" data-v-148c9be6="">
+                        <span id="delfir" class="on" data-v-148c9be6="" data-status="1">
+                            {$Think.lang.following}
+                            <b data-v-148c9be6="">{$data.nowCount}</b>
+                            <img src="__PUBLIC__/Qts/Home/img/public/other.png" data-v-148c9be6="">
+                        </span>
+                        <span id="delthird" data-v-148c9be6="" class="" data-status="2">
+                            {$Think.lang.cancelled}
+                            <b data-v-148c9be6="">{$data.cancelCount}</b>
+                            <img src="__PUBLIC__/Qts/Home/img/public/other.png" data-v-148c9be6="">
+                        </span>
+                    </div>
+                </div>
+
+                <ul class="followtab" data-v-148c9be6="">
+                    <li data-v-148c9be6="">{$Think.lang.trader}</li>
+                    <li data-v-148c9be6="">{$Think.lang.follow_earnings}</li>
+                </ul>
+            </div>
+            <div class="main" style="margin-top:2.1rem" data-v-148c9be6="">
+                <div data-v-5061d562="" data-v-148c9be6="">
+                    <div class="mescroll" id="mescroll" style="overflow:auto;height:3.5rem;background:#1c1a25"
+                         data-v-5061d562="">
+                        <div class="mescroll-bounce" data-v-5061d562="">
+                            <ul data-v-5061d562="" id="dataList" class="ourlist">
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script id="tpl" type="text/html">
+     {{each data as vo}}
+        <li data-v-5061d562="">
+            <div data-v-5061d562="" class="listleft">
+                <img data-v-5061d562="" src="{{vo.face}}">
+                <div data-v-5061d562="" class="usermess">
+                    <p data-v-5061d562="">{{vo.nickname}}</p>
+                    <span data-v-5061d562="">{{vo.desc}}</span>
+                </div>
+            </div>
+            <div data-v-5061d562="" class="listright">
+                <p data-v-5061d562="" class="isred">${{vo.follow_profit}}</p>
+                <a data-v-5061d562="" href="{:U('Index/orderFollow')}?uid={{vo.follow_user_id}}">{$Think.lang.edit}</a>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<script id="tpl2" type="text/html">
+     {{each data as vo}}
+        <li data-v-5061d562="">
+            <div data-v-5061d562="" class="listleft">
+                <img data-v-5061d562="" src="{{vo.face}}">
+                <div data-v-5061d562="" class="usermess">
+                    <p data-v-46d1b599="" style="margin-top: 0.07rem;">{{vo.nickname}}</p>
+                </div>
+            </div>
+            <div data-v-5061d562="" class="listright">
+                <p data-v-5061d562="" class="isred">${{vo.follow_profit}}</p>
+                <a data-v-5061d562="" href="{:U('Index/orderFollow')}?uid={{vo.follow_user_id}}">{$Think.lang.follow}</a>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script>
+    $('.cutchange span').click(function () {
+        $('.cutchange span').removeClass('on');
+        $(this).addClass('on');
+
+        var status = $(this).attr('data-status');
+
+        getFollowData(status);
+
+    });
+
+
+    //获取交易员信息
+    function getFollowData(status=1)
+    {
+        var index = layer.load(2);
+        $.ajax({
+            type:'post',
+            url:"{:U('getFollowData')}",
+            data:{'status':status},
+            success:function(data){
+                layer.close(index);
+
+                if(status == 1)
+                    var html=template('tpl',data);
+                else
+                    var html=template('tpl2',data);
+                $('.ourlist').html(html);
+            },
+            error:function(response){
+                layer.close(index);
+                console.log(response);
+            }
+        });
+    }
+
+    window.onload=function(){
+        getFollowData();
+    }
+</script>
+</body>
+</html>

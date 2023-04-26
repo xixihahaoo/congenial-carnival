@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<message 
+	application="[application]" 
+	version="1.0.1"
+	timestamp="[timestamp]"
+	merchantId="[merchantId]"
+	merchantOrderId="[merchantOrderId]"
+	merchantOrderAmt="[merchantOrderAmt]"
+	merchantOrderDesc="[merchantOrderDesc]"
+	userName="[userName]"
+	payerId="[payerId]"
+	salerId="[salerId]"
+	guaranteeAmt="[guaranteeAmt]"
+	merchantPayNotifyUrl="[merchantPayNotifyUrl]"
+/>

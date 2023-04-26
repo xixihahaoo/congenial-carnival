@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="__JS__/jquery-latest.js"></script>
+	<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+	<title></title>
+	<style>
+		.layui-input{
+			width: 70%;
+			display: inline-block;
+		}
+		td{
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+<div class="layui-form">
+	<button style="margin:10px 0 0 10px;" class="layui-btn site-demo-layedit append">添加一行</button>
+	<button style="margin:10px 0 0 10px;" class="layui-btn site-demo-layedit submit" data-type="content">点击提交</button>
+	<form  action="" id="id_form" method="post" name="del">
+		<table class="layui-table">
+			<fieldset class="layui-elem-field layui-field-title" style="margin-top: 10px;">
+				<legend>{$option.capital_name}</legend>
+			</fieldset>
+			<colgroup>
+				<col width="50">
+				<col width="50">
+				<col width="50">
+				<col width="50">
+			</colgroup>
+			<thead>
+			<tr>
+				<th>收益率</th>
+				<th>持单时长</th>
+				<th>当前状态</th>
+				<th>操作</th>
+			</tr>
+			</thead>
+			<tbody id="content">
+			
+			<input type="hidden" name="option_id" value="{$option.id}">
+			
+			<volist name="data" id="vo">
+				<tr>
+					
+					<td style="text-align: center">
+						<input type="text" name="rate[]" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value="{$vo.rate}" onkeyup="value=value.replace(/[^\d\.]/g,'')">
+						<span>%</span>
+					</td>
+					
+					<td style="text-align: center">
+						<input type="text" name="time[]" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value="{$vo.time}" onkeyup="value=value.replace(/[^\d\.]/g,'')">
+						<span>秒</span>
+					</td>
+					
+					<td style="text-align: center">
+						<select name="flag[]" lay-filter="aihao">
+							<eq name="vo['flag']" value="0">
+								<option value="0" selected>开启</option>
+								<option value="1">禁用</option>
+							<else />
+								<option value="0">开启</option>
+								<option value="1" selected>禁用</option>
+							</eq>
+						</select>
+					</td>
+					
+					<td style="text-align: center">
+						<buttons class="layui-btn layui-btn-primary layui-btn-small delete"><i class="layui-icon"></i></buttons>
+					</td>
+				
+				</tr>
+			</volist>
+			</tbody>
+		</table>
+	</form>
+
+
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+<script type="text/javascript">
+
+    $('.submit').bind('click', function(){
+        var index = layer.load(0, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+
+        $.ajax({
+            type: "post",
+            url: "{:U('parameterSave')}",
+            data:$("#id_form").serialize(),
+            success: function(data) {
+
+                layer.close(index);
+
+                if(data.status == 1)
+                {
+                    layer.msg(data.msg);
+                    
+                    setTimeout(closeLayer,1500);
+                    
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        })
+    });
+
+    
+    function closeLayer()
+    {
+        var indexs = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        parent.layer.close(indexs);  // 关闭layer
+    }
+    
+    
+    //删除一行数据
+    $("#content").on("click",".delete",function(){
+        $(this).parent().parent().remove();
+    });
+
+</script>
+
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+
+        var form = layui.form()
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate;
+
+        //添加一行
+
+        $('.append').click(function(){
+
+            var html = '';
+
+            html += '<tr>';
+            html += '<td>';
+            html += '<input type="text" name="rate[]" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value="">';
+            html += '<span> %</span>';
+            html += '</td>';
+
+            html += '<td>';
+            html += '<input type="text" name="time[]" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" value=""> 秒';
+            html += '</td>';
+
+
+            html += '<td>';
+            html += '<select name="flag[]" lay-filter="aihao">';
+            html += '<option value="0" selected="">开启</option>';
+            html += '<option value="1">禁用</option>';
+            html += '</td>';
+
+            html += '<td>';
+            html += '<buttons class="layui-btn layui-btn-primary layui-btn-small delete"><i class="layui-icon"></i></buttons>';
+            html += '</td>';
+
+            html += '</tr>';
+
+            $('#content').append(html);
+            form.render('select');
+        });
+    });
+
+</script>

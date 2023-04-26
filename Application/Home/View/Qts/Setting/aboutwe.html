@@ -1,0 +1,105 @@
+	<include file="Base:header" />
+	<title data-n-head="true">{$Think.lang.about_us}</title>
+	<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+	<style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+		img[data-v-2f9daed0] {
+			width: 110px;
+			margin: .3rem auto 0;
+			display: block
+		}
+		
+		.main[data-v-2f9daed0] {
+			padding: 0 .14rem
+		}
+		
+		.aboutmain[data-v-2f9daed0] {
+			text-align: center
+		}
+		
+		.aboutmain img[data-v-2f9daed0] {
+			height: .6rem;
+			width: .6rem;
+			margin: .4rem 0 .1rem
+		}
+		
+		.aboutmain p[data-v-2f9daed0] {
+			line-height: .22rem;
+			font-size: .15rem;
+			text-align: center
+		}
+		
+		.aboutlist li[data-v-2f9daed0] {
+			height: .6rem;
+			line-height: .6rem;
+			position: relative;
+			font-size: .15rem;
+			color: #999;
+			font-weight: 500
+		}
+		
+		.aboutlist li div[data-v-2f9daed0] {
+			text-indent: .14rem
+		}
+		
+		li[data-v-2f9daed0]:after {
+			content: "";
+			display: block;
+			width: .08rem;
+			height: .13rem;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAcCAYAAABoMT8aAAAAAXNSR0IArs4c6QAAAkpJREFUOBGtkz+IE0EUxrPZDSHXmFhpKkUrRS0VxObuEFTwCEKKKzZsyB8sFAULLURs7DxRtDD/xENOjQoiksJDPVCuttBKMJVaeUmjCSHZ+HvRCUkuu5ugD96+mXnf982bNzs+3z+adhfTNO1wIBCIWZb1eVo9P4Rqt9vd22q13heLxQPTCmhCyOVylxC5RiV1picymcz6pEI9AQFzktOE23gTj2Wz2VdET+sLCBKRRcJ9KrGJi1TyTNbdTHrQN3ZdgRxjQQQe5/N5q590GAwJCIZdXyJyjOEv+lKkqvMO3N7yJgFZTafTa7quzyKwwXSJJl/tocd8hnowmi+VSnva7fYqQlFyt6juHNV1B3GuAgKkDztt215luAvycjgcTsbj8Y4SGXsElZTIcaqEI/hHKjFrtdrTSqUSlJyYZwV/YD5foVDY2ul0KswP4q9DodCCaZo/PStQAqlUaiMSicwzf4vPNZvNR5KbWEDAjUZjC2G7jLGv8pnmCLs5gjRzB17gRrI01Z6oAm5iP+R3f8nX+WPTQmbufQTIh7jGNbDbIF2GfEGIylyPwB8oTXuOz0A+w5XeUUQVDTUYjZBj3PtD1nW/329CfjCKkfnYHvCAEuSeCICdTzmRJb9JAPJZSPfYvcHOx+n2CwE62ZAADbsC8CZe4zXOsfMbJ6Ja12XAblo0Gr1BvMj0OxXMQv6gQG5RK5fLOg8kD8iCWDUMYz6ZTH5xIw3mjHq9XmLBhPyJso9C/jYI8BoblL0P8nowGDyZSCR+eBH+e/43drTNEPTh2RoAAAAASUVORK5CYII=);
+			background-size: 100%;
+			position: absolute;
+			right: .14rem;
+			top: .18rem
+		}
+		
+		.about_bottom p[data-v-2f9daed0] {
+			text-align: center;
+			font-size: .12rem;
+			color: #999ba0;
+			letter-spacing: 0
+		}
+		
+		.about_bottom p[data-v-2f9daed0]:first-child {
+			font-size: .17rem;
+			color: #222;
+			letter-spacing: 0;
+			line-height: .4rem
+		}
+	</style>
+	<style type="text/css" data-n-head="true">body {
+		background: #1c1a25;
+	}</style>
+</head>
+<body class="">
+<div id="__nuxt">
+	<div class="progress" data-v-4a8a9a01=""
+	     style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+	<div data-v-2f9daed0="" class="content">
+		<div data-v-2f9daed0="" id="head">
+			<div class="head_content"><h3 class="product-name"><span>{$Think.lang.about_us}</span><em></em></h3>
+				<div class="left" onclick="window.history.back()"><a class="arrow_left"></a></div>
+				<div class="right arrow_right"><b></b></div>
+			</div>
+		</div>
+		<section data-v-2f9daed0="" class="page-main">
+			<div data-v-2f9daed0=""><!-- <img data-v-2f9daed0="" src="__PUBLIC__Qts/Home/img/about/forex.png"> -->
+				<ul data-v-2f9daed0="" class="aboutlist">
+					
+					<volist name="info" id="vo">
+						<a href="{:U('details',array('nid' => $vo['nid']))}">
+							<li data-v-2f9daed0="">
+								<div data-v-2f9daed0="">{$vo.ntitle}</div>
+							</li>
+						</a>
+					</volist>
+					
+					
+				</ul>
+			</div>
+		</section>
+	</div>
+</div>
+
+</body>
+</html>

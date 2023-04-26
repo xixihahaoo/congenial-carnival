@@ -1,0 +1,332 @@
+@charset "utf-8";
+/* CSS Document */
+.index{
+    padding-bottom: 0;
+}
+header{
+    width: 100%;
+    background: #363951;
+    padding: 5% 0;
+}
+.head-shot{
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+    border: 8px solid #4a4c61;
+    border-radius: 100%;
+}
+.head-shot span{
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 13px auto 0;
+    border: 5px solid #5d5e71;
+    border-radius: 100%;
+    background: #363951;
+}
+.head-img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 5px auto 0;
+    border-radius: 100%;
+    background: #f7f0f0;
+    padding: 3px;
+}
+.h-name{
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: #f7f0f0;
+    text-align: center;
+}
+.info-box{
+    width: 100%;
+}
+.info-box i{
+    float: left;
+    width: 20%;
+    height: 59px;
+    border-bottom: 1px solid #f7f0f0;
+}
+.info-box i.a-1{
+    background:url("../images/tu_22.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-2{
+    background:url("../images/tu_23.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-3{
+    background:url("../images/tu_20.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-4{
+    background:url("../images/tu_21.png") center no-repeat;
+   background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-5{
+    background:url("../images/a-8.png") center no-repeat;
+   background-size: 50px 50px;
+}
+.info-box i.a-6{
+    background:url("../images/tu_23.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-7{
+    background:url("../images/tu_24.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-8{
+     background:url("../images/a-8.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-9{
+    background:url("../images/a-9.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-10{
+     background:url("../images/a-10.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-11{
+     background:url("../images/tu_18.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-box i.a-12{
+     background:url("../images/tu_19.png") center no-repeat;
+    background-size: 50px 50px; border-bottom: 1px solid #b1b0b0;
+}
+.info-detail{
+	position: relative;
+    float: left;
+    width: 80%;
+    height: 59px;
+    border-bottom: 1px solid #b1b0b0;
+    padding: 0 1em;
+}
+.detail-btn{
+	position: absolute;
+	right: 1em;
+	top:0;
+}
+.info-box:last-child .info-detail{
+    border-bottom: 0;
+}
+.acc-num{
+    float: left;
+}
+.acc-num span{
+    display: block;
+    font-size: 1.2rem;
+    color: #858585;
+    margin-top: 8px;
+}
+.acc-num em{
+    display: block;
+    font-size:1.5rem;
+    color: #505050;
+
+}
+.acc-btn{
+    float: right;
+  	height: 30px;
+  	margin: 8px 10px 0 0px;
+  	padding: 0 10px;
+  	border-radius: 5px;
+  	font-size: 1.3rem;
+  	color: #fff;
+  	line-height: 30px;
+  	text-align: center;
+}
+.acc-btn.blue{
+    background: #42bdbd;
+}
+.acc-btn.red{
+    background: #daac33;
+}
+.acc-btn.yellow{
+    background: #cd9826;
+}
+.acc-l{
+    display: block;
+    background: url("../images/arr-r.png") 98% no-repeat;
+    background-size: 13px 14px;
+    font-size: 1.5rem;
+    color: #505050;
+    line-height: 59px;
+}
+/****输入交易密码---Start*****/
+#pwd-box{
+    top: 15%;
+    padding-bottom: 20px;
+}
+.pwd-form{
+    width: 80%;
+    margin:20px auto 0;
+}
+.form-input{
+    width: 100%;
+    display: block;
+    border: 1px solid #dedede;
+    padding:.5em;
+    background: #fff;
+    color: #d0d0d0;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    text-align: center;
+}
+.form-input input:-moz-placeholder {
+    color: #d0d0d0;
+
+}
+.form-input::-webkit-input-placeholder {
+    color: #d0d0d0;
+}
+.pwd-btn{
+    display: block;
+    width: 100%;
+    margin: 20px auto 0;
+    border: 0;
+    border-radius: 5px;
+    background: #daac33;
+    padding: .3em 0;
+    cursor: pointer;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #fff;
+}
+.pwd-btn.chr{
+    background: #da5b34;
+}
+.p-link{
+    width: 150px;
+    display: block;
+    margin: 15px auto 0;
+    background: url("../images/help.png") left no-repeat;
+    background-size: 24px 24px;
+    padding-left: 28px;
+    font-size: 1.3rem;
+    color: #365acc;
+    line-height: 30px;
+    text-decoration: underline;
+
+}
+/****输入交易密码---End*****/
+/* 理财诊断 */
+.a-l-position{
+    position: relative;
+    padding: .2rem .4rem;
+}
+.m-p-piontRise {
+  position: absolute;
+  top: 0;
+  right: -5px;
+  width: .5rem ;
+  height: .5rem;
+  border-radius: 2.5rem;
+  border: transparent;
+  background-color: #ff5959;
+}
+.l-clientNum {
+  display: block;
+  font-size: 1rem;
+  margin-right: 9%;
+  margin-top: 0;
+  color: #bbbbbb;
+}
+.txss{ width:100%; padding:2%;}
+.tx{ width:95px; height:95px; float:left; margin-top:6px;}
+.tx img{ width:100%; height:100%; border-radius:50%;}
+.gezh{ width:64%; float:left; margin-left:5%;  margin-top:10px;}
+.gezh span{ font-size:1.2rem; color:#fff;}
+.gezh p{font-size:18px; color:#fff;}
+.grzh{ background:url(../images/iconfont-qian.png) left no-repeat; padding-left:25%;}
+.cztz{ float:left;}
+.gezh2{ width:64%; float:left; margin-left:5%;  margin-top:25px;}
+.grzh2{font-size:1.4rem; color:#fff;}
+
+.nam{
+	position:relative;
+	top:-15em;
+	text-align:center;
+	font-size:1.5em;
+	
+}
+.strenav{
+	width:100%;
+	position:relative;
+	top:-20.5em;
+	height:5.5em;
+	z-index:100
+}
+.strenava{
+	width:100%;
+	position:relative;
+	top:-26em;
+	height:5.5em;
+	background:#666;
+	opacity:0.6;
+	z-index:-3
+}
+.strenava1{
+	background:#1e71be;
+	width:100%;
+	position:relative;
+	top:-29em;
+	height:3em;
+	z-index:1
+}
+.strenav ul li{
+	display:block;
+	width:33.3%;
+	height:3.5em;
+	text-align:center;
+	float:left;
+	line-height:1.7em;
+	font-size:2em;
+	color:#fff
+}
+.head_two{
+	position:relative;
+	height:15em;
+	text-align:center;
+	top:-18em
+}
+.head_two_1{
+	display:block;
+	width:10.5em;
+	height:10.5em;
+	border-radius:10.5em;
+	border:2px solid #fff;
+	margin-left:19.5em
+}
+.head_two_3{
+	width:8em;
+	height:8em;
+	border-radius:12em;
+	border:0.2em solid #fff;
+	margin-top:1em
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

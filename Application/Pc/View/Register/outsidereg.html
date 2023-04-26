@@ -1,0 +1,265 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.sign_up_fo_fee}</title>
+<link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+<style data-vue-ssr-id="020bd97a:0">
+    .icon[data-v-2eff10b6] {
+        top: .45rem
+    }
+    
+    .main[data-v-2eff10b6] {
+        background-image: url(__PUBLIC__Qts/Home/img/outside/bg1.png)
+    }
+    
+    .form[data-v-2eff10b6] {
+        background: url(__PUBLIC__Qts/Home/img/outside/img02.png) -.15rem 0 no-repeat;
+        background-size: 108%;
+        width: 100%;
+        height: 3.36rem;
+        position: relative;
+        top: -.2rem
+    }
+    
+    .clearfix[data-v-2eff10b6] {
+        overflow: hidden
+    }
+    
+    .fl[data-v-2eff10b6] {
+        float: left
+    }
+    
+    .fr[data-v-2eff10b6] {
+        float: right
+    }
+    
+    .group[data-v-2eff10b6] {
+        position: relative;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 .5rem;
+        margin: 0 auto
+    }
+    
+    .group-ipt[data-v-2eff10b6] {
+        display: inline-block;
+        height: .45rem;
+        padding-left: .14rem;
+        background-color: #fff;
+        border: .01rem solid #7f43ff
+    }
+    
+    .group-ipt1[data-v-2eff10b6] {
+        width: 100%;
+        margin-top: .35rem
+    }
+    
+    .group-ipt2[data-v-2eff10b6] {
+        margin-top: .15rem;
+        width: 53%
+    }
+    
+    .group-ipt3[data-v-2eff10b6] {
+        width: 100%;
+        margin-top: .15rem
+    }
+    
+    .group-btn[data-v-2eff10b6] {
+        font-weight: 700;
+        color: #783200;
+        text-align: center;
+        line-height: .45rem;
+        background-color: #ffec33;
+        border-bottom: .01rem solid #f9aa00
+    }
+    
+    .group-msgbtn[data-v-2eff10b6] {
+        display: inline-block;
+        width: 40%;
+        margin-top: .15rem;
+        font-size: .15rem
+    }
+    
+    .img-btn[data-v-2eff10b6] {
+        position: absolute;
+        top: .01rem;
+        right: .5rem;
+        width: 1.1rem;
+        height: .43rem;
+        text-align: center;
+        color: #783200
+    }
+    
+    .group-sub[data-v-2eff10b6] {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin-top: .2rem;
+        border-radius: .22rem;
+        font-size: .16rem
+    }
+    
+    p[data-v-2eff10b6] {
+        color: #fff;
+        text-align: center;
+        margin-top: .06rem;
+        font-size: .12rem
+    }
+    
+    p > span[data-v-2eff10b6] {
+        color: #fff036;
+        text-decoration: underline
+    }
+</style>
+</head>
+<body data-n-head="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+    <div data-v-2eff10b6="">
+        <div class="header" data-v-2eff10b6=""></div>
+        <div class="main clearfix" data-v-2eff10b6="" style="background-size: 100%;position: fixed;height: 100%;width: 100%;">
+            <!--<img src="__PUBLIC__Qts/Home/img/outside/img01.png" alt="" class="fl" data-v-2eff10b6="">-->
+            <div class="form fl" data-v-2eff10b6="" style="margin-top: 0.5rem;">
+                <div class="group" data-v-2eff10b6="">
+                    <label data-v-2eff10b6="">
+                        <input type="email" placeholder="{$Think.lang.input_mailbox}" class="group-ipt group-ipt1" data-v-2eff10b6="" id="email">
+                        <i class="icon icon_tel" style="display:none" data-v-2eff10b6=""></i>
+                    </label>
+                </div>
+                
+                <div class="group clearfix" data-v-2eff10b6="">
+                    <input type="tel" placeholder="{$Think.lang.verification_code}" maxlength="6" class="group-ipt group-ipt2 fl" data-v-2eff10b6="" id="smscode">
+                    <div class="group-msgbtn fr group-btn" data-v-2eff10b6="">{$Think.lang.send_code}</div>
+                </div>
+                
+                <div class="group clearfix" data-v-2eff10b6="">
+                    <input type="password" placeholder="{$Think.lang.set_password}" class="group-ipt group-ipt1" data-v-2eff10b6="" id="password">
+                </div>
+                
+                <div class="group clearfix" data-v-2eff10b6="" style="display: none;">
+                    <input type="tel" placeholder="{$Think.lang.genera_code}" maxlength="4" class="group-ipt group-ipt1" data-v-2eff10b6="" id="code" value="{$code}">
+                </div>
+                
+                <div class="group" data-v-2eff10b6="">
+                    <div class="group-btn group-sub" data-v-2eff10b6="" onclick="submit();">{$Think.lang.submit}</div>
+                </div>
+                
+                <p data-v-2eff10b6="">{$Think.lang.agree}
+                    <span data-v-2eff10b6=""><a href="{:U('regAgreement')}">{$Think.lang.user_agreement}</a></span>
+                </p>
+            </div>
+            <!--<img src="__PUBLIC__Qts/Home/img/outside/img03.png" alt="" class="fl" data-v-2eff10b6="">-->
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script type="text/javascript">
+
+
+    //验证码
+    $('.fr').on('click',getCode)
+    function getCode(){
+
+        var  email = $('#email').val();
+        get_email_code(email);
+    }
+
+
+    function get_email_code(email) {
+        try{
+            showProgress();
+        }catch(e){
+            var index = layer.load(2);
+        }
+
+        $.ajax({
+            url:"{:U('Tools/emailVerify')}",
+            dataType: 'json',
+            type: 'get',
+            data: {'email':email},
+            success:function(data){
+
+                try{
+                    closeProgress();
+                }catch(e){
+                    layer.close(index);
+                }
+                if(data.ret_code == 200){
+
+                    try{
+                        alertMessage(data.ret_msg,1000);
+                    }catch(e){
+                        layer.msg(data.ret_msg);
+                    }
+                    return mbtime();
+                } else{
+                    try{
+                        return alertMessage(data.ret_msg,1000);
+                    }catch(e){
+                        return layer.msg(data.ret_msg);
+                    }
+                }
+            }
+        });
+    }
+
+
+    function mbtime()
+    {
+        var s=60;
+        var timer=setInterval(function () {
+            s--;
+            $('.fr').html(s+'s');
+            $('.fr').unbind('click');
+            if(s==0){
+                $('.fr').html('{$Think.lang.send_code}');
+                $('.fr').bind('click',getCode);
+                clearInterval(timer)
+                timer=null;
+            }
+        },1000);
+    }
+
+
+    //注册信息提交
+    function submit()
+    {
+        var index   = layer.load(2);
+
+        var email      = $('#email').val();
+        var password    = $('#password').val();
+        var smscode     = $('#smscode').val();
+        var code        = $('#code').val();
+
+        $.ajax({
+            url:"{:U('Register/register')}",
+            dataType: 'json',
+            type: 'post',
+            data: {'email':email,'password':password,'smscode':smscode,'code':code},
+            success:function(data){
+                if(data.code == 200){
+
+                    layer.close(index);
+                    layer.msg(data.msg);
+                    return xiazaiAPP();
+                } else{
+                    layer.close(index);
+                    return layer.msg(data.msg);
+                }
+            }
+        });
+    }
+
+
+
+    function xiazaiAPP(){
+        var download = "{$download}";
+        if(download != '')
+        {
+            window.location.href = download;
+        }
+    }
+</script>

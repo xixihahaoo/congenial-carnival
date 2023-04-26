@@ -1,0 +1,43 @@
+/* 账户信息 */
+.zh_content ul li{
+    width:100%;
+    max-height:55px;
+    overflow: hidden;
+    border-bottom: 1px solid #dddddd;
+    padding:0.1em; /*拉开上下间距*/
+    font-family:"微软雅黑";
+}
+.zh_content ul li:last-child{
+    border-bottom: none;
+}
+.zh_content ul li a{
+    color: #666;
+    display: block;
+    overflow: hidden;
+}
+.zh_content ul li a p{
+    float: left;
+    margin-right:8px;
+    line-height:43px;
+}
+.zh_content ul li a p b{
+    margin-right: 5px;
+}
+.zh_content ul li a p:last-child{
+    float: right;
+    color: #666;
+}
+/* 中间内容 */
+.content_main{
+    height: 100%;
+    padding-top:5px;
+    padding-bottom:30px;
+    background: url("../images/wp_dlbjt.jpg") no-repeat 0% 0%;
+
+}
+.denglu span,.denglu p,.denglu input,.denglu a{
+    color: #ffffff;
+}
+.content_main input{
+    background-color: transparent;
+}

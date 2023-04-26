@@ -1,0 +1,163 @@
+<html style="font-size: 100px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- new add zyw -->
+<link rel="stylesheet" href="__PUBLIC__Qts/Home/css/jlpay/layui.css" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__Qts/Home/css/jlpay/jquery.autocomplete.css">
+<link href="__PUBLIC__Qts/Home/css/jlpay/WdatePicker.css" rel="stylesheet" type="text/css"> 
+<link href="__PUBLIC__Qts/Home/css/jlpay/public.css" rel="stylesheet" type="text/css">
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            background: #1c1a25 !important;
+        }
+        .layui-form-item {
+            border: 1px solid #a67d25;
+            border-radius: .04rem;
+            background: none;
+        }
+        .layui-form-pane .layui-form-label {
+            background: none;
+            color: #ACABB1;
+            border: none;
+        }
+        .layui-input, .layui-select, .layui-textarea {
+            border: none;
+            background: none;
+            color: #666;
+        }
+        .layui-btn {
+            background: #ffbf23;
+            color: #000;
+            border-radius: .04rem;
+        }
+    </style>
+
+<script>
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=640){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+
+
+	
+</script>
+</head>
+<body style="margin:10px;">
+<!--<form name="form" action="" class="layui-form layui-form-pane" method="POST">-->
+ 
+
+<ul class="layui-nav" style="background: none" lay-filter="">
+<li class="layui-nav-item" style="color:white;font-size:14px;" onclick="window.location.href='{:U('Recharge/index')}';">返回</li>
+  <li class="layui-nav-item" style="color:#ffbf23;font-size:14px;margin-left: 1.65rem">人脸验证</li>
+</ul>
+<br> 
+
+<div class="layui-form-item">
+    <label class="layui-form-label">系统订单号</label>
+    <div class="layui-input-block">
+      <input type="text" id="orderId" name="orderId" readonly="readonly" class="layui-input" value="{$data.balanceno}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">充值金额</label>
+    <div class="layui-input-block">
+      <input id="amount1" name="amount1" type="text" readonly="readonly" class="layui-input" value="￥{$data.bpprice_cny}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">手机号码</label>
+    <div class="layui-input-block">
+      <input id="tel" name="tel" type="text" readonly="readonly" class="layui-input" value="{$data.tel}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">authKey</label>
+    <div class="layui-input-block">
+      <input type="text" name="" id="veriCode" autocomplete="off" readonly="readonly" class="layui-input" value="{$data.authKey}">
+    </div>
+  </div>
+<div>
+
+
+<div>
+
+  <input type="button" id="send" class="layui-btn" style="width:100%" value="确认支付">
+
+</div></div></div></div></div>
+<!--</form>-->
+</body></html>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+
+$("#send").click(function(){
+
+
+  var index = layer.open({
+    type: 2,
+    content: '正在支付',
+    shadeClose:false,
+  });
+
+  var balanceno       = "{$data.balanceno}";
+  var checkCode       = $('#veriCode').val();
+
+  $.ajax({
+    url:"{:U('facePaySbumit')}",
+    dataType: 'json',
+    type: 'post',
+    data: {'balanceno':balanceno,'checkCode':checkCode},
+    success:function(data){
+      layer.close(index);
+      if(data.code == 200)
+      {
+        layer.open({
+            content: data.msg,
+            btn: '我知道了',
+            yes: function(index, layero){
+                layer.close(index);
+                top.location.href=data.redirectUrl
+            },
+            shadeClose:false,
+        });
+      } else {
+        layer.open({
+          content: data.msg
+          ,skin: 'msg'
+          ,time: 2 //2秒后自动关闭
+          ,anim:false
+        });
+      }
+
+      return false;
+    },
+    error: function(request) {
+            console.log(request);
+        },
+  });
+});  
+
+</script>

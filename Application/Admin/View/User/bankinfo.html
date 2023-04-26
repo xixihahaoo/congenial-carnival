@@ -1,0 +1,142 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+    <style>
+        .table-hover img{
+            cursor: pointer;
+        }
+        #box{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,.5);
+            z-index: 9999;
+            display: none;
+        }
+        #box span{
+            display: inline-block;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+<div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header">
+                    <h3>银行卡列表</h3>                    
+                </div>
+                <!-- Users table -->
+                <div class="row-fluid table header">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    编号
+                                </th>
+                                <th class="span3 sortable">
+                                    银行名称
+                                </th>
+                                <th class="span3 sortable">
+                                    开户行
+                                </th>
+                                <th class="span3 sortable">
+                                    汇款代码
+                                </th>
+                                <th class="span3 sortable">
+                                    开户地址
+                                </th>
+                                <th class="span2 sortable">
+                                    银行卡号
+                                </th>
+                                <th class="span2 sortable">
+                                    姓名
+                                </th>
+                                <th class="span2 sortable">
+                                    电话
+                                </th>
+                                <th class="span2 sortable">
+                                    图片
+                                </th>
+                                <th class="span2 sortable">
+                                    修改时间
+                                </th>
+                                <th class="span2 sortable">
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="bank" id="ult">
+                            <tr class="first">
+                                <td>
+                                    {$ult['bid']}
+                                </td>
+                                <td>
+                                    {$ult['bankname']}
+                                </td>
+                                <td>
+                                    {$ult['branch']}
+                                </td>
+                                <td>
+                                    {$ult['swiftcode']}
+                                </td>
+                                <td>
+                                    {$ult['address']}
+                                </td>
+                                <td>
+                                    {$ult['banknumber']}
+                                </td>
+                                <td>
+                                    {$ult['busername']}
+                                </td>
+                                <td>
+                                    {$ult['tel']}
+                                </td>
+                                <td>
+                                     <img src="/Uploads/{$ult['bank_img']}" style="width: 18%;">
+                                </td>
+                                <td>
+                                    {$ult['tempdate']}
+                                </td>
+                                <td>
+                                    <ul class="actions">
+                                        <li><a href="{:U('updateBank',array('bid'=>$ult['bid']))}"><i class="table-edit"></i></a></li>
+                                        <li class="last"><a href="{:U('delBankInfo',array('bid'=>$ult['bid']))}" onclick="if(confirm('确定要删除吗?')){return true;}else{return false;}"><i class="table-delete"></i></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </volist>                        
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+    <div id="box">
+        <span class="img">
+            <img class="img" style="max-width: 700px;max-height: 550px" src="" alt="">
+        </span>
+    </div>
+	<!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+    <script type="text/javascript">
+
+    $('.table-hover img').click(function () {
+        $('#box').show()
+        $('#box img').attr('src',$(this).attr('src'))
+    })
+
+    $('#box').click(function (e) {
+        if(!$(e.target).hasClass('img')){
+            $('#box').hide()
+        }
+    })
+	</script>
+</block>
+

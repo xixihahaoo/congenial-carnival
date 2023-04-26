@@ -1,0 +1,143 @@
+[ 2020-10-13T18:55:17+08:00 ] 47.103.7.61 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001697s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.012208s ]
+
+[ 2020-10-13T18:55:18+08:00 ] 47.103.7.61 /Pc/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000369s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001956s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002704s ]
+NOTIC: [8] Undefined index: user_id /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 45 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and is_read = 1 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `wp_money_flow` WHERE (  YEARWEEK(FROM_UNIXTIME(dateline,'%Y-%m-%d'),1) = YEARWEEK(DATE_FORMAT(now(),'%Y-%m-%d'),1) and uid= and is_read = 1 ) LIMIT 1  
+NOTIC: [8] Undefined variable: user /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 109 行.
+NOTIC: [8] Undefined index: HTTP_REFERER /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 124 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_option a
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3' at line 1
+ [ SQL语句 ] : SELECT a.id,a.capital_name,a.en_name,a.capital_key,a.pid,a.Price,a.DiffRate,b.capital_length FROM wp_option a left join wp_option_info b on a.id=b.option_id  WHERE ( exists(select b.option_id from wp_user_option c where a.id=c.option_id and c.user_id=) and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_userinfo a
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000199s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000262s ]
+NOTIC: [8] Undefined variable: info /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/294c98e9819a9b31d643d623dee36931.php 第 950 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.257955s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.258027s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001493s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001531s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001807s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001855s ]
+
+[ 2020-10-13T20:11:20+08:00 ] 47.96.254.10 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000416s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004207s ]
+
+[ 2020-10-13T21:25:35+08:00 ] 42.236.10.114 /Pc/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000405s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004706s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009795s ]
+
+[ 2020-10-13T21:25:36+08:00 ] 42.236.10.114 /Pc/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000360s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000562s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001296s ]
+
+[ 2020-10-13T21:25:40+08:00 ] 42.236.10.114 /Home/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000373s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000576s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001307s ]
+NOTIC: [8] Undefined index: user_id /www/wwwroot/kmforex.com/Application/Home/Controller/CommonController.class.php 第 45 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and is_read = 1 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `wp_money_flow` WHERE (  YEARWEEK(FROM_UNIXTIME(dateline,'%Y-%m-%d'),1) = YEARWEEK(DATE_FORMAT(now(),'%Y-%m-%d'),1) and uid= and is_read = 1 ) LIMIT 1  
+NOTIC: [8] Undefined variable: user /www/wwwroot/kmforex.com/Application/Home/Controller/CommonController.class.php 第 97 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_option a
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3' at line 1
+ [ SQL语句 ] : SELECT a.id,a.capital_name,a.en_name,a.capital_key,a.pid,a.Price,a.DiffRate,b.capital_length FROM wp_option a left join wp_option_info b on a.id=b.option_id  WHERE ( exists(select b.option_id from wp_user_option c where a.id=c.option_id and c.user_id=) and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_userinfo a
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000113s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000197s ]
+NOTIC: [8] Undefined variable: info /www/wwwroot/kmforex.com/Application/Runtime/Cache/Home/63efecedbc841600f0dc8a3f2f4786f2.php 第 419 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.085449s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.085507s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000170s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000205s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000439s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000484s ]
+
+[ 2020-10-13T21:27:31+08:00 ] 171.83.166.227 /login
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000413s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004909s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005712s ]
+NOTIC: [8] Undefined index: cuid /www/wwwroot/kmforex.com/Application/Admin/Controller/BaseController.class.php 第 12 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000059s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000115s ]
+INFO: Run Behavior\ParseTemplate [ RunTime:0.013450s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013502s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000121s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000452s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000501s ]
+
+[ 2020-10-13T22:54:50+08:00 ] 47.101.58.84 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001774s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.011017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.016494s ]
+
+[ 2020-10-13T22:54:51+08:00 ] 47.101.58.84 /Pc/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000447s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.004405s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005272s ]
+NOTIC: [8] Undefined index: user_id /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 45 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and is_read = 1 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `wp_money_flow` WHERE (  YEARWEEK(FROM_UNIXTIME(dateline,'%Y-%m-%d'),1) = YEARWEEK(DATE_FORMAT(now(),'%Y-%m-%d'),1) and uid= and is_read = 1 ) LIMIT 1  
+NOTIC: [8] Undefined variable: user /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 109 行.
+NOTIC: [8] Undefined index: HTTP_REFERER /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 124 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_option a
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3' at line 1
+ [ SQL语句 ] : SELECT a.id,a.capital_name,a.en_name,a.capital_key,a.pid,a.Price,a.DiffRate,b.capital_length FROM wp_option a left join wp_option_info b on a.id=b.option_id  WHERE ( exists(select b.option_id from wp_user_option c where a.id=c.option_id and c.user_id=) and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_userinfo a
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000193s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8] Undefined variable: info /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/294c98e9819a9b31d643d623dee36931.php 第 950 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.204755s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.204827s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.001456s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001493s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.004194s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004251s ]
+

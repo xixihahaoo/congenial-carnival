@@ -1,0 +1,401 @@
+<extend name="Base/common"/>
+<block name="content">
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+    <script src="__JS__/theme.js"></script>
+
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            <div class="row-fluid header" style="margin-bottom: 10px">
+                <form id="form1" action="__URL__/index" method="get">
+                    <h3 style="height: 40px; width: 100%;font-size: 24px;">运营中心</h3>
+                    <div class="span10 pull-left">
+                        <div class="tpsearch" style="width: 20%">
+                            手机号：<input type="text" class="span6 search" value="{$phone}" placeholder="请输入手机号" name="phone" id="phone"/>
+                        </div>
+                        <div class="tpsearch"  style="width: 20%">
+                            用户名称：<input type="text" value="{$username}" class="span6 search" placeholder="请输入用户名称查找..." name="username" id="username"/>
+                        </div>
+
+                    </div>
+                    <div class="tpsearch" style="width:12%;float:right">
+                        <a href="javascript:void(0)" class="btn-flat info" onclick="submit()">开始查找</a>
+<!--                         <a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a> -->
+                    </div>
+                </form>
+            </div>
+            <!-- Users table -->
+            <div class="row-fluid table layui-table">
+                <table class="table table-hover layui-table">
+                    <thead>
+                    <tr>
+                        <th class="span1 sortable">
+                            编号
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户名
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>昵称
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>手机号
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>注册时间
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>注册IP
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>登录时间
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>登录IP
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>余额
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>出金阈值
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>冻结阈值
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>销售商
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+                    <volist name="user" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['uid']}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" style="color:red" onclick="showdetail({$ult['uid']})" title="查看资金详情">
+                                    <span>{$ult['username']}</span>
+                                    <eq name="ult['is_default']" value="1">
+                                        (默认)
+                                    </eq>
+                                </a>
+                            </td>
+
+                            <td>
+                                {$ult.nickname}
+                            </td>
+
+                            <td>
+                                <a class="layui-btn layui-btn-primary layui-btn-radius" data_field="utel" data_msg="请输入要设置的手机号码" data_id="{$ult.uid}">{$ult.utel}</a>
+                            </td>
+                            <td>
+                                {$ult.utime|date='Y-m-d H:i:s',###}
+                            </td>
+
+                            <td>
+                                {$ult.reg_ip}
+                            </td>
+
+                            <td>
+                                <notempty name="ult['lastlog']">
+                                    {$ult.lastlog|date='Y-m-d H:i:s',###}
+                                <else />
+                                    尚未登录
+                                </notempty>
+                            </td>
+
+                            <td>
+                                <notempty name="ult['last_login_ip']">
+                                    {$ult.last_login_ip}
+                                <else />
+                                    尚未登录
+                                </notempty>
+                            </td>
+
+                            <td>
+                                <if condition="$ult['balance'] neq ''">
+
+                                    <a class="layui-btn layui-btn-danger layui-btn-radius" data_field="balance" data_msg="请输入要修改的资金" data_id="{$ult.uid}">{$ult.balance}</a>
+
+                                    <else />
+                                    <a class="layui-btn layui-btn-danger layui-btn-radius" data_field="balance" data_msg="请输入要修改的资金" data_id="{$ult.uid}">$0</a>
+                                </if>
+                            </td>
+ 
+
+                            <td>
+                                <a class="layui-btn layui-btn-danger layui-btn-radius" data_field="gold_threshold" data_msg="请输入要设置的出金阈值" data_id="{$ult.uid}">{$ult.gold_threshold}</a>
+                            </td>
+                                                        <td>
+                                <a class="layui-btn layui-btn-danger layui-btn-radius" data_field="frozen_threshold" data_msg="请设置要冻结的资金阈值" data_id="{$ult.uid}">{$ult.frozen_threshold}</a>
+                            </td>
+
+                            <td>
+                                <a href="{:U('Agent/index',array('uid' => $ult['uid']))}" style="color: blue">点击查看</a>
+                            </td>
+
+
+                            <td>
+                                <a href="{:U('user/resetpwd/',array('uid'=>$ult['uid']))}" class="layui-btn layui-btn-normal layui-btn-mini">重置密码</a>
+                                <a href="javascript:void(0)" class="del layui-btn layui-btn-mini layui-btn-danger"  data-id="{$ult['uid']}">删除</a>
+
+                            </td>
+
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+                <div class="qjcz">
+                    <span style="margin-right:30px;float:right">总运营：<i style="color:red">{$count}个</i><br></span>
+                </div>
+            </div>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+    </div>
+
+    <!--运营上详情界面 the template of the showdetail-->
+    <div style="display:none;" id="showdetail">
+        <div class="container-fluid">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row" style="margin-left:0;">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">资金帐户信息</h3>
+                    <table class="special_table_border table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="center specla_background_class">
+                                <h5>剩余保证金</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="show_account"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row"  style="margin-left:0;">
+                <div class="col-md-6">
+                    <h2>交易信息统计</h2>
+
+                    <table class="special_table_border table table-striped table-bordered" style="text-align:center;">
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>订单总金额</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总手续费</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="show_order_total"></td>
+                            <td id="show_order_count"></td>
+                            <td id="show_order_money"></td>
+                            <td id="show_order_fee"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row"  style="margin-left:0;">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">用户信息统计</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>销售商总数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>用户总数</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="show_agent_total"></td>
+                            <td id="show_user_total"></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+    </div>
+
+
+
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/bootstrap.datepicker.js"></script>
+    <script src="__JS__/theme.js"></script>
+    
+    <script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+    <script type="text/javascript">
+
+        $(".del").click(function(){
+
+            var uid = $(this).attr('data-id');
+
+            //询问框
+            layer.open({
+                content: '您确定要删除吗？'
+                ,btn: ['确定', '不要']
+                ,yes: function(index){
+
+                    $.ajax({
+                        url:"{:U('del')}",
+                        type:"post",
+                        dataType:"json",
+                        data:"uid="+uid+"",
+                        success:function(data){
+                            if(data.status === 0){
+
+                                layer.msg(data.msg);
+                                return false;
+                            } else {
+
+                                layer.msg(data.msg);
+                                top.location.reload();
+                                return false;
+                            }
+
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+
+        function sub()
+        {
+            $('#form1').attr("action","__URL__/daochu");
+            $('#form1').submit();
+        }
+
+        function submit() {
+
+            $('#form1').attr("action","__URL__/index");
+            $('#form1').submit();
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+
+    $('.layui-btn-radius').click(function(){
+       
+       var uid = $(this).attr('data_id');
+       var msg = $(this).attr('data_msg');
+       var field = $(this).attr('data_field');
+       layer.prompt({title: msg, formType: 0}, function(pass, index){
+       layer.close(index);
+        $.ajax({
+                type: "post",
+                url: "{:U('balance')}",
+                data:{'uid' : uid,'value': pass,'field':field},
+                success: function(data) {
+                    console.log(data.status);
+                if(data.status == 1)
+                {
+                    layer.open({
+                        content: data.msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                        layer.close(index);
+                        top.location.reload();
+                        }
+                    });
+                }
+                else
+                {
+                    layer.open({
+                        content: data.msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                        layer.close(index);
+                        top.location.reload();
+                        }
+                    });
+                }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+       });
+    });
+
+
+    </script>
+    <script type="text/javascript">
+//展示运营中心资金信息
+        function showdetail(uid){
+
+            if(uid == ''){
+                layer.msg('用户id不存在');
+            }else{
+                $.ajax({
+                    type: "post",
+                    url: "{:U('show')}",
+                    data: {'uid': uid},
+                    success: function(data){
+                        $("#show_account").html('<strong>'+data.data.account+'</strong>');
+                        $("#show_order_total").html('<strong>'+data.data.order_total+'</strong>');
+                        $("#show_order_count").html('<strong>'+data.data.total_count+'</strong>');
+                        $("#show_order_money").html('<strong>'+data.data.total_money+'</strong>');
+                        $("#show_order_fee").html('<strong>'+data.data.total_fee+'</strong>');
+                        $("#show_agent_total").html('<strong>'+data.data.agent_total+' 个</strong>');
+                        $("#show_user_total").html('<strong>'+data.data.user_total+' 个</strong>');
+                        layer.open({
+                            type: 1,
+                            shadeClose: true,
+                            title: '<strong>'+data.data.username+'</strong> 的资金统计',
+                            area: ['800px', '450px'],
+                            content: $('#showdetail') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+                        });
+                    }
+                });
+            }
+        }
+
+
+
+</script>
+</block>

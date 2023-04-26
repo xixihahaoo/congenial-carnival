@@ -1,0 +1,98 @@
+[ 2020-06-08T10:56:30+08:00 ] 171.83.171.149 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000576s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001315s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002483s ]
+
+[ 2020-06-08T10:56:30+08:00 ] 171.83.171.149 /Pc/Index/index.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000345s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000899s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001635s ]
+NOTIC: [8] Undefined index: user_id /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 45 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and is_read = 1 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `wp_money_flow` WHERE (  YEARWEEK(FROM_UNIXTIME(dateline,'%Y-%m-%d'),1) = YEARWEEK(DATE_FORMAT(now(),'%Y-%m-%d'),1) and uid= and is_read = 1 ) LIMIT 1  
+NOTIC: [8] Undefined variable: user /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 109 行.
+NOTIC: [8] Undefined index: HTTP_REFERER /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 124 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_option a
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3' at line 1
+ [ SQL语句 ] : SELECT a.id,a.capital_name,a.en_name,a.capital_key,a.pid,a.Price,a.DiffRate,b.capital_length FROM wp_option a left join wp_option_info b on a.id=b.option_id  WHERE ( exists(select b.option_id from wp_user_option c where a.id=c.option_id and c.user_id=) and a.global_flag=1 ) ORDER BY b.sort asc LIMIT 0,3  
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_userinfo a
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000285s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000346s ]
+NOTIC: [8] Undefined variable: info /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/294c98e9819a9b31d643d623dee36931.php 第 950 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.039009s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039097s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.003328s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003368s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000631s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000681s ]
+
+[ 2020-06-08T10:56:37+08:00 ] 171.83.171.149 /Pc/Product/lists.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000319s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000873s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001486s ]
+NOTIC: [8] Undefined index: user_id /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 45 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and is_read = 1 ) LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `wp_money_flow` WHERE (  YEARWEEK(FROM_UNIXTIME(dateline,'%Y-%m-%d'),1) = YEARWEEK(DATE_FORMAT(now(),'%Y-%m-%d'),1) and uid= and is_read = 1 ) LIMIT 1  
+NOTIC: [8] Undefined variable: user /www/wwwroot/kmforex.com/Application/Pc/Controller/CommonController.class.php 第 109 行.
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'a' at line 1
+ [ SQL语句 ] : SHOW COLUMNS FROM wp_option a
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') and a.global_flag=1 ) ORDER BY b.sort asc' at line 1
+ [ SQL语句 ] : SELECT a.id,a.capital_name,a.en_name,a.capital_key,a.option_key,a.pid,a.sp,a.bp,a.erence,b.capital_length FROM wp_option a left join wp_option_info b on a.id=b.option_id  WHERE ( exists(select b.option_id from wp_user_option c where a.id=c.option_id and c.user_id=) and a.global_flag=1 ) ORDER BY b.sort asc 
+NOTIC: [2] Invalid argument supplied for foreach() /www/wwwroot/kmforex.com/Application/Pc/Controller/ProductController.class.php 第 104 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplace [ RunTime:0.000226s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] Undefined variable: lang /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 283 行.
+NOTIC: [8] Undefined variable: lang /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 285 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 572 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 585 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 585 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 585 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 585 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 598 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 598 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 598 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 598 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 598 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 611 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 611 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 611 行.
+NOTIC: [8] Undefined index: status /www/wwwroot/kmforex.com/Application/Runtime/Cache/Pc/263edaac76f2de40cab8b3d446be49f8.php 第 611 行.
+INFO: Run Behavior\ParseTemplate [ RunTime:0.027293s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027340s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000154s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000189s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000435s ]
+

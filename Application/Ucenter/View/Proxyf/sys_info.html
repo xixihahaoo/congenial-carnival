@@ -1,0 +1,118 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+
+<script type="text/javascript" src="__PUBCSS__/layer/layer.js"></script>
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            我的信息
+            <small>
+                <i class="icon-double-angle-right"></i>
+                维护信息
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <form class="form-horizontal" id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+                <input type="hidden" value="{$now_user_id}" name="now_user_id" >
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 登录用户名 </label>
+                    <div class="col-sm-9">
+                        <input class="col-xs-10 col-sm-5" id="id_username" name="username" value="{$userInfo.username}" disabled="disabled" type="text">
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 手机号 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id_mobile" value="{$userInfo.utel}" name="mobile" placeholder="手机号" class="col-xs-10 col-sm-5 " disabled="" />
+                    </div>
+                </div>
+    
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 昵称 </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="{$userInfo.nickname}" id="id_nickname" name="nickname" placeholder="用户昵称" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a class="btn btn-success" href="#" id="form_submit">
+                            <i class="icon-ok"></i>
+                            确认提交
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+            </form>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+
+    $('#form_submit').click(function(){
+        $.ajax({
+            type: "post",
+            url: "{:U('Proxyf/opt_sys_info')}",
+            data:$("#base_form").serialize(),
+            success: function(data) {
+                console.log(data.status);
+                if(data.status == 1)
+                {
+                    layer.open({
+                        content: data.ret_msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                            layer.close(index);
+                            top.location.href="{:U('Proxyf/sys_info')}";
+                        }
+                    });
+                }
+                else
+                {
+                    layer.open({
+                        content: data.ret_msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                            layer.close(index);
+                            //top.location.reload();
+                        }
+                    });
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

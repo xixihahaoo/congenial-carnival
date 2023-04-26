@@ -1,0 +1,250 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+<style>
+    .uploadFileBox{
+        display: inline-block;
+        position: relative;
+        padding:0;
+    }
+    .uploadFileBox input{
+        width:100%;
+    }
+    .uploadFileBox #uploadFile{
+        position: absolute;
+        top:0;
+        left:0;
+        height:100%;
+        opacity: 0;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Ucenter/css/layerui/css/layui.css">
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            内容管理
+            <small>
+                <i class="icon-double-angle-right"></i>
+                修改文章
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <form class="form-horizontal" id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 文章标题 </label>
+                    <div class="col-sm-9">
+                        <input class="col-xs-10 col-sm-5" id="id_username" name="username" value="{$info.ntitle}"  type="text">
+                    </div>
+                </div>
+
+                
+                <div class="space-4"></div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for=""> 文章栏目 </label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="form-field-select-1" style="width: 41.5%;">
+                            <volist name="classData" id="vo">
+                                <eq name="info['ncategory']" value="$vo['fid']">
+                                    <option value="{$vo.fid}" selected="">{$vo.fclass}</option>
+                                <else />
+                                    <option value="{$vo.fid}">{$vo.fclass}</option>
+                                </eq>
+                            </volist>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 缩略图 </label>
+                    <div class="col-sm-9">
+                        <div class="uploadFileBox col-xs-10 col-sm-5">
+                            <input type="text" id="" value="{$info.ncover}" name="mobile" placeholder="缩略图" class=" " disabled="" />
+                            <input type="file" id="uploadFile">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 编辑 </label>
+                    <div class="col-sm-7">
+                        <textarea class="layui-textarea" id="LAY_demo1" name="ncontent" style="display: none">
+                            {$info.ncontent}
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a class="btn btn-success" href="#" id="form_submit">
+                            <i class="icon-ok"></i>
+                            确认提交
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+            </form>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+
+
+
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/Ucenter/css/layerui/layui.js"></script>
+<script>
+    layui.use('layedit', function(){
+        var layedit = layui.layedit
+                ,$ = layui.jquery;
+
+        //构建一个默认的编辑器
+        var index     =   layedit.build('LAY_demo1', {
+            tool: ['strong', 'italic', 'underline', 'del', '|', 'left', 'center', 'right', '|', 'link', 'unlink', 'image']
+            ,
+            uploadImage: {
+                url: "{:U('upload')}",
+                type: "post"
+            }
+        });
+        var option_id = $("#option_id").val();
+
+        //编辑器外部操作
+        var active = {
+            content: function(){
+//                 alert(layedit.getContent(index)); //获取编辑器内容
+                $.ajax({
+                    type: "post",
+                    url: "{:U('take')}",
+                    dataType:"json",
+                    data:{'text' : layedit.getContent(index),'option_id' : option_id},
+                    success: function(data) {
+
+                        if(data.status == 1)
+                        {
+                            layer.msg(data.msg);
+                            top.location.reload();
+
+                        }
+                        else
+                        {
+                            layer.msg(data.msg);
+                        }
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+            }
+            ,text: function(){
+                console.log(layedit.getText(index)); //获取编辑器纯文本内容
+            },
+            getContent: function () {
+                console.log(layedit.sync(index))
+            }
+            ,selection: function(){
+                console.log(layedit.getSelection(index));
+            }
+        };
+
+        //自定义工具栏
+
+
+
+        $('.site-demo-layedit').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+
+
+        $('#form_submit').click(function(){
+            active.getContent()
+            formdata.append("ntitle",$('#id_username').val());
+            formdata.append("ncontent",$('#LAY_demo1').val());
+            formdata.append("ncategory",$('#form-field-select-1').val());
+            formdata.append("nid","{$info.nid}");
+            $.ajax({
+                type: "post",
+                url: "{:U('newsedit')}",
+                data:formdata,
+                cache: false,//上传文件无需缓存
+                processData: false,//用于对data参数进行序列化处理 这里必须false
+                contentType: false, //必须
+                success: function(data) {
+                    console.log(data.status);
+                    if(data.status == 1)
+                    {
+                        layer.open({
+                            content: data.info,
+                            btn: '确定',
+                            yes: function(index, layero){
+                                layer.close(index);
+                                top.location.href="{:U('contentlist')}";
+                            }
+                        });
+                    }
+                    else
+                    {
+                        layer.open({
+                            content: data.info,
+                            btn: '确定',
+                            yes: function(index, layero){
+                                layer.close(index);
+                                //top.location.reload();
+                            }
+                        });
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+    });
+
+    var formdata = new FormData();
+    formdata.append("action", "UploadVMKImagePath");
+    //input file 把上传的头像显示出来
+    $('#uploadFile').change(function () {
+        var file = this.files[0];
+        if(!/image\/\w+/.test(file.type)){
+            alert("请确保文件为图像类型");
+            return false;
+        }
+        var that=this;
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = function(e){
+            $('#id_mobile').val($('#uploadFile').val())
+            formdata.append("ncover",$(that)[0].files[0]);
+        }
+    })
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

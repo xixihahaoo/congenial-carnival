@@ -1,0 +1,814 @@
+
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.data_statistics}</title>
+
+<link rel="stylesheet" href="__PUBLIC__/Qts/Home/css/swiper.min.css">
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<link rel="stylesheet" href="__PUBLIC__/Qts/Home/js/layerui/css/layui.css"  media="all">
+
+<style type="text/css">.wrap[data-v-492efef6] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    /*overflow-y: scroll*/
+}
+
+#head[data-v-492efef6] {
+    z-index: 299
+}
+
+.page-wrap[data-v-492efef6] {
+    width: 100%;
+    /*margin-bottom: .6rem;*/
+    /*top: 2.3rem;*/
+    /*background: #1c1a25;*/
+    /*position: absolute;*/
+    /*top: 2.4rem;*/
+    /*bottom: 2.5rem*/
+}
+
+.info-wrap[data-v-492efef6] {
+    padding: .14rem .14rem 0;
+    /*margin-top: .5rem;*/
+    /*position: fixed;*/
+    /*width: 60%;*/
+    /*background: #1c1a25;*/
+    z-index: 100
+}
+
+.ohidden[data-v-492efef6] {
+    overflow: hidden
+}
+
+.info-header[data-v-492efef6] {
+    position: relative;
+    width: 100%;
+    height: .5rem
+}
+
+.header-pic[data-v-492efef6] {
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.header-r[data-v-492efef6] {
+    display: inline-block;
+    position: absolute;
+    top: .02rem;
+    left: .6rem
+}
+
+.info-header .info-name[data-v-492efef6] {
+    font-size: .18rem;
+    color: #999
+}
+
+.info-header .info-grade[data-v-492efef6] {
+    width: .38rem;
+    height: .15rem;
+    margin-top: .03rem;
+    position: absolute
+}
+
+.info-header .info-flag[data-v-492efef6] {
+    font-size: .12rem;
+    color: #999;
+    display: inline-block;
+    margin-left: .42rem
+}
+
+.info-static[data-v-492efef6] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: .1rem 0 .14rem
+}
+
+.info-static li[data-v-492efef6] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    position: relative
+}
+
+.info-static li[data-v-492efef6]:not(:last-child):after {
+    content: "";
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    width: 1px;
+    height: 130%;
+    -webkit-transform: scale(.5);
+    background: #444
+}
+
+.info-static li p[data-v-492efef6] {
+    height: .2rem;
+    line-height: .2rem
+}
+
+.info-static .header-num[data-v-492efef6] {
+    font-size: .14rem;
+    color: #ff6056
+}
+
+.info-static .header-txt[data-v-492efef6] {
+    font-size: .12rem;
+    color: #999
+}
+
+.info-tap[data-v-492efef6] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: .26rem;
+    line-height: .26rem;
+    border: 1px solid #77abf4;
+    border-radius: .1rem
+}
+
+.info-tap li[data-v-492efef6] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    color: #77abf4;
+    cursor: pointer;
+}
+
+.info-tap li.active[data-v-492efef6] {
+    color: #fff;
+    /*background-image: -webkit-gradient(linear, right top, left top, from(#2289f8), to(#136eed));*/
+    /*background-image: -o-linear-gradient(right, #2289f8 0, #136eed 100%);*/
+    /*background-image: linear-gradient(-90deg, #2289f8, #136eed)*/
+    background: #77abf4;
+}
+
+.info-tap .tap-data[data-v-492efef6] {
+    border-radius: .1rem 0 0 .1rem;
+    margin-left: -.01rem;
+    border-right: 1px solid #77abf4;
+}
+
+.info-tap .tap-cur[data-v-492efef6] {
+    border-right: 1px solid #77abf4;
+}
+
+.info-tap .tap-his[data-v-492efef6] {
+    border-radius: 0 .1rem .1rem 0;
+    margin-right: -.01rem
+}
+
+.data-con[data-v-492efef6] {
+    width: 100%;
+    background: #fff;
+    border-radius: .04rem;
+    height: 2.2rem
+}
+
+.data-top[data-v-492efef6] {
+    padding: 0 .15rem .15rem
+}
+
+.data-title[data-v-492efef6] {
+    font-size: .17rem;
+    color: #999;
+    line-height: .4rem
+}
+
+.data-con li[data-v-492efef6] {
+    width: 33.3%;
+    text-align: center;
+    float: left;
+    background: #fff;
+    padding-top: .12rem
+}
+
+.data-con li p[data-v-492efef6] {
+    height: .2rem;
+    line-height: .2rem
+}
+
+.data-con .data-num[data-v-492efef6] {
+    font-size: .14rem;
+    color: #ccc
+}
+
+.data-con .data-txt[data-v-492efef6] {
+    font-size: .11rem;
+    color: #999
+}
+
+.line[data-v-492efef6] {
+    margin-top: .1rem
+}
+
+.follow-wrap[data-v-492efef6] {
+    /*width: 60%;*/
+    /*padding: 0 .14rem .1rem;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*background: #171520;*/
+    z-index: 10;
+    padding: 10px 0;
+}
+
+.follow-btn[data-v-492efef6] {
+    width: 30%;
+    margin: 0 auto;
+    height: .4rem;
+    line-height: .4rem;
+    /*background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+    /*background-image: linear-gradient(-229deg, #1254a8, #0c62c1);*/
+    background: #77abf4;
+    color: #fff;
+    text-align: center;
+    font-size: .16rem;
+    border-radius: .05rem;
+
+}
+
+.follow-edit[data-v-492efef6] {
+    background: #77abf4;
+}
+
+.hide[data-v-492efef6], .info-wrap .hide[data-v-492efef6] {
+    display: none
+}
+
+.trade-wrap[data-v-492efef6] {
+    padding: 0 .15rem
+}
+
+.trade-title[data-v-492efef6] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: .1rem .14rem;
+    border-bottom: 1px solid #ddd;
+    font-size: .12rem;
+    color: #999;
+    text-align: center;
+    background: #fff;
+}
+
+.trade-title span[data-v-492efef6] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1
+}
+
+.trade-list[data-v-492efef6] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.trade-list li[data-v-492efef6] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: .54rem;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+    color: #888;
+    min-width: 25%
+}
+
+.trade-list .txt_green[data-v-492efef6] {
+    color: #00cf8c
+}
+
+.trade-list .txt_red[data-v-492efef6] {
+    color: #f64e43
+}
+
+li.trade-num[data-v-492efef6] {
+    line-height: .54rem
+}
+
+.trade-name[data-v-492efef6] {
+    font-size: .15rem;
+    margin-top: .08rem;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.trade-type[data-v-492efef6] {
+    font-size: .1rem;
+    border-radius: 50%;
+    display: inline-block;
+    width: 0.2rem;
+    height: 0.2rem;
+    line-height: 0.19rem;
+    color: #f64e43;
+}
+
+.hands-num[data-v-492efef6] {
+    font-size: .11rem;
+    color: #b2b2b2
+}
+
+.mescroll[data-v-492efef6] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding-bottom: .6rem
+}
+
+.data-wrap[data-v-492efef6] {
+    padding-bottom: .1rem
+}
+
+</style>
+
+<style type="text/css">.inverp[data-v-319debac] {
+    padding: 0 .14rem;
+    font-size: 17px;
+    color: #999
+}
+
+.colorlist[data-v-319debac] {
+    overflow: hidden;
+    width: 92%;
+    margin: .2rem auto 0
+}
+
+.colorlist li[data-v-319debac] {
+    width: 50%;
+    float: left;
+    padding-left: .2rem;
+    margin-bottom: .08rem;
+    height: .31rem
+}
+
+.colorlist li[data-v-319debac]:nth-child(2n) {
+    padding-left: .3rem
+}
+
+.colorlist span[data-v-319debac] {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-bottom: .03rem;
+    background: red
+}
+
+.colorpfir[data-v-319debac] {
+    font-size: 12px;
+    color: #ccc
+}
+
+.colorsec[data-v-319debac] {
+    font-size: 10px;
+    color: #7a7a7a;
+    text-indent: .1rem
+}
+
+.datalist[data-v-319debac] {
+    width: 92%;
+    margin: .2rem auto;
+    overflow: hidden
+}
+
+.datalist li[data-v-319debac] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: .1rem
+}
+
+.listleft[data-v-319debac] {
+    width: 30%
+}
+
+.listleft p[data-v-319debac] {
+    font-size: 13px;
+    color: #ccc;
+    text-align: center
+}
+
+.listleft span[data-v-319debac] {
+    font-size: 10px;
+    color: #7a7a7a;
+    display: block;
+    text-align: center
+}
+
+.listcenter[data-v-319debac] {
+    width: 40%;
+    padding: .05rem 0
+}
+
+.listcenter span[data-v-319debac] {
+    display: inline-block;
+    height: .04rem
+}
+
+.listcenter span[data-v-319debac]:first-child {
+    background: #ff6056;
+    width: 30%;
+    border-radius: .04rem 0 0 .04rem
+}
+
+.listcenter span[data-v-319debac]:nth-child(2) {
+    background: #00cf8c;
+    width: 70%;
+    border-radius: 0 .04rem .04rem 0
+}
+
+.listright[data-v-319debac] {
+    width: 30%
+}
+
+.listright p[data-v-319debac] {
+    font-size: 10px;
+    text-align: center
+}
+
+.listright p[data-v-319debac]:first-child {
+    color: #ff6056
+}
+
+.listright p[data-v-319debac]:nth-child(2) {
+    color: #00cf8c
+}
+
+.buybai[data-v-319debac], .sellbai[data-v-319debac] {
+    border-radius: .04rem !important
+}
+
+</style>
+<style type="text/css">.swiper-pagination-bullet {
+    background: #c8c8c8 !important
+}
+
+.swiper-pagination-bullet, .swiper-pagination-bullet-active {
+    width: .14rem;
+    height: .03rem;
+    display: inline-block;
+    opacity: 1;
+    border-radius: .2rem
+}
+
+.swiper-pagination-bullet-active {
+    background: #007aff !important
+}
+
+/*新增css*/
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #f5f9fe !important;
+}
+.page-main {
+  background: #fff;
+  min-height: 600px;
+  margin: 30px auto !important;
+  padding: 0 80px !important;
+}
+.page-main h3 {
+  line-height: 80px;
+  text-align: center;
+  position: relative;
+}
+.page-main h3 a {
+  position: absolute;
+  font-size: 14px;
+  color: #77abf4;
+  top: 0;
+  right: 160px;
+}
+</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-492efef6="" class="wrap">
+        <!--<div data-v-492efef6="" id="head" style="width: 60%">-->
+            <!--<div class="head_content"><h3 class="product-name"><span> {$info.nickname}</span><em></em></h3>-->
+                <!--<div class="left" onclick="window.history.back()"><a class="arrow_left"></a></div>-->
+                <!--<div class="right arrow_right"><b></b></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+
+        <div class="page-main">
+            <h3>
+                <span>{$info.nickname}</span>
+                <a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+            </h3>
+            <div data-v-492efef6="" class="info-wrap">
+                <div data-v-492efef6="" class="info-header"><img data-v-492efef6="" src="{$info.face}"
+                                                                 class="header-pic">
+                    <div data-v-492efef6="" class="header-r"><p data-v-492efef6="" class="info-name"> {$info.nickname}</p>
+                        <p data-v-492efef6=""><img data-v-492efef6="" src="__PUBLIC__/Qts/Home/img/public/LV{$info.level}@2x.png" class="info-grade">
+                            <!--<span data-v-492efef6="" class="info-flag">{$info.desc}</span>-->
+                        </p></div>
+                </div>
+                <ul data-v-492efef6="" class="info-static">
+                    <li data-v-492efef6=""><p data-v-492efef6="" class="header-num">{$order.profit}%</p>
+                        <p data-v-492efef6="" class="header-txt">{$Think.lang.yield}</p></li>
+                    <li data-v-492efef6=""><p data-v-492efef6="" class="header-num">{$order.correct}%</p>
+                        <p data-v-492efef6="" class="header-txt">{$Think.lang.accurate}</p></li>
+                    <li data-v-492efef6=""><p data-v-492efef6="" class="header-num">{$order.followCount}</p>
+                        <p data-v-492efef6="" class="header-txt">{$Think.lang.follow_people}</p></li>
+                </ul>
+
+                <ul data-v-492efef6="" class="info-tap">
+                    <li data-v-492efef6="" data="0" class="tap-data active">{$Think.lang.data_statistics}</li>
+                    <li data-v-492efef6="" data="1" class="tap-cur">{$Think.lang.current_trading}</li>
+                    <li data-v-492efef6="" data="2" class="tap-his">{$Think.lang.history_deals}</li>
+                </ul>
+
+                <p data-v-492efef6="" class="trade-title hide"><span data-v-492efef6="">{$Think.lang.history_trades}</span><span data-v-492efef6="">{$Think.lang.history_buying_price}</span><span
+                        data-v-492efef6="">{$Think.lang.history_present_price}</span><span data-v-492efef6="">{$Think.lang.history_earnings}</span></p>
+                <p data-v-492efef6="" class="trade-title hide"><span data-v-492efef6="">{$Think.lang.history_trades}</span><span data-v-492efef6="">{$Think.lang.history_buying_price}</span><span
+                        data-v-492efef6="">{$Think.lang.history_selling_price}</span><span data-v-492efef6="">{$Think.lang.history_earnings}</span></p></div>
+
+            <div data-v-492efef6="" class="page-wrap">
+                <div data-v-492efef6="" class="data-wrap">
+                    <div data-v-492efef6="" class="data-top"><p data-v-492efef6="" class="data-title">{$Think.lang.data_statistics}</p>
+                        <ul data-v-492efef6="" class="data-con">
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.correct}%</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.accuracy_rate}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$position_count|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.current_position}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$count|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.total_order}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.profitCount|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.money_orders}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.lossCount|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.loss_order}</p></li>
+
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.riseCount|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.successful_buying}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.fallCount|default=0}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.successful_sell}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.Yesterday}%</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.on_day}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.profit}%</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.the_yield}</p></li>
+                            <li data-v-492efef6=""><p data-v-492efef6="" class="data-num">{$order.followCount}</p>
+                                <p data-v-492efef6="" class="data-txt">{$Think.lang.historical_follower}</p></li>
+                            <li data-v-492efef6=""></li>
+                        </ul>
+                    </div>
+
+                    <div data-v-319debac="" data-v-492efef6="" style="margin-bottom: 1rem">
+                        <p data-v-319debac="" class="inverp" style="margin: 0.2rem 0px;">{$Think.lang.historically_traded_products}</p>
+
+                        <div data-v-319debac="" class="swiper-wrap">
+                            <div data-v-319debac="" class="swiper-container swiper-container-horizontal">
+
+                                <div data-v-319debac="" class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+
+                                    <volist name="classData" id="k">
+                                        <div data-v-319debac=""
+                                             class="swiper-slide"
+                                             data-swiper-slide-index="0" style="width: 375px;">
+                                            <ul data-v-319debac="" class="colorlist">
+                                                <volist name="k['parent']" id="vo">
+                                                    <li data-v-319debac="">
+                                                        <p data-v-319debac="" class="colorpfir">
+                                                            <span data-v-319debac="" id="colorspan" style="background: rgb(203, 115, 247);"></span>
+                                                            {$vo.capital_name} {$vo.rate}%
+                                                        </p>
+                                                        <p data-v-319debac="" class="colorsec">{$vo.capital_key}</p>
+                                                    </li>
+                                                </volist>
+                                            </ul>
+
+                                            <ul data-v-319debac="" class="datalist">
+                                                <volist name="k['parent']" id="vo">
+                                                    <li data-v-319debac="" class="listli">
+                                                        <div data-v-319debac="" class="listleft"><p data-v-319debac="">{$vo.capital_name}</p><span
+                                                                data-v-319debac="">{$vo.capital_key}</span></div>
+                                                        <div data-v-319debac="" class="listcenter">
+                                                            <span data-v-319debac="" class="" style="width: {$vo.purchase_rate}%;"></span><span
+                                                                data-v-319debac="" class="" style="width: {$vo.sell_rate}%;"></span>
+                                                        </div>
+                                                        <div data-v-319debac="" class="listright"><p data-v-319debac="">{$Think.lang.buy_single}:{$vo.purchase_count}</p>
+                                                            <p data-v-319debac="">{$Think.lang.sell_single}:{$vo.sell_count}</p></div>
+                                                    </li>
+                                                </volist>
+                                            </ul>
+                                        </div>
+                                    </volist>
+
+
+                                </div>
+
+                                <div data-v-319debac="" class="swiper-pagination swiper-pagination-bullets"><span
+                                        class="swiper-pagination-bullet"></span><span
+                                        class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-v-492efef6="" id="mescroll1" class="mescroll trade-wrap hide">
+                    <div data-v-492efef6="" id="dataList1">
+
+                    </div>
+                    <div data-v-ecaca2b0="" class="loading-layer" id="LAY_demo1"></div>
+                </div>
+
+                <div data-v-492efef6="" id="mescroll2" class="mescroll trade-wrap hide">
+                    <div data-v-492efef6="" id="dataList2">
+
+                    </div>
+                    <div data-v-ecaca2b0="" class="loading-layer" id="LAY_demo2"></div>
+                </div><!---->
+            </div>
+            <div data-v-492efef6="" class="follow-wrap">
+                <a href="{:U('orderFollow',array('uid' => $info['uid']))}">
+                    <notempty name="info['uid']">
+                        <eq name="follow['follow_user_id']" value="$info['uid']">
+                            <div data-v-492efef6="" class="follow-btn follow-edit">{$Think.lang.history_edit_follow} </div>
+                            <else />
+                            <div data-v-492efef6="" class="follow-btn">{$Think.lang.history_follow_master} </div>
+                        </eq>
+                        <else />
+                        <div data-v-492efef6="" class="follow-btn">{$Think.lang.history_follow_master} </div>
+                    </notempty>
+                </a>
+            </div>
+        </div>
+
+        <include file="Base:trueFooter" />
+
+</div>
+</div>
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script src="__PUBLIC__Qts/Home/js/swiper.min.js"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        loop:true
+    });
+    $('.info-tap li').click(function(){
+        $('.info-tap li').removeClass('active')
+        $(this).addClass('active');
+        var that=this;
+        $('.page-wrap>div').hide();
+        $('.page-wrap>div').each(function(key,val){
+            if($(that).attr('data')==key){
+                $(val).show();
+                $('.trade-title').hide()
+                if(key==1){
+                    $('.trade-title:nth-child(4)').css('display','flex')
+                }else if(key==2){
+                    $('.trade-title:last-child').css('display','flex')
+                }
+            }
+        })
+    })
+</script>
+</body>
+</html>
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+
+<script id="tpl" type="text/html">
+    {{each data as vo}}
+    <ul data-v-492efef6="" class="trade-list">
+        <li data-v-492efef6="">
+            <p data-v-492efef6="" class="trade-name">{{vo.option_name}}</p>
+            <p data-v-492efef6="">
+                <span data-v-492efef6="" class="trade-type {{vo.color}}">{{vo.ostyle}}</span>
+                <em data-v-492efef6="" class="hands-num">${{vo.Bond}}</em>
+            </p>
+        </li>
+        <li data-v-492efef6="" class="trade-num">{{vo.buyprice}}</li>
+        <li data-v-492efef6="" class="trade-num">{{vo.sellprice}}</li>
+        <li data-v-492efef6="" class="trade-num {{vo.txt_color}}">${{vo.ploss}}</li>
+    </ul>
+    {{/each}}
+</script>
+
+
+
+
+<script src="__PUBLIC__/Qts/Home/js/layerui/layui.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+    //获取交易数据
+    var uid = "{$info.uid}";
+
+    //当前交易记录
+    layui.use('flow', function(){
+        var flow = layui.flow;
+
+        flow.load({
+            elem: '#LAY_demo1' //流加载容器
+            ,scrollElem: '' //滚动条所在元素，一般不用填，此处只是演示需要。
+            ,done: function(page, next){ //执行下一页的回调
+
+                //模拟数据插入
+                setTimeout(function(){
+                    var lis = [];
+
+                    $.ajax({
+                        url: "{:U('tradeNow')}",
+                        type: 'get',
+                        data:{'page':page,'uid':uid,'ostaus':0},
+                        success: function (data) {
+                            if(data.code == 400) {
+                                return $('#LAY_demo1 > div').html('{$Think.lang.no_more}');
+                            }
+                            var html=template('tpl',data);
+                            $('#dataList1').append(html);
+                        },error:function(response){
+                            console.log(response);
+                        }
+                    });
+
+                    next(lis.join(''), page < "{$data['nowCount']}");
+                }, 1500);
+            }
+        });
+        $('#LAY_demo1 > div > a > cite').html('{$Think.lang.load_more}');
+    });
+    //历史交易记录
+    layui.use('flow', function(){
+        var flow = layui.flow;
+
+        flow.load({
+            elem: '#LAY_demo2' //流加载容器
+            ,scrollElem: '' //滚动条所在元素，一般不用填，此处只是演示需要。
+            ,done: function(page, next){ //执行下一页的回调
+
+                //模拟数据插入
+                setTimeout(function(){
+                    var lis = [];
+
+                    $.ajax({
+                        url: "{:U('tradeNow')}",
+                        type: 'get',
+                        data:{'page':page,'uid':uid,'ostaus':1},
+                        success: function (data) {
+                            if(data.code == 400) {
+                                return $('#LAY_demo2 > div').html('{$Think.lang.no_more}');
+                            }
+                            var html=template('tpl',data);
+                            $('#dataList2').append(html);
+                        },error:function(response){
+                            console.log(response);
+                        }
+                    });
+
+                    next(lis.join(''), page < "{$data['hisCount']}");
+                }, 1500);
+            }
+        });
+        $('#LAY_demo2 > div > a > cite').html('{$Think.lang.load_more}');
+    });
+
+    window.onload=function()
+    {
+        //当前交易记录
+        $.ajax({
+            url: "{:U('tradeNow')}",
+            type: 'get',
+            data:{'uid':uid,'ostaus':0},
+            success: function (data) {
+                var html=template('tpl',data);
+                $('#dataList1').append(html);
+            },error:function(response){
+                console.log(response);
+            }
+        });
+
+        //历史交易记录
+        $.ajax({
+            url: "{:U('tradeNow')}",
+            type: 'get',
+            data:{'uid':uid,'ostaus':1},
+            success: function (data) {
+                var html=template('tpl',data);
+                $('#dataList2').append(html);
+            },error:function(response){
+                console.log(response);
+            }
+        });
+    }
+</script>"

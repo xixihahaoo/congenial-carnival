@@ -1,0 +1,359 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.personal_data}</title>
+    
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+
+        .titles > div[data-v-7ecec926] {
+            width: 25%;
+            float: left;
+            text-align: center;
+            line-height: .36rem
+        }
+
+        .titles > div.on[data-v-7ecec926] {
+            color: #2187f7;
+            position: relative
+        }
+
+        .titles > div[data-v-7ecec926]:last-child {
+            -webkit-box-shadow: none;
+            box-shadow: none
+        }
+
+        .titles > div.on span[data-v-7ecec926] {
+            display: inline-block;
+            width: 30%;
+            height: .02rem;
+            background: #2187f7;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -15%;
+            border-radius: .2rem
+        }
+
+        .lists ul[data-v-7ecec926] {
+            width: 100%;
+            padding: .15rem;
+            padding-bottom: .7rem;
+            height: 100%;
+            overflow-y: scroll
+        }
+
+        .lists ul li[data-v-7ecec926] {
+            width: 100%;
+            padding: .1rem .2rem;
+            background: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            position: relative;
+            -webkit-box-shadow: 0 2px 5px #ebeff3;
+            box-shadow: 0 2px 5px #ebeff3;
+            border-radius: .1rem;
+            margin-bottom: .2rem
+        }
+
+        .textNone_content div[data-v-ea184226] {
+            width: 1.5rem;
+            height: 1.23rem;
+            margin: 0 auto
+        }
+
+        .textNone_content p[data-v-ea184226] {
+            width: 100%;
+            text-align: center;
+            color: #b3b3b3;
+            font-size: .15rem;
+            line-height: .4rem
+        }
+
+        .upload[data-v-6d94cbef] {
+            position: relative;
+            top: -.1rem;
+            height: .2rem;
+            width: .4rem
+        }
+
+        .cnt[data-v-6d94cbef] {
+            width: .3rem;
+            height: .3rem;
+            overflow: hidden;
+            top: 0.1rem;
+            right: 0.35rem;
+            position: absolute;
+            border-radius: .2rem;
+        }
+
+        .cnt > img[data-v-6d94cbef] {
+            width: 100%;
+            height: 100%
+        }
+
+        .page-main[data-v-6d94cbef] {
+            position: relative
+        }
+
+        ul[data-v-6d94cbef] {
+            /*background-color: #fff;*/
+            padding-left: .14rem;
+            color: #999;
+        }
+
+        li[data-v-6d94cbef] {
+            position: relative;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        li[data-v-6d94cbef]:after {
+            content: "";
+            display: block;
+            width: .08rem;
+            height: .13rem;
+            background: url(__PUBLIC__Qts/Home/img/user/right_gray.png);
+            background-size: 100%;
+            position: absolute;
+            right: .14rem;
+            top: .18rem
+        }
+
+        li[data-v-6d94cbef]:last-child {
+            border-bottom: none
+        }
+
+        p[data-v-6d94cbef] {
+            overflow: hidden;
+            padding: .15rem 0
+        }
+
+        span[data-v-6d94cbef] {
+            font-size: .15rem
+        }
+
+        span[data-v-6d94cbef]:first-of-type {
+            float: left
+        }
+
+        span[data-v-6d94cbef]:nth-of-type(2) {
+            font-size: .14rem;
+            color: #999;
+            float: right;
+            margin-right: .34rem;
+            position: relative
+        }
+
+        .input[data-v-6d94cbef], span > img[data-v-6d94cbef] {
+            width: .31rem;
+            height: .31rem;
+            border-radius: .15rem;
+            position: absolute;
+            right: -.02rem;
+            top: -.05rem
+        }
+
+        .input[data-v-6d94cbef] {
+            opacity: 0;
+            z-index: 99
+        }
+
+        time[data-v-6d94cbef] {
+            color: #999;
+            font-size: .12rem
+        }
+
+        #show_contact[data-v-6d94cbef] {
+            width: 76%;
+            text-align: right;
+            overflow: hidden;
+            -webkit-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            white-space: nowrap
+        }
+        #upDateImg{
+            position: absolute;
+            width:100%;
+            height: 100%;
+            left: 0;
+            top:0;
+            opacity: 0;
+        }
+
+    </style>
+    <style type="text/css" data-n-head="true">body {
+        background: #1c1a25
+    }</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-6d94cbef="" class="content" style="width: 60%;margin: auto">
+        <div data-v-6d94cbef="" id="head" style="width: 60%;">
+            <div data-v-6d94cbef="" class="head_content">
+                <h3 data-v-6d94cbef="" class="product-name" style="text-align: center;">
+                <span data-v-6d94cbef="" style="display: block; color: #ffbf23;text-align: center; width: 100%; height: 100%;">{$Think.lang.personal_data}</span>
+                </h3>
+                <div data-v-6d94cbef="" class="left" onclick="window.history.back()"><a data-v-6d94cbef="" class="arrow_left"></a></div>
+            </div>
+        </div>
+        <section data-v-6d94cbef="" class="page-main">
+            <ul data-v-6d94cbef="">
+                <li data-v-6d94cbef="">
+                    <p data-v-6d94cbef="">
+                        <span data-v-6d94cbef="">{$Think.lang.head_portrait}</span>
+                        <span data-v-6d94cbef="" class="upload">
+<!--                                 <input data-v-6d94cbef="" type="file" accept="image/*; capture=camera" class="input"
+                                style="border-radius: 0.1rem; position: absolute; top: 0px; left: 10%; width: 80%; background: black; opacity: 0;"> -->
+                            <div data-v-6d94cbef="" class="imgzip">
+                                <div data-v-6d94cbef="" class="cnt">
+                                    <img data-v-6d94cbef="" src="{$user.face}">
+                                    <input type="file" id="upDateImg">
+                                </div>
+                            </div>
+                        </span>
+                    </p>
+                    <time data-v-6d94cbef=""></time>
+                </li>
+
+                <li data-v-6d94cbef="">
+                    <p data-v-6d94cbef="">
+                        <span data-v-6d94cbef="">{$Think.lang.nickname}</span>
+                        <span data-v-6d94cbef="" onclick="window.location.href='{:U('nicknameSave')}'">{$user.nickname}</span>
+                    </p>
+                    <time data-v-6d94cbef=""></time>
+                </li>
+
+<!--                 <li data-v-6d94cbef="">
+                    <p data-v-6d94cbef="">
+                        <span data-v-6d94cbef="" class="title">地区</span>
+                        <span data-v-6d94cbef="">
+                            <select name="location_p" id="location_p">
+                                <volist name="province" id="vo">
+                                    <eq name="personal['province']" value="$vo['id']">
+                                        <option value="{$vo.id}" selected="">{$vo.joinname}</option>
+                                    <else />
+                                        <option value="{$vo.id}">{$vo.joinname}</option>
+                                    </eq>
+                                </volist>
+                            </select>
+                            <select name="location_c" id="location_c">
+                                <volist name="city" id="vo">
+                                <eq name="personal['city']" value="$vo['id']">
+                                    <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                <else />
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                </eq>
+                                </volist>
+                            </select>
+                        </span>
+                    </p>
+                    <time data-v-6d94cbef=""></time>
+                </li> -->
+            </ul>
+        </section>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script type="text/javascript">
+
+$('#location_p').change(function(){
+
+    var id = $(this).val();
+    
+    $.ajax({
+        url:"{:U('getCity')}",
+        async:false,
+        dataType:'json',
+        type:'get',
+        data:{id:id},
+        success:function(data){
+            var option = '';
+            $.each(data,function(key,val){
+                option += '<option value="'+val.id+'">'+val.name+'</option>';
+            });
+            $('#location_c').html(option);  
+        },
+        error:function(response){
+            console.log(response);
+        }
+    });
+
+    saveInfo();
+});
+
+$('#location_c').change(function(){
+
+    var id = $(this).val();
+
+    saveInfo();
+});
+
+
+//修改省市区信息
+function saveInfo()
+{   
+    var province    = $('#location_p > option:selected').val();
+    var city        = $('#location_c > option:selected').val();
+
+    $.ajax({
+        url:"{:U('ModifyInfo')}",
+        dataType:'json',
+        type:'post',
+        data:{'province':province,'city':city},
+        success:function(data){
+
+        },
+        error:function(response){
+            console.log(response);
+        }
+    });
+}
+
+// window.onload=function(){
+//    saveInfo(); 
+// }
+
+
+    //上传图片
+var formdata = new FormData();
+formdata.append("action", "UploadVMKImagePath");
+$('#upDateImg').change(function () {
+
+    var index = layer.load(2);
+
+    var file = this.files[0];
+    if(!/image\/\w+/.test(file.type)){
+        layer.close(index);
+        return layer.msg('{$Think.lang.upload_error}');
+    }
+    formdata.append("face",$(this)[0].files[0]);
+    $.ajax({
+        type:'post',
+        url:"{:U('faceUpload')}",
+        cache: false,//上传文件无需缓存
+        processData: false,//用于对data参数进行序列化处理 这里必须false
+        contentType: false, //必须
+        data:formdata,
+        success:function(data){
+            if(data.status==1){
+                layer.close(index);
+                layer.msg(data.info);
+                return window.location.reload();
+            }else{
+                laeyr.close(index);
+                return layer.msg(data.info);
+            }
+        }
+    });
+});
+</script>

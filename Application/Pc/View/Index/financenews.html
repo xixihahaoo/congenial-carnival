@@ -1,0 +1,284 @@
+
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.information}</title>
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/style.css" rel="stylesheet">
+
+<link rel="stylesheet" href="__PUBLIC__/Qts/Home/js/layerui/css/layui.css"  media="all">
+<link href="__PUBLIC__Qts/Home/css/pchome.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+
+<style type="text/css">.arrow_left[data-v-420181ec]:after {
+    top: 25px
+}
+
+.head_content[data-v-420181ec] {
+    padding-top: .08rem
+}
+
+.head_tab[data-v-420181ec] {
+    width: 50%;
+    height: .3rem;
+    line-height: .3rem;
+    margin: .1rem auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #0f54a9;
+    border-radius: .4rem;
+    font-size: .16rem
+}
+
+.head_tab li[data-v-420181ec] {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: .3rem;
+    line-height: .3rem;
+    border-radius: .4rem
+}
+
+.head_tab li.tab_checked[data-v-420181ec] {
+    background: #136eed
+}
+
+.head_tab li.tab_checked1[data-v-420181ec] {
+    background: #136eed;
+    border-radius: 0 .4rem .4rem 0
+}
+
+.title[data-v-420181ec] {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: -webkit-flex;
+    background: #1c1a25;
+    z-index: 99
+}
+
+.title span[data-v-420181ec] {
+    line-height: .4rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-flex: 1;
+    color: #ddd;
+    font-size: .15rem;
+    position: relative;
+    border-bottom: .01rem solid #444
+}
+
+.title span.on[data-v-420181ec] {
+    color: #ffbf23;
+}
+
+.title span.on[data-v-420181ec]:after {
+    content: "";
+    display: block;
+    width: .25rem;
+    height: 0;
+    border-bottom: .02rem solid #ffbf23;
+    position: absolute;
+    top: .38rem;
+    left: 50%;
+    margin-left: -.12rem
+}
+
+.news[data-v-420181ec] {
+    padding: .15rem;
+    margin-top: .4rem
+}
+
+.news li[data-v-420181ec], .news ul[data-v-420181ec] {
+    width: 100%
+}
+
+.news li .time[data-v-420181ec] {
+    width: 1.2rem;
+    height: .16rem;
+    border: .01rem solid #ffbf23;
+    color: #ffbf23;
+    font-size: .12rem;
+    text-align: center;
+    line-height: .16rem;
+    border-radius: .02rem
+}
+
+.news li .content[data-v-420181ec] {
+    margin-left: .05rem;
+    padding: .15rem .1rem;
+    color: #ddd;
+    font-size: .15rem;
+    border-left: .01rem solid #ffbf23;
+}
+#head {
+    position: static;
+}
+#head, .page-main {
+    width: 60%;
+    margin: auto;
+}
+._v-container[data-v-420181ec] {
+    top: 1rem;
+    padding: .2rem .15rem
+}
+
+/*新增css*/
+body, html {
+    height: 100%;
+    width: 100%;
+    background: #262b41 !important;
+}
+.page-main {
+    background: #212139;
+    min-height: 600px;
+    margin: 30px auto !important;
+    padding: 0 80px !important;
+}
+.page-main h3 {
+    line-height: 110px;
+    text-align: center;
+    position: relative;
+}
+.page-main h3 span {
+    color: #ddd;
+}
+.page-main h3 a {
+    position: absolute;
+    font-size: 14px;
+    color: #77abf4;
+    top: 0;
+    right: 160px;
+}
+
+</style>
+
+
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-420181ec="" class="">
+        <include file="Base:footer" />
+        <!--<div data-v-420181ec="" id="head">-->
+            <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.information}</span><em></em></h3>-->
+                <!--<div class="left" onclick="window.location.href='{:U('Index/index')}'"><a class="arrow_left"></a></div>-->
+                <!--<div class="right arrow_right"><b></b></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <section data-v-420181ec="" class="page-main">
+            <h3>
+                <span>{$Think.lang.information}</span>
+                <a href="javascript: void (0);" onclick="window.location.href='{:U('Index/index')}'">{$Think.lang.back}</a>
+            </h3>
+            <div data-v-420181ec="" class="news" style="margin-top: 0;">
+                <div data-v-420181ec="" class="news-list">
+                    <div data-v-ecaca2b0="" data-v-420181ec="" id="outer-phpay" class="_v-container">
+                        <div data-v-ecaca2b0="" id="inner-t2uvg" class="_v-content"
+                             style="transform: translate3d(0px, 0px, 0px) scale(1);"><!---->
+                            <ul data-v-420181ec="" data-v-ecaca2b0="" id="news">
+                                <!-- html -->
+                            </ul>
+                            <div data-v-ecaca2b0="" class="loading-layer" id="LAY_demo1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+
+</body>
+</html>
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script id="tpl" type="text/html">
+    {{each data as vo}}
+    <li data-v-420181ec="" data-v-ecaca2b0="">
+        <div data-v-420181ec="" data-v-ecaca2b0="" class="time">{{vo.time}}</div>
+        <div data-v-420181ec="" data-v-ecaca2b0="" class="content">
+            {{vo.content}}
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+
+<script src="__PUBLIC__/Qts/Home/js/layerui/layui.js" charset="utf-8"></script>
+
+
+<script>
+    layui.use('flow', function(){
+        var flow = layui.flow;
+
+        flow.load({
+            elem: '#LAY_demo1' //流加载容器
+            ,scrollElem: '' //滚动条所在元素，一般不用填，此处只是演示需要。
+            ,done: function(page, next){ //执行下一页的回调
+
+                //模拟数据插入
+                setTimeout(function(){
+                    var lis = [];
+
+                    $.ajax({
+                        url: "{:U('getNews')}",
+                        type: 'get',
+                        data:"page="+(page-1)+"",
+                        success: function (data) {
+                            if(data.code == 400) {
+                                return $('.layui-flow-more').html('{$Think.lang.no_more}');
+                            }
+                            var html=template('tpl',data);
+                            $('#news').append(html);
+                        },error:function(response){
+                            console.log(response);
+                        }
+                    });
+
+                    next(lis.join(''), page < 1000);
+                }, 1500);
+            }
+        });
+    });
+</script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+    window.onload=function()
+    {
+        var index = layer.load(2);
+        $.ajax({
+            url: "{:U('getNews')}",
+            type: 'get',
+            success: function (data) {
+                var html=template('tpl',data);
+                $('#news').append(html);
+
+                console.log(html);
+
+                return layer.close(index);
+            },error:function(response){
+                console.log(response);
+                return layer.close(index);
+            }
+        });
+
+        $('.layui-flow-more a cite').html('{$Think.lang.load_more}');
+    }
+</script>

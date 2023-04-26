@@ -1,0 +1,187 @@
+<div class="main-container-inner">
+    <a class="menu-toggler" id="menu-toggler" href="#">
+        <span class="menu-text"></span>
+    </a>
+
+    <div class="sidebar" id="sidebar">
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="icon-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="icon-pencil"></i>
+                </button>
+
+                <button class="btn btn-warning">
+                    <i class="icon-group"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="icon-cogs"></i>
+                </button>
+            </div>
+        </div><!-- #sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+            <li <if condition="($nowMenu eq 'index') and ($nowAct eq 'index')">class="active"</if>>
+                <a href="index.html">
+                    <i class="icon-dashboard"></i>
+                    <span class="menu-text"> 控制台 </span>
+                </a>
+            </li>
+
+            <!-- 用户 -->
+            <li <if condition="($nowMenu eq 'user')">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text">用户管理</span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="($nowMenu eq 'user') and ($nowAct eq 'test')">class="active"</if>>
+                        <a href="elements.html">
+                            <i class="icon-double-angle-right"></i>
+                            用户列表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 订单 -->
+            <li <if condition="$nowMenu eq 'proxy' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 订单管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'test2' ">class="active"</if>>
+                        <a href="elements.html">
+                            <i class="icon-double-angle-right"></i>
+                            组件
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="buttons.html">
+                            <i class="icon-double-angle-right"></i>
+                            按钮 &amp; 图表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 商品管理 -->
+            <li <if condition="$nowMenu eq 'product' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 商品管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'product_list'">class="active"</if>>
+                    <a href="/Ucenter/product/product_list">
+                        <i class="icon-double-angle-right"></i>
+                        商品列表
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="buttons.html">
+                            <i class="icon-double-angle-right"></i>
+                            按钮 &amp; 图表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 推广管理 -->
+            <li <if condition="$nowMenu eq 'proxy' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 推广管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'test2' ">class="active"</if>>
+                    <a href="elements.html">
+                        <i class="icon-double-angle-right"></i>
+                        组件
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="buttons.html">
+                            <i class="icon-double-angle-right"></i>
+                            按钮 &amp; 图表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 内容管理 -->
+            <li <if condition="$nowMenu eq 'proxy' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-desktop"></i>
+                    <span class="menu-text"> 内容管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'test2' ">class="active"</if>>
+                    <a href="elements.html">
+                        <i class="icon-double-angle-right"></i>
+                        组件
+                    </a>
+                    </li>
+
+                    <li>
+                        <a href="buttons.html">
+                            <i class="icon-double-angle-right"></i>
+                            按钮 &amp; 图表
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul><!-- /.nav-list -->
+
+        <div class="sidebar-collapse" id="sidebar-collapse">
+            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+        </div>
+
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+        </script>
+    </div>
+
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home home-icon"></i>
+                    <a href="#">首页</a>
+                </li>
+                <li class="active">控制台</li>
+            </ul><!-- .breadcrumb -->
+        </div>
+        <!--end breadcrumbs-->

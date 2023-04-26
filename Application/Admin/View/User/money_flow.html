@@ -1,0 +1,345 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header" style="margin-bottom: 10px">
+                    <form id="form1" action="__URL__/money_flow" method="get">
+                    <div class="span10 pull-left">
+                    <h3>资金流水</h3></br></br>
+                        <div class="tpsearch" style="width: 20%;margin-left: 45px;">
+                        电子邮箱：<input type="text" class="span6 search" value="{$sea.email}" placeholder="请输入电子邮箱" name="email" id="email"/>
+                        </div>
+                    <div class="tpsearch" style="width: 25%">
+                        资金变动类型：<select name="type" class="span7" id="option">
+                                    <option value="">默认不选</option>
+
+                                    <if condition="$sea[type] eq 1">
+                                        <option value="1" selected>持仓</option>
+                                    <else />
+                                        <option value="1">持仓</option>
+                                    </if>
+                                    
+                                    <if condition="$sea[type] eq 2">
+                                        <option value="2" selected>平仓</option>
+                                    <else />
+                                        <option value="2">平仓</option>
+                                    </if>
+                                    
+                                    <if condition="$sea[type] eq 3">
+                                        <option value="3" selected>提现</option>
+                                    <else />
+                                        <option value="3">提现</option>
+                                    </if>
+                                    
+                                    <if condition="$sea[type] eq 4">
+                                        <option value="4" selected>充值</option>
+                                    <else />
+                                        <option value="4">充值</option>
+                                    </if>
+                                    
+                                    <if condition="$sea[type] eq 5">
+                                        <option value="5" selected>佣金转入</option>
+                                    <else />
+                                        <option value="5">佣金转入</option>
+                                    </if>
+
+                                    <if condition="$sea[type] eq 7">
+                                        <option value="7" selected>撤单</option>
+                                    <else />
+                                        <option value="7">撤单</option>
+                                    </if>
+                                </select>
+
+                                 <input type="hidden" value="{$op_name}" id="op_name">
+                    </div>
+
+                    <div class="tpsearch" style="width: 25%">
+                                    操作人：<select name="operator" class="span7" id="options" style="width: 120px;">
+                                                <option value="">默认不选</option>
+                                                <volist name="info" id="vo">
+                                                 <option value="{$vo.uid}">{$vo.username}</option>
+                                                </volist>
+                                            </select>
+                                    <input type="hidden" id="operator" value="{$sea.operator}">
+                    </div>
+
+                    <div class="span10 pull-left" style="margin-top: 20px;">
+                    <div class="tpsearch" style="width: 25%">
+                        运营中心：<select id="otype" class="span6" name="yunying">
+                                    <option value="">默认不选</option>
+                                    <volist name="yunying" id="vo">
+                                    <option value="{$vo.uid}">{$vo.username}</option>
+                                    </volist>
+                                </select>
+                                <input type="hidden" value="{$sea.yunying}" id="yunying">
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        销售商：<select id="jingjiren" class="span6" name="jingjiren">
+                                    <option value="">默认不选</option>
+                                    <notempty name="jingjiren">
+                                        <option value="{$jingjiren['uid']}" selected>{$jingjiren['username']}</option>
+                                    </notempty>
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        会员：<select id="user" class="span6" name="user">
+                                    <option value="">默认不选</option>
+                                    <notempty name="user">
+                                        <option value="{$user['uid']}" selected>{$user['username']}</option>
+                                    </notempty>
+                              </select>
+                    </div>
+                    <div class="span10 pull-left" style="margin: 20px 0 10px 0;">
+                    
+                    <div class="tpsearch">
+                                    <if condition="$sea['starttime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime">
+                                   <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="starttime">
+                                   </if>
+                    </div>
+                    <div class="tpsearch">
+                            <if condition="$sea['endtime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime">
+                                <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="endtime">
+                                </if>
+                    </div>
+
+                    <div class="span10 pull-left " style="width:30%;">
+                        <a href="javascript:void(0)" class="btn-flat info" onclick="submit()">开始查找</a>
+                        <a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查询导出</a>
+                    </div>
+
+                </div>
+                </div>
+                     
+                </div>
+                </form>
+                </div>
+                <!-- Users table -->
+                <div class="row-fluid table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    编号
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>用户名称
+                                </th>
+
+                                <th class="span2 sortable">
+                                    <span class="line"></span>用户昵称
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>电子邮箱
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>资金变动描述
+                                </th>
+
+                                <th class="span2 sortable">
+                                    <span class="line"></span>变动金额
+                                </th>
+                               
+                               <th class="span2 sortable">
+                                    <span class="line"></span>用户余额
+                                </th>
+
+                                <th class="span2 sortable">
+                                    <span class="line"></span>操作人
+                                </th>
+                                
+                                <th class="span2 sortable">
+                                    <span class="line"></span>操作时间
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="ajaxback">
+                        <volist name="flow" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['id']}
+                            </td>
+                            <td>
+                                <a href="{:U('user/updateuser',array('uid'=>$ult['uid']))}">
+                                    {$ult['username']}
+                                </a>
+                            </td>
+                            
+                            <td>
+                                 {$ult['nickname']}
+                            </td>
+
+                            <td>
+                                 {$ult['email']}
+                            </td>
+
+                            <td>
+                                {$ult.note}
+                            </td>
+
+                            <td>
+                               {$ult.account}
+                            </td>
+                            <td>
+                               <if condition="$ult['balance'] eq ''">0
+                               <else />
+                               {$ult.balance}
+                               </if>
+                            </td>
+
+                            <td>
+                                <font color="#f00" size="4">
+                                {$ult['operator']}
+                                <font>
+                            </td>
+                            <td>
+                                 {$ult.dateline|date='Y-m-d H:i:s',###}
+                            </td>
+
+                        </tr>
+                        </volist>  
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <span style="color: red;">总变动金额:{$money}</span>
+                <div class="pagination pull-right">
+                    <ul>
+                        {$page}
+                    </ul>
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+<!-- scripts -->
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        /** 
+         * 时间对象的格式化; 
+         */  
+        Date.prototype.format = function(format) {  
+            /* 
+             * eg:format="yyyy-MM-dd hh:mm:ss"; 
+             */  
+            var o = {  
+                "M+" : this.getMonth() + 1, // month  
+                "d+" : this.getDate(), // day  
+                "h+" : this.getHours(), // hour  
+                "m+" : this.getMinutes(), // minute  
+                "s+" : this.getSeconds(), // second  
+                "q+" : Math.floor((this.getMonth() + 3) / 3), // quarter  
+                "S" : this.getMilliseconds()  
+                // millisecond  
+            }  
+          
+            if (/(y+)/.test(format)) {  
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4  
+                                - RegExp.$1.length));  
+            }  
+          
+            for (var k in o) {  
+                if (new RegExp("(" + k + ")").test(format)) {  
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1  
+                                    ? o[k]  
+                                    : ("00" + o[k]).substr(("" + o[k]).length));  
+                }  
+            }  
+            return format;  
+        }
+    });
+function sub()
+{
+    $('#form1').attr("action","__URL__/daochu_moneyFlow");
+    $('#form1').submit();
+}
+
+function submit() {
+    $('#form1').attr("action","__URL__/money_flow");
+    $('#form1').submit();
+}
+
+//运营中心回填
+var yunying = $("#yunying").val();
+$("#otype option").each(function(){      
+    if(yunying == $(this).val()){
+        $(this).attr('selected',true);
+    }
+});
+
+/*根据选择运营中心销售商选择*/
+$("#otype").change(function() {
+        var parent_id = $("#otype").val();
+        $.ajax({
+            type: "GET",
+            url: "{:U("user/ajax_get_brokers")}",
+            data: "parent_id="+parent_id,
+            success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#jingjiren").html(html);
+        }
+   });
+});
+
+/*根据选择销售商获取下属会员列表*/
+$("#jingjiren").change(function() {
+        var parent_id = $("#jingjiren").val();
+        $.ajax({
+            type: "GET",
+            url: "{:U("user/ajax_get_brokers")}",
+            data: "parent_id="+parent_id,
+            success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#user").html(html);
+        }
+    });
+});
+
+var uid = $("#operator").val();
+$.each($('#options option'),function(){
+    var id = $(this).val();
+    if(uid == id)
+    {
+        $(this).attr('selected',true);
+    }
+});
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+</script>
+</block>

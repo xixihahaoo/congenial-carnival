@@ -1,0 +1,147 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.beginner_must}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+
+    <link href="__PUBLIC__/Qts/Home/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/advanced.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style>
+        /*#head {*/
+            /*!*background: none;*!*/
+        /*}*/
+        #__nuxt {
+            /*background: rgba(0,0,0,.75);*/
+        }
+        /*新增css*/
+        body, html {
+            height: 100%;
+            width: 100%;
+            background: #262b41 !important;
+        }
+        .page-main {
+            background: #212139;
+            min-height: 600px;
+            margin: 30px auto !important;
+            padding: 0 80px !important;
+        }
+        .page-main h3 {
+            line-height: 110px;
+            text-align: center;
+            position: relative;
+        }
+        .page-main h3 span {
+            color: #ddd;
+        }
+        .page-main h3 a {
+            position: absolute;
+            font-size: 14px;
+            color: #77abf4;
+            top: 0;
+            right: 160px;
+        }
+
+        .navTit {
+            position: inherit !important;
+            background: #212139 !important;
+        }
+        .navTit span {
+            cursor: pointer;
+            color: #ddd !important;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="__nuxt">
+        <div class="progress" data-v-4a8a9a01=""
+             style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+        <div data-v-af363c0a="" class="content">
+            <!--<div data-v-af363c0a="" id="head">-->
+                <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.beginner_must}</span><em></em></h3>-->
+                    <!--<div class="left"  onclick="window.location.href='{$urlcan}'"><a class="arrow_left"></a></div>-->
+                    <!--<div class="right arrow_right"><b></b></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--引入导航条-->
+            <include file="Base:footer" />
+            <section data-v-af363c0a="" class="page-main">
+                <h3>
+                    <span>{$Think.lang.beginner_must}</span>
+                    <a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+                </h3>
+                <div data-v-af363c0a="" class="navTit title2" style="top: 0;">
+                    <span data-v-af363c0a=""  class="on" data-id="1">{$Think.lang.entry_transaction}</span>
+                    <span data-v-af363c0a=""  data-id="2">{$Think.lang.index_analysis}</span>
+                </div>
+
+                <div data-v-af363c0a="" class="main" style="margin-top: 0.5rem;">
+                    <div data-v-222c168c="" data-v-af363c0a="">
+                        <div data-v-222c168c="" id="mescroll" class="mescroll noweixin mescroll-bar">
+                            <div data-v-222c168c="" class="mescroll-bounce">
+                                <ul data-v-222c168c="" id="dataList" class="ourlist">
+
+                                </ul>
+                            </div>
+                    </div>
+                </div>
+            </section>
+            <include file="Base:trueFooter" />
+        </div>
+        <script>
+            $('.title2 span[data-v-af363c0a]').click(function(){
+                $('.title2 span[data-v-af363c0a]').removeClass('on');
+                $(this).addClass('on');
+
+                //加载分类信息
+                var fid = $(this).attr('data-id');
+                getNewsInfo(fid);
+            })
+        </script>
+    </div>
+</div>
+</body>
+</html>
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script id="tpl" type="text/html">
+     {{each data as vo}}
+        <a href="{:U('newsDetails')}?nid={{vo.nid}}">
+        <li data-v-222c168c="">
+            <div data-v-222c168c="" class="showmain">
+                <img data-v-222c168c="" src="/Uploads/{{vo.ncover}}" class="backimg">
+                <p data-v-222c168c="" class="mtitle">{{vo['ntitle']}}</p>
+            </div>
+        </li>
+        </a>
+    {{/each}}
+</script>
+
+
+<script type="text/javascript">
+
+    //默认自动加载第一个分类
+    window.onload=function(){
+        var fid = $('.title2 span[data-v-af363c0a]').first().attr('data-id');
+        getNewsInfo(fid);
+    };
+
+    // 加载新闻信息
+    function getNewsInfo(fid='')
+    {
+        $.ajax({
+            url: "{:U('getNewsInfo')}",
+            type: 'get',
+            data: {'fid':fid},
+            success: function (data) {
+                var html=template('tpl',data);
+                $('#dataList').html(html);
+
+            },error:function(response){
+                console.log(response);
+            }
+        });
+    }
+</script>

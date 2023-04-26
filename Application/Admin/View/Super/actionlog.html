@@ -1,0 +1,92 @@
+<extend name="Base/common"/>
+<block name="content">
+
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<link rel="stylesheet" href="__CSS__/compiled/actionlog.css" type="text/css" media="screen">
+<div class="container-fluid">
+    <div id="pad-wrapper" class="users-list">
+        <div class="row-fluid header">
+            <h3>操作日志</h3>
+        </div>
+        <!-- Users table -->
+        <div class="row-fluid table header actionlog">
+            <form action="{:U('Super/actionlog')}">
+                
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="span1 sortable">编号</th>
+                        <th class="span3 sortable">用户</th>
+                        <th class="span3 sortable">操作</th>
+                        <th class="span3 sortable">操作路由</th>
+                        <th class="span3 sortable">操作时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <!-- 查询筛选 -->
+                <tr class="first" id="filter_row" style="display:none">
+                    <td>
+                        <input type="text" value="{$where['id']}" name="id">
+                    </td>
+                    <td>
+                        <input type="text" value="{$where['uname']}" name="uname">
+                    </td>
+                    <td></td>
+                    <td>
+                        <input type="text" value="{$where['action']}" name="action">
+                    </td>
+                    <td></td>
+                </tr>
+
+                <volist name="ulist" id="v">
+
+                <!-- row -->
+                <tr class="first">
+                    <td>{$v['id']}</td>
+                    <td>
+                        <a href="javascript:void(0);" class="name">{$v['uname']}</a>
+                    </td>
+                    <td>{$v['action_name']}</td>
+                    <td>{$v['action']}</td>
+                    <td>{$v['cTime']}</td>
+                </tr>
+                </volist>
+
+                </tbody>
+            </table>
+            </form>
+        </div>
+        <div class="pagination pull-right">
+            <ul>
+                {$page}
+            </ul>
+        </div>
+        <!-- end users table -->
+    </div>
+</div>
+<!-- scripts -->
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    
+    var ActionLog ={ };
+
+    // 筛选查询
+    ActionLog.query = function(){
+        var request_str = '';
+        $('#filter_row [name]').each(function(i,n){
+            n.value = $.trim(n.value);
+            if(!n.value){
+               $(n).attr('disabled',true);
+            }
+        });
+        $('.actionlog form').submit();
+    }
+
+
+</script>
+
+</block>

@@ -1,0 +1,239 @@
+<html style="font-size: 100px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- new add zyw -->
+<link rel="stylesheet" href="__PUBLIC__Qts/Home/css/jlpay/layui.css" type="text/css" media="all">
+<link rel="stylesheet" type="text/css" href="__PUBLIC__Qts/Home/css/jlpay/jquery.autocomplete.css">
+<link href="__PUBLIC__Qts/Home/css/jlpay/WdatePicker.css" rel="stylesheet" type="text/css"> 
+<link href="__PUBLIC__Qts/Home/css/jlpay/public.css" rel="stylesheet" type="text/css">
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<script>
+(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            if(clientWidth>=640){
+                docEl.style.fontSize = '100px';
+            }else{
+                docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+            }
+        };
+
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
+
+
+
+	
+</script>
+</head>
+<body style="margin:10px;">
+<!--<form name="form" action="" class="layui-form layui-form-pane" method="POST">-->
+ 
+
+<ul class="layui-nav" style="background-color:#009688;" lay-filter="">
+<li class="layui-nav-item" style="color:white;font-size:14px;" onclick="window.history.back();">返回</li>
+  <li class="layui-nav-item" style="color:white;font-size:14px;margin-left: 1.65rem">银联在线</li>
+</ul>
+<br> 
+
+<div class="layui-form-item">
+    <label class="layui-form-label">系统订单号</label>
+    <div class="layui-input-block">
+      <input type="text" id="orderId" name="orderId" readonly="readonly" class="layui-input" value="{$balance.balanceno}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">金额</label>
+    <div class="layui-input-block">
+      <input id="amount1" name="amount1" type="text" readonly="readonly" class="layui-input" value="${$balance.bpprice}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">实际充值</label>
+    <div class="layui-input-block">
+      <input id="amount1" name="amount1" type="text" readonly="readonly" class="layui-input" value="￥{$balance.bpprice_cny}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">姓名</label>
+    <div class="layui-input-block">
+      <input type="text" id="cardNo" name="cardNo" readonly="readonly" class="layui-input" value="{$data.busername}">
+    </div>
+</div>
+
+<div class="layui-form-item">
+    <label class="layui-form-label">银行卡号</label>
+    <div class="layui-input-block">
+      <input type="text" id="cardNo" name="cardNo" readonly="readonly" class="layui-input" value="{$data.banknumber}">
+    </div>
+</div>
+
+<div>
+<div class="layui-form-item">
+    <label class="layui-form-label">手机号</label>
+    <div class="layui-input-block">
+      <input type="text" name="phone" id="phone" autocomplete="off" readonly="readonly" class="layui-input" value="{$data.tel}">
+    </div>
+  </div>
+<div>
+
+<div class="layui-form-item">
+      <label class="layui-form-label">验证码</label>
+      <div style="width:100%;height:38px;">
+       <div style="float:left;width: 30%;"><input type="text" maxlength="6" name="veriCode" id="veriCode" autocomplete="off" placeholder="短信验证码" style="width:100%;border: 1px solid #94cbea;height: 38px;line-height:38px" autofocus=""></div>
+
+<!-- 	   <div style="float:left;height: 38px;line-height:38px;display:block;background-color:#009688;text-align:center;width: 33%;"><input class="layui-btn" type="button" id="getCode" style="width: 100%;text-decoration:underline;" onclick="click_sms();return false;" value="(60)秒后重新获取验证码" disabled="disabled">
+     </div> -->
+      </div>  
+</div>
+
+
+<div>
+
+<if condition="$balance['bpprice_cny'] gt 500">
+  <input type="button" id="send" class="layui-btn" style="width:100%" value="下一步">
+<else />
+  <input type="button" id="send" class="layui-btn" style="width:100%" value="立即支付">
+</if>
+
+</div></div></div></div></div></div>
+<!--</form>-->
+</body></html>
+
+<script type="text/javascript">
+  
+  var wait=60;
+
+  function mbtime() {
+      if (wait == 60) {
+          //get_phones_code();
+      }
+      if (wait == 0) {
+          $('#getCode').attr('disabled',false);
+          $('#getCode').val("重新获取");
+          wait = 60;
+      } else {
+          $('#getCode').attr('disabled',true);
+          $('#getCode').val("重新发送(" + wait + ")");
+          wait--;
+          setTimeout(function() {mbtime()},1000)
+      }
+  }
+
+mbtime();
+
+function click_sms()
+{
+      if (wait == 60) {
+          get_phones_code();
+      }
+      if (wait == 0) {
+          $('#getCode').attr('disabled',false);
+          $('#getCode').val("重新获取");
+          wait = 60;
+      } else {
+          $('#getCode').attr('disabled',true);
+          $('#getCode').val("重新发送(" + wait + ")");
+          wait--;
+          setTimeout(function() {mbtime()},1000)
+      }
+}
+
+
+function get_phones_code(){
+
+        var index = layer.load(1, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+         });
+
+        var contractId = "{$bank.contract_id}"
+
+        $.ajax({
+            url:"{:U('quickPaySms')}",
+            dataType: 'json',
+            type: 'get',
+            data: {'contractId':contractId},
+            success:function(data){
+
+                if(data.status == 1){
+                    layer.close(index);
+                    layer.msg(data.msg);
+                    return false;
+                } else{
+                  layer.close(index);
+                    layer.msg(data.msg);
+                    return false;
+                }
+            }
+    });
+}
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+
+$("#send").click(function(){
+
+
+  var index = layer.open({
+    type: 2,
+    content: '正在支付',
+    shadeClose:false,
+  });
+
+  var balanceno       = "{$balance.balanceno}";
+  var platformOrderNo = "{$data.platformOrderNo}";
+  var tel             = "{$data.tel}";
+  var checkCode       = $('#veriCode').val();
+
+  $.ajax({
+    url:"{:U('Quickpay')}",
+    dataType: 'json',
+    type: 'post',
+    data: {'balanceno':balanceno,'platformOrderNo':platformOrderNo,'checkCode':checkCode,'tel':tel},
+    success:function(data){
+      layer.close(index);
+      if(data.code == 200)
+      {
+        layer.open({
+            content: data.msg,
+            btn: '我知道了',
+            yes: function(index, layero){
+                layer.close(index);
+                top.location.href=data.redirectUrl
+            },
+            shadeClose:false,
+        });
+      } else {
+        layer.open({
+          content: data.msg
+          ,skin: 'msg'
+          ,time: 2 //2秒后自动关闭
+          ,anim:false
+        });
+      }
+
+      return false;
+    },
+    error: function(request) {
+            console.log(request);
+        },
+  });
+});  
+
+</script>

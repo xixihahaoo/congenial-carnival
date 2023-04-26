@@ -1,0 +1,213 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+
+<div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header" style="margin-bottom: 10px">
+                <h3>{:getUsername($user_id)}</h3></br></br>
+					<form id="form1" action="__URL__/subordinate" method="get">
+                    <div class="span10 pull-left">
+					<input type="hidden" name="user_id" value="{$user_id}">
+
+                    <div class="tpsearch" style="width: 25%">
+                        结算状态：<select name="status" class="span7" id="option">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea['status'] eq 1">
+                                    <option value="1" selected>已结算</option>
+                                    <else />
+                                    <option value="1">已结算</option>
+                                    </if>
+                                    <if condition="$sea['status'] eq 2">
+                                    <option value="2" selected>未结算</option>
+                                    <else />
+                                    <option value="2">未结算</option>
+                                    </if>
+                                </select>
+                    </div>
+
+
+
+					<div class="tpsearch"  style="width: 20%">
+                                <if condition="$sea['starttime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime">
+                                   <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="starttime">
+                                </if>
+
+					</div>
+                    <div class="tpsearch"  style="width: 20%">
+                            <if condition="$sea['endtime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime">
+                                <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="endtime">
+                                </if>
+                    </div>
+                     
+                    </div>
+					<div class="tpsearch" style="width:12%;float:right">
+						<a href="javascript:void(0)" class="btn-flat info" onclick="javascript:$('#form1').submit();">开始查找</a>
+<!-- 						<a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a> -->
+					</div>
+					</form>
+                </div>
+                <!-- Users table -->
+                <div class="row-fluid table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    编号
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>购买人
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>产品名称
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>购买日期
+                                </th>
+                               <!--<th class="span2 sortable">-->
+                                    <!--<span class="line"></span>手数-->
+                                <!--</th>-->
+
+                                <th class="span2 sortable">
+                                    <span class="line"></span>状态
+                                </th>
+
+                                <th class="span2 sortable">
+                                    <span class="line"></span>佣金结算
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="ajaxback">
+                        <volist name="user" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['id']}
+                            </td>
+                            <td>
+                                {:getUsername($ult['purchaser_id'])}
+                            </td>
+
+                            <td>
+                                {$ult['option_name']}
+                            </td>
+                            <td>
+                                {$ult.create_time}
+                            </td>
+                            <!--<td>-->
+                                <!--{$ult['onumber']}-->
+                            <!--</td>-->
+
+                            <td>
+                              <if condition="$ult[status] eq 1">
+                                 <font style="color: green;">已结算</font>
+                                <else />
+                                 <font style="color: red;">未结算</font>
+                              </if>
+                            </td>
+
+                                <td>
+                                    <font style="color: red;" class="profit">{$ult.profit}</font>
+                                </td>
+
+                        </tr>
+                        </volist>  
+                        </tbody>
+                    </table>
+                <div class="qjcz">
+                    <span style="margin-right:24px;float:right">总收益：<i style="color:red" id="count">{$data.profit}</i><br></span></br>
+                     <!--<span style="margin-right:24px;float:right">总手续费：<i style="color:red" id="currency">{$data.fee}</i><br></span>-->
+                </div>
+
+                </div>
+                <div class="pagination pull-right">
+                    <ul>
+                        {$page}
+                    </ul>
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+<!-- scripts -->
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        /** 
+         * 时间对象的格式化; 
+         */  
+        Date.prototype.format = function(format) {  
+            /* 
+             * eg:format="yyyy-MM-dd hh:mm:ss"; 
+             */  
+            var o = {  
+                "M+" : this.getMonth() + 1, // month  
+                "d+" : this.getDate(), // day  
+                "h+" : this.getHours(), // hour  
+                "m+" : this.getMinutes(), // minute  
+                "s+" : this.getSeconds(), // second  
+                "q+" : Math.floor((this.getMonth() + 3) / 3), // quarter  
+                "S" : this.getMilliseconds()  
+                // millisecond  
+            }
+          
+            if (/(y+)/.test(format)) {  
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4  
+                                - RegExp.$1.length));  
+            }  
+          
+            for (var k in o) {  
+                if (new RegExp("(" + k + ")").test(format)) {  
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1  
+                                    ? o[k]  
+                                    : ("00" + o[k]).substr(("" + o[k]).length));  
+                }  
+            }  
+            return format;  
+        }
+    });
+
+function sub()
+{
+    $('#form1').attr("action","__URL__/daochu_extensionlist");
+    $('#form1').submit();
+}
+
+function submit() {
+    $('#form1').attr("action","__URL__/ExtensionList");
+    $('#form1').submit();
+}
+
+  //运营中心回填
+  var user_id = $("#user_id").val();
+  $("#otype option").each(function(){
+      
+        if(user_id == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+  });
+
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+</script>
+</block>

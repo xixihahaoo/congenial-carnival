@@ -1,0 +1,223 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.transfer}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="a772e018:0 309b0fcd:0">p[data-v-182b51d0] {
+        font-size: .1rem
+    }
+
+    .ipt-group[data-v-182b51d0] {
+        overflow: hidden;
+        /*background-color: #fff;*/
+        padding: 0 .14rem;
+        line-height: .6rem;
+        font-size: .15rem;
+        position: relative
+    }
+
+    .ipt-before[data-v-182b51d0] {
+        overflow: hidden;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        float: left;
+        font-size: 17px;
+        color: #333;
+        letter-spacing: 0
+    }
+
+    .ipt-before strong[data-v-182b51d0]:first-of-type {
+        float: left
+    }
+
+    .ipt-before strong[data-v-182b51d0]:nth-of-type(2) {
+        float: right;
+        margin-right: .05rem
+    }
+
+    input[data-v-182b51d0] {
+        float: left;
+        position: relative;
+        top: .15rem;
+        height: .3rem;
+        padding-left: .1rem;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 90%;
+    }
+
+    p[data-v-182b51d0] {
+        padding: .09rem .14rem .23rem;
+        color: #999
+    }
+
+    span[data-v-182b51d0] {
+        color: #2187f7 !important
+    }
+
+    .ipt-btn[data-v-182b51d0] {
+        margin: .2rem auto;
+        line-height: .4rem;
+        text-align: center;
+        background: #cdcfd1;
+        border-radius: 0.05rem;
+        height: 40px;
+        width: 30%;
+    }
+
+    .btnColor[data-v-182b51d0] {
+        /*background-image: -o-linear-gradient(319deg, #1254a8, #0c62c1) !important;*/
+        /*background-image: linear-gradient(-229deg, #1254a8, #0c62c1) !important*/
+        background: #77abf4;
+        color: #fff;
+    }
+
+    .ipt-group[data-v-182b51d0]:before {
+        content: "";
+        position: absolute;
+        width: 187%;
+        bottom: 0;
+        border-bottom: 1px solid #444;
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(.5);
+        -ms-transform: scale(.5);
+        transform: scale(.5);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+    .promotionsec img[data-v-e17e7db0] {
+        width: .15rem;
+        height: .18rem;
+        margin-left: .06rem
+    }
+
+    .promotionsec p[data-v-e17e7db0] {
+        background-image: -o-linear-gradient(131deg, #c3c9cc 0, #d4d9d9 100%);
+        background-image: linear-gradient(-41deg, #c3c9cc, #d4d9d9);
+        border-radius: 1px;
+        width: .74rem;
+        height: .2rem;
+        line-height: .2rem;
+        text-align: center;
+        font-size: .12rem;
+        color: #fff;
+        letter-spacing: 0;
+        margin-left: .06rem
+    }
+/*body {*/
+        /*background: #ffffff*/
+    /*}*/
+    /*新增css*/
+    body, html {
+      height: 100%;
+      width: 100%;
+      background: #262b41 !important;
+    }
+    .page-main {
+      background: #212139;
+      min-height: 600px;
+      margin: 30px auto !important;
+      padding: 0 80px !important;
+    }
+    .page-main h3 {
+      line-height: 110px;
+      text-align: center;
+      position: relative;
+    }
+    .page-main h3 span {
+        color: #ddd;
+    }
+    .page-main h3 a {
+      position: absolute;
+      font-size: 14px;
+      color: #77abf4;
+      top: 0;
+      right: 160px;
+    }
+    .page-main .content {
+      padding: 40px 80px;
+      background: #262b41;
+    }
+    .page-main .content .changeRecord {
+      float: right;
+    }
+  </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-182b51d0="" class="">
+        <!--<div data-v-182b51d0="" id="head" style="width: 60%">-->
+            <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.transfer}</span><em></em></h3>-->
+                <!--<div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>-->
+                <!--<a href="{:U('changeRecord')}">-->
+                    <!--<div class="right arrow_right"><b>{$Think.lang.history}</b></div>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+        <section data-v-182b51d0="" class="page-main">
+            <h3>
+              <span>{$Think.lang.transfer}</span>
+              <a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+            </h3>
+            <div data-v-182b51d0="" class="content">
+                <a href="{:U('changeRecord')}" class="changeRecord">
+                  <div class="right arrow_right" style="color: #77abf4"><b>{$Think.lang.history}</b></div>
+                </a>
+                <div data-v-182b51d0="" class="ipt-group"><label data-v-182b51d0="">
+                    <div data-v-182b51d0="" class="ipt-before"><strong data-v-182b51d0="" style="color: #ffffff;">$</strong></div>
+                    <input data-v-182b51d0="" type="number" placeholder="${$money|default='0.00'}" value="" autofocus="autofocus" name="money"></label>
+                </div>
+<!--                 <p data-v-182b51d0="">参考汇率：<span data-v-182b51d0="">1美元=6.2人民币</span></p> -->
+
+            </div>
+           <div data-v-182b51d0="" class="ipt-btn btnColor" onclick="changeAccount();">{$Think.lang.confirm_transfer}</div>
+        </section>
+
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script type="text/javascript">
+    /**
+     * [changeAccount 余额转入]
+     * @return void
+     */
+    function changeAccount()
+    {
+        var money    = $('input[name=money]').val();
+
+        var index = layer.load(2);
+
+         $.ajax({
+            type: "post",
+            url: "{:U('changeAccount')}",
+            dataType: 'json',
+            data:{'money':money},
+             success: function (data) {
+                if(data.code === 400)
+                {
+                    layer.close(index);
+                    return layer.msg(data.msg);
+                }
+
+                if(data.code === 200)
+                {
+                    layer.close(index);
+                    layer.msg(data.msg);
+                    return window.setTimeout("window.location.reload()",1000);
+                }
+             }
+         });
+    }
+</script>

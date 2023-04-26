@@ -1,0 +1,269 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen" />
+<link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<div class="container-fluid">
+    <div id="pad-wrapper" class="users-list">
+        <div class="row-fluid header">
+                <form id="form1" action="__URL__/extension" method="get">
+                <h3 style="height: 40px;width: 100%;">佣金转入记录</h3>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+                    <div class="tpsearch" style="width: 25%">
+                    <input type="hidden" id="yunying" value="{$yunying}">
+                        运营中心：<select id="otype" class="span6" name="yunying">
+                                    <option value="">默认不选</option>
+                                    <volist name="info" id="vo">
+                                    <option value="{$vo.uid}">{$vo.username}</option>
+                                    </volist>
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        销售商：<select id="jingjiren" class="span6" name="jingjiren">
+                                    <option value="">默认不选</option>
+                                    <notempty name="jingjiren">
+                                        <option value="{$jingjiren['uid']}" selected>{$jingjiren['username']}</option>
+                                    </notempty>
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        会员：<select id="user" class="span6" name="user">
+                                    <option value="">默认不选</option>
+                                    <notempty name="user">
+                                        <option value="{$user['uid']}" selected>{$user['username']}</option>
+                                    </notempty>
+                                </select>
+                    </div>
+                </div>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+                    <div class="tpsearch">
+                        电子邮箱：<input type="text" value="{$sea.email}" class="span6 search" placeholder="请输入电子邮箱查找..." name="email" id="email"/>
+                    </div>
+                        <div class="tpsearch"  style="width: 20%">
+                                    <if condition="$sea['starttime']">
+                                       <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime">
+                                       <else />
+                                        <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="starttime">
+                                    </if>
+
+                        </div>
+                        <div class="tpsearch"  style="width: 20%">
+                                <if condition="$sea['endtime']">
+                                       <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime">
+                                    <else />
+                                        <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="endtime">
+                                    </if>
+                        </div>
+                </div>
+
+                <div class="span10 pull-left" style="margin: 20px 0 10px 30px;">
+                    <div class="span10 pull-left " style="width:30%;">
+                        <a href="javascript:void(0)" class="btn-flat info" onclick="submit()">开始查找</a>
+                        <a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查询导出</a>
+                    </div>
+                </div>
+                </form>
+            </div>
+            
+        <!-- Users table -->
+        <div class="row-fluid table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="span1 sortable">
+                            编号
+                        </th>
+                        <th class="span1 sortable">
+                            <span class="line"></span>用户名称
+                        </th>
+
+                        <th class="span1 sortable">
+                            <span class="line"></span>用户昵称
+                        </th>
+
+                        <th class="span1 sortable">
+                            <span class="line"></span>电子邮箱
+                        </th>
+                        <th class="span1 sortable">
+                            <span class="line"></span>上级
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>转入时间
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>金额
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="ajaxback">
+                <volist name="commission" id="relist">
+                <!-- row -->
+                <tr class="first">
+                    <td>
+                        {$relist.id}
+                    </td>
+                    <td>
+                        {$relist.username}
+                    </td>
+                    
+                    <td>
+                        {$relist.nickname}
+                    </td>
+
+                    <td>
+                        {$relist['email']}
+                    </td>
+
+                    <td>
+                      {:change($relist['rid'])}
+                    </td>
+
+                    <td>
+                      {$relist.create_time|date='Y-m-d H:i:s',###}
+                    </td>
+
+                    <td>
+                        <font color="#f00" size="4">{$relist.account}</font>
+                    </td>
+
+                </tr>
+
+                </volist>
+
+                </tbody>
+            </table>
+            <div class="qjcz">
+                    <span style="margin-right:30px;float:right">总转入金额：<i style="color:red" id="count">{$sum}</i><br></span>
+            </div>
+        </div>
+        <div class="pagination pull-right">
+            <ul id="show">
+                {$page}
+            </ul>
+        </div>
+        <!-- end users table -->
+    </div>
+</div>
+
+<!-- scripts -->
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/popup_layer.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+$(function () {
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+});
+
+function sub()
+{
+    $('#form1').attr("action","__URL__/daochu_extension");
+    $('#form1').submit();
+}
+
+function submit() 
+{
+    $('#form1').attr("action","__URL__/extension");
+    $('#form1').submit();
+}
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        /** 
+         * 时间对象的格式化; 
+         */  
+        Date.prototype.format = function(format) {  
+            /* 
+             * eg:format="yyyy-MM-dd hh:mm:ss"; 
+             */  
+            var o = {  
+                "M+" : this.getMonth() + 1, // month  
+                "d+" : this.getDate(), // day  
+                "h+" : this.getHours(), // hour  
+                "m+" : this.getMinutes(), // minute  
+                "s+" : this.getSeconds(), // second  
+                "q+" : Math.floor((this.getMonth() + 3) / 3), // quarter  
+                "S" : this.getMilliseconds()  
+                // millisecond  
+            }  
+          
+            if (/(y+)/.test(format)) {  
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4  
+                                - RegExp.$1.length));  
+            }  
+          
+            for (var k in o) {  
+                if (new RegExp("(" + k + ")").test(format)) {  
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1  
+                                    ? o[k]  
+                                    : ("00" + o[k]).substr(("" + o[k]).length));  
+                }  
+            }  
+            return format;  
+        }
+    });
+
+
+
+//运营中心回填
+var yunying = $("#yunying").val();
+$("#otype option").each(function(){      
+    if(yunying == $(this).val()){
+        $(this).attr('selected',true);
+    }
+});
+
+    /*根据选择运营中心销售商选择*/
+    $("#otype").change(function() {
+        var parent_id = $("#otype").val();
+        $.ajax({
+            type: "GET",
+            url: "{:U("user/ajax_get_brokers")}",
+            data: "parent_id="+parent_id,
+            success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#jingjiren").html(html);
+        }
+    });
+    });
+    
+    /*根据选择销售商获取下属会员列表*/
+    $("#jingjiren").change(function() {
+            var parent_id = $("#jingjiren").val();
+            $.ajax({
+                type: "GET",
+                url: "{:U("user/ajax_get_brokers")}",
+                data: "parent_id="+parent_id,
+                success: function(data){
+                var html = '';
+                var list = data.data;
+                html +='<option value="">默认不选</option>';
+                if(data.status>0){
+                    for (x in list) {
+                        html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                    }
+                }
+                $("#user").html(html);
+            }
+      });
+    });
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+</script>
+</block>

@@ -1,0 +1,6 @@
+.footerart{
+	width:100%;position:fixed;bottom:0px;background:#1e71be;height:4em;margin:0 auto;Z-index:999
+}
+.fontart{
+	width:25%;float:left;text-align:center;line-height:1.5em
+}

@@ -1,0 +1,143 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            资金充值
+            <small>
+                <i class="icon-double-angle-right"></i>
+                充值信息
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <form class="form-horizontal" id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+                <input type="hidden" value="{$info.uid}" class="uid" name="uid">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 资金账户 </label>
+                    <div class="col-sm-9">
+                        <h4><b class="orange">&yen;{$info.balance}</b></h4>
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 充值金额 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="balance" value=""  placeholder="充值金额" class="col-xs-10 col-sm-2 " onkeyup="value=value.replace(/[^\d\.]/g,'')"/>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 充值方式 </label>
+                    <div class="col-sm-9">
+                        <input type="radio" name="paytype" value="wxpay_syx_yl" checked="true" class="paytype" >银联支付
+              <!--           <input type="radio" name="paytype" value="wxpay_syx" class="paytype">微信扫码 -->
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+            <div class="ps text-lesser" style="text-align:left">
+                <p class="text-highs">温馨提示:</p>
+                <p>1、消费用户提款免手续费，为防止恶意提款，每日提款申请次数最多为2次，超过次日处理；</p>
+                <p>2、为防止套现和洗钱，单笔充值无消费者提现时需提供身份证和银行卡给风控进行核实。如信息核实无误，将会在7-15个工作日内处理，银行收取2%的手续费自理，最低2元；</p>
+                <p>3、周一至周五09:00-17:00的提款申请当天处理，17:00以后的提款申请延至第二天处理。周五17:00后提款，延至下个工作日处理。提现到账时间最快2小时，最晚1个工作日，如遇节假日顺延。</p>
+                <p>4、周六周日提款延迟到周一处理，若节假日提款，一律节后第一个工作日处理。</p>
+            </div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a class="btn btn-success bank" href="#" >
+                            <i class="icon-ok"></i>
+                            确认充值
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+            </form>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+<script type="text/javascript">
+
+    $('.bank').click(function(){
+
+        var paytype = $('input:radio:checked').val();
+        if(paytype == '')
+        {
+            layer.msg('请选择支付方式');
+            return false;
+        }
+        var money = $('#balance').val();
+        if(money == '')
+        {
+           layer.msg('请输入充值金额');
+            return false;
+        }
+
+        $.ajax({
+                url: "{:U('recharge_pay')}",
+                dataType: 'json',
+                type: 'post',
+                data: {'paytype':paytype,'money':money},
+                success: function (data) {
+                    if(data.status === 1){
+                        if(paytype == 'wxpay_syx')
+                        {
+                            layer.open({
+                                type: 2,
+                                area: ['780px', '75%'],
+                                fixed: true, //不固定
+                                maxmin: true,
+                                title: "扫码支付",
+                                content: [data.redirectUrl + '?money=' + data.amount + '&ordernum=' + data.ordernum, 'no'],
+                                end: function () {
+                                    top.location.reload();
+                                }
+
+                            });
+                         return false;
+                        }
+                        layer.open({
+                            content: data.msg,
+                            btn: '确定',
+                            yes: function(index, layero){
+                                layer.close(index);
+                                top.location.href=data.redirectUrl + '?money=' + data.amount + '&ordernum=' + data.ordernum + '&model=Ucenter';
+                            }
+                        });
+                    }
+
+                    if(data.status === 0){
+                       layer.msg(data.msg);
+                      return false;
+                    }
+                }
+        });
+
+    });
+
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

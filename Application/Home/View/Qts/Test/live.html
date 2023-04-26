@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+	<title>Sewise Player</title>
+	<script type="text/javascript" src="__PUBLIC__Qts/Home/js/player/sewise.player.min.js"></script>
+</head>
+<body>
+	<div id="player" style="width: 640px; height: 352px; ">
+		<script type="text/javascript">
+			SewisePlayer.setup({
+				server: "vod",
+				type: "m3u8",
+				autostart: "true",
+				poster: "http://jackzhang1204.github.io/materials/poster.png",
+				videourl: "http://pullhlsb4052a8c.live.126.net/live/d1060d97aa2f4772be4b3f25ec04d556/playlist.m3u8",
+		        // skin: "vodWhite",
+		        title: "直播标题",
+		        claritybutton: "disable",
+		        lang: "zh_CN",
+			}, "player");
+		</script>
+
+	</div>
+</body>
+</html>

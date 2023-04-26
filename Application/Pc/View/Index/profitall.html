@@ -1,0 +1,774 @@
+
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.master_list}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="ec9f601a:0">
+
+    .send-btn[data-v-18b300d4] {
+        top: -.3rem;
+        color: #2187f7
+    }
+
+    .send[data-v-18b300d4] {
+        width: .48rem;
+        height: .2rem;
+        line-height: .2rem;
+        border-radius: .02rem;
+        text-align: center;
+        display: inline-block
+    }
+
+    .con-header-wrap[data-v-18b300d4] {
+        width: 100%;
+        height: .45rem;
+        background: #012861;
+        /*margin-top: .5rem;*/
+        /*position: fixed;*/
+        /*top: 0;*/
+        z-index: 99
+    }
+
+    .con-header[data-v-18b300d4] {
+        background: #212139;
+        border-radius: .04rem .04rem 0 0;
+        height: .45rem;
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 0 .14rem;
+        border-bottom: 1px solid #53524f
+    }
+
+    .con-header li[data-v-18b300d4] {
+        height: .45rem;
+        line-height: .34rem;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        text-align: center;
+        font-size: .15rem;
+        color: #ddd;
+        cursor: pointer;
+    }
+
+    .con-header li p[data-v-18b300d4] {
+        width: 70%;
+        margin: 0 auto;
+        line-height: .36rem;
+        margin-top: .06rem
+    }
+
+    .con-header .active[data-v-18b300d4] {
+        color: #77abf4;
+    }
+
+    .con-header .active p[data-v-18b300d4] {
+        border-bottom: 2px solid #77abf4;
+    }
+
+    .earnings-con[data-v-18b300d4] {
+        padding-left: .14rem;
+        width: 100%;
+        overflow: hidden;
+        margin-top: .95rem
+    }
+
+    .earnings-list-btn[data-v-18b300d4], .earnings-list-con[data-v-18b300d4], .earnings-name-wrap[data-v-18b300d4], .portrait-wrap[data-v-18b300d4] {
+        display: inline-block
+    }
+
+    .portrait-wrap[data-v-18b300d4] {
+        width: .46rem;
+        height: .4rem;
+        position: absolute;
+        left: .14rem;
+        top: .14rem;
+        text-align: center
+    }
+
+    .portrait-wrap .portrait[data-v-18b300d4] {
+        border-radius: 50%;
+        width: .3rem;
+        height: .3rem
+    }
+
+    .portrait-grade[data-v-18b300d4] {
+        display: inline-block;
+        width: .24rem;
+        height: .12rem;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAYCAYAAACBbx+6AAAAAXNSR0IArs4c6QAABsNJREFUWAl9V12PFEUUvdXzscvODoIfKMsG2SwEEhNMSIgmvJvoGja888IfIPoLCL+ARF8JvOCzLsnyQEz0QR9MNMZEjTEuIMKAgiKBnZ2e3enynHOremf5sCbdXXXq3nPPvV1d3RPsf1r84vBsaYPFEMJCNJsPFmZisGnDABhOBa4kCIQSBisHdY2YC1NzZq1Xzaq+hf5PybYJfB4Uzcdw7cFsBceyFa2lcOD8LbI+qynckxPxq4Mzg3J0FpOnKrMGBQSIU6OHBAHDT31eUp+2FM8m4UXHwvbDbrf6s9noseNtJNB6Uf2cLKkBjHC6aFPhTNh7oUdovMlmHFi9uv940YiXYrSuVyqZSLT3Q8Hr1qo6BxPjlCcn/+k3LDS3m63/Yzb4TWah2Ga2bS650Mf5mDObj4tH1rCT4cCFy476OZXNB/3P950uitFnsYpdg+KoAzUWkY9piXnNOYz6wC6FdCKM1VjBRpcOFtd+lw/x2HrZ5yUUY46SWHZT3K5V9mn89dRpYrnVglevzh2HwbmqwiolxRgBBT3VlIzjHoD9zaS0RCb2yi2WWKJx6JSNaSwyPAa1P/zq/mYU5RKrwkZr5+IPx47nGQlevXpwxuLoE5DgZuNWU6Die+U05MlByuJ9czHA/Rb6LPsSMzEDmzaKO8RSuA0MVSZHa5d46M1FJVoysVMPZOL25d0CZpfiL8dAaOYVrgZnLYZp98ESyKLpJxIX7qQENaEAXgkCjtE+FG0LE7tJg6VwHRNcVhi0XkLEtpu6OU3Y8zN8PR4R8Gw8RMIl43SttLM0Cv0r+2djKG/EEBoCSCwVvJDOHwpSqnrpumXX2GKDra5zwKz9igXsCHH1R/cL3MaA64HMDxojoiGOh/TYihuxWQw82aRjhC1vXzEqykWIabg0OFOZqkomdj1rzku0UMfVJZiaiBsdVVL2rK78oUlLgaj0qYLJDemOkeQqr98HDtHUwsNiw6qNxWao4gIds4tnQ4A3hc2D5FulUpDAYdnU6x7WBV4S5Ijln2YbqDDsQjFh1nzBA3NOAjihAK4nR2O1sQwit0EvuzTQJ4S4UEDWfHLTRTKlFGy1rnHpbs1znUQKxmUQ8aKI1cji4CbQtPbbr7kTBVCsgm/6S/dYLCabMWaVS4fuPB+6mRy4vtJEVXChNQ4s9xUYziR2DGt3cq/G1dpNPGfYHdj40uCLglRJLOGah30cNc/oEXxxZxjLndyP/RhnIHhTlGfl43w3uB15c1xBUxDiyoudyT0Q1kKw0kJ5hwgmwdjkNvaMBkfFS6ISu1n5V21cJ1EjCAE/f19nDyrAoQzZR3NHwj5mEgomW/SxRgP3XbSqfx12SJIceNMxiVpY8uccW703a4TT+t/atz2Oa3BfGcOh6rHCKziIgMCJsn82zgQZp/m4bZjchymsteG//s1Aw9DClstX8NO8nK5bChnjutnwfg3njpRt6lrhm205Z+zCkxgYUVQtLDlp7OX1OT79rCSFobrOgT4fQNaWfrrUylwLcXF6jDC8B3tsY2z1lHcYzuOG5QLfjksARlkYrzRgq7c4H+Lsc/z4ISnt9K3LmcFdsPSduJjCF9qOmicL26SBM1t+UKoBtrEHbq8kyJ0CwIzWKCxeHBNLxdR7t2/B5mIWSR6KzgeD5WToqYSSceQ3bWMK2AZewTcVUFMTwOWni58gDkz6MTy5aKM2SA+pj4QrZopHO3hfDG9+eYvbGoQ3zwB7RCMZZsd8JTEPRUmgXrWvOzk+HVEi+UZWlttYNkva3D+j5EIj7fpDPKlrzqP4eVdyAxYgQBse3jNEJLjzzh89LI2TmKxo4ExkSwmoOhx6IC6JMDmLO9rEMljDcsgVwo1D1WnFWuqMCznlm/3zXIC4Id6IGuOCBgb3hZ+bxwpvuJPhyNfazSSYhp33e5eh4EOYKUUuLw+KSXh6IrQEUwMVxNcYCav+Nc1L0MQubL2kpL0I1Kdd7Y8+m7jLe+j4nSEiPMeCA4Tim9Q+CEe/rf911IJp3F3ofYSn8ASCY3kAyM64eoWIgYh/KpnREPvm8IH3Dfst/2GMC00iyE0+cRDjoNrQvsu+qgpIOGhpx2UQQzzReOu7j+mf2xbBBDvv9i432s1DcDsPonr3cAewtnZC2E6RV6vXpFtBt+E/AEK7KExr5ME5erLF4V3Y8ma6D3RmoSPEPV+046Hm0e/rymZ/2j239a/smR3FYrHAVxKo5/HJvLvYcaRrTSyJQQ/77g33bXat6Mx5H5Vn8dXU4TgB+YrtL5T8ONLNwcdDcQd/bFeQ5HKrmFoKb3/z3L/5/wEiyPVMqRYo+QAAAABJRU5ErkJggg==) 0;
+        background-size: 100%;
+        position: absolute;
+        right: -.02rem;
+        bottom: .1rem;
+        font-size: .1rem;
+        color: #fff;
+        text-align: center;
+        line-height: .12rem
+    }
+
+    .portrait-wrap p[data-v-18b300d4] {
+        font-size: .12rem;
+        color: #ddd;
+        position: absolute;
+        bottom: -.06rem;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: .52rem
+    }
+
+    .earnings-name-wrap[data-v-18b300d4] {
+        padding-left: .36rem;
+        margin: .14rem .05rem 0 0;
+        max-width: 1rem
+    }
+
+    .earnings-list[data-v-18b300d4] {
+        /*width: 60%*/
+    }
+
+    .data-list[data-v-18b300d4] {
+        -webkit-overflow-scrolling: touch;
+        /*width: 60%*/
+    }
+
+    .earnings-list-wrap[data-v-18b300d4] {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        height: .58rem
+    }
+
+    .earnings-list-con[data-v-18b300d4] {
+        overflow: auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        min-width: 150px;
+        width: 80%;
+        margin-left: 20%;
+        /*border-bottom: 1px solid #444*/
+    }
+
+    .earnings-list-con li[data-v-18b300d4] {
+        height: .5rem;
+        float: left;
+        margin-top: .18rem;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        min-width: 60px;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1
+    }
+
+    .earnings-list-con .follow-btn[data-v-18b300d4] {
+        display: inline-block;
+        width: 80%;
+        height: .2rem;
+        line-height: .2rem;
+        color: #77abf4;
+        border: 1px solid #77abf4;
+        text-align: center;
+        border-radius: .2rem;
+        margin-top: .1rem
+    }
+
+    .earnings-list-con .follow-edit[data-v-18b300d4] {
+        color: #ff8e47;
+        border: 1px solid #ff8e47
+    }
+
+    .earnings-list-name[data-v-18b300d4] {
+        font-size: .12rem;
+        color: #333;
+        height: .24rem;
+        line-height: .24rem;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .earnings-list-top[data-v-18b300d4] {
+        width: .35rem
+    }
+
+    .earnings-num[data-v-18b300d4] {
+        height: .24rem;
+        line-height: .24rem;
+        color: #ff6056;
+        font-size: .14rem;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .earnings-list-txt[data-v-18b300d4] {
+        color: #ddd;
+        font-size: .11rem
+    }
+
+    .earnings-list-btn[data-v-18b300d4] {
+        position: absolute;
+        width: .46rem;
+        height: .2rem;
+        line-height: .2rem;
+        border: 1px solid #0086ff;
+        border-radius: .4rem;
+        font-size: .12rem;
+        text-align: center;
+        color: #0086ff;
+        right: 0;
+        top: .3rem
+    }
+
+    .earnings-tips[data-v-18b300d4] {
+        width: 100%;
+        text-align: center;
+        color: #ddd;
+        margin-top: .1rem;
+        font-size: .12rem
+    }
+
+    .hide[data-v-18b300d4] {
+        display: none
+    }
+
+    .mescroll[data-v-18b300d4] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-overflow-scrolling: touch
+    }
+
+    @media screen and (max-width: 340px) {
+        .earnings-list-con[data-v-18b300d4] {
+            margin-left: 21%
+        }
+    }</style>
+
+
+    <style type="text/css">body, html {
+        height: 100%
+    }
+
+    body {
+        -webkit-overflow-scrolling: touch
+    }
+
+    .mescroll {
+        width: 100%;
+        height: 100%;
+        overflow-y: auto
+    }
+
+    .mescroll-hardware {
+        -webkit-transform: translateZ(0);
+        -webkit-transform-style: preserve-3d;
+        -webkit-backface-visibility: hidden;
+        -webkit-perspective: 1000
+    }
+
+    .mescroll-downwarp {
+        position: relative;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        text-align: center
+    }
+
+    .mescroll-downwarp-reset {
+        -webkit-transition: height .3s;
+        transition: height .3s
+    }
+
+    .mescroll-downwarp .downwarp-content {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        min-height: 30px;
+        padding: 10px 0
+    }
+
+    .mescroll-upwarp {
+        min-height: 30px;
+        padding: 15px 0;
+        text-align: center;
+        visibility: hidden;
+        width: 100%;
+    }
+
+    .mescroll-downwarp .downwarp-tip, .mescroll-upwarp .upwarp-nodata, .mescroll-upwarp .upwarp-tip {
+        display: inline-block;
+        font-size: 12px;
+        color: gray;
+        vertical-align: middle
+    }
+
+    .mescroll-downwarp .downwarp-progress, .mescroll-upwarp .upwarp-progress {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        margin-right: 8px;
+        border-bottom-color: transparent;
+        vertical-align: middle
+    }
+
+    .mescroll-rotate {
+        -webkit-animation: mescrollRotate .6s linear infinite;
+        animation: mescrollRotate .6s linear infinite
+    }
+
+    @-webkit-keyframes mescrollRotate {
+        0% {
+            -webkit-transform: rotate(0deg)
+        }
+        to {
+            -webkit-transform: rotate(1turn)
+        }
+    }
+
+    @keyframes mescrollRotate {
+        0% {
+            transform: rotate(0deg)
+        }
+        to {
+            transform: rotate(1turn)
+        }
+    }
+
+    .mescroll-empty {
+        width: 100%;
+        padding-top: 20px;
+        text-align: center
+    }
+
+    .mescroll-empty .empty-icon {
+        width: 45%
+    }
+
+    .mescroll-empty .empty-tip {
+        margin-top: 6px;
+        font-size: 14px;
+        color: gray
+    }
+
+    .mescroll-empty .empty-btn {
+        max-width: 50%;
+        margin: 20px auto;
+        padding: 10px;
+        border: 1px solid #65aadd;
+        border-radius: 6px;
+        background-color: #fff;
+        color: #65aadd
+    }
+
+    .mescroll-empty .empty-btn:active {
+        opacity: .75
+    }
+
+    .mescroll-totop {
+        z-index: 9990;
+        position: fixed;
+        right: 10px;
+        bottom: 30px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        opacity: 0
+    }
+
+    .mescroll-fade-in {
+        -webkit-animation: mescrollFadeIn .5s linear forwards;
+        animation: mescrollFadeIn .5s linear forwards
+    }
+
+    @-webkit-keyframes mescrollFadeIn {
+        0% {
+            opacity: 0
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    @keyframes mescrollFadeIn {
+        0% {
+            opacity: 0
+        }
+        to {
+            opacity: 1
+        }
+    }
+
+    .mescroll-fade-out {
+        pointer-events: none;
+        -webkit-animation: mescrollFadeOut .5s linear forwards;
+        animation: mescrollFadeOut .5s linear forwards
+    }
+
+    @-webkit-keyframes mescrollFadeOut {
+        0% {
+            opacity: 1
+        }
+        to {
+            opacity: 0
+        }
+    }
+
+    @keyframes mescrollFadeOut {
+        0% {
+            opacity: 1
+        }
+        to {
+            opacity: 0
+        }
+    }
+
+    .mescroll-bar::-webkit-scrollbar-track {
+        background-color: transparent
+    }
+
+    .mescroll-bar::-webkit-scrollbar {
+        width: 6px
+    }
+
+    .mescroll-bar::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background-color: #ccc
+    }
+
+    .mescroll-bar::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa
+    }
+
+    </style>
+
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,user-scalable=no, user-scalable=no,minimum-scale=1.0, maximum-scale=1.0,viewport-fit=contain"
+          data-n-head="true">
+    <style type="text/css">.trader-top[data-v-97ee62f6] {
+        position: releative
+    }
+
+    .trader-con[data-v-97ee62f6] {
+        background: url(/_nuxt/img/trader_bg@2x.png) 0 0 no-repeat;
+        background-size: 100%;
+        height: 3.7rem;
+        margin-top: .12rem
+    }
+
+    .con-top[data-v-97ee62f6] {
+        height: 50%;
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        padding-top: 10%
+    }
+
+    .con-top img[data-v-97ee62f6] {
+        width: .64rem;
+        height: .64rem;
+        border-radius: 50%
+    }
+
+    .con-top .name[data-v-97ee62f6] {
+        font-size: .2rem;
+        margin-top: .07rem
+    }
+
+    .con-bot[data-v-97ee62f6] {
+        width: 100%;
+        height: 50%;
+        float: left;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 10%
+    }
+
+    .con-bot p[data-v-97ee62f6] {
+        font-size: .17rem;
+        height: .3rem;
+        line-height: .3rem
+    }
+
+    .con-bot span[data-v-97ee62f6] {
+        color: #ff6056;
+        margin: 0 .03rem
+    }
+
+    .txt-con[data-v-97ee62f6] {
+        padding: .08rem .14rem 0;
+        position: relative
+    }
+
+    .txt-con img[data-v-97ee62f6] {
+        width: .18rem;
+        height: .16rem
+    }
+
+    .txt-con p[data-v-97ee62f6] {
+        text-align: center;
+        font-size: .17rem;
+        height: .24rem;
+        line-height: .24rem;
+        color: #333
+    }
+
+    .txt-con p[data-v-97ee62f6]:last-child {
+        margin-top: .05rem
+    }
+
+    .txt-con .mark-right[data-v-97ee62f6] {
+        position: absolute;
+        right: .14rem;
+        bottom: -.08rem
+    }
+
+    .txt-con p.right[data-v-97ee62f6] {
+        float: right;
+        margin-top: .16rem
+    }
+
+    .btn-wrap[data-v-97ee62f6] {
+        width: 100%;
+        padding: .1rem .14rem;
+        position: fixed;
+        bottom: 0
+    }
+
+    .btn-wrap p[data-v-97ee62f6] {
+        text-align: center;
+        color: #ddd;
+        font-size: .14rem;
+        margin-bottom: .1rem
+    }
+
+    .btn-wrap button[data-v-97ee62f6] {
+        width: 100%;
+        height: .44rem;
+        background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);
+        background-image: linear-gradient(-229deg, #1254a8, #0c62c1);
+        border-radius: 1rem;
+        font-size: .17rem;
+        color: #fff;
+        text-align: center
+    }
+
+    @media screen and (max-width: 340px) {
+        .trader-con[data-v-97ee62f6] {
+            height: 3.2rem
+        }
+    }
+    /*body {*/
+        /*background: #fff;*/
+    /*}*/
+    /*新增css*/
+    body, html {
+        height: 100%;
+        width: 100%;
+        background: #262b41 !important;
+    }
+    .page-main {
+        background: #212139;
+        min-height: 600px;
+        margin: 30px auto !important;
+        padding: 0 80px !important;
+    }
+    .page-main h3 {
+        line-height: 110px;
+        text-align: center;
+        position: relative;
+    }
+    .page-main h3 span {
+      color: #ddd;
+    }
+    .page-main h3 a {
+        position: absolute;
+        font-size: 14px;
+        color: #77abf4;
+        top: 0;
+        right: 160px;
+    }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-18b300d4="" class="wrap">
+        <!--<div data-v-18b300d4="" id="head" style="width: 60%">-->
+            <!--<div data-v-18b300d4="" class="head_content"><h3 data-v-18b300d4="" class="product-name"><span-->
+                    <!--data-v-18b300d4="">{$Think.lang.master_list}</span></h3>-->
+                <!--<div data-v-18b300d4="" class="left" onclick="window.history.back()"><a data-v-18b300d4="" class="arrow_left"></a></div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+
+        <div class="page-main">
+          <h3>
+            <span>{$Think.lang.master_list}</span>
+            <a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+          </h3>
+          <div data-v-18b300d4="" class="con-header-wrap">
+            <ul data-v-18b300d4="" class="con-header">
+              <li data-v-18b300d4="" data="1" class="active"><p data-v-18b300d4="">{$Think.lang.income_master}</p></li>
+              <li data-v-18b300d4="" data="2" class=""><p data-v-18b300d4="">{$Think.lang.always_win}</p></li>
+              <li data-v-18b300d4="" data="3" class=""><p data-v-18b300d4="">{$Think.lang.popularity}</p></li>
+            </ul>
+          </div>
+          <div data-v-18b300d4="" id="mescroll0" class="mescroll">
+            <ul data-v-18b300d4="" id="dataList0" class="earnings-list data-list">
+
+              <volist name="data['profitData']" id="vo">
+                <li data-v-18b300d4="" class="earnings-list-wrap" onclick="window.location.href='{:U('profitDetails',array('uid' => $vo['uid']))}'">
+                  <div data-v-18b300d4="" class="portrait-wrap left">
+                    <img data-v-18b300d4="" src="{$vo.face}" class="portrait">
+                    <span data-v-18b300d4="" class="portrait-grade">Lv{$vo.level}</span>
+                    <p data-v-18b300d4=""> {$vo.nickname}</p>
+                  </div>
+                  <ol data-v-18b300d4="" class="earnings-list-con left">
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.profit}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.yield}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.correct}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.accurate}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.followCount}</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.follow_people}</p></li>
+                    <li data-v-18b300d4="">
+                      <a href="{:U('orderFollow',array('uid' => $vo['uid']))}">
+                        <notempty name="vo['follow_user_id']">
+                          <eq name="user_id" value="$vo['follow_user_id']">
+                            <span data-v-18b300d4="" class="follow-btn" style="color: #ff8e47;border-color: #ff8e47">{$Think.lang.edit}</span>
+                            <else />
+                            <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                          </eq>
+                          <else />
+                          <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                        </notempty>
+                      </a>
+                    </li>
+                  </ol>
+                </li>
+              </volist>
+            </ul>
+            <div class="mescroll-upwarp mescroll-hardware" style="visibility: visible;">
+              <p class="upwarp-nodata" style="color:#ddd"> {$Think.lang.no_more}</p>
+            </div>
+          </div>
+          <div data-v-18b300d4="" id="mescroll1" class="mescroll  hide">
+            <ul data-v-18b300d4="" id="dataList1" class="data-list">
+
+              <volist name="data['correctData']" id="vo">
+                <li data-v-18b300d4="" class="earnings-list-wrap" onclick="window.location.href='{:U('profitDetails',array('uid' => $vo['uid']))}'">
+                  <div data-v-18b300d4="" class="portrait-wrap left">
+                    <img data-v-18b300d4="" src="{$vo.face}" class="portrait">
+                    <span data-v-18b300d4="" class="portrait-grade">Lv{$vo.level}</span>
+                    <p data-v-18b300d4=""> {$vo.nickname}</p>
+                  </div>
+                  <ol data-v-18b300d4="" class="earnings-list-con left">
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.profit}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.yield}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.correct}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.accurate}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.followCount}</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.follow_people}</p></li>
+                    <li data-v-18b300d4="">
+                      <a href="{:U('orderFollow',array('uid' => $vo['uid']))}">
+                        <notempty name="vo['follow_user_id']">
+                          <eq name="user_id" value="$vo['follow_user_id']">
+                            <span data-v-18b300d4="" class="follow-btn" style="color: #ff8e47;border-color: #ff8e47">{$Think.lang.edit}</span>
+                            <else />
+                            <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                          </eq>
+                          <else />
+                          <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                        </notempty>
+                      </a>
+                    </li>
+                  </ol>
+                </li>
+              </volist>
+            </ul>
+            <div class="mescroll-upwarp mescroll-hardware" style="visibility: visible;">
+              <p class="upwarp-nodata" style="color:#ddd"> {$Think.lang.no_more}</p>
+            </div>
+          </div>
+          <div data-v-18b300d4="" id="mescroll2" class="mescroll  hide">
+            <ul data-v-18b300d4="" id="dataList2" class="data-list">
+              <volist name="data['followData']" id="vo">
+                <li data-v-18b300d4="" class="earnings-list-wrap" onclick="window.location.href='{:U('profitDetails',array('uid' => $vo['uid']))}'">
+                  <div data-v-18b300d4="" class="portrait-wrap left">
+                    <img data-v-18b300d4="" src="{$vo.face}" class="portrait">
+                    <span data-v-18b300d4="" class="portrait-grade">Lv{$vo.level}</span>
+                    <p data-v-18b300d4=""> {$vo.nickname}</p>
+                  </div>
+                  <ol data-v-18b300d4="" class="earnings-list-con left">
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.profit}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.yield}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.correct}%</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.accurate}</p></li>
+                    <li data-v-18b300d4=""><p data-v-18b300d4="" class="earnings-num">{$vo.followCount}</p>
+                      <p data-v-18b300d4="" class="earnings-list-txt">{$Think.lang.follow_people}</p></li>
+                    <li data-v-18b300d4="">
+                      <a href="{:U('orderFollow',array('uid' => $vo['uid']))}">
+                        <notempty name="vo['follow_user_id']">
+                          <eq name="user_id" value="$vo['follow_user_id']">
+                            <span data-v-18b300d4="" class="follow-btn" style="color: #ff8e47;border-color: #ff8e47">{$Think.lang.edit}</span>
+                            <else />
+                            <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                          </eq>
+                          <else />
+                          <span data-v-18b300d4="" class="follow-btn">{$Think.lang.follow}</span>
+                        </notempty>
+                      </a>
+                    </li>
+                  </ol>
+                </li>
+              </volist>
+            </ul>
+            <div class="mescroll-upwarp mescroll-hardware" style="visibility: visible;">
+              <p class="upwarp-nodata" style="color:#ddd"> {$Think.lang.no_more}</p>
+            </div>
+          </div>
+        </div>
+
+        <include file="Base:trueFooter" />
+
+    </div>
+</div>
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script>
+    $('.con-header li').click(function () {
+        $('.con-header li').removeClass('active')
+        $(this).addClass('active')
+        $('.mescroll').hide()
+        if($(this).attr('data')==1){
+            $('#mescroll0').show()
+        }else if($(this).attr('data')==2){
+            $('#mescroll1').show()
+        }else{
+            $('#mescroll2').show()
+        }
+    });
+
+    function jumpUrl(url)
+    {
+        window.location.href=url;
+    }
+</script>
+</body>
+</html>

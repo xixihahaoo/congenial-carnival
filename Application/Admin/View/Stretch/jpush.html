@@ -1,0 +1,89 @@
+<extend name="Base/common"/>
+<block name="content">
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<link rel="stylesheet" href="__CSS__/layerui/css/layui.css"  media="all">
+<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__css/layer/layer.js"></script>
+              
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>信息推送</legend>
+</fieldset>
+<form id="submit" method="post">
+
+
+  <div class="layui-form-item">
+    <label class="layui-form-label">推送标题</label>
+    <div class="layui-input-inline">
+      <input type="text" name="title" lay-verify="notpassword" autocomplete="off"  placeholder="请输入推送标题" class="layui-input">
+    </div>
+      <div class="layui-form-mid layui-word-aux">输入推送标题</div>
+  </div>
+
+
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">推送内容</label>
+    <div class="layui-input-block" style="width: 50%;">
+      <textarea placeholder="请输入要推送的内容" class="layui-textarea" name="content"></textarea>
+    </div>
+
+  </div>
+
+
+</form>
+
+  <div class="layui-form-item">
+    <button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-left: 2%;">确认发送</button>
+  </div>
+
+
+
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+
+
+<script>
+ 
+ $(".layui-btn").click(function(){
+      
+      var title   = $('input[name=title]').val();
+      var content = $('textarea[name=content]').val();
+
+      if(title == '')
+        return layer.msg('请输入要推送的标题');
+
+      if(content == '')
+        return layer.msg('请输入要推送的内容');
+
+      var index = layer.load(2, {
+          shade: [0.1,'#fff'] //0.1透明度的白色背景
+      });
+        
+      $.ajax({
+          url: "{:U('jpush')}",
+          dataType: 'json',
+          type: 'post',
+          data: $("#submit").serialize(),
+          success: function (data) {
+            
+            if(data.code !== 200){
+
+                layer.close(index);     
+                layer.msg('网络堵塞，请稍后再试！');
+                return false;
+              }
+
+            if(data.code === 200){
+
+                layer.close(index);     
+                layer.msg(data.msg);
+                window.setTimeout("location.reload();",1000);
+                return false;
+              }
+          }
+      });
+ });
+</script>
+
+</block>

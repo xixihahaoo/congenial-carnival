@@ -1,0 +1,124 @@
+<include file="Common:layer_content_header" />
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            <i class="icon-double-angle-right"></i>
+            修改销售商信息
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <form class="form-horizontal" role="form" id="id_form">
+                <input type="hidden" name="user_id" value="{$userInfo.uid}">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 销售商登录用户名 </label>
+                    <div class="col-sm-9">
+                        <input class="col-xs-10 col-sm-5" id="form-input-readonly" name="username" value="{$userInfo.username}" disabled="disabled" type="text">
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 销售商登录密码 </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="" id="id_password" name="password" placeholder="销售商登录密码" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 销售商昵称 </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="{$userInfo.nickname}" id="id_nickname" name="nickname" placeholder="销售商昵称" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 销售商手机号 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id_mobile" value="{$userInfo.utel}" name="mobile" placeholder="销售商手机号" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 此销售商开放持仓监控 </label>
+                    <div class="col-sm-9">
+                        <label><input type="radio" id="opentlist1" name="opentlist" value="1" <if condition="$userInfo['opentlist'] eq 1">checked="checked"</if> /> 是 &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label><input type="radio" id="opentlist0" name="opentlist" value="0" <if condition="$userInfo['opentlist'] eq 0">checked="checked"</if>/> 否</label>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="hr hr-24"></div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9 center">
+                        <a class="btn btn-success" href="#" id="submit_btn">
+                            <i class="icon-ok"></i>
+                            确认提交
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+
+
+            </form>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+<include file="Common:layer_content_footer" />
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+
+    });
+
+    $('#submit_btn').bind('click', function(){
+        var password   = $('#id_password').val();
+        var nickname   = $('#id_nickname').val();
+        var mobile  = $('#id_mobile').val();
+
+        if(nickname == '' || mobile == ''){
+            alert('信息不能为空');
+            return false;
+        }
+
+        $.ajax({
+            type: "post",
+            url: "{:U('agentf/opt_edit_agent')}",
+            data:$("#id_form").serialize(),
+            success: function(data) {
+                //console.log(data);
+                if(data.status == 1)
+                {
+                    alert('保存成功');
+                    parent.location.reload();
+                    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                    parent.layer.close(index);
+                }
+                else
+                {
+                    alert(data.ret_msg);
+                }
+
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        })
+    });
+</script>
+
+
+
+<script src="__PUBACE__/assets/js/ace-elements.min.js"></script>
+<script src="__PUBACE__/assets/js/ace.min.js"></script>

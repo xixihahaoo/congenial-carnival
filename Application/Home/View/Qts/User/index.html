@@ -1,0 +1,294 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.personal_center}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Qts/Home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Qts/Home/css/user.css">
+    <style>
+        body{
+            background: #1F222B;
+        }
+        .m-m {
+            /*background: rgba(28, 26, 37,.5);*/
+        }
+        .h-con1lf {
+            line-height: 0.3rem;
+        }
+        .h-t1, .h-t {
+            height: 0.3rem !important;
+            line-height: 0.3rem !important;
+            border: 1px solid #ffc22a !important;
+            color: #ffc22a !important;
+        }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background: rgba(1, 40, 97,.5); opacity: 1;"></div>
+    <div data-v-adff73de="" class="page-main" style="padding: 0 !important;">
+        <div data-v-adff73de="" class="page-shadowC">
+
+            <empty name="Think.session.user_id">
+
+                <div class="h-h" data-v-adff73de="">
+                    <div class="p-img fr" data-v-adff73de="">
+                        <img src="__PUBLIC__Qts/Home/img/me/1499222434250.png" class="fr" data-v-adff73de="">
+                    </div>
+                    <div class="p-info fl" data-v-adff73de="">
+                        <div class="p-login" data-v-adff73de="">
+                            <span data-v-adff73de="">{$Think.lang.hello},</span>
+                        </div>
+
+                        <div style="display:flex" data-v-adff73de="">
+                            <p class="accountchange" data-v-adff73de="">{$Think.lang.not_logged}。</p>
+                            <div class="p-plates" data-v-adff73de="">
+                                <strong class="plate-selected" data-v-adff73de="" onclick="window.location.href='{:U('Login/login')}'">{$Think.lang.login}</strong>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div data-v-adff73de="" class="h-con1">
+                    <div data-v-adff73de="" class="h-con1lf">
+                        {$Think.lang.account_balance}：$0.00
+                    </div>
+                        <div data-v-adff73de="" class="h-con1rf" onclick="window.location.href='{:U('Login/login')}'">
+                            <span data-v-adff73de="" class="h-t1" style="float: left;">{$Think.lang.recharge}</span>
+                            <span data-v-adff73de="" class="h-t1">{$Think.lang.withdrawal}</span>
+                        </div>
+                </div>
+
+            <else />
+
+                <div data-v-adff73de="" class="h-h">
+                    <div data-v-adff73de="" class="p-img fr">
+                        <a href="{:U('userInfo')}">
+                            <img data-v-adff73de="" src="{$user.face}" class="fr">
+                        </a>
+                    </div>
+                    <div data-v-adff73de="" class="p-info fl">
+                        <div data-v-adff73de="" class="p-login1" style="color: #ffbf23">{$user.nickname}</div>
+                        <div data-v-adff73de="" style="display: flex;">
+
+                            <eq name="user['now_trade_status']" value="1">
+                                <p data-v-adff73de="" class="accountchange">{$Think.lang.firm_account}</p>
+                            <else />
+                                <p data-v-adff73de="" class="accountchange">{$Think.lang.simulated_accounts}</p>
+                            </eq>
+
+                            <div data-v-adff73de="" class="p-plate">
+                                <a href="{:U('BrokersSwitch')}">
+                                    <strong data-v-adff73de="" class="plate-selected">{$Think.lang.switching_accounts}</strong>
+                                </a>
+                            </div>
+                        </div>
+                        <img data-v-adff73de="" src="__PUBLIC__Qts/Home/img/public/LV{$user.level}@2x.png" class="gradeimg">
+
+                        <!--<if condition="$personal['status'] eq '1'">-->
+                        <!--<elseif condition="$personal['status'] eq '0'" />-->
+                            <!--<p style="color: #E3950D; font-weight: bold; position: absolute; right: .16rem;font-size: 14px;">{$Think.lang.in_audit}</p>-->
+                        <!--<else/>-->
+                            <!--<p style="color: #E3950D; font-weight: bold; position: absolute; right: .16rem;font-size: 14px;">{$Think.lang.uncertified}</p>-->
+                        <!--</if>-->
+                    </div>
+                </div>
+
+                <eq name="user['now_trade_status']" value="1">
+                    <div class="h-con1" data-v-adff73de="">
+                        <div class="h-con1lf" data-v-adff73de="">
+                            {$Think.lang.account_balance}：<span style="color: #ffca34">${$account.balance}</span>
+                        </div>
+                        <div class="h-con1rf" data-v-adff73de="">
+                            <!--<a href="{:U('Recharge/index')}">-->
+                            <a href="{:U('Recharge/index')}" target="_self">
+                                <span class="h-t" style="border:1px solid #ffca34;float: left;" data-v-adff73de="">{$Think.lang.recharge}</span>
+                            </a>
+                            <a href="{:U('Withdrawals/index')}">
+                                <span class="h-t" style="border:1px solid #ffca34;" data-v-adff73de="">{$Think.lang.withdrawal}</span>
+                            </a>
+                        </div>
+                    </div>
+                <else />
+                    <div class="h-con1" data-v-adff73de="">
+                        <div class="h-con1lf" data-v-adff73de="">
+                            {$Think.lang.simulated_balance}：${$account.gold}
+                        </div>
+                        <div class="h-con1rf" data-v-adff73de="">
+                            <span class="h-t1" style="float: left;" data-v-adff73de="" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.recharge}</span>
+                            <span class="h-t1" data-v-adff73de="" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.withdrawal}</span>
+                        </div>
+                    </div>
+                </eq>
+
+            </empty>
+
+                <div data-v-adff73de="" class="managerlist">
+                    <ul data-v-adff73de="" class="man-f">
+
+                    <a href="{:U('Follow/index')}">
+                        <li data-v-adff73de="">
+                            <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img2.png">
+                            <p data-v-adff73de="">{$Think.lang.following}</p>
+                        </li>
+                    </a>
+
+                    <a href="{:U('Investment/index')}">
+                        <li data-v-adff73de="">
+                            <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img3.png">
+                            <p data-v-adff73de="">{$Think.lang.statistics}</p>
+                        </li>
+                    </a>
+
+                    <a href="{:U('Withdrawals/bankinfo')}">
+                        <li data-v-adff73de="">
+                            <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img4.png">
+                            <p data-v-adff73de="">{$Think.lang.banks}</p>
+                        </li>
+                    </a>
+
+                    <a href="{:U('Message/index')}">
+                        <li data-v-adff73de="" class="linksystem">
+                            <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img7.png">
+                            <p data-v-adff73de="">{$Think.lang.meessage}</p>
+                            <if condition="$NoreadCount egt '1'">
+                            <strong data-v-adff73de=""></strong>
+                            </if>
+                        </li>
+                    </a>
+    
+    
+                    <notempty name="user['code']">
+                        <a href="{:U('Extension/index')}">
+                            <li data-v-adff73de="">
+                                <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img6.png">
+                                <p data-v-adff73de="">{$Think.lang.promotion}</p>
+                            </li>
+                        </a>
+                    <else />
+                            <li data-v-adff73de="" onclick="applyAgent();">
+                                <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img6.png">
+                                <p data-v-adff73de="">{$Think.lang.promotion}</p>
+                            </li>
+                </notempty>
+                    
+                    </ul>
+                        <!--<img onclick="window.location.href='{:U('Index/advanced')}'" data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/pic_enter_class@2x.png" class="waihuiweek">-->
+                </div>
+
+                <div data-v-adff73de="" class="m-m">
+                    <ul data-v-adff73de="" class="h-f">
+                        <!--<li data-v-adff73de="" class="linkus" onclick="window.location.href='http://tb.53kf.com/code/client/10173921/1'">-->
+                            <!--{$Think.lang.service}-->
+                            <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img8.png">-->
+                        <!--</li>-->
+
+                        <li data-v-adff73de="" class="warning linkus" onclick="window.location.href='{:U('Help/Risk')}'">
+                            {$Think.lang.risk_warning}
+                            <img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img8.png">
+                        </li>
+
+                        <li data-v-adff73de="" class="helps" onclick="window.location.href='{:U('Help/help')}'">{$Think.lang.help_center}</li>
+
+                        <!--<li data-v-adff73de="" class="set" onclick="window.location.href='{:U('Lang/index')}'">{$Think.lang.lang_choice}</li>-->
+
+                        <li data-v-adff73de="" class="set" onclick="window.location.href='{:U('Setting/index')}'">{$Think.lang.account_settings}</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <include file="Base:footer" />
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+
+<script type="text/javascript">
+
+//信息提示
+    function MsgPrompt(msg)
+    {
+        layer.open({
+            content: msg
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+        });
+    }
+
+    //申请成为代理商
+    function applyAgent()
+    {
+        layer.open({
+            content: "{$Think.lang.confim_msg}"
+            ,btn: ["{$Think.lang.determine}", "{$Think.lang.do_not}"]
+            ,shadeClose:false
+            ,yes: function(index){
+                var please_wait = "{$Think.lang.please_wait}";
+                var load   = layer.open({type: 2,shadeClose:false,content:please_wait});
+                $.ajax({
+                    url: "{:U('Extension/applyAgent')}",
+                    dataType: 'json',
+                    type: 'post',
+                    success: function (data) {
+                        layer.open({
+                            content: data.msg
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                        layer.close(load);
+                        if(data.code == 200) return setTimeout(" window.location.href='{:U('Extension/index')}'",500);
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                });
+            }
+        });
+    }
+
+    window.onload=function(){
+        //设置底部导航选中状态
+        $('.footer > ul > li').last().find('a').addClass('common3');
+        $('.footer > ul > li').last().find('em').addClass('selected');
+    }
+
+
+    // function sort(array)
+    // {
+    //     var compare = function(val1,val2){
+    //         return val2 - val1;
+    //     };
+    //
+    //     array.sort(compare);
+    //
+    //     return array;
+    // }
+// console.log(sort([2,3,45,7]));
+
+    // function sum(head,foot){
+    //     let arr = [];
+    //     let a   = 0;//鸡
+    //     let b   = 0;//兔
+    //     for(let a = 0; a < head; a++){
+    //         b= (head-a);
+    //         if(2*a+4*b==foot){
+    //             arr.push(a,b);
+    //         }
+    //     }
+    //
+    //     return arr;
+    // }
+    //
+    // arr = sum(48,132);
+
+
+
+
+</script>

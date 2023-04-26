@@ -1,0 +1,167 @@
+<extend name="Base/common"/>
+<block name="content">
+	<link href="/Public/Admin/css/bootstrap/bootstrap-switch.css" type="text/css" rel="stylesheet" />
+	<link href="/Public/Admin/css/bootstrap/highlight.css" type="text/css" rel="stylesheet" />
+	
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="__PUBCSS__/public.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="__CSS__/compiled/article.css" type="text/css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+	
+	<style>
+		.layui-layer-dialog .layui-layer-content {
+			position: relative;
+			padding: 20px;
+			line-height: 24px;
+			word-break: break-all;
+			overflow: hidden;
+			font-size: 14px;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+	</style>
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="users-list">
+			<div class="row-fluid header head2">
+				<h3><if condition="$posiname">{$posiname.name}<else />产品管理</if>&nbsp;>&nbsp;时间交易设置</h3>
+			
+			</div>
+			<div class="row-fluid header">
+				<form  action="{:U('Goods/gdel')}" method="post" name="del">
+					<div class="row-fluid table">
+						<table class="table table-hover">
+							<thead>
+							<tr>
+								<th class="span1 sortable">
+									编号
+								</th>
+								<th class="span3 sortable">
+									<span class="line"></span>商品名称
+								</th>
+								
+								<th class="span2 sortable">
+									<span class="line"></span>手续费比例 %
+								</th>
+								
+								<th class="span3 sortable">
+									<span class="line"></span>设置
+								</th>
+							
+							</tr>
+							</thead>
+							<tbody id="ajaxback">
+							<volist name="optionRs" id="v">
+								<!-- row -->
+								<tr class="first">
+									<td>
+										{$v['id']}
+									</td>
+									
+									<td>
+										<a href="#" class="name">{$v['capital_name']}</a>
+									</td>
+									
+									<td>
+										<a class="layui-btn layui-btn layui-btn-primary overnight_fee" onclick="edit({$v['id']},'fee_time','手续费比例')">{$v['fee_time']}</a> %
+									</td>
+									
+									<td>
+										<a class="layui-btn layui-btn-normal layui-btn-radius timeSet" data-id="{$v['id']}">设置</a>
+									</td>
+								
+								</tr>
+							</volist>
+							</tbody>
+						</table>
+					</div>
+					<div class="pagination pull-right">
+						<ul>
+							{$page}
+						</ul>
+					</div>
+				</form>
+			</div>
+			
+			<!-- end users table -->
+		</div>
+	</div>
+	</div>
+	<!-- end main container -->
+	
+	
+	<!-- scripts -->
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="/Public/Admin/css/bootstrap/highlight.js"></script>
+	<script src="/Public/Admin/css/bootstrap/bootstrap-switch.js"></script>
+	
+	<script src="__JS__/theme.js"></script>
+	<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+	<script type="text/javascript">
+	
+	</script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            //时间玩法设置
+            $('.timeSet').click(function () {
+                layer.open({
+                    type: 2,
+                    area: ['85%', '85%'],
+                    fixed: true, //不固定
+                    maxmin: true,
+                    title: "时间交易玩法设置",
+                    content: ["{:U('Goods/timeSet')}?option_id="+$(this).attr('data-id'), 'no'],
+                    end: function () {
+                        top.location.reload();
+                    }
+                });
+            });
+
+        });
+
+        function edit(option_id,field,msg){
+
+            layer.prompt({title: '请输入要修改的'+msg+'', formType: 0}, function(pass, index){
+                layer.close(index);
+
+                $.ajax({
+                    type: "post",
+                    url: "{:U('Goods/good_fee')}",
+                    data:{'option_id' : option_id,'pass' : pass,'field' : field},
+                    success: function(data) {
+                        console.log(data.status);
+                        if(data.status == 1)
+                        {
+                            layer.open({
+                                content: data.msg,
+                                btn: '确定',
+                                yes: function(index, layero){
+                                    layer.close(index);
+                                    top.location.reload();
+                                }
+                            });
+                        }
+                        else
+                        {
+                            layer.open({
+                                content: data.msg,
+                                btn: '确定',
+                                yes: function(index, layero){
+                                    layer.close(index);
+                                    top.location.reload();
+                                }
+                            });
+                        }
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                });
+
+            });
+        }
+	</script>
+</block>
+
+
+

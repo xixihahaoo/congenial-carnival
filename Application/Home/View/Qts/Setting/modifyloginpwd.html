@@ -1,0 +1,197 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.save_pwd}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+
+        .icon[data-v-525c5c54] {
+            right: 0
+        }
+
+        .content[data-v-525c5c54] {
+            font-family: PingFangSC-Regular
+        }
+
+        .form[data-v-525c5c54] {
+            padding: 0 .14rem;
+            font-size: .14rem;
+            background: #171520
+        }
+
+        .form > div[data-v-525c5c54] {
+            height: .4rem;
+            line-height: .4rem
+        }
+
+        .form input[data-v-525c5c54] {
+            height: .3rem;
+            line-height: .3rem;
+            width: 80%
+        }
+
+        .form-item1[data-v-525c5c54]:before, .form-item2[data-v-525c5c54]:before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            bottom: 0;
+            border-bottom: 1px solid #e2e5e8;
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5);
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .form-item1[data-v-525c5c54], .form-item2[data-v-525c5c54] {
+            position: relative
+        }
+
+        .form-item1 > dl[data-v-525c5c54] {
+            width: .16rem;
+            height: .16rem;
+            position: absolute;
+            top: .17rem;
+            right: .14rem
+        }
+
+        .form-item2 > p[data-v-525c5c54] {
+            top: .2rem;
+            right: 0
+        }
+
+        .next[data-v-525c5c54] {
+            margin-top: .5rem;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            background-image: -o-linear-gradient(319deg, #cdcfd1 0, #d1d2d5 100%);
+            background-image: linear-gradient(-229deg, #cdcfd1, #d1d2d5);
+            border-radius: 0.05rem;
+        }
+
+        .worrytip[data-v-525c5c54] {
+            font-size: .12rem;
+            padding-top: .1rem;
+            color: #ddd
+        }
+
+        label[data-v-7ccdb03b] {
+            display: block;
+            border-bottom: 1px solid #e2e5e8
+        }
+
+        input[data-v-7ccdb03b] {
+            display: block;
+            line-height: .5rem;
+            top: .2rem;
+            width: 80%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        label .icon_s[data-v-7ccdb03b] {
+            position: absolute;
+            display: block;
+            right: 0;
+            top: .15rem;
+            background-size: 100%
+        }
+
+        p[data-v-7ccdb03b] {
+            padding: .09rem .14rem .47rem;
+            color: #999;
+            font-size: .12rem
+        }
+
+        span[data-v-7ccdb03b] {
+            color: #f7b059
+        }
+        .btnShow[data-v-525c5c54] {
+            /*background-image: -o-linear-gradient(319deg,#1254a8 0,#0c62c1 100%);*/
+            /*background-image: linear-gradient(-229deg,#1254a8,#0c62c1);*/
+            color: #000;
+            background: #ffbf23;
+        }
+
+    </style>
+    <style type="text/css" data-n-head="true">#head {
+        z-index: 100
+    }</style>
+</head>
+<body class="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-525c5c54="" class="content">
+        <div data-v-525c5c54="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>{$Think.lang.save_pwd}</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+        <section data-v-525c5c54="" class="page-main">
+            <div data-v-525c5c54="" class="form">
+                <div data-v-525c5c54="" class="form-item1">
+                    <input data-v-525c5c54="" type="password" maxlength="15" name="" id="password" placeholder="{$Think.lang.input_old_pwd}">
+                </div>
+
+                <div data-v-525c5c54="" class="form-item2">
+                    <input data-v-525c5c54="" type="password" maxlength="15" name="" id="newpassword" value="" placeholder="{$Think.lang.input_new_pwd}">
+                    <p data-v-525c5c54="" class="icon icon_pwd"></p>
+                </div>
+
+                <p data-v-525c5c54="" class="worrytip">{$Think.lang.set_new_pwd}</p>
+                <div data-v-525c5c54="" class="next btnShow" onclick="submit();">{$Think.lang.submit}</div>
+            </div>
+        </section>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script type="text/javascript">
+    $('.icon_pwd').on('click',function(){
+
+        var type = $('#newpassword').attr('type');
+
+        type = type == 'text' ? 'password' : 'text';
+
+        $('#newpassword').attr('type',type);
+    });
+
+
+    //绑定提交
+    function submit()
+    {
+        var index   = layer.load(2);
+
+        var password        = $('#password').val();
+        var newpassword     = $('#newpassword').val();
+
+        $.ajax({
+            url:"{:U('modifyLoginPwd')}",
+            dataType: 'json',
+            type: 'post',
+            data: {'password':password,'newpassword':newpassword},
+            success:function(data){
+
+                if(data.code == 200){
+
+                    layer.close(index);
+                    layer.msg(data.msg);
+                    return setTimeout(" window.location.href='{:U('User/index')}'",500);
+                } else{
+                    layer.close(index);
+                    return layer.msg(data.msg);
+                }
+            }
+        });
+    }
+
+</script>

@@ -1,0 +1,497 @@
+    <include file="Base:header" />
+    <title>开设经纪商账户</title>
+    
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/layui2/css/layui.css"  media="all">
+    
+    <style data-vue-ssr-id="6c62b982:0 73881502:0">
+        .page-main[data-v-ce61b306] {
+        padding: .5rem 0 0
+    }
+
+    .input-text[data-v-ce61b306] {
+        /* background-color: #fff; */
+        overflow: hidden
+    }
+
+    .card-tit[data-v-ce61b306] {
+        padding: .2rem .14rem;
+        font-size: 15px;
+       /*  color: #333 */
+       color: #FEBF2A;
+    }
+
+    [data-v-ce61b306]::-webkit-input-placeholder {
+        color: #ddd !important
+    }
+
+    .content[data-v-ce61b306] {
+        position: relative
+    }
+
+    .banktip[data-v-ce61b306] {
+        font-family: PingFangSC-Regular;
+        font-size: 15px;
+        /* color: #333; */
+        color: #FEBF2A;
+        letter-spacing: 0;
+        padding: 0 .14rem;
+        margin-top: .5rem
+    }
+    .loading img[data-v-ce61b306] {
+        position: absolute;
+        top: 50%;
+        margin-top: -20.5%;
+        left: 45%;
+        width: .4rem
+    }
+
+    .icon[data-v-ce61b306] {
+        top: .2rem;
+        right: .1rem
+    }
+
+    .form[data-v-ce61b306] {
+        font-size: .14rem;
+        padding: 0 .14rem;
+       /*  background: #fff */
+    }
+
+    .form > div[data-v-ce61b306] {
+        height: .5rem;
+        line-height: .5rem;
+       /*  border: 1px solid #ddd; */
+           border: 1px solid #FEBF2A;
+        border-radius: .05rem;
+        margin-top: .2rem;
+        text-indent: .1rem;
+        color: #fff;
+    }
+ input[placeholder] {
+ 9         /* placeholder颜色  */
+10         color: #aab2bd;
+15     }
+
+    .form-item1[data-v-ce61b306], .form-item2[data-v-ce61b306] {
+        position: relative
+    }
+
+    .form-item2 > p[data-v-ce61b306] {
+        color: #999;
+        position: absolute;
+        right: .14rem;
+        top: 0
+    }
+
+    .upload[data-v-ce61b306] {
+        width: 48%;
+        height: 1rem;
+        font-size: 30px;
+        border-radius: 5px;
+        text-align: center;
+        position: relative
+    }
+
+    .upload span[data-v-ce61b306] {
+        position: relative;
+        display: block;
+        height: 90%
+    }
+
+    .upload span > img[data-v-ce61b306] {
+        width: 100%;
+        height: 100%
+    }
+
+    .upload span > input[data-v-ce61b306] {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0
+    }
+
+    .left[data-v-ce61b306] {
+        background: url(__PUBLIC__Qts/Home/img/user/btn_photo_idcard@2x.png);
+        background-size: 100% 1rem;
+        background-repeat: no-repeat;
+        background-position: 50%
+    }
+
+    .right[data-v-ce61b306] {
+        background: url(__PUBLIC__Qts/Home/img/user/btn_photo_idcard2@2x.png);
+        background-size: 100% 1rem;
+        background-repeat: no-repeat;
+        background-position: 50%
+    }
+
+    .upImg[data-v-ce61b306] {
+        width: 100%;
+        padding: 0 .15rem;
+        display: inline-block;
+        overflow: hidden
+    }
+
+    .cardText p[data-v-ce61b306] {
+        text-align: center;
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .cnt > img[data-v-ce61b306] {
+        width: 100%;
+        height: 100%
+    }
+
+    .imgzip[data-v-ce61b306] {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto
+    }
+
+    .subJiao[data-v-ce61b306] {
+        /* margin: .4rem .14rem;
+        height: .45rem;
+        line-height: .45rem;
+        color: #fff;
+        font-size: .16rem;
+        text-align: center;
+        background-image: -o-linear-gradient(319deg, #cdcfd1 0, #d1d2d5 100%);
+        background-image: linear-gradient(-229deg, #cdcfd1, #d1d2d5);
+        border-radius: 1rem */
+        margin: .4rem .14rem;
+        height: .4rem;
+        line-height: .4rem;
+        color: #000;
+        font-size: .16rem;
+        text-align: center;
+        background-image: -o-linear-gradient(319deg, #cdcfd1 0, #d1d2d5 100%);
+        background-image: linear-gradient(-229deg, #cdcfd1, #d1d2d5);
+        border-radius: 0.051rem;
+    }
+
+    .namecolor[data-v-ce61b306] {
+        background: #ffc42f
+    }
+
+    .buzou[data-v-ce61b306] {
+        width: 85%;
+        margin: .2rem auto;
+        height: .05rem;
+        background: #ddd;
+        position: relative
+    }
+
+    .buzou img[data-v-ce61b306] {
+        width: .14rem;
+        height: .14rem;
+        position: absolute;
+        top: -.04rem
+    }
+
+    .buzou b[data-v-ce61b306] {
+        position: absolute;
+        top: .15rem;
+        font-size: 12px;
+        /* color: #999; */
+        color: #fff;
+        font-weight: 400
+    }
+
+    .bone[data-v-ce61b306] {
+        left: -.18rem
+    }
+
+    .btwo[data-v-ce61b306] {
+        left: 21%
+    }
+
+    .bthree[data-v-ce61b306] {
+        right: 27%
+    }
+
+    .bfour[data-v-ce61b306] {
+        right: -.07rem
+    }
+
+    .yuanimg1[data-v-ce61b306] {
+        left: -.01rem
+    }
+
+    .yuanimg2[data-v-ce61b306] {
+        left: 32%
+    }
+
+    .yuanimg3[data-v-ce61b306] {
+        right: 32%
+    }
+
+    .yuanimg4[data-v-ce61b306] {
+        right: -.01rem
+    }
+
+    .buzou span[data-v-ce61b306] {
+        display: inline-block;
+        height: .08rem;
+        width: 23%;
+        background: #ddd
+    }
+
+    #head2 {
+        width: 100%;
+        height: .5rem;
+        text-align: center;
+      /*   background: #fff; */
+        -webkit-box-shadow: inset 0 0 0 0 #e5e5e5;
+        box-shadow: inset 0 0 0 0 #e5e5e5;
+        font-size: 17px;
+      /*   color: #333; */
+      color: #FEBF2A;
+        letter-spacing: -.41px;
+        position: fixed;
+        z-index: 1000;
+        top: 0
+    }
+
+    #head2 h3 {
+        height: .5rem;
+        line-height: .5rem;
+        margin: 0;
+        font-size: .16rem;
+        font-weight: 400;
+        overflow: hidden
+    }
+
+    .product-name {
+        position: relative
+    }
+
+    #head2 h3 span:first-of-type {
+        display: block;
+        font-size: .16rem
+    }
+
+    .product-name em {
+        position: absolute;
+        top: .18rem;
+        font-size: .12rem;
+        left: 50%;
+        margin-left: -.32rem
+    }
+
+    #head2 .head_content .left {
+        position: absolute;
+        top: 0;
+        left: .2rem
+    }
+
+    #head2 .head_content .left a {
+        font-size: .2rem
+    }
+
+    #head1 .head_content .left a, #head2 .head_content .left a, #head2 .head_content .right a {
+        color: #fff;
+        line-height: .5rem
+    }
+
+    #head2 .arrow_left:after {
+        content: " ";
+        display: inline-block;
+        -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        height: 13px;
+        width: 13px;
+        border-width: 2px 2px 0 0;
+        /* border-color: #333; */
+        border-color: #B2B1B7;
+        border-style: solid;
+        position: relative;
+        top: -2px;
+        position: absolute;
+        left: 0;
+        top: 19px
+    }
+
+    #head2 .arrow_right {
+        top: -.45rem
+    }
+    input::-webkit-input-placeholder{
+            color:red;
+        }
+        input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+            color:red;
+        }
+        input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+            color:red;
+        }
+        input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+            color:red;
+        }
+</style>
+</head>
+<body data-n-head=""style="background: #1C1A25 !important;">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+    <div class="content" data-v-ce61b306="">
+        <div data-v-d7866d92="" id="head2">
+            <div class="head_content" style="border-bottom: 1px solid #3D3E37;"><h3 class="product-name"><span>开设经纪商账户</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right">
+                <a href="{:U('index')}"><img style="width: .15rem" src="__PUBLIC__Qts/Home/img/user/exit.png"></a>
+                </div>
+            </div>
+        </div>
+        <section class="page-main" data-v-ce61b306="">
+
+        <form id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+            <div class="input-text" data-v-ce61b306="">
+                <div class="buzou" data-v-ce61b306="">
+                    <img src="__PUBLIC__Qts/Home/img/user/yellow.png" class="yuanimg1" data-v-ce61b306="">
+                    <b class="bone" style="color:#fff" data-v-ce61b306="">完善信息</b>
+                    <img src="__PUBLIC__Qts/Home/img/user/gray.png" class="yuanimg2" data-v-ce61b306="">
+                    <b class="btwo" data-v-ce61b306="">填写银行卡信息</b>
+                    <img src="__PUBLIC__Qts/Home/img/user/gray.png" class="yuanimg3" data-v-ce61b306="">
+                    <b class="bthree" data-v-ce61b306="">签订协议</b>
+                    <img src="__PUBLIC__Qts/Home/img/user/gray.png" class="yuanimg4" data-v-ce61b306="">
+                    <b class="bfour" data-v-ce61b306="">审核</b>
+                </div>
+                <div class="banktip" data-v-ce61b306="">填写信息</div>
+                <div class="form" data-v-ce61b306="">
+                    <div class="form-item1" data-v-ce61b306="">
+                        <input style="width: 100%" name="real_name" id="userName" placeholder="请输入真实姓名" data-v-ce61b306="" type="text" value="{$info.real_name}">
+                    </div>
+                    <div class="form-item2" data-v-ce61b306="">
+                        <input style="width: 100%;" name="card" id="uId" maxlength="18" placeholder="请输入身份证" data-v-ce61b306="" type="text" value="{$info.card}">
+                    </div>
+                </div><!---->
+            </div>
+
+            <div class="card-tit" data-v-ce61b306="">上传身份证照片</div>
+            
+            <div class="upImg" data-v-ce61b306="">
+            
+            <notempty name="info['card_positive']">
+                    <div class="upload left" data-v-ce61b306="" id="test1" style="background-image: url('../../Uploads/{$info.card_positive}')">
+                <else />
+                    <div class="upload left" data-v-ce61b306="" id="test1">
+            </notempty>
+                    <input type="hidden" value="{$info.card_positive}" id="cardPhoneFront" />
+                </div>
+    
+            <notempty name="info['card_side']">
+                <div class="upload right" data-v-ce61b306="" id="test2" style="background-image: url('../../Uploads/{$info.card_side}')">
+                    <else />
+                    <div class="upload right" data-v-ce61b306="" id="test2">
+            </notempty>
+                    <input type="hidden" value="{$info.card_side}" id="cardPhoneVerso" />
+                </div>
+    
+            </div>
+            
+
+        </form>
+            <div class="subJiao namecolor" data-v-ce61b306="" id="submit">下一步</div>
+        </section>
+    </div>
+</div>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script src="__PUBLIC__/Home/css/layui2/layui.js" charset="utf-8"></script>
+
+<script>
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+        
+        //正面图片上传
+        upload.render({
+            elem: '#test1'
+            ,url: 'imageUpload'
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                layer.load(2); //上传loading
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    layer.closeAll('loading'); //关闭loading
+                    return layer.msg(res.msg);
+                }
+                //上传成功
+                $('#test1').css('background-image','url('+res.data.src+')');
+                $('#cardPhoneFront').val(res.data.url);
+                layer.closeAll('loading'); //关闭loading
+            }
+            ,error: function(){
+                layer.closeAll('loading'); //关闭loading
+                return layer.msg('网络延迟，请稍后再试');
+            }
+        });
+        
+        //反面图片上传
+        upload.render({
+            elem: '#test2'
+            ,url: 'imageUpload'
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                layer.load(2); //上传loading
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    layer.closeAll('loading'); //关闭loading
+                    return layer.msg(res.msg);
+                }
+                //上传成功
+                console.log(res);
+                $('#test2').css('background-image','url('+res.data.src+')');
+                $('#cardPhoneVerso').val(res.data.url);
+                layer.closeAll('loading'); //关闭loading
+            }
+            ,error: function(){
+                layer.closeAll('loading'); //关闭loading
+                return layer.msg('网络延迟，请稍后再试');
+            }
+        });
+    });
+
+    //提交
+    $('#submit').on('click',function () {
+        
+        var real_name       = $('#userName').val();
+        var card            = $('#uId').val();
+        var cardPhoneFront  = $('#cardPhoneFront').val();
+        var cardPhoneVerso  = $('#cardPhoneVerso').val();
+        
+        var index = layer.load(2);
+        $.ajax({
+            type:'post',
+            dateType:'json',
+            url:"{:U('standardBind')}",
+            data:{'real_name':real_name,'card':card,'cardPhoneFront':cardPhoneFront,'cardPhoneVerso':cardPhoneVerso},
+            success:function(data){
+                layer.msg(data.info)
+                layer.close(index);
+                if(data.status == 1)
+                {
+                    window.location.href="{:U('standardBank')}";
+                } else
+                {
+                    return layer.msg(data.info);
+                }
+            },
+            error:function(response){
+                layer.close(index);
+                console.log(response);
+            }
+        });
+    });
+    
+</script>
+
+
+</body>
+</html>

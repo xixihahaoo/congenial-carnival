@@ -1,0 +1,830 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.live}</title>
+
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<style data-vue-ssr-id="2171aacc:0 f6ab7448:0 4134c036:0">
+    body{
+        /*background: #000;*/
+        
+        /*opacity: 0.9;*/
+    }
+    .textNone_content div[data-v-ea184226] {
+        width: 1.5rem;
+        height: 1.23rem;
+        margin: 0 auto
+    }
+    
+    .textNone_content p[data-v-ea184226] {
+        width: 100%;
+        text-align: center;
+        color: #b3b3b3;
+        font-size: .15rem;
+        line-height: .4rem
+    }
+    .main[data-v-3fec6f8a] {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%
+    }
+    
+    .tab[data-v-3fec6f8a] {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        height: .4rem;
+        position: absolute;
+        top: 200px;
+        padding-bottom: 0.44rem;
+        border-bottom:1px solid #444;
+        width: 95%;
+        margin-left: 2.5%;
+        
+    }
+    
+    .tab span[data-v-3fec6f8a] {
+        display: block;
+        /*  -webkit-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		-webkit-flex: 1; */
+        height: .38rem;
+        line-height: .4rem;
+        text-align: center;
+        /*  color: #999; */
+        color: #fff;
+        font-size: .17rem;
+        width: 18%;
+        margin-left: 25%;
+    }
+    
+    .tab span.on[data-v-3fec6f8a] {
+        /* color: #333; */
+        color: #ffbf23;
+        border-bottom: .02rem solid #2187f7;
+        border-bottom:.02rem solid #ffbf23;
+    }
+    
+    .chat[data-v-3fec6f8a], .course[data-v-3fec6f8a] {
+        position: absolute;
+        top: 2.4rem;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        /*  background: #f5f5f5; */
+        overflow: hidden;
+        display: none
+    }
+    
+    .show[data-v-3fec6f8a] {
+        display: block
+    }
+    
+    .chat-list[data-v-3fec6f8a], .course-list[data-v-3fec6f8a] {
+        width: 100%;
+        padding: .15rem;
+        height: 100%;
+        overflow-y: scroll;
+        padding-bottom: .5rem;
+        -webkit-overflow-scrolling: touch
+    }
+    
+    .chat-list li[data-v-3fec6f8a], .course-list li[data-v-3fec6f8a] {
+        width: 100%;
+        margin-bottom: .2rem;
+        position: relative;
+        clear: both
+    }
+    
+    .chat-list li > div[data-v-3fec6f8a] {
+        position: relative
+    }
+    
+    .chat-list li.left img.tx[data-v-3fec6f8a], .course-list li img[data-v-3fec6f8a] {
+        display: block;
+        width: .45rem;
+        height: .45rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: .23rem
+    }
+    
+    .chat-list li.right img.tx[data-v-3fec6f8a] {
+        display: block;
+        width: .45rem;
+        height: .45rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: .23rem
+    }
+    
+    .course-list li .con[data-v-3fec6f8a] {
+        width: auto;
+        padding-left: .6rem
+    }
+    
+    .course-list li .con b[data-v-3fec6f8a] {
+        font-size: .15rem;
+        /*  color: #333; */
+        color: #ffbf23;
+        line-height: .22rem;
+        display: block
+    }
+    
+    .course-list li .con em[data-v-3fec6f8a] {
+        font-size: .14rem;
+        color: #eee;
+        display: block
+    }
+    
+    .course-list li .con p[data-v-3fec6f8a] {
+        font-size: .13rem;
+        color: #666;
+        line-height: .16rem
+    }
+    
+    .chat-list li .contxt[data-v-3fec6f8a] {
+        /*  background: #fff; */
+        /*border: .01rem solid #ddd;*/
+        padding: .05rem .1rem;
+        border-radius: .04rem;
+        font-size: 14px;
+        color: #333;
+        position: relative;
+        max-width: 2rem;
+        min-height: .3rem;
+        word-break: break-all;
+        background: #ffbf23;
+        color: #000;
+        position: relative;
+    }
+    
+    .chat-list li.left .con[data-v-3fec6f8a] {
+        float: left
+    }
+    
+    .chat-list li.left .contxt img[data-v-3fec6f8a] {
+        display: block;
+        position: absolute;
+        left: -.14rem;
+        top: .03rem;
+        width: .16rem
+    }
+    
+    .chat-list li[class ="left teacher"] .contxt span {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: .09rem solid transparent;
+        border-right: .09rem solid #ffbf23;
+        top: 0.05rem;
+        left: -0.18rem;
+    }
+    
+    .chat-list li[class ="left otherC"] .contxt span {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: .09rem solid transparent;
+        border-right: .09rem solid #f7fbff;
+        top: 0.05rem;
+        left: -0.18rem;
+    }
+    
+    .chat-list li.right .contxt {
+        position: relative;
+    }
+    
+    .chat-list li.right .contxt span {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border: .09rem solid transparent;
+        border-left: .09rem solid #f7fbff;
+        top: 0.05rem;
+        right: -0.18rem;
+    }
+    
+    .chat-list li.right .contxt img[data-v-3fec6f8a] {
+        display: block;
+        position: absolute;
+        right: -.14rem;
+        top: .03rem;
+        width: .16rem
+    }
+    
+    .chat-list li.teacher .contxt[data-v-3fec6f8a], .chat-list li.teacher img.tx[data-v-3fec6f8a] {
+        border: .01rem solid #ffbf23;
+    }
+    
+    .chat-list li.otherC .contxt[data-v-3fec6f8a], .chat-list li.otherC img.tx[data-v-3fec6f8a] {
+        border: .01rem solid #f7fbff;
+        background: #f7fbff;
+    }
+    
+    .chat-list li.right .contxt[data-v-3fec6f8a] {
+        /*border: .01rem solid #0078fc;*/
+        background: #f7fbff;
+        /* color: #0078fc; */
+        color: #000;
+        max-width: 2rem;
+        text-align: left
+    }
+    
+    .chat-list li.left .con[data-v-3fec6f8a] {
+        margin-left: .6rem
+    }
+    
+    .chat-list li.right .con[data-v-3fec6f8a] {
+        margin-right: .6rem;
+        float: right;
+        text-align: right
+    }
+    
+    .chat-list li b[data-v-3fec6f8a] {
+        font-size: .12rem;
+        /* color: #333; */
+        color: #B0AFB5;
+        line-height: .2rem;
+        display: block;
+        margin-left: .6rem
+    }
+    
+    .chat-list li.teacher b[data-v-3fec6f8a] {
+        color: #ffbf23;
+    }
+    
+    .chat-list li.right b[data-v-3fec6f8a] {
+        /* color: #0078fc; */
+        color:#B0AFB5;
+        text-align: right;
+        padding-right: .6rem
+    }
+    
+    .chat-list li b .admin[data-v-3fec6f8a] {
+        display: inline-block;
+        padding: 0 .02rem;
+        color: #fff;
+        font-size: .1rem;
+        background: #2187f7;
+        border-radius: .02rem;
+        margin-left: .03rem;
+        height: .16rem;
+        line-height: .16rem
+    }
+    
+    .chat-list li p[data-v-3fec6f8a] {
+        width: 100%;
+        text-align: center;
+        font-size: .12rem;
+        color: #999;
+        line-height: .3rem
+    }
+    
+    .chat-list[data-v-3fec6f8a] {
+        padding-bottom: .6rem;
+        padding-top: .7rem;
+    }
+    
+    .bottom[data-v-3fec6f8a] {
+        width: 100%;
+        height: .49rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-top: .01rem solid #444;
+        /*    background: #fff; */
+        padding: 0 .48rem;
+        overflow: hidden;
+        z-index: 999;
+        background:#000;
+    }
+    .bottom > div[data-v-3fec6f8a] {
+        position: relative
+    }
+    
+    .bottom .left[data-v-3fec6f8a] {
+        width: .48rem;
+        text-align: center;
+        margin-left: -100%;
+        left: -.48rem
+    }
+    
+    .bottom .left img[data-v-3fec6f8a] {
+        display: block;
+        width: .24rem;
+        margin: 0 auto;
+        margin-top: .14rem
+    }
+    
+    .bottom .left span[data-v-3fec6f8a] {
+        font-size: .1rem;
+        color: #2187f7
+    }
+    
+    .bottom .bright[data-v-3fec6f8a] {
+        float: left;
+        font-size: .17rem;
+        line-height: .49rem;
+        color: #fff;
+        right: -.48rem;
+        margin-left: -.48rem;
+        width: .48rem;
+        text-align: center
+    }
+    
+    .bottom .mid[data-v-3fec6f8a] {
+        width: 100%;
+        float: left
+    }
+    
+    .bottom .mid input[data-v-3fec6f8a] {
+        display: block;
+        /* border: .01rem solid #dbdcdd; */
+        border: .01rem solid #ffbf23;
+        width: 100%;
+        height: .32rem;
+        line-height: .32rem;
+        border-radius: .02rem;
+        margin-top: .09rem;
+        padding-left: .05rem;
+        color: #fff;
+        -webkit-appearance: none
+    }
+    
+    .service[data-v-3fec6f8a] {
+        position: absolute;
+        right: 0;
+        /*  top: .4rem; */
+        top: .1rem;
+        width: .51rem;
+        z-index: 101
+    }
+    
+    .lookTeacher[data-v-3fec6f8a] {
+        position: absolute;
+        right: 0;
+        /* top: .65rem; */
+        top: .35rem;
+        width: .6rem;
+        z-index: 101;
+        background: #ffbf23;
+        color: #000;
+        font-size: .1rem;
+        height: .2rem;
+        line-height: .2rem;
+        text-align: right;
+        padding-right: .05rem;
+        border-radius: .1rem 0 0 .1rem
+    }
+    
+    .service img[data-v-3fec6f8a] {
+        display: block;
+        width: 100%
+    }
+    
+    .persons[data-v-3fec6f8a] {
+        /*    opacity: .25; */
+        background: #000;
+        border-radius: 1rem;
+        width: .94rem;
+        height: .2rem;
+        text-align: center;
+        color: #000;
+        font-size: .1rem;
+        line-height: .2rem;
+        position: absolute;
+        top: 0;
+        right: .15rem;
+        background: #ffbf23;
+        
+    }
+    
+    .playhead[data-v-3fec6f8a] {
+        width: 100%;
+        height: .3rem;
+        position: absolute;
+        top: .15rem;
+        z-index: 101
+    }
+    
+    .playhead .back[data-v-3fec6f8a] {
+        width: .3rem;
+        height: .3rem;
+        margin-left: .15rem
+    }
+    
+    .playhead .back[data-v-3fec6f8a]:after {
+        content: "";
+        display: block;
+        width: .16rem;
+        height: .16rem;
+        border-top: .01rem solid #fff;
+        border-left: .01rem solid #fff;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg)
+    }
+    
+    .ques p[data-v-3fec6f8a] {
+        font-size: .14rem;
+        color: #666;
+        text-align: left;
+        margin-bottom: .1rem
+    }
+    
+    div.live[data-v-3fec6f8a] {
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99
+    }
+    
+    div.live img[data-v-3fec6f8a] {
+        display: block;
+        height: 200px;
+        width: 100%
+    }
+    
+    .chat-list .showtime span {
+        line-height: .16rem;
+        padding: 0 .05rem;
+        color: #fff;
+        font-size: .1rem;
+        background: #dbdbdb;
+        border-radius: .02rem;
+        margin: 0 auto
+    }
+    
+    .li-main > span[data-v-adff73de] {
+        position: relative;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        justify-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: .4rem
+    }
+    
+    .li-main > span[data-v-adff73de]:before {
+        position: absolute;
+        left: 0;
+        width: .32rem;
+        height: .38rem;
+        margin-top: .08rem;
+        content: "";
+        background-repeat: no-repeat
+    }
+    .li-main > span[data-v-adff73de]:first-of-type::after {
+        right: .2rem
+    }
+    
+    .linksystem strong[data-v-adff73de] {
+        position: absolute;
+        width: .08rem;
+        height: .08rem;
+        display: block;
+        border-radius: 50%;
+        background: #f64e43;
+        right: .3rem;
+        top: 0
+    }
+    .chartShadowC {
+        background: rgba(0,0,0,.85);
+        height: 100%;
+    }
+</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-3fec6f8a="" class="main" id="chartMainC">
+        <div class="">
+            <if condition="($status eq 1) or ($status eq 4) and ($code eq 200)">
+                <div id="player" style="width: 100%;height: 200px;">
+                
+                </div>
+            </if>
+            
+            <div data-v-3fec6f8a="" class="tab">
+                <span data-v-3fec6f8a="" class="on">{$Think.lang.chat_room}</span>
+                <span data-v-3fec6f8a="" class="">{$Think.lang.curriculum}</span>
+            </div>
+            
+            <if condition="($status eq 0) or ($status eq 2) or ($code neq 200)">
+                <div data-v-3fec6f8a="" class="playhead">
+                    <div data-v-3fec6f8a="" class="back" onclick="window.history.back();"></div>
+                    <div data-v-3fec6f8a="" class="persons">{$Think.lang.online_number}：<span>0</span></div>
+                </div>
+                
+                <div data-v-3fec6f8a="" class="live">
+                    <img data-v-3fec6f8a="" src="/Uploads/{$imgurl}">
+                </div>
+            </if>
+            
+            
+            <div data-v-3fec6f8a="" class="chat show">
+                <!--<div data-v-3fec6f8a="" class="service" onclick="window.location.href='http://tb.53kf.com/code/client/10173921/1'">-->
+                    <!--<img data-v-3fec6f8a="" src="__PUBLIC__/Qts/Home/img/live/img1.png">-->
+                <!--</div>-->
+                
+                <div data-v-3fec6f8a="" class="lookTeacher" data-status="1">{$Think.lang.teacher}</div>
+                
+                <ul data-v-3fec6f8a="" id="chats" class="chat-list">
+                    
+                    
+                    <volist name="chat" id="vo">
+                        
+                        <if condition="$vo['uid'] eq $user_id">
+                            <li data-v-3fec6f8a="" class="right">
+                                <elseif condition="$vo['type'] eq 2" />
+                            <li data-v-3fec6f8a="" class="left teacher">
+                                <else />
+                            <li data-v-3fec6f8a="" class="left otherC">
+                        </if>
+                        <p data-v-3fec6f8a="" class="showtime"></p>
+                        <div data-v-3fec6f8a="">
+                            <img data-v-3fec6f8a="" src="{$vo.face}" class="tx">
+                            <b data-v-3fec6f8a="">{$vo.nickname}<!----></b>
+                            <div data-v-3fec6f8a="" class="con">
+                                <if condition="$vo['uid'] eq $user_id">
+                                    <div data-v-3fec6f8a="" class="contxt">
+                                        <span></span>
+                                        <elseif condition="$vo['type'] eq 2" />
+                                        <div data-v-3fec6f8a="" class="contxt">
+                                            <span></span>
+                                            <else />
+                                            <div data-v-3fec6f8a="" class="contxt" style="background: #f7fbff">
+                                                <span style="border-right: .09rem solid #f7fbff;"></span>
+                                </if>
+                                {$vo.msg}
+                            </div>
+                        </div>
+            </div>
+            </li>
+            </volist>
+            
+            
+            </ul><!---->
+            
+            <div data-v-3fec6f8a="" class="bottom">
+                <div data-v-3fec6f8a="" class="mid">
+                    <input data-v-3fec6f8a="" type="text" placeholder="{$Think.lang.teacher_send}" value="" id="msg">
+                </div>
+                <div data-v-3fec6f8a="" class="left" onclick="window.location.href='{:U('Product/lists')}'">
+                    <img data-v-3fec6f8a="" src="__PUBLIC__/Qts/Home/img/live/img3.png">
+                </div>
+                <div data-v-3fec6f8a="" class="bright" onclick="sendMsg();">
+                    {$Think.lang.send}
+                </div>
+            </div>
+        
+        </div>
+        <div data-v-3fec6f8a="" class="course">
+            <ul data-v-3fec6f8a="" class="course-list">
+                
+                <volist name="leveinfo" id="vo">
+                    <li data-v-3fec6f8a="">
+                        <img data-v-3fec6f8a="" src="../../Uploads/{$vo.ncover}">
+                        <div data-v-3fec6f8a="" class="con">
+                            <b data-v-3fec6f8a="">{$vo.ntitle}</b>
+                            <div style="margin-top: 0.1rem;white-space: normal; color: #AEADB3;">{$vo.ncontent}</div>
+                        </div>
+                    </li>
+                </volist>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script>
+    $('.tab span').click(function(){
+        $('.tab span').removeClass('on');
+        $(this).addClass('on')
+        if($('.tab span:nth-child(1)').hasClass('on')){
+            $('.chat').addClass('show')
+            $('.course').removeClass('show')
+        }else{
+            $('.chat').removeClass('show')
+            $('.course').addClass('show')
+        }
+    })
+</script>
+</body>
+</html>
+<script type="text/javascript" src="__PUBLIC__Qts/Home/js/player/sewise.player.min.js"></script>
+<script type="text/javascript">
+
+    var status = "{$status}";
+    var code   = "{$code}";
+
+    if((status == 1 || status == 4) && code == 200)
+    {
+        SewisePlayer.setup({
+            server: "vod",
+            type: "m3u8",
+            autostart: "true",
+            poster: "https://westlakesh.oss-cn-shanghai.aliyuncs.com/img/bj_live_.png",
+            videourl: "{$room.url}",
+            // skin: "vodWhite",
+            title: "{$room.name}",
+            claritybutton: "disable",
+            lang: "zh_CN",
+            customdatas:{
+                "webkit-playsinline":'true',
+            }
+        }, "player");
+        SewisePlayer.noramlScreen();
+        SewisePlayer.doPlay();
+
+
+        SewisePlayer.playerReady(function(id){
+//	SewisePlayer.doSeek(10);
+            $('#player').find('video').attr('webkit-playsinline',true);
+            $('#player').find('video').attr('playsinline',true);
+            $('#player').find('video').attr('x-webkit-airplay','allow');
+            $('#player').find('video').attr('x5-video-player-type','h5');
+            $('#player').find('video').attr('x5-video-ignore-metadata',true);
+        });
+        SewisePlayer.onPause(function(id){
+            SewisePlayer.noramlScreen();
+//            SewisePlayer.doPlay();
+//            alert(1)
+            $('#player').find('video').attr('webkit-playsinline',true);
+            $('#player').find('video').attr('playsinline',true);
+            $('#player').find('video').attr('x-webkit-airplay','allow');
+            $('#player').find('video').attr('x5-video-player-type','h5');
+            $('#player').find('video').attr('x5-video-ignore-metadata',true);
+        });
+    }
+</script>
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+
+<script id="selfMsg" type="text/html">
+    <li data-v-3fec6f8a="" class="right">
+        <p data-v-3fec6f8a="" class="showtime"></p>
+        <div data-v-3fec6f8a="">
+            <img data-v-3fec6f8a="" src="{{face}}" class="tx">
+            <b data-v-3fec6f8a="">{{nickname}}<!----></b>
+            <div data-v-3fec6f8a="" class="con">
+                <div data-v-3fec6f8a="" class="contxt">
+                    <!--<img data-v-3fec6f8a="" src="__PUBLIC__/Qts/Home/img/live/img2.png">-->
+                    <span></span>
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script id="othersMsg" type="text/html">
+    <li data-v-3fec6f8a="" class="left otherC">
+        <p data-v-3fec6f8a="" class="showtime"></p>
+        <div data-v-3fec6f8a="">
+            <img data-v-3fec6f8a="" src="{{face}}" class="tx">
+            <b data-v-3fec6f8a="">{{nickname}}<!----></b>
+            <div data-v-3fec6f8a="" class="con">
+                <div data-v-3fec6f8a="" class="contxt" >
+                    <!--<img data-v-3fec6f8a="" src="__PUBLIC__/Qts/Home/img/live/img2.png">-->
+                    <span></span>
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script id="anchorMsg" type="text/html">
+    <li data-v-3fec6f8a="" class="left teacher">
+        <p data-v-3fec6f8a="" class="showtime"></p>
+        <div data-v-3fec6f8a="">
+            <img data-v-3fec6f8a="" src="{{face}}" class="tx">
+            <b data-v-3fec6f8a="">{{nickname}}<!----></b>
+            <div data-v-3fec6f8a="" class="con">
+                <div data-v-3fec6f8a="" class="contxt">
+                    <!--<img data-v-3fec6f8a="" src="__PUBLIC__/Qts/Home/img/live/img2.png">-->
+                    <span></span>
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </li>
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+    window.onload=function(){
+        bottom();
+    }
+
+    var user_id = "{$user_id}"; //当前用户编号
+    var group   = "{$room.group}";  //当前房间标识
+
+    /**
+     * websocket 传输数据
+     */
+
+    ws = new WebSocket("ws://156.238.111.134:2346");
+    ws.onopen = function() {
+        ws.send('tom');
+    };
+    ws.onmessage = function(e) {
+
+        var data = eval("("+e.data+")");
+        var type = data.type || '';
+        switch(type){
+            case 'init':
+                $.post('{:U("Bind/groupChatBind")}', {client_id: data.client_id,group:group}, function(data){
+
+                    $('.persons > span').html(data.count);
+
+                }, 'json');
+                break;
+            default :
+                //console.log(e.data);
+
+                var data     = JSON.parse(e.data);
+
+                if(data.user_id == user_id) //如果自己发送的则显示的和别人不一样
+                {
+                    var html = template('selfMsg', data);
+                } else if(data.type == 2){      //主播发送的
+                    var html = template('anchorMsg', data);
+                } else{
+                    var html = template('othersMsg', data);
+                }
+
+                $('#chats').append(html);
+
+                bottom();
+        }
+    };
+
+    // 发送聊天消息
+    function sendMsg(){
+
+        var index = layer.load(2);
+        var message = $('#msg').val().trim();
+        
+        // 向server端发送ajax请求
+        $.post("{:U('Bind/sendChat')}",{message:message,group:group},function (data) {
+
+            if(data.code == 400)
+            {
+                layer.msg(data.msg);
+            } else {
+                $('#msg').val('');
+            }
+
+            return layer.close(index);
+        },'json');
+        return false;
+    }
+
+    //只看老师
+    $('.lookTeacher').click(function(){
+        ($(this).html())==="{$Think.lang.teacher}"?$(this).html("{$Think.lang.all}"):$(this).html("{$Think.lang.teacher}");
+        var status = $(this).attr('data-status'); //当前显示状态 0显示全部，1只显示老师
+
+        $.each($('.chat-list > li'),function(){
+            var className = $(this).attr('class');
+
+            if(className != 'left teacher')
+            {
+                if(status == 1)
+                {
+                    $(this).hide();
+                    $('.lookTeacher').attr('data-status',0);
+                } else {
+                    $(this).show();
+                    $('.lookTeacher').attr('data-status',1);
+                }
+
+                bottom();
+            }
+        });
+    });
+
+    //自动滑倒最底部
+    function bottom()
+    {
+        var obj=$("#chats");
+        obj.scrollTop(obj[0].scrollHeight); //页面滚到最底部
+    }
+
+</script>

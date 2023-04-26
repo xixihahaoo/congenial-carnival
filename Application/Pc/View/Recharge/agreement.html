@@ -1,0 +1,125 @@
+<include file="Base:header" />
+<title data-n-head="true">{$news.ntitle}</title>
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<style data-vue-ssr-id="51dc5342:0 380cda4c:0">
+    
+    .page-main[data-v-ab1c5564] {
+        padding: .5rem .1rem 0;
+        /*background: #f5f5f5*/
+        color: #ddd;
+    }
+    p, span {
+        /* color: #ddd !important; */
+    }
+    
+    /*body {*/
+    /*background: #1c1a25;*/
+    /*height: auto !important;*/
+    /*}*/
+    /*新增css*/
+    body, html {
+        height: 100%;
+        width: 100%;
+        background: #171c31  !important;
+        /* background: #262b41 !important; */
+    }
+    .page-main {
+        /* background: #212139; */
+        min-height: 600px;
+        margin: 0px auto 50px !important;
+        padding: 0 !important;
+    }
+    .contentWrap {
+        width: 1045px;
+        height: 720px;
+        overflow: auto;
+        float: left;
+        background: #212139;
+        padding: 0 68px;
+    }
+</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-ab1c5564="" class="content">
+        <!--<div data-v-ab1c5564="" id="head" style="width: 60%">-->
+        <!--<div class="head_content"><h3 class="product-name"><span style="color: #ffbf23">{$news.ntitle}</span><em></em></h3>-->
+        <!--<div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>-->
+        <!--<div class="right arrow_right"><b></b></div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+        <section data-v-ab1c5564="" class="page-main clearfix">
+            <!--引入个人中心公共组件-->
+            <include file="User:userPublic" />
+            <div class="contentWrap">
+                <p style="padding: 25px 0 4px; text-align: left; line-height: 1.75em;">
+                    <strong>
+                        <span style="font-family: 宋体; font-size: 14px;">{$news.ntitle}</span>
+                    </strong>
+                    <span style="font-family: 宋体; font-size: 14px;"><br></span>
+                </p>
+                <!--              <p style="text-align: left; line-height: 2em;">-->
+                <!--                <span style="font-family: 宋体; font-size: 14px;"><span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">本充值服务协议（以下简称</span>“本协议”）是指您和<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">本平台签订的，由平台通过其合作支付机构向您提供银行卡支付相关（以下简称</span>“本服务”）的法律协议。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体;">在接受本协议之前，请您仔细阅读本协议的全部内容，如果你不同意本协议的任意内容，或者无法正确理解本协议任何条款的含义，请不要进行后续操作。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em; margin-top: 25px;"><span-->
+                <!--                      style="font-family: 宋体; font-size: 16px;">1.您应确保您是使用本服务的银行持卡人，可合法、有效使用该银行卡且未侵犯任何第三方合法权益，否则因此造成持卡人损失的，您应负责赔偿并承担全部法律责任。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 14px;">2.<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">您同意平台有权依据其自身判断对涉嫌欺诈或被他人控制并用于欺诈目的账户采取相应的措施，上述措施包括但不限于冻结账户及资金、处置涉嫌欺诈的资金等。</span></span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 14px;">3.<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">您应该妥善保管银行卡、卡号、密码、发卡行预留的手机号以及平台账号、密码、校验码等一切信息和设备。如您遗失或泄漏前述信息和</span>/<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">设备的，您应及时沟通发卡行及平台，以减少可能发生的损失。因您的原因所致损失需由您自行承担。</span></span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 14px;">4.<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">您认可和同意：您发出的指令不可撤回或撤销，支付机构有权跟根据您的指令委托银行或第三方从银行卡中划扣资金给收款人。届时您不应该以非本人意愿交易或其他任何原因要求银行退款或承担其他责任。您在对使本服务过程中发出指令的真实性及有效性承担全部责任。</span></span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 14px;">5.<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">出现下列情况之一的、本平台有权立即终止您使用本服务而无需承担任何责任：（</span>1<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">）将本服务用于非法目的；（</span><span-->
+                <!--                      style="font-size: 16px; font-family: Calibri;">2</span><span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">）违反本协议的约定；（</span><span-->
+                <!--                      style="font-size: 16px; font-family: Calibri;">3</span><span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">）银行认为向您提供本服务存在风险；（</span><span-->
+                <!--                      style="font-size: 16px; font-family: Calibri;">4</span><span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">）您的银行卡有效期届满（如有）。</span></span></p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 16px;">6.持卡人不得利用本协议下的服务实施套现、虚假交易、洗钱等行为，且有义务配合支付机构进行相关调查，若无正常理由拒绝配合相关调查或客户账户状态处于不正常或客户存在违反诚信原则的行为时，支付机构有权暂停或终止提供本协议项下的服务。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 16px;">7.凡因签署、履行本协议书过程中所发生的或与本协议书有关的一切争议或纠纷，各方应通过友好协商解决，如协商不成或者无法协商的，则任何一方均有权将该争议或纠纷提交合同签订所在地人民法院诉讼解决。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 16px;">8.本协议的订立、效力、解释、履行、和争议的解决均应适用中华人民共和国法律。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 16px;">9.无论何种原因（包括但不限于违反适用的法律法规）导致本协议任何条款完全或部分无效或无法执行，不影响本协议任何其他条款的效力、合法和可执行性。</span>-->
+                <!--              </p>-->
+                <!--              <p style="text-align: left; line-height: 2em;"><span style="font-family: 宋体; font-size: 14px;">10.<span-->
+                <!--                      style="font-size: 16px; font-family: 宋体;">持卡人应认真阅读本协议全文，如有疑义，请及时拨打平台客户服务热线咨询。如果您不同意本协议的任何内容，或无法准确理解相关条款的解释，请不要进行后续操作。</span></span>-->
+                <!--              </p>-->
+                <!--              <p style="margin: 4px 0px; line-height: 1.5em; text-align: left;"><span-->
+                <!--                      style="font-size: 16px; font-family: 微软雅黑, sans-serif;"><br></span></p>-->
+                <!--              <p style="margin: 4px 0px;"><br></p>-->
+                {$news.ncontent}
+            </div>
+        </section>
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+
+<script>
+    window.onload=function(){
+        //设置底部导航选中状态
+        $('.headertop .wapper > ul > li').eq(3).find('a').addClass('active');
+        $('.userPublic .userMenu > ul > li').first().find('a').addClass('active');
+    }
+</script>
+
+</body>
+</html>

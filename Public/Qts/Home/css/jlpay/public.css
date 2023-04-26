@@ -1,0 +1,196 @@
+.head_title{
+	line-height:28px;text-align:left;background-color:#eaf2fe;border:1px solid #a3c0e8;margin:2px 2px 0px 2px;height:28px;
+}
+.head_body{
+	padding:5px 5px 0 5px ;border:1px solid #a3c0e8;border-top:none;text-align:left;margin:0px 2px 0px 2px;
+}
+.head_body table{
+	text-align:center; width:100%;
+}
+.head_body td{
+	text-align:center; width:12.5%; line-height: 20px;
+}
+.head_body tr{
+	height:30px;
+}
+.hb_td_value input {
+	margin-left: 2px;
+}
+/* .hb_td_title{
+	text-align:right; width:10%;
+}
+.hb_td_value{
+	text-align:center; width:15%;  
+} */
+
+/* .head_tables{
+	text-align:center; width:100%;
+}
+.head_tr{height:30px;} */
+
+
+#maingrid{
+	margin:5px 0px 0px 2px;
+}
+
+.l-text {
+	height:24px; 
+    width: 160px;
+}
+.l-panel-topbar{
+	height:25px; 
+}
+
+.l-panel-topbar{
+	background-color:#eaf2fe;;
+}
+
+select {
+	width: 125px;
+    height: 25px;
+    border: 1px solid #AECAF0;
+}
+
+td select {
+	width: 100%;
+}
+
+input{
+	width: 165px;
+	border: 1px solid #AECAF0;
+	
+}
+
+td input {
+	width: 100%;
+}
+
+.l-grid-header {
+    border-bottom: 1px solid #A3C0E8;
+    height: 22px;
+    line-height: 22px;
+    background: #eaf2fe;;
+    overflow: hidden;
+    width: 100%;
+}
+
+.l-panel-bar {
+    height: 32px;
+    background: #eaf2fe; left bottom;
+    overflow: hidden;
+    border: 0;
+    border-top: 1px solid #84A0C4;
+}
+
+
+.l-tree .l-note-last {
+    background-position: 0px -220px;
+    display: none;
+}
+
+.l-tree .l-line {
+    background-position: 0px -176px;
+    display: none;
+}
+
+.l-tree .l-note {
+    background-position: 0px -198px;
+    display: none;
+}
+.l-children li .l-body {
+	margin-left:20px;
+}
+
+.l-children li .l-body span{
+	font-size:12px;
+}
+.l-tree li .l-body {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    width: 2000px;
+    font-size: 14px;
+}
+
+.l-children li .l-body .l-box
+.l-selected .l-grid-row-cell, .l-selected {
+    background: #eef5fd;;
+}
+
+
+.l-form .l-group {
+    height: 28px;
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    border: solid 1px #c2d3ec;
+   /*  border-left:10px solid #0c7aaf; */
+    display: block;
+    clear: both;
+    background-color: #eaf2fe;
+    margin:0px 0px 0px 0px;
+    padding:0px;
+    width: 100%;
+}
+
+.l-form-container {
+    border: 1px solid #d8e3f3;
+}
+
+.l-form li {
+    margin-left: 10px;
+}
+.l-tab-links li.l-selected {
+    border-bottom: 2px solid #418bc8;
+}
+
+.toggleimg {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    background: url(../lab/images/toggle.gif) no-repeat 0px 0px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    left: auto;
+    right: 6px;
+}
+.l-text-field {
+	width: 157px;
+	font-weight:bold;
+	font-size:12px;
+}
+
+.l-text-readonly {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+body{
+	font-family:"Microsoft YaHei";
+}
+
+.ac_results li {
+	line-height: 25px;
+}
+
+.layui-input, .layui-select, .layui-textarea {
+    border: 1px solid #94cbea;
+}
+
+.layui-badge-dot {
+	left:5px;top:-2px;
+	position:absolute;top:50%;margin:-10px 6px 0;
+	margin-left:5px;
+	width:8px;height:8px;border-radius:50%;
+	position:relative;
+	display:inline-block;
+	font-size:12px;
+	background-color:#FF5722;
+	color:#fff
+}
+
+.layui-form-checkbox span{
+	font-size:12px;
+}

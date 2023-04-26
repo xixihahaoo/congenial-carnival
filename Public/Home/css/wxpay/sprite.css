@@ -1,0 +1,80 @@
+.ico_phone {
+display:inline-block;
+vertical-align:middle;
+height: 37px;
+width: 24px;
+overflow: hidden;
+background: url(../image/sprite.png) -0px -0px no-repeat;
+}
+
+.ico_yes {
+display:inline-block;
+vertical-align:middle;
+height: 32px;
+width: 43px;
+overflow: hidden;
+background: url(../image/sprite.png) -0px -37px no-repeat;
+}
+
+.ico_men_blue {
+display:inline-block;
+vertical-align:middle;
+height: 24px;
+width: 24px;
+overflow: hidden;
+background: url(../image/sprite.png) -0px -69px no-repeat;
+}
+
+.ico_pass {
+display:inline-block;
+vertical-align:middle;
+height: 22px;
+width: 20px;
+overflow: hidden;
+background: url(../image/sprite.png) -24px -0px no-repeat;
+}
+
+.ico_men_grey {
+display:inline-block;
+vertical-align:middle;
+height: 20px;
+width: 20px;
+overflow: hidden;
+background: url(../image/sprite.png) -24px -69px no-repeat;
+}
+
+.ico_error {
+display:inline-block;
+vertical-align:middle;
+height: 16px;
+width: 16px;
+overflow: hidden;
+background: url(../image/sprite.png) -0px -93px no-repeat;
+}
+
+.ico_ok {
+display:inline-block;
+vertical-align:middle;
+height: 16px;
+width: 16px;
+overflow: hidden;
+background: url(../image/sprite.png) -16px -93px no-repeat;
+}
+
+.ico_cancel {
+display:inline-block;
+vertical-align:middle;
+height: 8px;
+width: 10px;
+overflow: hidden;
+background: url(../image/sprite.png) -24px -22px no-repeat;
+}
+
+.ico_tri_down {
+display:inline-block;
+vertical-align:middle;
+height: 8px;
+width: 12px;
+overflow: hidden;
+background: url(../image/sprite.png) -32px -93px no-repeat;
+}

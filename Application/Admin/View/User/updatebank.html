@@ -1,0 +1,91 @@
+<extend name="Base/common"/>
+<block name="content">
+<link rel="stylesheet" href="__CSS__/compiled/new-user.css" type="text/css" media="screen" />  
+   <div class="container-fluid">
+            <div id="pad-wrapper" class="new-user">
+                <div class="row-fluid header">
+                    <h3>银行卡管理</h3>
+                </div>
+
+                <div class="row-fluid form-wrapper">
+                    <form  method="post" class="new_user_form" action="{:U(User/updateBank)}">
+                    <input type="hidden" name="bid" value="{$bank['bid']}"/>
+                    <div class="span6 with-sidebar">
+                        
+                        <div class="span9 field-box" style="margin-top: 20px;">
+                            <label>银行名称:</label>
+                            <input class="span8" type="text" name="bankname" value="{$bank['bankname']}" />
+                        </div>
+                        
+                        <div class="span9 field-box">
+                            <label>银行卡号:</label>
+                            <input class="span8" type="text" name="banknumber" value="{$bank['banknumber']}" />
+                        </div>
+    
+                        <div class="span9 field-box">
+                            <label>开户行:</label>
+                            <input class="span8" type="text" name="branch" value="{$bank['branch']}" />
+                        </div>
+    
+                        <div class="span9 field-box">
+                            <label>开户地址:</label>
+                            <input class="span8" type="text" name="address" value="{$bank['address']}" />
+                        </div>
+    
+                        <div class="span9 field-box">
+                            <label>国际汇款代码:</label>
+                            <input class="span8" type="text" name="swiftcode" value="{$bank['swiftcode']}" />
+                        </div>
+
+                        <div class="span9 field-box">
+                            <label>姓名:</label>
+                            <input class="span8" type="text" name="busername" value="{$bank['busername']}" />
+                        </div>
+
+                        <div class="span9 field-box">
+                            <label>电话:</label>
+                            <input class="span8" type="text" name="tel" value="{$bank['tel']}" />
+                        </div>
+    
+                        <div class="span9 field-box">
+                            <label>身份证/护照:</label>
+                            <input class="span8" type="text" name="card" value="{$bank['card']}" />
+                        </div>
+
+                        <div class="span8 field-box actions" style="padding-bottom: 20px;">
+                            <input type="submit" class="btn-glow primary" value="修改" />
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            // toggle form between inline and normal inputs
+            var $buttons = $(".toggle-inputs button");
+            var $form = $("form.new_user_form");
+
+            $buttons.click(function () {
+                var mode = $(this).data("input");
+                $buttons.removeClass("active");
+                $(this).addClass("active");
+
+                if (mode === "inline") {
+                    $form.addClass("inline-input");
+                } else {
+                    $form.removeClass("inline-input");
+                }
+            });
+        });
+    </script>
+
+
+</block>

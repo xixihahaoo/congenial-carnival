@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<!--<script src="https://a.alipayobjects.com/g/h5-lib/alipayjsapi/3.0.6/alipayjsapi.min.js"></script>-->
+	<script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    // 调用此jsapi的时候，不要在当前页面有监听resume事件并在resume事件中强制刷新页面；
+    // 方法1为轻便模式，传入支付宝交易号等信息后，接口底层会补全默认内容，最终也会生成一个orderStr；
+    // 方法2为自定义模式，由业务方来指定拼接整个orderStr；
+
+    // 使用方法1 : 通过传入交易号唤起支付宝支付
+    // 适用范围  : 支付场景 + 已有支付宝交易号
+    // AlipayJSBridge.call("tradePay", {
+    //     tradeNO: "2018061521001004980596650728", // 必传，此使用方式下该字段必传
+    //     bizType:"",                          // 非必传，默认为 “trade”
+    //     bizSubType:"",                          // 非必传，默认为 “”
+    //     bizContext:""                           // 非必传，默认为H5启动选项(safePayContext)
+    // }, function(result) {
+    // });
+	
+</script>
+
+
+
+<script>
+
+let url = "{$url}";
+
+let tradeNO = "{$trade_no}";
+
+console.log(url);
+
+window.location.href=url;
+
+</script>

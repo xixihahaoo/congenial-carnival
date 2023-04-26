@@ -1,0 +1,295 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<style type="text/css">
+.dataTables_length span{color: red;}
+td{text-align: center;}
+#id_search_area>div>div>div{height: 70px}
+</style>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            用户出入金
+            <small>
+                <i class="icon-double-angle-right"></i>
+                出入金统计
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        出入金统计&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="table-responsive">
+
+                    <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                        <form action="__URL__/lists" method="get" id="form1">
+
+                            <div class="row" id="id_search_area">
+                                <div class="col-sm-9">
+                                <div style=" width: 1350px; height: 100px;">
+                                
+                                    <div class="col-sm-3">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                销售商昵称
+                                                <select name="jinjiren" id="jinjiren"  style="width: 120px;">
+                                                <option value="" class="selected">默认不选</option>
+                                                <volist name="agentinfoRs" id="vo">
+                                                   <option value="{$vo.uid}" data-type="jinjiren"> {$vo.username}</option>
+                                                </volist>
+                                                </select>
+                                                <input type="hidden" value="{$jingji}" id="jingji">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                会员昵称
+                                                <select name="user" id="user" style="width: 120px;">
+                                                <option value="" class="selected">默认不选</option>
+                                                <notempty name="user">
+                                                    <option value="{$user['uid']}" selected>{$user['username']}</option>
+                                                </notempty>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                <div class="col-sm-2">
+                                    <!-- <label>开始时间:</label> -->
+                                    <if condition="$time">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="注册开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$time['start_time']}" name="start_time">
+                                   <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="注册开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="start_time">
+                                   </if>
+                                </div>
+
+                                <div class="col-sm-2">
+                                 <!--    <label>结束时间:</label> -->
+                                 <if condition="$time">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="注册结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$time['end_time']}" name="end_time">
+                                <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="注册结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="end_time">
+                                </if>
+                                </div>
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="请输入手机号码" value="{$utel}" aria-controls="sample-table-2" name="utel" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                   <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户名称" value="{$username}" aria-controls="sample-table-2" name="username" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户昵称" value="{$nickname}" aria-controls="sample-table-2" name="nickname" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="编号ID" value="{$uid}" aria-controls="sample-table-2" name="uid" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                用户级别(包括名下)：
+                                                <select name="level"  style="width: 120px;">
+                                                <option value="" class="selected">默认不选</option>
+                                                <volist name="level" id="vo">
+                                                    <if condition="$levels eq $vo['id']">
+                                                        <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                                    <else />
+                                                        <option value="{$vo.id}">{$vo.name}</option>
+                                                    </if>
+                                                </volist>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="hr hr-24"></div>
+                                <div class="col-sm-12">
+                                    <div class="dataTables_length" id="sample-table-2_length1">
+                                        <label>
+                                            <input type="button"  onclick="sub()" value="点击查询" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="button" onclick="daochu()" value="查找导出" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="button" id="id_reset" value="清空数据" class="btn btn-xs btn-info">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>  <!-- 导出排序 -->
+                                    <input type="hidden" name="cat" value="{$sea.cat}">
+                                    <input type="hidden" name="sort" value="{$sea.sort}">
+                                    <!-- 导出排序 -->
+                            </form>
+                        <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable">
+                                <thead>
+                                <tr>
+                                    <th class="center">编号id</th>
+                                    <th class="center">用户名称</th>
+                                    <th class="center">手机号码</th>
+                                    <th class="center">用户昵称</th>
+                                    <th class="center">注册时间</th>
+                                    <th class="center">总入金</th>
+                                    <th class="center">总出金</th>
+                                    <th class="center">净入金</th>
+                                    <th class="center">当前资金</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <volist name="userInfo" id="v">
+                                <tr>
+                                    <td class="center">{$v.uid}</td>
+                                    <td>{$v.username}</td>
+                                    <td>{$v.utel}</td>
+                                    <td>{$v.nickname}</td>
+                                    <td>{$v.utime|date='Y-m-d H:i:s',###}</td>
+                                    <td>{$v.recharge_total}</td>
+                                    <td>{$v.money_total}</td>
+                                    <td>{$v.net_gold}</td>
+                                    <td>{$v.balance}</td>
+                                </tr>
+                                </volist>
+
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="sample-table-2_info">共<b class="orange">{$totalCount}</b>，当前显示第 <b class="orange">{$nowStart}</b>到<b class="orange">{$nowEnd}</b></div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_bootstrap">
+                                        <ul class="pagination">
+                                            {$pageShow}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="dataTables_length" id="" style="width: 265px;">
+                                    <label>
+                                        <span>总入金&nbsp;&nbsp;&nbsp;: {$data.recharge_total}</span></br>
+                                        <span>总出金: {$data.money_total}</span></br>
+                                        <span>净入金: {$data.net_gold}</span></br>
+                                        <span>当前资金: {$data.balance}</span></br>
+                                    </label>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end id sample-table-2_wrapper-->
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+            <div class="space-20"></div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+
+$("#id_reset").click(function(){
+    
+     $('.input').val("");
+     $('.selected').attr('selected',true);
+});
+
+var user_id = $("#jingji").val();
+$("#jinjiren option").each(function(){
+        if(user_id == $(this).val()){
+             $(this).attr('selected',true);
+        }
+});
+
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+
+function sub() {
+    $('#form1').attr("action","__URL__/lists");
+    $('#form1').submit();
+}
+
+function daochu() {
+    $('#form1').attr("action","__URL__/lists_daochu");
+    $('#form1').submit();
+}
+
+/*根据选择销售商获取下属会员列表*/
+$("#jinjiren").change(function() {
+        var parent_id = $(this).val();
+        $.ajax({
+            type: "get",
+            url: "{:U('Cashorderf/ajax_get_brokers')}",
+            data: {'parent_id':parent_id},
+            success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#user").html(html);
+        },
+});
+});
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

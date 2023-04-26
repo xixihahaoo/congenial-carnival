@@ -1,0 +1,854 @@
+    
+    <include file="Base:header" />
+    <title data-n-head="true">资讯</title>
+    <link rel="stylesheet" href="__PUBLIC__Qts/Home/css/swiper.min.css">
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+	<link href="__PUBLIC__/Qts/Home/css/style.css" rel="stylesheet">
+	
+
+    <style type="text/css">
+
+    .backimg[data-v-222c168c] {
+        height: 1.2rem;
+        width: 100%
+    }
+    img[data-v-ae9820a8] {
+        width: 100%;
+        height: 100%
+    }
+
+    p[data-v-ae9820a8] {
+        text-align: justify
+    }
+
+    .ourtitle[data-v-ae9820a8] {
+        width: 100%;
+        font-size: 16px;
+        color: #333;
+        letter-spacing: 0;
+        line-height: 29px;
+        margin-top: .1rem;
+        padding: 0 .14rem;
+        margin-bottom: .1rem
+    }
+
+    .ourp[data-v-ae9820a8] {
+        padding: .14rem;
+        font-size: 14px;
+        color: #999;
+        letter-spacing: 0;
+        text-align: left
+    }
+
+    .tip[data-v-ae9820a8] {
+        background: #2187f7;
+        border-radius: 100px;
+        width: 45px;
+        height: 3px;
+        margin-left: .14rem
+    }
+
+    .mainmsg[data-v-ae9820a8] {
+        padding: 0 .14rem;
+        margin-top: .2rem
+    }
+    .mint-toast {
+        position: fixed;
+        max-width: 80%;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, .7);
+        color: #fff;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        z-index: 1000;
+        -webkit-transition: opacity .3s linear;
+        -o-transition: opacity .3s linear;
+        transition: opacity .3s linear
+    }
+
+    .mint-toast.is-placebottom {
+        bottom: 50px;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        transform: translate(-50%)
+    }
+
+    .mint-toast.is-placemiddle {
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%)
+    }
+
+    .mint-toast.is-placetop {
+        top: 50px;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        transform: translate(-50%)
+    }
+
+    .mint-toast-icon {
+        display: block;
+        text-align: center;
+        font-size: 56px
+    }
+
+    .mint-toast-text {
+        font-size: 14px;
+        display: block;
+        text-align: center
+    }
+
+    .mint-toast-pop-enter, .mint-toast-pop-leave-active {
+        opacity: 0
+    }
+    .send-btn[data-v-1f4af610] {
+        top: -.3rem;
+        color: #2187f7
+    }
+
+    .send[data-v-1f4af610] {
+        width: .48rem;
+        height: .2rem;
+        line-height: .2rem;
+        border-radius: .02rem;
+        text-align: center;
+        display: inline-block
+    }
+
+    .find-wrap[data-v-1f4af610] {
+        padding: .6rem .14rem .14rem
+    }
+
+    .community-content[data-v-1f4af610] {
+        width: 100%;
+        overflow-x: hidden;
+        background: #fff
+    }
+
+    .community-content li[data-v-1f4af610] {
+        padding-top: .2rem;
+        padding-bottom: .42rem;
+        position: relative
+    }
+
+    .community-content li[data-v-1f4af610]:last-child {
+        margin-bottom: .6rem
+    }
+
+    .community-content li[data-v-1f4af610]:after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -50%;
+        bottom: 0;
+        width: 200%;
+        height: 1px;
+        background: #ededed;
+        -webkit-transform: scale(.5)
+    }
+
+    .find-wrap .tip[data-v-1f4af610] {
+        text-align: center;
+        color: #999
+    }
+
+    .photo[data-v-1f4af610] {
+        width: .38rem;
+        border-radius: 50%;
+        margin-right: .1rem;
+        position: absolute;
+        top: .02rem
+    }
+
+    .photo[data-v-1f4af610], .top_right[data-v-1f4af610] {
+        display: inline-block;
+        height: .38rem
+    }
+
+    .name[data-v-1f4af610] {
+        color: #333;
+        font-size: .16rem
+    }
+
+    .time[data-v-1f4af610] {
+        font-size: .12rem;
+        color: #999
+    }
+
+    .content[data-v-1f4af610] {
+        margin-top: .1rem;
+        text-align: justify;
+        line-height: .2rem
+    }
+
+    .all[data-v-1f4af610] {
+        color: #0086ff;
+        line-height: .22rem
+    }
+
+    .content-img[data-v-1f4af610] {
+        width: 1.73rem;
+        height: 1rem;
+        margin-top: .1rem;
+        background-size: cover
+    }
+
+    .content-profi-wrap[data-v-1f4af610] {
+        width: .46rem;
+        height: .38rem;
+        display: inline-block;
+        position: relative
+    }
+
+
+
+
+    .mr28[data-v-1f4af610] {
+        margin-right: .28rem
+    }
+
+    .arrow_left[data-v-420181ec]:after {
+        top: 25px
+    }
+
+    .head_content[data-v-420181ec] {
+        padding-top: .08rem
+    }
+
+    .head_tab[data-v-420181ec] {
+        width: 50%;
+        height: .3rem;
+        line-height: .3rem;
+        margin: .1rem auto;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        background: #0f54a9;
+        border-radius: .4rem;
+        font-size: .16rem
+    }
+
+    .head_tab li[data-v-420181ec] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        height: .3rem;
+        line-height: .3rem;
+        border-radius: .4rem
+    }
+
+    .head_tab li.tab_checked[data-v-420181ec] {
+        background: #136eed
+    }
+
+    .head_tab li.tab_checked1[data-v-420181ec] {
+        background: #136eed;
+        border-radius: 0 .4rem .4rem 0
+    }
+
+    .title[data-v-420181ec] {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        background: #fff;
+        z-index: 99
+    }
+
+    .title span[data-v-420181ec] {
+        line-height: .4rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        color: #333;
+        font-size: .15rem;
+        position: relative;
+        border-bottom: .01rem solid #444
+    }
+
+    .title span.on[data-v-420181ec] {
+        color: #ffbf23;
+    }
+
+    .title span.on[data-v-420181ec]:after {
+        content: "";
+        display: block;
+        width: .25rem;
+        height: 0;
+        border-bottom: .02rem solid #ffbf23;
+        position: absolute;
+        top: .38rem;
+        left: 50%;
+        margin-left: -.12rem
+    }
+
+    .news[data-v-420181ec] {
+        padding: .15rem;
+        margin-top: .4rem
+    }
+
+    .news li[data-v-420181ec], .news ul[data-v-420181ec] {
+        width: 100%
+    }
+
+    .news li .time[data-v-420181ec] {
+        width: 1.2rem;
+        height: .16rem;
+        border: .01rem solid #2187f7;
+        color: #2187f7;
+        font-size: .12rem;
+        text-align: center;
+        line-height: .16rem;
+        border-radius: .02rem
+    }
+
+    .news li .content[data-v-420181ec] {
+        margin-left: .05rem;
+        padding: .15rem .1rem;
+        color: #333;
+        font-size: .15rem;
+        border-left: .01rem solid #2187f7
+    }
+
+    ._v-container[data-v-420181ec] {
+        top: 1rem;
+        padding: .2rem .15rem
+    }
+
+   .title[data-v-273619f3] {
+        position: fixed;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        z-index: 99;
+        background: #1c1a25;
+    }
+
+    .title span[data-v-273619f3] {
+        line-height: .4rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        color: #333;
+        font-size: .15rem;
+        position: relative;
+        border-bottom: .01rem solid #ddd
+    }
+
+    .title span.on[data-v-273619f3] {
+        color: #0086ff
+    }
+
+    .title span.on[data-v-273619f3]:after {
+        content: "";
+        display: block;
+        width: .25rem;
+        height: 0;
+        border-bottom: .02rem solid #0086ff;
+        position: absolute;
+        top: .38rem;
+        left: 50%;
+        margin-left: -.12rem
+    }
+
+    .list > li[data-v-273619f3]:first-child {
+        margin-left: 10vw !important
+    }
+
+    .list > li[data-v-273619f3]:last-child {
+        margin-right: 10vw !important
+    }
+
+    .list-item[data-v-273619f3] {
+        position: relative;
+        border-radius: .02rem;
+        border: 1px solid #444;
+        border-bottom: none;
+        padding: .2rem;
+        height: 5.2rem;
+        border-top: none;
+        width: 80%;
+        margin-top: .2rem;
+        overflow-y: scroll;
+        padding-bottom: 2rem
+    }
+
+
+
+    .swiper-slide-active[data-v-273619f3] {
+        margin-top: 0
+    }
+
+    .candle[data-v-273619f3] {
+        position: relative;
+        padding-top: .4rem
+    }
+
+    .candle .pages[data-v-273619f3] {
+        width: 100%;
+        position: fixed;
+        top: .9rem;
+        padding-top: .1rem;
+        z-index: 99;
+        background: #fff
+    }
+
+    .candle .pages span[data-v-273619f3] {
+        display: block;
+        width: 33%;
+        font-size: .22rem;
+        color: #333;
+        text-align: center;
+        float: left;
+        margin-top: .1rem
+    }
+
+    .candle .pages span[data-v-273619f3]:first-child {
+        font-size: .17rem;
+        text-align: left;
+        padding-left: 10%;
+        position: relative
+    }
+
+    .candle .pages span[data-v-273619f3]:first-child:after {
+        content: "";
+        width: .1rem;
+        height: .1rem;
+        border-top: .01rem solid #999;
+        border-left: .01rem solid #999;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        position: absolute;
+        left: .2rem;
+        top: .05rem
+    }
+
+    .candle .pages span[data-v-273619f3]:last-child {
+        font-size: .17rem;
+        text-align: right;
+        padding-right: 10%
+    }
+
+    .candle .pages span[data-v-273619f3]:last-child:after {
+        content: "";
+        width: .1rem;
+        height: .1rem;
+        border-top: .01rem solid #999;
+        border-right: .01rem solid #999;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        right: .2rem;
+        top: .1 .3rem
+    }
+
+    .candle .pages span.pagination[data-v-273619f3] {
+        margin-top: .05rem
+    }
+
+    .candle .pages span.pagination em[data-v-273619f3] {
+        font-size: .12rem;
+        color: #999;
+        display: block;
+        width: 100%;
+        text-align: center
+    }
+
+    .item[data-v-273619f3] {
+        padding: .15rem 0;
+        border-bottom: .01rem solid #444
+    }
+
+    .flag[data-v-273619f3] {
+        width: .16rem;
+        height: .16rem;
+        border-radius: .08rem;
+        float: left
+    }
+
+    .flag[data-v-273619f3], .item-top span[data-v-273619f3], .star[data-v-273619f3] {
+        display: inline-block;
+        vertical-align: middle
+    }
+
+    .item-top .time[data-v-273619f3] {
+        color: #999;
+        font-size: .12rem;
+        padding: 0 .1rem;
+        float: left;
+        line-height: .16rem
+    }
+
+    .star[data-v-273619f3] {
+        float: right
+    }
+
+    .star img[data-v-273619f3] {
+        display: inline-block;
+        vertical-align: middle;
+        width: .12rem;
+        height: .12rem;
+        margin-right: .03rem
+    }
+
+    .item-top .well[data-v-273619f3] {
+        height: .16rem;
+        border: .01rem solid #999;
+        color: #999;
+        text-align: center;
+        line-height: .16rem;
+        font-size: .1rem;
+        padding: 0 .03rem;
+        float: right
+    }
+
+    .item-top .tex_red[data-v-273619f3] {
+        color: #f64e43;
+        border: .01rem solid #f64e43
+    }
+
+    .item-top .tex_green[data-v-273619f3] {
+        color: #00cf8c;
+        border: .01rem solid #00cf8c
+    }
+
+    .item-mid[data-v-273619f3] {
+        padding: .1rem 0;
+        color: #999;
+        font-size: .15rem
+    }
+
+    .item-mid .arrow[data-v-273619f3] {
+        display: inline-block;
+        height: .18rem;
+        line-height: .18rem;
+        text-align: center;
+        padding: 0 .02rem;
+        position: relative;
+        color: #ffbf23;
+        border: .01rem solid #ffbf23;
+        border-right: none;
+        margin-right: .1rem;
+        font-size: .11rem
+    }
+
+    .item-mid .arrow[data-v-273619f3]:after {
+        content: "";
+        width: .13rem;
+        height: .12rem;
+        border-left: .01rem solid #ffbf23;
+        border-top: .01rem solid #ffbf23;
+        -ms-transform: rotate(135deg);
+        transform: rotate(135deg);
+        -o-transform: rotate(135deg);
+        -moz-transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        position: absolute;
+        top: .02rem;
+        right: -.07rem
+    }
+
+    .item-bottom[data-v-273619f3] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        width: 100%
+    }
+
+    .item-bottom span[data-v-273619f3] {
+        display: block;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        color: #ffffff;
+        font-size: .12rem;
+        text-align: center;
+        line-height: .2rem
+    }
+
+    .item-bottom span[data-v-273619f3]:first-child {
+        text-align: left
+    }
+
+    .item-bottom span[data-v-273619f3]:last-child {
+        text-align: right
+    }
+
+    .hide[data-v-273619f3] {
+        opacity: 0 !important
+    }
+
+    .waiting[data-v-273619f3] {
+        width: 100%;
+        padding-top: .05rem
+    }
+
+    .waiting img[data-v-273619f3] {
+        display: block;
+        width: .32rem;
+        margin: 0 auto
+    }
+
+    .textNone_content div[data-v-273619f3] {
+        width: 1rem;
+        height: 1rem
+    }
+    .candle .pages[data-v-e7a27be4] {
+        width: 100%;
+        position: fixed;
+        top: .1rem;
+        padding-top: .01rem;
+        z-index: 99;
+        background: #1C1A25;
+    }
+    .candle .pages span[data-v-e7a27be4] {
+        display: block;
+        width: 33%;
+        font-size: .22rem;
+        color: #fff;
+        text-align: center;
+        float: left;
+        margin-top: .1rem;
+    }
+    .candle .pages span[data-v-e7a27be4]:first-child {
+        font-size: .17rem;
+        text-align: left;
+        padding-left: 10%;
+        position: relative;
+    }
+    .candle .pages span[data-v-e7a27be4]:first-child:after {
+        content: "";
+        width: .1rem;
+        height: .1rem;
+        border-top: .01rem solid #fff;
+        border-left: .01rem solid #fff;
+        -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        position: absolute;
+        left: .2rem;
+        top: .05rem;
+    }
+    .candle .pages span[data-v-e7a27be4]:last-child:after {
+        content: "";
+        width: .1rem;
+        height: .1rem;
+        border-top: .01rem solid #999;
+        border-right: .01rem solid #999;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        position: absolute;
+        right: .2rem;
+        top: .1.3rem;
+    }
+    .candle .pages span.pagination[data-v-e7a27be4] {
+        margin-top: .05rem;
+    }
+    b, optgroup, strong {
+        font-weight: 400;
+    }
+    em, i {
+        font-style: normal;
+    }
+    .candle .pages span.pagination em[data-v-e7a27be4] {
+        font-size: .12rem;
+        color: #999;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+    .candle .pages span[data-v-e7a27be4]:last-child {
+        font-size: .17rem;
+        text-align: right;
+        padding-right: 10%;
+    }
+    .clearfix:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+        visibility: hidden;
+    }
+        .spanW3 {
+            display: inline-block;
+            width: 30%;
+        }
+
+   </style>
+    <style type="text/css" data-n-head="true">body {
+        overflow: hidden
+    }</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-273619f3="" class="">
+        <div data-v-273619f3="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>金融资讯</span><em></em></h3>
+                <div class="left" onclick="window.location.href='/';"><a class="arrow_left"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+
+        <section data-v-273619f3="" class="page-main">
+            <div data-v-273619f3="" class="title">
+            	<volist name="classData" id="vo">
+                    <eq name="i" value="2">
+                        <span data-v-420181ec="" class="on">{$vo.fclass}</span>
+                     <else />
+                     	<span data-v-420181ec=""><a style="color: #999" href="{:U('financeNews')}">{$vo.fclass}</a></span>
+                    </eq>
+	            </volist>
+           	</div>
+            <div data-v-273619f3="" class="candle">
+                <div class="swiper-container" style="height: .6rem">
+                    <div class="swiper-wrapper" style="background: #fff">
+                        <div class="swiper-slide">
+                            <div style="height: 100%">
+                                <span class="spanW3">07/13</span>
+                                <span class="spanW3">07/13</span>
+                                <span class="spanW3">07/13</span>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div>
+                                <span class="spanW3">07/13</span>
+                                <span class="spanW3">07/13</span>
+                                <span class="spanW3">07/13</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="swiper-container">-->
+                    <!--<div data-swiper-parallax="-23%" data-swiper-parallax-duration="3000"></div>-->
+                    <!--<div class="swiper-wrapper">-->
+                        <!--<div class="swiper-slide"><div data-swiper-parallax="-100" style="color: #fff">Slide 1</div></div>-->
+                        <!--<div class="swiper-slide"><div data-swiper-parallax="-100" style="color: #fff">Slide 2</div></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div data-v-273619f3="" class="swiper-container swiper-container-horizontal">
+                    <ul data-v-273619f3="" class="list swiper-wrapper">
+
+                    
+                        <li data-v-273619f3="" class="swiper-slide list-item swiper-slide-active"
+                            style="width: 300px; margin-right: 20px;">
+
+						<volist name="list" id="vo">
+                            <div data-v-273619f3="" class="item">
+                                <div data-v-273619f3="" class="item-top clearfix">
+                                <img data-v-273619f3="" src="{$vo.pic_url}" class="flag"><span
+                                        data-v-273619f3="" class="time">{$vo.public_time}</span>
+                                        <eq name="vo['status_name']" value="">
+                                        	<span data-v-273619f3="" class="well">未公布</span>
+                                        <else />
+                                        	<span data-v-273619f3="" class="well tex_green">{$vo.status_name}</span>
+                                        </eq>
+                                    <div data-v-273619f3="" class="star" data-star="{$vo.star}">
+                       				
+										<if condition="$vo['star'] eq 1">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                            <elseif condition="$vo['star'] eq 2" />
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+		                            	<elseif condition="$vo['star'] eq 3" />
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                            <elseif condition="$vo['star'] eq 4" />
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_gray@2x.png">
+			                            <elseif condition="$vo['star'] eq 5" />
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+			                                <img data-v-273619f3="" src="__PUBLIC__Qts/Home/img/public/star_red@2x.png">
+										</if>
+	
+
+                                    </div>
+                                </div>
+                                <div data-v-273619f3="" class="item-mid">
+                                <eq name="vo['type']" value="1">
+                                	<span data-v-273619f3="" class="arrow">财经事件</span>
+                                <else />
+                                	<span data-v-273619f3="" class="arrow">数据</span>
+                                </eq>
+                                    {$vo.content}
+                                </div>
+                                
+                                <notempty name="vo['previous']">
+                                    <div data-v-273619f3="" class="item-bottom">
+                                        <span data-v-273619f3="">前值:{$vo.previous}</span>
+                                        <span data-v-273619f3="">预期值:{$vo.consensus}</span>
+                                        <span data-v-273619f3="">公布值:{$vo.actual}</span>
+                                    </div>
+                                </notempty>
+
+                            </div>
+                            </volist>
+                            </li>
+					
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script src="__PUBLIC__Qts/Home/js/swiper.min.js"></script>
+<script language="javascript">
+    var mySwiper = new Swiper('.swiper-container',{
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev'
+    })
+
+</script>
+</body>
+</html>

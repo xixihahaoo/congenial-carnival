@@ -1,0 +1,207 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+<style>
+    .specla_background_class{
+        background:#edf3f4 !important;
+    }
+    table {
+        border:1px solid #dcebf7 !important;
+    }
+    td{color: #336199 !important;}
+    td.special_color{color:#000 !important;}
+</style>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            统计
+            <small>
+                <i class="icon-double-angle-right"></i>
+                信息统计
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">资金帐户信息</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>剩余保证金</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center orange"><h4><b>{$returnRs.account}</b></h4></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="space-12"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="header smaller lighter blue">用户交易信息统计</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总数</h5>
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总手数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>订单总金额</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总平仓盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总持仓盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总手续费</h5>
+                            </td>
+
+                            <td class="center specla_background_class">
+                                <h5>总隔夜费</h5>
+                            </td>
+
+                            <!--<td class="center specla_background_class">-->
+                                <!--<h5>名下用户推广佣金</h5>-->
+                            <!--</td>-->
+                        </tr>
+                        <tr>
+                            <td class="center  orange"><h4><b>{$returnRs.order_total}</b></h4></td>
+                            <td class="center  orange"><h4><b>{$returnRs.onumber_total}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnRs.total_count}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnRs.total_money}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnRs.position_money}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnRs.total_fee}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnRs.overnight_fee}</b></h4></td>
+                            <!--<td class="center  hidden-480 orange"><h4><b>{$returnRs.total_user_commission}</b></h4></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="header smaller lighter blue">本周用户交易信息统计</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总数</h5>
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总手数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>订单总金额</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总平仓盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总持仓盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总手续费</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总隔夜费</h5>
+                            </td>
+                            <!--<td class="center specla_background_class">-->
+                                <!--<h5>名下用户推广佣金</h5>-->
+                            <!--</td>-->
+                        </tr>
+                        <tr>
+                            <td class="center  orange"><h4><b>{$returnWeek.order_total}</b></h4></td>
+                            <td class="center  orange"><h4><b>{$returnWeek.onumber_total}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnWeek.total_count}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnWeek.total_money}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnWeek.total_position}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnWeek.total_fee}</b></h4></td>
+                            <td class="center  hidden-480 orange"><h4><b>{$returnWeek.overnight_fee}</b></h4></td>
+                            <!--<td class="center  hidden-480 orange"><h4><b>{$returnWeek.total_user_commission}</b></h4></td>-->
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="space-12"></div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">用户信息统计</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>销售商总数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>用户总数</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="center orange"><h4><b>{$returnRs.agent_total}</b></h4></td>
+                            <td class="center orange hidden-480 "><h4><b>{$returnRs.user_total}</b></h4></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="__PUBACE__/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="__PUBACE__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.slimscroll.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.sparkline.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+
+    });
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

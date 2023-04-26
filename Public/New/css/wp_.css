@@ -1,0 +1,169 @@
+html{color:#666;background:#ececec; }
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form,
+fieldset, legend, input, textarea, p, blockquote, th, td {margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0}
+fieldset, img{border:0}
+address, caption, cite, code, dfn, em, strong, th, var{font-style:normal;font-weight:normal}
+ol, ul{list-style:none}
+caption, th{text-align:left}
+h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal}
+q:before, q:after{content:''}
+abbr, acronym{border:0;font-variant:normal}
+sup{vertical-align:text-top}
+sub{vertical-align:text-bottom}
+input, textarea, select{font-family:inherit;font-size:inherit;font-weight:inherit}
+input, textarea, select{*font-size:100%}
+legend{color:#000}
+body{font-family: "微软雅黑";}
+
+.whiteBg{background: #fff; border-bottom: 1px solid #e1e1e1;border-top: 1px solid #e1e1e1; /*margin-bottom: 20px;*/}
+
+.main_content{
+	width: 100%; position: relative; overflow: hidden; background: #e8e8e8;
+	font-family: "微软雅黑";
+}
+
+.main_left{
+	width: 250px;  position: absolute;  left: 0px; top: 0;  z-index: 1; transition: all 0.3s;
+}
+
+/*===============个人中心 （左侧）=================*/
+#user_main{position: fixed; z-index: 99997; width: 100%; height: 100%; background: rgba(0,0,0,0.3);}
+
+
+.bgjp{
+	background:-webkit-gradient(linear,0 0,0 100%,from(#0da5bc),to(#c0e65d));
+	background:-moz-linear-gradient(top,#0da5bc,#c0e65d);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#0da5bc, endColorstr=#c0e65d, grandientType=1);
+	background:-ms-linear-gradient(top,#0da5bc,#c0e65d);
+}
+
+.user_content{padding: 20px 35px; color: #fff; position: relative; left: -100px;}
+.top_nr{overflow: hidden;}
+.heda_img{width: 45px; height: 45px; border-radius: 50%; overflow: hidden;float: left; margin-right: 15px;}
+.heda_img img{width: 100%;}
+.user_iphone{float: left;}
+.user_iphone p:first-child{margin: 3px 0;}
+.user_money{ overflow: hidden;}
+.user_money p{ margin: 15px 0 20px;}
+.user_money p i{font-style: normal; font-size: 17px;}
+.user_money span{width: 45%;}
+
+.user_info {margin: 20px 0;}
+
+.user_info ul li{padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.4); overflow: hidden;}
+.user_info ul li p i{float: right;margin-right: 5px; font-size: 12px; line-height: 20px;}
+.user_info ul li p:first-child{float: left;}
+
+
+.head_{
+	line-height: 45px;
+	color: #fff;
+	font-size: 20px;
+}
+.head_ a:before{
+	margin-left: 10px;
+}
+
+
+/*===============主体内容 =================*/
+.main_right{position: relative; z-index: 5; background: #fff;/*height: 2000px;*/ left: 0; background: #e8e8e8;}
+/*===============首页=================*/
+.user_id{ padding: 20px 3px;}
+.user_idInfo {float: left;}
+.user_idInfo p span{color: #ff881f; font-size: 18px; font-family: arial;}
+.top_up span{width: 100%;}
+
+.top_up{padding: 23px 3px;}
+
+.stockType{ padding-bottom: 15px; padding-top: 15px; height: 66px;}
+
+.stockClass{ width: 100%;font-size: 16px;}
+.stockClass span{margin-right: 5px;}
+#stockType{ width: 90%; margin: 5px 5%; padding-left: 8px; padding-right: 8px;}
+#stockType ul li{line-height: 36px; border-bottom: 1px solid rgba(0,0,0,0.1);}
+#stockType ul li:last-child{border: none;}
+.stockDataTit{padding-bottom: 8px; padding-top: 8px; }
+.stockDataTit .col-xs-5 p{ font-size: 22px; padding-left: 5px; color: #999;}
+.stockDataTit .col-xs-5 em{  font-size: 25px; color: #ff881f; font-weight: bold; }
+.stockDataTit .col-xs-5 i{font-size: 20px;   margin-left: 3px; color: #999;}
+.stockDataTit .col-xs-7, .stockDataTit .col-xs-5{padding-left: 10px; padding-right: 10px;}
+.stockDataTit .col-xs-7 ul {overflow: hidden; padding-top:12px ;}
+.stockDataTit .col-xs-7 ul li{font-size: 15px; font-weight: bold; color: #555; float: left; margin: 3px; }
+
+/*买涨/买跌*/
+/*.font16{ font-size: 16px }*/
+/*.font14{ font-size: 14px }*/
+.font12{color: #999; }
+.font22{ font-size: 22px; color: #666;font-family: '微软雅黑';
+	}
+
+
+
+.mzmd li{
+	height: 25px;
+	line-height: 25px;
+}
+.mzmd .font22{
+	height: 35px;
+	line-height:35px;
+}
+
+
+.h20{ height: 25px; line-height:25px; }
+.h45{ height:45px;line-height: 45px; }
+
+.fontRed{color: red; }
+.color95{ color: #959595; }
+
+.margt10{margin-top:15px; }
+
+/*footer永远在页面最下面显示*/
+.position_bot{
+	position:absolute; bottom:0%;
+}
+
+/*小圆饼*/
+.circle{
+	height:30px;
+	width:100%;}
+
+.lub_yq ul li{
+	margin-left:5px;
+	width:10px;
+	height:10px;
+	border-radius: 50%;
+	background: #bebebe;
+}
+.lub_yq{
+	padding-top:10px;
+	padding-bottom: 5px;
+}
+.lub_yq ul li.current{
+	background: #3d3d3d;
+}
+
+
+/* 插件 媒体查询 */
+@media screen and (max-width:500px){
+	#main {
+		/*margin-left: -35px;margin-right: -50px;*/
+		width:123%;
+		margin-left:-26px;
+	}
+}
+
+/*拉开间距*/
+.marg_top{margin-top:1em;}
+
+body{
+	font-family: "微软雅黑";
+}
+
+.color_f76c29{
+	color: #f76c29;
+}
+:focus{outline:0}
+input{outline:none}
+.lf{float: left}
+.rt{float: right}

@@ -1,0 +1,106 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.market}</title>
+<link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+<style>
+	.ipt-group {
+		overflow: hidden;
+		border-radius: 5px;
+		line-height: .45rem;
+		font-size: .15rem;
+		position: relative;
+		width: 92%;
+		margin: .3rem auto
+	}
+
+	.ipt-group:last-child {
+		border-bottom: none
+	}
+	.ipt-before {
+		overflow: hidden;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		width: .8rem;
+		float: left;
+	}
+
+	.ipt-before em {
+		color: #acabb1;
+	}
+
+	.ipt-before em:first-of-type {
+		float: left
+	}
+
+	.ipt-before em:nth-of-type(2) {
+		float: right;
+		margin-right: .05rem
+	}
+
+	input {
+		float: left;
+		position: relative;
+		top: .1rem;
+		width: 1.5rem;
+		height: .24rem;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box
+	}
+	.ipt-btn {
+		display: block;
+		width: calc(100% - 0.28rem);
+		margin: 0 .14rem;
+		line-height: .4rem;
+		text-align: center;
+		font-size: .15rem;
+		border-radius: .08rem;
+		background: -o-linear-gradient(319deg, #cdcfd1 0, #d1d2d5 100%);
+		background: linear-gradient(-229deg, #cdcfd1, #d1d2d5);
+		color: #000
+	}
+	.btnColor {
+		background: #ffbf23;
+	}
+
+</style>
+</head>
+<body style="background: #1c1a25">
+<div data-server-rendered="true" id="__nuxt">
+	<div class="progress" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+	<div>
+		<div id="head">
+			<div class="head_content"><h3 class="product-name"><span style="color: #ffbf23">{$Think.lang.market}</span><em></em></h3>
+				<div class="left" onclick="window.location.href='{:U('User/index')}'"><a class="arrow_left"></a></div>
+				<div class="right arrow_right"><b></b></div>
+			</div>
+		</div>
+		<form id="base_form" action="index.html" name="form" method="post">
+			<section class="page-main">
+				<div class="content">
+					<div class="ipt-group">
+						<label>
+							<div class="ipt-before">
+								<em>充值金额</em>
+								<em>$</em>
+							</div>
+							<input type="number" placeholder="{$Think.lang.input_amount}" name="amount">
+						</label>
+					</div>
+				</div>
+				<button class="ipt-btn btnColor" type="submit" onclick="judge();return false;">确认充值</button>
+			</section>
+		</form>
+	</div>
+</div>
+</body>
+</html>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script>
+	function judge() {
+		if(form.amount.value==''){
+			layer.msg('金额不能为空！');
+			return false;
+		}
+		$('#base_form').submit()
+	}
+</script>

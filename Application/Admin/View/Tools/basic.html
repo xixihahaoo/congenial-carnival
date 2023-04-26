@@ -1,0 +1,177 @@
+<extend name="Base/common"/>
+<block name="content">
+        <!-- this page specific styles -->
+		<link rel="stylesheet" href="__CSS__/compiled/article-add.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="__CSS__/compiled/ui-elements.css" type="text/css" media="screen" />
+		<link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+        <div class="container-fluid">
+            <div id="pad-wrapper" class="form-page">
+                <div class="row-fluid form-wrapper">
+                    <!-- left column -->
+                    <div class="span8 column esystem">
+<!--                     	<div class="field-box" style="height: 40px">
+                            <label>平台设置:</label>
+                            <div class="slider-frame">
+                            	<span data-on-text="关闭平台" data-off-text="开启平台" class="slider-button on" data-isopen="{$conf.isopen}">关闭平台</span>
+                        	</div>
+                        	<div class="setopen" data-on-text="平台已经关闭，请尽快开启，以免流失客户" data-off-text="平台已开启，需要关闭平台请谨慎操作">平台已开启，需要关闭平台请谨慎操作</div>
+                        </div> -->
+                        <div class="field-box">                        	
+                            <label>网站名称：</label>
+                            <input class="span6" type="text" data-toggle="tooltip" data-trigger="focus" title="网站名称" data-placement="right" value="{$conf.webname}" name="webname"/>
+                            <span class="sysset">
+                            	<a class="btn-glow primary webname">提交</a>
+                           	</span>
+                        </div>
+
+                         <div class="field-box">                         
+                            <label>客服电话：</label>
+                            <input class="span6" type="text" data-toggle="tooltip" data-trigger="focus" title="客服电话" data-placement="right" value="{$conf.tel}" name="tel"/>
+                            <tel class="sysset">
+                                <a class="btn-glow primary tel">提交</a>
+                            </span>
+                        </div>
+
+                        <div class="field-box">                         
+                            <label>赠送模拟金额：</label>
+                            <input class="span6" type="text" data-toggle="tooltip" data-trigger="focus" title="用户注册赠送模拟金额" data-placement="right" value="{$conf.gold}" name="gold"/>
+                            <span style="margin-bottom: 12px;">用户注册赠送模拟金额</span>
+                            <tel class="sysset">
+                                <a class="btn-glow primary gold">提交</a>
+                            </span>
+                        </div>
+
+                        <div class="field-box" style="margin-bottom: 0;">
+                            <label>网站描述:</label>
+                            <textarea class="span8" rows="4" id="notice">{$conf.notice}</textarea>
+                            <span class="sysset"><a class="btn-glow primary notice">提交</a></span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+	<!-- scripts for this page -->	
+	<script src="__JS__/wysihtml5-0.3.0.js"></script>
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/bootstrap-wysihtml5-0.0.2.js"></script>
+    <script src="__JS__/bootstrap.datepicker.js"></script>
+    <script src="__JS__/jquery.uniform.min.js"></script>
+	<script src="__JS__/select2.min.js"></script>
+	<script src="__JS__/theme.js"></script>
+    <!-- call this page plugins -->
+    <script>
+    	$(".notice").click(function(){
+    		var notice = $("#notice").val();
+    		$.ajax({
+        		type:"post",
+        		url:"{:U('Super/esystem')}",
+        		data:{"notice":notice},
+        		success:function(data){
+        			alert(data);
+        		},
+        		error:function(data){
+        			alert(data);
+        		}
+        	});
+    	})
+    	$(".webname").click(function(){
+    		var webname = $("input[name=webname]").val();
+    		$.ajax({
+        		type:"post",
+        		url:"{:U('Super/esystem')}",
+        		data:{"webname":webname},
+        		success:function(data){
+        			alert(data);
+        		},
+        		error:function(data){
+        			alert(data);
+        		}
+        	});
+    	})
+        $(".tel").click(function(){
+            var tel = $("input[name=tel]").val();
+            $.ajax({
+                type:"post",
+                url:"{:U('Super/esystem')}",
+                data:{"tel":tel},
+                success:function(data){
+                    alert(data);
+                },
+                error:function(data){
+                    alert(data);
+                }
+            });
+        })
+
+        $(".gold").click(function(){
+            var gold = $("input[name=gold]").val();
+            $.ajax({
+                type:"post",
+                url:"{:U('Super/esystem')}",
+                data:{"gold":gold},
+                success:function(data){
+                    alert(data);
+                },
+                error:function(data){
+                    alert(data);
+                }
+            });
+        })
+    	$('.slider-button').click(function() {
+            	var isopen = $(this).attr('data-isopen');
+            	if(isopen==0){
+    				$(this).attr('data-isopen','1');
+    			}else{
+    				$(this).attr('data-isopen','0');
+    			}
+            	$.ajax({
+            		type:"post",
+            		url:"{:U('Super/esystem')}",
+            		data:{"isopen":isopen},
+            		success:function(data){
+            			alert(data);
+            		},
+            		error:function(data){
+            			alert(data);
+            		}
+            	});
+                if ($(this).hasClass("on")) {
+                    $(this).removeClass('on').html($(this).data("off-text"));
+                    $('.slider-frame').css('background-color','#d5dde4');
+                    $('.slider-frame span	').css('color','#f00');
+                } else {
+                    $(this).addClass('on').html($(this).data("on-text"));
+                    $('.slider-frame').css('background-color','#468847');
+                    $('.slider-frame span').css('color','#7e91aa');
+                }
+                if ($('.setopen').hasClass("on")) {
+                    $('.setopen').removeClass('on').html($('.setopen').data("off-text"));
+                } else {
+                    $('.setopen').addClass('on').html($('.setopen').data("on-text"));
+                }
+        	});
+    </script>
+    <script type="text/javascript">
+        $(function () {
+
+            // select2 plugin for select elements
+            $(".select2").select2({
+                placeholder: "Select a State"
+            });
+
+            // datepicker plugin
+            $('.datepicker').datepicker().on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+            // wysihtml5 plugin on textarea
+            $(".wysihtml5").wysihtml5({
+                "font-styles": false
+            });
+        });
+    </script>
+</block>
+
+

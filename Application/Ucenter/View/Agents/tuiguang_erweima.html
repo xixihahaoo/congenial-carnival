@@ -1,0 +1,125 @@
+<include file="Common:header_s" />
+<include file="Common:main_container_header_s" />
+
+
+<style>
+    .specla_background_class{
+        background:#edf3f4 !important;
+    }
+    table {
+        border:1px solid #dcebf7 !important;
+    }
+    td{color: #336199 !important;}
+    td.special_color{color:#000 !important;}
+    </style>
+
+<div class="page-content">
+    <!--div class="page-header">
+        <h1>
+            我的经纪人
+            <small>
+                <i class="icon-double-angle-right"></i>
+                经纪人详细信息
+            </small>
+        </h1>
+    </div--><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-sm-3">
+                <h3 class="header smaller lighter blue">我的推广二维码</h3>
+
+
+
+                <div class="col-xs-12 col-sm-12 center">
+                    <div>
+<!--                         <span class="profile-picture">
+                            <img id="avatar" class="editable img-responsive editable-click editable-empty" alt="Alex's Avatar" src="{$imgUrl}">
+                        </span> -->
+
+                        <span class="profile-picture qrcode" style="display: none;"></span>
+                        <span class="profile-picture" id="qrcode"></span>
+
+                        <input type="hidden" id="so_damin" value="{$systemDomain}">
+                        
+                        <div class="space-4"></div>
+
+
+                    <div class="space-6"></div>
+
+                    <div class="profile-contact-info">
+                        <div class="profile-contact-links align-left">
+
+                            <a class="btn btn-link" href="#">
+                                <i class="icon-globe bigger-125 blue"></i>
+                                {$systemDomain}
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hr hr16 dotted"></div>
+                </div>
+
+
+
+            </div>
+        </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="__PUBACE__/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="__PUBACE__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.slimscroll.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.sparkline.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.resize.min.js"></script>
+<script language="javascript" type="text/javascript" src="/Public/Home/js/jquery.qrcode.min.js"></script>
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+        $('.qrcode').qrcode($("#so_damin").val());
+
+        function convertCanvasToImage(canvas) {
+            //新Image对象，可以理解为DOM
+            var image = new Image();
+            // canvas.toDataURL 返回的是一串Base64编码的URL
+            // 指定格式 PNG
+            image.src = canvas.toDataURL("image/png");
+            return image;
+        }
+
+        var mycanvas1=document.getElementsByTagName('canvas')[0];
+
+        var img=convertCanvasToImage(mycanvas1);
+
+        $('#qrcode').append(img);
+    });
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

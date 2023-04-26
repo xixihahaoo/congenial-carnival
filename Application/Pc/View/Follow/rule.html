@@ -1,0 +1,220 @@
+<include file="Base:header" />
+<title data-n-head="true">{$news.ntitle}</title>
+
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<style data-vue-ssr-id="2b122a9a:0 309b0fcd:0 29409f98:0 5e000063:0">
+        .page-main[data-v-148c9be6] {
+                padding: .5rem 0 0;
+                background: #f5f5f5
+        }
+
+        .txt-con p[data-v-97ee62f6] {
+                text-align: center;
+                font-size: .17rem;
+                height: .24rem;
+                line-height: .24rem;
+                color: #333
+        }
+
+        .txt-con p[data-v-97ee62f6]:last-child {
+                margin-top: .05rem
+        }
+
+        .btn-wrap p[data-v-97ee62f6] {
+                text-align: center;
+                color: #999;
+                font-size: .14rem;
+                margin-bottom: .1rem
+        }
+
+        .btn-wrap button[data-v-97ee62f6] {
+                width: 100%;
+                height: .44rem;
+                background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);
+                background-image: linear-gradient(-229deg, #1254a8, #0c62c1);
+                border-radius: 1rem;
+                font-size: .17rem;
+                color: #fff;
+                text-align: center
+        }
+
+        .page-main[data-v-51d6043c] {
+                padding: .5rem .1rem 0
+        }
+
+        p[data-v-51d6043c] {
+                text-align: justify
+        }
+
+        /*body {*/
+        /*background: #fbfbfb*/
+        /*} */
+        /*新增css*/
+        body,
+        html {
+                height: 100%;
+                width: 100%;
+                background: #262b41 !important;
+        }
+
+        .page-main {
+                /* background: #212139; */
+                min-height: 600px;
+                margin: 0 auto 50px !important;
+                padding: 0 !important;
+        }
+
+        p {
+                color: #ddd;
+        }
+        .contentWrap {
+                width: 1014px;
+                height: 720px;
+                float: left;
+                background: #212139;
+                padding: 0 68px;
+                position: relative;
+                overflow: auto;
+        }
+</style>
+</head>
+
+<body>
+        <div id="__nuxt">
+                <div class="progress" data-v-4a8a9a01=""
+                        style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+                <div data-v-51d6043c="" class="content">
+                        <!--<div data-v-51d6043c="" id="head" style="width: 60%">-->
+                        <!--<div class="head_content"><h3 class="product-name"><span>{$news.ntitle}</span><em></em></h3>-->
+                        <!--<div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>-->
+                        <!--<div class="right arrow_right"><b></b></div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--引入导航条-->
+                        <include file="Base:footer" />
+                        <section data-v-51d6043c="" class="page-main clearfix">
+                                <!--引入个人中心公共组件-->
+                                <include file="User:userPublic" />
+                                <div class="contentWrap">
+                                        <p
+                                                style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">
+                                                <span
+                                                        style="color: rgb(38, 38, 38); font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><br></span>
+                                        </p>
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<strong><span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">|-->
+                                                                <!--交易员须知：</span></strong>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">1.&nbsp;申请成为交易员需订单总数、准确率及收益率大于一定数值，且仅限</span><span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">实盘交易。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">2.-->
+                                                        <!--一旦成为交易员则不能再跟随其他交易员。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">3.&nbsp;-->
+                                                        <!--当跟随订单结算后盈利大于一定金额时，则该笔订单盈利的20%将做为交易员的盈利分成，否则无盈利分成。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style="font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">4.&nbsp;-->
+                                                        <!--交易员挂单时，跟随者不进行同步挂单，只有当该订单挂单成功时，跟随者会同步持仓。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">5.&nbsp;-->
+                                                        <!--若申请撤销交易员身份，已跟随中的订单仍会保持，交易结束后，不再被跟随。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">6.&nbsp;-->
+                                                        <!--若交易员在带单操作时，重仓操作，不进行严格止损等行为。平台有权随时撤销交易员资格，且保留解释权。</span>-->
+                                        <!--</p>-->
+                                        <!--<p style="white-space: normal;"><br></p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<strong><span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">|-->
+                                                                <!--跟随者须知：</span></strong>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">1.-->
+                                                        <!--跟随功能只针对实盘交易和非交易员用户使用。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">2.-->
+                                                        <!--选择“固定比例跟随”，所有订单都将按照设置的比例进行跟随。选择“固定手数”跟随，所有订单都将按照设置的手数进行跟随。（最小手数均为0.01手）</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">3.-->
+                                                        <!--跟随费用：若跟随交易，跟随者订单结算后每笔盈利总额大于一定金额时，按照订单盈利的20%分成。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">4.-->
+                                                        <!--跟随订单将严格跟随交易员订单操作，包括修改和设置止盈止损、平仓等操作。</span><span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">跟随者可自行平仓；点击“转自持”后才可自行设置止盈止损。此时订单转为自持订单，且不再跟随交易员操作，但平仓和转自持后的订单仍收取跟随费用。&nbsp;</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">5.&nbsp;交易员挂单，跟随者只会在交易员挂单成功时同步持仓，即不同步挂单。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">6.&nbsp;跟随者一旦取消跟随某交易员，正在跟随中的订单仍会保持，正在跟随中的订单平仓后将不再进行跟随。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">7.&nbsp;如有以下情况，不建议进行跟随，请您在进行跟随时谨慎选择且严格止盈止损。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">&nbsp;&nbsp;-->
+                                                        <!--&nbsp; （1）交易员每笔盈利点数小，亏损较大。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;">&nbsp;&nbsp;-->
+                                                        <!--&nbsp; （2）交易员习惯重仓操作，盈利率小。</span>-->
+                                        <!--</p>-->
+                                        <!--<p-->
+                                                <!--style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">-->
+                                                <!--<span-->
+                                                        <!--style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><br></span>-->
+                                        <!--</p>-->
+                                        {$news.ncontent}
+                                        <p
+                                        style="white-space: normal; line-height: 1.5em; text-align: justify; margin-bottom: 10px;">
+                                        <span
+                                        style=" font-family: 微软雅黑, &quot;Microsoft YaHei&quot;;"><br></span>
+                                        </p>
+                                </div>
+                        </section>
+
+                        <include file="Base:trueFooter" />
+                </div>
+        </div>
+
+<script>
+    window.onload=function(){
+        $('.headertop .wapper > ul > li').last().find('a').addClass('active');
+        $('.userPublic .userMenu > ul > li').eq(2).find('a').addClass('active');
+    }
+</script>
+
+</body>
+
+</html>

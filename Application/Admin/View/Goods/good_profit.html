@@ -1,0 +1,167 @@
+
+<!-- bootstrap -->
+<link href="/Public/Admin/css/bootstrap/bootstrap.css" rel="stylesheet" />
+<link href="/Public/Admin/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+<link href="/Public/Admin/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+<!-- libraries -->
+<link href="/Public/Admin/css/lib/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />
+<link href="/Public/Admin/css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+
+<!-- global styles -->
+<link rel="stylesheet" type="text/css" href="/Public/Admin/css/layout.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/css/elements.css" />
+<link rel="stylesheet" type="text/css" href="/Public/Admin/css/icons.css" />
+
+<block name="content">
+    <link rel="stylesheet" href="__CSS__/compiled/new-user.css" type="text/css" media="screen" />
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/article.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Js/timepicker/css/jquery-ui.css" />
+
+    <script type="text/javascript" src="__PUBJS__/jquery.1.7.2.js"></script>
+    <script type="text/javascript" src="__PUBJS__/timepicker/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="__PUBJS__/timepicker/js/jquery-ui-slide.min.js"></script>
+    <script type="text/javascript" src="__PUBJS__/timepicker/js/jquery-ui-timepicker-addon.js"></script>
+    <style>
+        .new-user .form-wrapper input[type="text"]{border: 1px solid #D0D0D0;}
+        .ui-timepicker-div .ui-widget-header { margin-bottom: 8px;}
+        .ui-timepicker-div dl { text-align: left; }
+        .ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+        .ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+        .ui-timepicker-div td { font-size: 90%; }
+        .ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+        .ui_tpicker_hour_label,.ui_tpicker_minute_label,.ui_tpicker_second_label,.ui_tpicker_millisec_label,.ui_tpicker_time_label{padding-left:20px}
+        .ui-datepicker-buttonpane .ui-priority-secondary, .ui-datepicker-buttonpane .ui-priority-primary {height:32px;}
+        #pad-wrapper{margin-top:5px;}
+
+
+    </style>
+    <div class="container-fluid">
+        <div id="pad-wrapper"  class="new-user">
+
+
+
+            <div class="row-fluid header">
+            <form  action="" id="id_form" method="post" name="del">
+                <input type="hidden" name="option_id" value="{$option_id}">
+                <div class="row-fluid table">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="span1 sortable">
+                                止盈金额列表
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="time_items" class="items">
+                        <volist name="transaction" id="v">
+                            <tr class="first">
+                                <td>
+                                    <input class="span2" value="{$v['stop_profit']}"  type="text" name="loss[]"/>
+                                    <input class="span2" value="{$v['id']}"  type="hidden" name="id[]"/>
+                                    <input type="hidden" name="field" value="stop_profit">
+
+                                </td>
+                                <td>
+                                    <a class="delete_item" href="javascript:void(0);" data="{$v['id']}">X</a>
+                                </td>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+            </div>
+<!--             <div class="switch" data-on="danger" data-off="primary">
+                <input type="checkbox" checked />
+            </div> -->
+            <div style="padding-bottom: 20px; text-align:left;" class="span8 field-box ">
+                <input type="button" id="add_item" value="增加" class="btn-glow primary">
+                <input type="button" id="submit_btn" value="保存" class="btn-glow primary">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+    <script type="text/javascript">
+
+
+       if($(".items tr").length >= 5){
+
+           $("#add_item").attr('disabled',true);
+       }
+    
+
+        $('#add_item').click(function(){
+
+            var add_html = '<tr class="first">'+
+                    '<td>'+
+                    '<input class="span2" value=""  type="text" name="loss[]" />'+
+                    '</td>'+
+                    '<td>'+
+                    '<a class="delete_item" href="javascript:void(0);">X</a>'+
+                    '</td>'+
+                    '</tr>';
+            $('#time_items').append(add_html);
+
+                if($(".items tr").length >= 5){
+
+                    $("#add_item").attr('disabled',true);
+                } 
+
+        });
+
+
+
+        $(document).ready(function(){
+
+            $('.delete_item').live('click', function(){
+                $(this).parent().parent().remove();
+
+                var id = $(this).attr('data');
+                $.get("{:U('loss_del')}",{id:id}); 
+             
+                 if($(".items tr").length < 5){
+
+                       $("#add_item").attr('disabled',false);
+                   }
+            });
+        });
+
+        $('#submit_btn').bind('click', function(){
+
+            keywords = $(this).val();
+            $.ajax({
+                type: "post",
+                url: "{:U('Goods/stop_edit')}",
+                data:$("#id_form").serialize(),
+                success: function(data) {
+                    console.log(data);
+
+                    if(data.status === 1)
+                    {
+                        alert(data.msg);
+                        parent.location.reload();
+                        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                        parent.layer.close(index);
+                    }
+                    else
+                    {
+                        alert(data.msg);
+                    }
+
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            })
+        });
+
+
+    </script>
+</block>

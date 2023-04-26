@@ -1,0 +1,262 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/index.css" type="text/css" media="screen" />  
+<div class="container-fluid">
+
+    <!-- upper main stats -->
+    <div id="main-stats">
+        <div class="row-fluid stats-row">
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$extend_count|default=0}</span>
+                    运营中心
+                </div>
+                <span class="date">截止{$date}</span>
+            </div>
+          <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$agent_count|default=0}</span>
+                    销售商
+                </div>
+                <span class="date">截止{$date}</span>
+            </div>
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$user_count|default=0}</span>
+                    用户
+                </div>
+                <span class="date">截止{$date}</span>
+            </div>
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$order_count|default=0}</span>
+                    订单
+                </div>
+                <span class="date">最近7天</span>
+            </div>
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$sum|default='0.00'}</span>
+                    交易总额
+                </div>
+                <span class="date">最近30天</span>
+            </div>
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$balance|default='0.00'}</span>
+                    提现
+                </div>
+                <span class="date">最近30天</span>
+            </div>
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$point|default='0.00'}</span>
+                    充值
+                </div>
+                <span class="date">最近30天</span>
+            </div>
+            
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$onumber|default='0.00'}</span>
+                    总手数
+                </div>
+            </div>
+
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$holdPloss|default='0.00'}</span>
+                    总持仓盈亏
+                </div>
+            </div>
+
+            <div class="span3 stat last">
+                <div class="data">
+                    <span class="number">{$closePloss|default='0.00'}</span>
+                    总平仓盈亏
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end upper main stats -->
+
+    <div id="pad-wrapper">
+
+        <div class="table-products" style="padding-top: 0;">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4>今日实盘交易记录 <small>Orders</small></h4>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                                <th class="span3 sortable">
+                                    订单编号
+                                </th>
+								<th class="span3 sortable">
+                                    <span class="line"></span>用户
+                                </th>
+                                <th class="span3 sortable">
+                                    <span class="line"></span>订单时间
+                                </th>
+                                <th class="span4 sortable">
+                                    <span class="line"></span>产品信息
+                                </th>
+								<th class="span2 sortable">
+                                    <span class="line"></span>数量
+                                </th>
+								<th class="span2 sortable">
+                                    <span class="line"></span>类型
+                                </th>
+								<th class="span2 sortable">
+                                    <span class="line"></span>订单状态
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>买入点位
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>平仓点位
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>买入时长
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>止盈
+                                </th>
+                                <th class="span2 sortable">
+                                    <span class="line"></span>止损
+                                </th>
+								<th class="span3 sortable">
+                                    <span class="line"></span>隔夜利息
+                                </th>
+                                <th class="span3 sortable">
+                                    <span class="line"></span>手续费
+                                </th>
+                                <th class="span3 sortable">
+                                    <span class="line"></span>保证金
+                                </th>
+
+                                <th class="span3 sortable">
+                                    <span class="line"></span>盈亏
+                                </th>
+                                <th class="span3 sortable">
+                                    <span class="line"></span>订单类型
+                                </th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                    <!-- row -->
+                    <volist name="orders" id="vo">
+                        <tr class="first">
+							<td>
+                                {$vo.orderno}
+                            </td>
+                            <td>
+                                <a href="{:U('User/updateuser',array('uid'=>$vo['uid']))}" class="name">{$vo.username}</a>
+                            </td>
+                            <td>
+                                {$vo.buytime|date='Y-m-d H:i:s',###}
+                            </td>
+                            <td>
+								{$vo.option_name}
+                            </td>
+                            <if condition="$vo['order_scene'] eq 1">
+							    <td>{$vo.onumber}手</td>
+                            <else />
+                                <td>--</td>
+                            </if>
+							<td>
+								<if condition="$vo.ostyle eq '0'">
+                                <span class="label label-success">买入</span></span>
+                            	<else/>
+								<span class="label label-cc">买出</span></span>
+								</if>
+                            </td>
+                            <td>
+                               <if condition="$vo['ostatus'] eq '0'">
+								<span class="label label-success">建仓</span></span>
+                                <else />
+                                <span class="label label-cc">平仓</span></span>
+                                </if>
+                            </td>
+                            <td>
+                                <font color="#f00" size="3">{$vo['buyprice']}<font>
+                            </td>
+                            <td>
+                                <font color="#f00" size="3">{$vo['sellprice']}<font>
+                            </td>
+    
+                            <if condition="$vo['order_scene'] eq 1">
+                                <td>--</td>
+                                <td><font color="#f00" size="3">{$vo['endprofit']}<font></td>
+                                <td><font color="#f00" size="3">{$vo['endloss']}<font></td>
+                            <else />
+                                <td><font color="#f00" size="3">{$vo['second']}秒<font></td>
+                                <td>--</td>
+                                <td>--</td>
+                            </if>
+    
+    
+                            <if condition="$vo['order_scene'] eq 1">
+                                <td><font color="#f00" size="3">{$vo['overnight_fee']}<font></td>
+                                <else />
+                                <td>--</td>
+                            </if>
+                            
+							<td>
+                                <font color="#f00" size="3">{$vo['fee']}<font>
+                            </td>
+                            
+
+                            <td>
+                                <font color="#f00" size="3">{$vo['Bond']}<font>
+                            </td>
+
+                            <td>
+                                <font color="#f00" size="3">{$vo['ploss']}<font>
+                            </td>
+                            <td>
+                                <if condition="$vo['order_type'] eq 1">
+                                    <font color="#f00" size="3">自持<font>
+                                <elseif condition="$vo['order_type'] eq 2" />
+                                    <font color="#f00" size="3">跟随<font>
+                                <else />
+                                    <font color="#f00" size="3">挂单<font>
+                                </if>
+                            </td>
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+              <ul>
+                    {$page}
+              </ul>
+            </div>
+            <div>今日已有<font color="#f00" size="4">{$day_count}</font>个<a href="{:U('Order/olist')}">订单</a>达成交易</div>
+        </div>
+        <hr />
+        <div>
+            <input type="button" value="重启WS服务" class="btn-flat" onclick="javascript:restart_ws();">
+        </div>
+
+    </div>
+</div>
+<!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+    <script language="JavaScript">
+        function restart_ws() {
+            if( confirm("确定重启")){
+                var api = "http://156.238.111.134:8888/hook?access_key=1vWML440EELUK3VjwTCNxcqYGGfyuiFM7FarUxNKucahMsZp";
+                window.open(api);
+            }
+        }
+    </script>
+</block>

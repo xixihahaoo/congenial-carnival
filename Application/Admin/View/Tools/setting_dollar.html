@@ -1,0 +1,91 @@
+<extend name="Base/common"/>
+
+<block name="content">
+    <link rel="stylesheet" href="__CSS__/compiled/new-user.css" type="text/css" media="screen" />
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/article.css" type="text/css" media="screen" />
+
+    <style>
+        .new-user .form-wrapper input[type="text"]{border: 1px solid #D0D0D0;}
+    </style>
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="new-user">
+            <div class="row-fluid header">
+                <h3>美元汇率设置</h3>
+            </div>
+
+            <div class="row-fluid header">
+                <form id="id_form" method="post" name="del">
+                    <div class="row-fluid table">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    <span class="line"></span>汇率类型
+                                </th>
+                                <th class="span1 sortable">
+                                    <span class="line"></span>汇率值 (人民币)
+                                </th>
+
+                            </tr>
+                            </thead>
+                            <tbody id="ajaxback">
+                            <volist name="data" id="value">
+
+                                <tr class="first">
+                                    <td>
+                                        <input class="span6" type="text" name="" value="{$value.name}" data-toggle="tooltip" data-trigger="focus" title="{$value.name}"  data-placement="right" disabled="" />
+                                    </td>
+
+                                    <td>
+                                        <input class="span6" type="text" name="value[]" value="{$value.value}" data-toggle="tooltip" data-trigger="focus" title="请输入相应汇率值" data-placement="right"  onkeyup="value=value.replace(/[^\d\.]/g,'')"/>
+                                        /$1
+                                        <br />
+                                    </td>
+                                    <input type="hidden" name="name[]" value="{$value.name}">
+                                    <input type="hidden" name="id[]" value="{$value.id}">
+                                </tr>
+                            </volist>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </form>
+            </div>
+
+
+            <div style="padding-bottom: 20px;" class="span8 field-box actions">
+                <input type="submit" id="submit_btn" value="保存" class="btn-glow primary">
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+    <script type="text/javascript">
+        $('#submit_btn').click(function(){
+            $.ajax({
+                type: "post",
+                url: "{:U('Tools/dollar_opt')}",
+                data:$("#id_form").serialize(),
+                success: function(data) {
+                    if(data.status == 1)
+                    {
+                        alert('保存成功');
+                    }
+
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            })
+        })
+    </script>
+
+
+</block>

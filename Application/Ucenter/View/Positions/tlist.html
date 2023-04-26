@@ -1,0 +1,473 @@
+<include file="Common:header_s" />
+<include file="Common:main_container_header_s" />
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<style type="text/css">
+.dataTables_length span{color: red;}
+td{text-align: center;}
+#id_search_area>div>div>div{height: 70px}
+</style>
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            持仓监控
+            <small>
+                <i class="icon-double-angle-right"></i>
+                实盘持仓列表
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        实盘持仓列表&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="table-responsive">
+                        <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                       
+                        <form action="__URL__/tlist" method="get" id="form1">
+                            <div class="row" id="id_search_area">
+                                <div class="col-sm-9">
+                                <div style=" width: 1350px; height: 100px;">
+                                <div class="col-sm-2">
+                                    <!-- <label>开始时间:</label> -->
+                                    <if condition="$time">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$time['start_time']}" name="start_time">
+                                   <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="start_time">
+                                   </if>
+                                </div>
+
+                                <div class="col-sm-2">
+                                 <!--    <label>结束时间:</label> -->
+                                 <if condition="$time">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$time['end_time']}" name="end_time">
+                                <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="end_time">
+                                </if>
+                                </div>
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="电子邮箱" value="{$email}" aria-controls="sample-table-2" name="email" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户名称" value="{$username}" aria-controls="sample-table-2" name="username" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户昵称" value="{$nickname}" aria-controls="sample-table-2" name="nickname" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="编号ID" value="{$oid}" aria-controls="sample-table-2" name="oid" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                产品大类：<select name="optin_class_max" class="optin_class_max"  style="width: 120px;">
+                                                    <option value="" class="selected">默认不选</option>
+                                                    <volist name="classify" id="vo">
+                                                        <eq name="optin_class_max" value="$vo['id']">
+                                                            <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                                        <else />
+                                                            <option value="{$vo.id}">{$vo.name}</option>
+                                                        </eq>
+                                                    </volist>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                产品小类：<select name="optin_class_min" class="optin_class_min"  style="width: 120px;">
+                                                <option value="" class="selected">默认不选</option>
+                     
+                                                    <volist name="mindata" id="vo">
+                                                        <eq name="optin_class_min" value="$vo['id']">
+                                                            <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                                        <else />
+                                                            <option value="{$vo.id}">{$vo.name}</option>
+                                                        </eq>
+                                                    </volist>
+                              
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                产品名称：<select name="option_name" class="option_name" style="width: 120px;">
+                                                <option value="" class="selected">默认不选</option>
+                                                <volist name="option" id="vo">
+                                                        <eq name="option_name" value="$vo['id']">
+                                                            <option value="{$vo.id}" selected="">{$vo.capital_name}</option>
+                                                        <else />
+                                                            <option value="{$vo.id}">{$vo.capital_name}</option>
+                                                        </eq>
+                                                    </volist>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="hr hr-24"></div>
+                                <div class="col-sm-12">
+                                    <div class="dataTables_length" id="sample-table-2_length1">
+                                        <label>
+                                            <input type="button"  onclick="sub()" value="点击查询" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+
+                                        <label>
+                                            <input type="button" id="id_reset" value="清空数据" class="btn btn-xs btn-info">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+
+                            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable">
+                                <thead>
+                                <tr>
+                                    <th class="center">编号</th>
+                                    <th class="center">订单号码</th>
+                                    <th class="center">用户名称</th>
+                                    <th class="center">电子邮箱</th>
+                                    <th class="center">用户昵称</th>
+                                    <th class="center">建仓时间</th>
+                                    <th class="center">产品信息</th>
+                                    <th class="center">数量(手)</th>
+                                    <th class="center">方向</th>
+                                    <th class="center">止盈</th>
+                                    <th class="center">止损</th>
+                                    <th class="center">保证金</th>
+                                    <th class="center">手续费</th>
+                                    <th class="center">隔夜费</th>
+                                    <th class="center">购买时长</th>
+                                    <th class="center">买入价</th>
+                                    <th class="center">现价</th>
+                                    <th class="center">盈亏</th>
+                                    <th class="center">当日盈亏</th>
+                                    <th class="center">盈亏百分比</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="tlistAll" id="v">
+                                 <input type="hidden" value="{$v.oid}" class="oids">
+                                </volist>
+
+                                <volist name="tlist" id="v">
+                                  <input type="hidden" value="{$v.oid}" class="oid">
+                                    <tr class="oid{$v.oid}">
+                                        <td class="center">{$v.oid}</td>
+                                        <td>{$v.orderno}</td>
+                                        <td>{$v.username}</td>
+                                        <td>{$v.email}</td>
+                                        <td>{$v.nickname}</td>
+                                        <td>{$v.buytime|date='Y-m-d H:i:s',###}</td>
+                                        <td>{$v.option_name}</td>
+                                        <if condition="$v['order_scene'] eq 1">
+                                            <td>{$v.onumber}手</td>
+                                        <else />
+                                            <td style="color: red;">--</td>
+                                        </if>
+                                        
+                                        <td>{$v.ostyleMsg}</td>
+                                        <if condition="$v['order_scene'] eq 1">
+                                            <td>{$v.endprofit}</td>
+                                            <td>{$v.endloss}</td>
+                                        <else />
+                                            <td style="color: red">--</td>
+                                            <td style="color: red">--</td>
+                                        </if>
+                                        
+                                        <td>{$v.Bond}</td>
+                                        <td>{$v.fee}</td>
+                                        <if condition="$v['order_scene'] eq 1">
+                                            <td>{$v.overnight_fee}</td>
+                                            <td style="color: red">--</td>
+                                        <else />
+                                            <td style="color: red">--</td>
+                                            <td>{$v.second}秒</td>
+                                        </if>
+                                        
+                                        <td>{$v.buyprice}</td>
+                                        
+                                        <td class="price">
+                                        </td>
+                                        <td class="ploss">
+                        
+                                        </td>
+
+                                        <td class="day_ploss">
+                            
+                                        </td>
+                                        <td class="profit_count">
+                                        
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="sample-table-2_info">共<b class="orange">{$total.totalCount}</b>，当前显示第 <b class="orange">{$total.nowStart}</b>到<b class="orange">{$total.nowEnd}</b></div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_bootstrap">
+                                        <ul class="pagination">
+                                            {$page}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="dataTables_length" id="" style="width: 265px;">
+                                <if condition="$statuss eq 1">
+                                    <label>
+                                        <span>当前盈亏:<em id="ploss"></em></span></br>
+                                        <span>手续费: <em id="fee"></em></span></br>
+                                        <span>隔夜费: <em id="overnight_fee"></em></span></br>
+                                        <span>总订单:<em id="count"></em></span></br>
+                                    </label>
+                                    </if>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end id sample-table-2_wrapper-->
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+
+            <div class="space-20"></div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+
+
+var user_id = $("#jingji").val();
+$("#jinjiren option").each(function(){
+        if(user_id == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+var op_name = $("#op_name").val();
+$(".op_name option").each(function(){
+        if(op_name == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+});
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+
+$("#id_reset").click(function(){
+    
+     $('.input').val("");
+     $('.selected').attr('selected',true);
+});
+
+function sub() {
+    $('#form1').attr("action","__URL__/tlist");
+    $('#form1').submit();
+}
+
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />
+<style type="text/css">
+.pagination{
+    /*border: solid 1px #ccc;*/
+}
+.pagination>div>span{
+    width: 34px;
+    height: 34px;
+    float: left;
+    background-color: #6faed9;
+    border-color: #6faed9;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    text-align: center;
+    line-height: 34px;
+}
+.pagination>div>a{
+    width: 34px;
+    height: 34px;
+    display:block;
+    float: left;
+    color: #2283c5;
+    background-color: #fafafa;
+    margin: 0 1px 0 0;
+    border-color: #6faed9;
+    line-height: 34px;
+    text-align: center;
+
+}
+</style>
+
+
+<script type="text/javascript">
+var arr = [];
+$.each($('.oids'),function(){
+   var oid = $(this).val();
+   arr.push(oid);
+});
+var arrString = arr.join(',');
+
+var isRequst = true;
+fnSetMarkPoint = function (param) {
+$.ajax({
+        url: "{:U('getdata')}",
+        dataType: 'json',
+        type: 'post',
+        data: {'oid':arrString,'type':1},
+        success: function (data) {
+        
+        if(data.code == 300)
+        {   
+            location.reload();
+            return false;
+        }
+        var arr1 = [];
+        $.each(data,function(key,val){
+
+            $('.oid'+val.oid+' .ploss').html(val.ploss);
+            $('.oid'+val.oid+' .price').html(val.sellprice);
+            $('.oid'+val.oid+' .day_ploss').html(val.day_ploss);
+            $('.oid'+val.oid+' .profit_count').html(val.percentage+'%');
+            arr1.push(val.oid);
+        });
+
+        $('#ploss').html(data.ploss_sum);
+        $('#fee').html(data.fee_sum);
+        $('#overnight_fee').html(data.overnight_fee_sum);
+        $("#count").html(data.count+'个');
+
+
+           //删除指定元素
+            var arr2 = [];
+            for(key in arr) {
+                var stra = arr[key];
+                var count = 0;
+                for(var j= 0; j < arr1.length; j++) {
+                    var strb = arr1[j];
+                    if(stra == strb) {
+                        count++;  
+                    }  
+                }    
+                if(count === 0) {
+                    arr2.push(stra);
+                }  
+            }
+            if(arr2 != '') {
+                for (k in arr2) {
+                    $(".oid"+arr2[k]+"").remove();
+                }
+            }
+     }
+  });
+
+}
+
+if(arrString != '')
+{
+  if (isRequst) {
+    isRequst = false;
+    window.setInterval("fnSetMarkPoint()", 500);
+  }
+}
+
+$(".optin_class_max").change(function() {
+    var parent_id = $(this).val();
+    $.ajax({
+        type: "get",
+        url: "{:U('Cashorders/getOptionClassify')}",
+        data: {'parent_id':parent_id},
+        success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['id']+"\">"+list[x]['name']+"</option>"
+                }
+            }
+            $(".optin_class_min").html(html);
+        },
+    });
+});
+
+$(".optin_class_min").change(function() {
+    var parent_id = $(this).val();
+    $.ajax({
+        type: "get",
+        url: "{:U('Cashorders/getOption')}",
+        data: {'parent_id':parent_id},
+        success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['id']+"\">"+list[x]['capital_name']+"</option>"
+                }
+            }
+            $(".option_name").html(html);
+        },
+    });
+});
+</script>

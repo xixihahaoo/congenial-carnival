@@ -1,0 +1,198 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.message_center}</title>
+    
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="2171aacc:0 f6ab7448:0 4134c036:0">
+        .nav[data-v-3291fe86] {
+            line-height: .4rem;
+            position: fixed;
+            top: 0;
+            background-color: #1c1a25;
+            padding: 0 .44rem;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            /*border-bottom: .01rem solid #ddd;*/
+            z-index: 3
+        }
+        .nav2[data-v-3291fe86] {
+            margin-top: .5rem
+        }
+
+        .selected[data-v-3291fe86] {
+            color: #ffbf23;
+            position: relative
+        }
+
+        .nav > div[data-v-3291fe86] {
+            width: 50%;
+            float: left;
+            font-size: .15rem;
+            text-align: center
+        }
+
+        .selected > span[data-v-3291fe86]:nth-of-type(2) {
+            position: absolute;
+            top: .38rem;
+            left: 27%;
+            width: .75rem;
+            height: .02rem;
+            background-color: #ffbf23
+        }
+
+        ul[data-v-3291fe86] {
+            overflow: hidden;
+            padding-top: .44rem
+        }
+
+        li[data-v-3291fe86] {
+            width: 100%;
+            padding: .25rem 0 .25rem .25rem;
+            /*background-color: #fff;*/
+            position: relative
+        }
+
+        li[data-v-3291fe86], li[data-v-3291fe86]:before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        li[data-v-3291fe86]:before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            bottom: 0;
+            /*border-bottom: 1px solid #e2e5e8;*/
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5)
+        }
+
+        li[data-v-3291fe86]:last-child {
+            border-bottom: none
+        }
+
+        p[data-v-3291fe86] {
+            overflow: hidden;
+            color: #b0afb5;
+            word-wrap: break-word;
+            /*border-bottom: 1px solid #444;*/
+        }
+
+        .title[data-v-3291fe86] {
+            float: left;
+            font-size: .15rem
+        }
+
+        .unread[data-v-3291fe86] {
+            position: absolute;
+            display: inline-block;
+            width: .08rem;
+            height: .08rem;
+            border-radius: .04rem;
+            background-color: #f64e43;
+           // background-color: #ffbf23;
+            left: .1rem;
+            top: .32rem
+        }
+
+        .selected1 .unread[data-v-3291fe86] {
+            top: .15rem;
+            left: inherit
+        }
+
+        .isread[data-v-3291fe86] {
+            background-color: #ddd
+        }
+
+        .detail[data-v-3291fe86] {
+            width: 100%;
+            color: #b0afb5;
+            font-size: .14rem;
+            padding-right: .2rem;
+            margin-top: .1rem
+        }
+
+        time[data-v-3291fe86] {
+            color: #999;
+            font-size: .12rem;
+            margin-left: .1rem
+        }
+        body {
+            /*background: #f5f5f5*/
+            height: 100%;
+        }
+        #__nuxt {
+            height: 100%;
+            /*background: rgba(0,0,0,.75);*/
+        }
+        #head {
+            /*background: none;*/
+        }
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body id="msgBodyC">
+<!--<div id="msgContentC">-->
+    <div id="__nuxt">
+        <div class="progress" data-v-4a8a9a01=""
+             style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+        <div data-v-3291fe86="" class="content">
+            <div data-v-3291fe86="" id="head">
+                <div class="head_content"><h3 class="product-name" style="border-bottom: 1px solid #444"><span>{$Think.lang.message_center}</span><em></em></h3>
+                    <div class="left" onclick="window.location.href='{:U('User/index')}'"><a class="arrow_left"></a></div>
+                    <div class="right arrow_right"><b></b></div>
+                </div>
+            </div>
+            <section data-v-3291fe86="" class="page-main">
+                <div data-v-3291fe86="" class="nav nav2">
+                    <div data-v-3291fe86="" class="selected">
+                        <span data-v-3291fe86="">{$Think.lang.system_message}</span>
+                        <span data-v-3291fe86=""></span>
+                    </div>
+                    <div data-v-3291fe86="" class="selected1" onclick="window.location.href='{:U('publicMsg')}'">
+                        <span data-v-3291fe86="">
+                            {$Think.lang.notice_message}
+                            <!--<eq name="status" value="1">-->
+                                <!--<em data-v-3291fe86="" class="unread" style="margin-left: 0.08rem;"></em>-->
+                            <!--</eq>-->
+                        </span>
+                    </div>
+                </div>
+
+                <ul data-v-3291fe86="">
+                    <volist name="list" id="vo">
+                        <a href="{:U('stretchDetails',array('id' => $vo['id']))}">
+                            <li data-v-3291fe86="">
+                                <if condition="$vo['is_read'] eq '1'">
+                                <em data-v-3291fe86="" class="unread"></em>
+                                    <else />
+                                <em data-v-3291fe86="" class="unread isread"></em>
+                                </if>
+                                <p data-v-3291fe86="" style=" border-bottom: 1px solid #444;padding-bottom: .05rem">
+                                    <span data-v-3291fe86="" class="title">{$vo.msg} {$Think.lang.api_notice}</span>
+                                    <time data-v-3291fe86="">{$vo.time}</time>
+                                </p>
+                                <p data-v-3291fe86="" class="detail">{$vo.note}</p>
+                            </li>
+                        </a>
+                    </volist>
+                </ul>
+            </section>
+        </div>
+    </div>
+<!--</div>-->
+</body>
+</html>

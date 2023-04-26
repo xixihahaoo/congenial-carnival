@@ -1,0 +1,233 @@
+<extend name="Base/common"/>
+
+
+<block name="content">
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+    <script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+    
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            
+            <div class="row-fluid header" style="margin-bottom: 10px">
+                <form id="form1" action="__URL__/message" method="get">
+                    <h3 style="height: 40px; width: 100%;font-size: 24px;">历史消息</h3>
+    
+                    <div class="span10 pull-left">
+        
+                        <div class="tpsearch" style="width: 20%">
+                            电子邮箱：<input type="text" value="{$sea.email}" class="span6 search" placeholder="请输入电子邮箱查找..." name="email"/>
+                        </div>
+        
+                        <div class="tpsearch" style="width: 20%">
+                            用户名称：<input type="text" value="{$sea.username}" class="span6 search" placeholder="请输入用户名称查找..." name="username" />
+                        </div>
+        
+                        <div class="tpsearch" style="width: 20%">
+                            用户昵称：<input type="text" value="{$sea.nickname}" class="span6 search" placeholder="请输入用户昵称查找..." name="nickname" />
+                        </div>
+    
+                        <div class="tpsearch" style="width: 20%">
+                            关键字：<input type="text" value="{$sea.msg}" class="span6 search" placeholder="请输入关键字查找..." name="msg" />
+                        </div>
+    
+                        <div class="tpsearch" style="width: 15%;">
+        
+                            用户类型：<select class="span6" name="userType">
+                            <option value="">默认不选</option>
+                            <if condition="$sea['userType'] eq '2'">
+                                <option value="2" selected>主播</option>
+                                <else />
+                                <option value="2">主播</option>
+                            </if>
+        
+                            <if condition="$sea['userType'] eq '1'">
+                                <option value="1" selected>普通会员</option>
+                                <else />
+                                <option value="1">普通会员</option>
+                            </if>
+                        </select>
+    
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="span10 pull-left" style="margin-top: 20px;">
+                        <div class="tpsearch" style="width: 20%">
+                            <input class="layui-input input" style="width: 200px;" placeholder="发送开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime" id="starttime">
+                        </div>
+                        <div class="tpsearch" style="width: 20%">
+                            <input class="layui-input input" style="width: 200px;" placeholder="发送结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime" id="endtime">
+                        </div>
+    
+                    </div>
+    
+                    <input type="hidden" name="type" value="1">
+                    <div class="span10 pull-left" style="margin-top: 20px;">
+                        <a href="javascript:void(0)" class="btn-flat" onclick="submit()">开始查找</a>
+                    </div>
+                </form >
+            </div>
+            <!-- Users table -->
+            <form action="{:U('Live/delectmessage')}" method="post" name="del">
+            <div class="row-fluid table layui-table">
+                <table class="table table-hover layui-table">
+                    <thead>
+                  
+                    <tr>
+                        <th class="span1 sortable">
+                            编号
+                        </th>
+                        <th class="span1 sortable">
+                            选择
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户名
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户昵称
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>电子邮箱
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户类型
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>发送消息
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>发送时间
+                        </th>
+    
+                    </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+                    <volist name="anchor" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['id']}
+                            </td>
+    
+                            <td>
+                                <input type="checkbox" name="nid[]" value="{$ult['id']}">
+                            </td>
+                            <td>
+                                {$ult.username}
+                            </td>
+
+                            <td>
+                                {$ult.nickname}
+                            </td>
+
+                            <td>
+                                {$ult.email}
+                            </td>
+
+                            <td>
+                                {$ult.user_type}
+                            </td>
+
+                            <td>
+                                {$ult.msg}
+                            </td>
+
+                            <td>
+                                {$ult.dateline|date='Y-m-d H:i:s',###}
+                            </td>
+                      
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+                <div class="qjcz">
+                    <a id="checkall">全选</a>
+                    <a id="checkallno">全不选</a>
+                    <a id="check_revsern">反选</a>
+                    <input type="submit" id='sbtn' onclick ="return valid();" value="批量删除" style="background: #0aacf8">
+                </div>
+            </div>
+            </form>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+    </div>
+
+
+
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/bootstrap.datepicker.js"></script>
+    <script src="__JS__/theme.js"></script>
+
+    <script type="text/javascript">
+
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+        });
+
+
+        function submit()
+        {
+            $('#form1').submit();
+        }
+        
+        
+        $(document).ready(function(){
+
+            $("#checkall").click(function(){
+                $("input[name='nid[]']").each(function(){
+                    this.checked = true;
+                });
+            });
+
+            $("#checkallno").click(function(){
+                $("input[name='nid[]']").each(function(){
+                    this.checked = false;
+                })
+            });
+
+            $("#check_revsern").click(function(){
+                $("input[name='nid[]']").each(function(){
+                    if (this.checked) {
+                        this.checked = false;
+                    }
+                    else {
+                        this.checked = true;
+                    }
+                });
+            });
+
+            $("input[type='checkbox']").click(function(){
+                $("#sbtn").attr("onclick","if(confirm('确定要删除吗?请谨慎操作')){return true;}else{return false;}");
+            })
+        });
+        function valid(){
+            var check = "";
+            $("input:checkbox[name='nid[]']:checked").each(function() {
+                check += $(this).val();
+            });
+            if(check==''){
+                alert('请选择要删除的消息');
+                return false;
+            }else{
+                return true;
+            }
+        };
+</script>
+
+</block>

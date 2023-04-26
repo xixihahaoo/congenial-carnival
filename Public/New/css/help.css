@@ -1,0 +1,25 @@
+.help_main ul li{
+    width:100%;
+    max-height:55px;
+    overflow: hidden;
+    border-bottom: 1px solid #dddddd;
+    padding:0.1em; /*拉开上下间距*/
+    font-family:"微软雅黑";
+}
+.help_main ul li:last-child{
+    border-bottom: none;
+}
+.help_main ul li a{
+    color: #666;
+    display: block;
+    overflow: hidden;
+}
+.help_main ul li a p{
+    float: left;
+    margin-right:8px;
+    line-height:43px;
+}
+.help_main ul li a p:last-child{
+    float: right;
+    color: #666;
+}

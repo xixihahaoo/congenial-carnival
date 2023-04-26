@@ -1,0 +1,441 @@
+<div class="main-container-inner">
+    <a class="menu-toggler" id="menu-toggler" href="#">
+        <span class="menu-text"></span>
+    </a>
+
+    <div class="sidebar" id="sidebar">
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+        </script>
+
+        <!--div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="icon-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="icon-pencil"></i>
+                </button>
+
+                <button class="btn btn-warning">
+                    <i class="icon-group"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="icon-cogs"></i>
+                </button>
+            </div>
+        </div><!-- #sidebar-shortcuts -->
+
+        <ul class="nav nav-list">
+            <li <if condition="($nowMenu eq 'indexf') and ($nowAct eq 'index')">class="active"</if>>
+                <a href="{:U('indexf/index')}">
+                    <i class="icon-dashboard"></i>
+                    <span class="menu-text"> 控制台 </span>
+                </a>
+            </li>
+
+            <!-- 销售商 -->
+            <li <if condition="($nowMenu eq 'agentf')">class="active open"</if>>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-user"></i>
+                <span class="menu-text">销售商管理</span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li <if condition="$nowAct eq 'agent_list'">class="active"</if>>
+                <a href="/Ucenter/agentf/agent_list">
+                    <i class="icon-double-angle-right"></i>
+                    销售商列表
+                </a>
+                </li>
+
+                <li <if condition="$nowAct eq 'add_agent'">class="active"</if>>
+                <a href="/Ucenter/agentf/add_agent">
+                    <i class="icon-double-angle-right"></i>
+                    增加销售商
+                </a>
+                </li>
+            </ul>
+            </li>
+
+            <!-- 用户 -->
+            <li <if condition="($nowMenu eq 'userf')">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-group"></i>
+                    <span class="menu-text">用户管理</span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="($nowAct eq 'user_list') or ($nowAct eq 'user_detail')">class="active"</if>>
+                        <a href="/Ucenter/userf/user_list">
+                            <i class="icon-double-angle-right"></i>
+                            用户列表
+                        </a>
+                    </li>
+
+                    <li <if condition="($nowAct eq 'recharge')">class="active"</if>>
+                        <a href="/Ucenter/userf/recharge">
+                            <i class="icon-double-angle-right"></i>
+                            充值记录
+                        </a>
+                    </li>
+
+                    <li <if condition="($nowAct eq 'withdrawal')">class="active"</if>>
+                        <a href="/Ucenter/userf/withdrawal">
+                            <i class="icon-double-angle-right"></i>
+                            提现记录
+                        </a>
+                    </li>
+                    <li <if condition="($nowAct eq 'money_flow') or ($nowAct eq 'money_flow')">class="active"</if>>
+                        <a href="/Ucenter/userf/money_flow">
+                            <i class="icon-double-angle-right"></i>
+                            资金流水
+                        </a>
+                    </li>
+                    <!--<li <if condition="($nowAct eq 'integral_flow') or ($nowAct eq 'integral_flow')">class="active"</if>>-->
+                        <!--<a href="/Ucenter/userf/integral_flow">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--积分流水-->
+                        <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </li>
+
+            <!--<li <if condition="$nowMenu eq 'capitalf' ">class="active open"</if>>-->
+                <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-hdd"></i>-->
+                    <!--<span class="menu-text"> 用户出入金 </span>-->
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                <!--</a>-->
+
+                <!--<ul class="submenu">-->
+                    <!--<li <if condition="$nowAct eq 'lists' ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/capitalf/lists">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--出入金统计-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+            <!-- 订单 -->
+            <li <if condition="$nowMenu eq 'cashorderf' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-hdd"></i>
+                    <span class="menu-text"> 订单管理 </span>
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'cash_list' ">class="active"</if>>
+                        <a href="/Ucenter/cashorderf/cash_list/type/1">
+                            <i class="icon-double-angle-right"></i>
+                            现金订单
+                        </a>
+                    </li>
+                    <li <if condition="$nowAct eq 'order_list_gold' ">class="active"</if>>
+                        <a href="/Ucenter/cashorderf/order_list_gold/type/2">
+                            <i class="icon-double-angle-right"></i>
+                            模拟订单
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 系统管理 -->
+            <li <if condition="$nowMenu eq 'relshipf' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-cog"></i>
+                    <span class="menu-text"> 代理商管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    
+                    <li <if condition="($nowAct eq 'relship_list') or ($nowAct eq 'subordinate') or ($nowAct eq 'lowerlevel')">class="active"</if>>
+                    <a href="/Ucenter/relshipf/relship_list">
+                        <i class="icon-double-angle-right"></i>
+                        代理商列表
+                    </a>
+                    </li>
+
+                    <li <if condition="$nowAct eq 'extension' ">class="active"</if>>
+                    <a href="/Ucenter/relshipf/extension">
+                        <i class="icon-double-angle-right"></i>
+                        佣金转入记录
+                    </a>
+                    </li>
+
+                    <li <if condition="$nowAct eq 'relship_commission_list' ">class="active"</if>>
+                    <a href="/Ucenter/relshipf/relship_commission_list">
+                        <i class="icon-double-angle-right"></i>
+                        佣金流水
+                    </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 交易员 -->
+            <li <if condition="$nowMenu eq 'traderf' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-cog"></i>
+                    <span class="menu-text"> 交易员 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    
+                    <li <if condition="($nowAct eq 'lists')">class="active"</if>>
+                    <a href="/Ucenter/traderf/lists">
+                        <i class="icon-double-angle-right"></i>
+                        交易员列表
+                    </a>
+                    </li>
+    
+                    <li <if condition="($nowAct eq 'followlist')">class="active"</if>>
+                    <a href="/Ucenter/traderf/followList">
+                        <i class="icon-double-angle-right"></i>
+                        追随者列表
+                    </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 用户 -->
+            <li <if condition="($nowMenu eq 'proxyf')">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-group"></i>
+                    <span class="menu-text">系统配置</span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'sys_info' ">class="active"</if>>
+                    <a href="/Ucenter/proxyf/sys_info">
+                        <i class="icon-double-angle-right"></i>
+                        系统信息
+                    </a>
+                    </li>
+
+                    <li <if condition="$nowAct eq 'change_password' ">class="active"</if>>
+                    <a href="/Ucenter/proxyf/change_password">
+                        <i class="icon-double-angle-right"></i>
+                        密码修改
+                    </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- 持仓管理 -->
+            <li <if condition="$nowMenu eq 'positionf' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-cog"></i>
+                    <span class="menu-text"> 持仓管理 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'tlist' ">class="active"</if>>
+                    <a href="/Ucenter/positionf/tlist/type/1">
+                        <i class="icon-double-angle-right"></i>
+                        实盘监控
+                    </a>
+                    </li>
+
+                    <li <if condition="$nowAct eq 'moni' ">class="active"</if>>
+                    <a href="/Ucenter/positionf/moni/type/2">
+                        <i class="icon-double-angle-right"></i>
+                        模拟监控
+                    </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- 资金流水 -->
+            <li <if condition="$nowMenu eq 'flowf' ">class="active open"</if>>
+                <a href="#" class="dropdown-toggle">
+                    <i class="icon-cog"></i>
+                    <span class="menu-text"> 运营资金账户 </span>
+
+                    <b class="arrow icon-angle-down"></b>
+                </a>
+
+                <ul class="submenu">
+                    <li <if condition="$nowAct eq 'money_flow' ">class="active"</if>>
+                    <a href="/Ucenter/flowf/money_flow">
+                        <i class="icon-double-angle-right"></i>
+                        资金流水
+                    </a>
+                    </li>
+                    <li <if condition="$nowAct eq 'recharge' ">class="active"</if>>
+                    <a href="/Ucenter/flowf/recharge">
+                        <i class="icon-double-angle-right"></i>
+                        充值记录
+                    </a>
+                    </li>
+                    <!--<li <if condition="$nowAct eq 'withdrawal' ">class="active"</if>>-->
+                    <!--<a href="/Ucenter/flowf/withdrawal">-->
+                        <!--<i class="icon-double-angle-right"></i>-->
+                        <!--提现记录-->
+                    <!--</a>-->
+                    <!--</li>-->
+                </ul>
+            </li>
+            
+
+            <!-- 出入金管理 -->
+            <!--<li <if condition="$nowMenu eq 'balancef' ">class="active open"</if>>-->
+                <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-cog"></i>-->
+                    <!--<span class="menu-text"> 出入金管理 </span>-->
+
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                <!--</a>-->
+
+                <!--<ul class="submenu">-->
+<!--&lt;!&ndash;                     <li <if condition="$nowAct eq 'recharge' ">class="active"</if>>-->
+                    <!--<a href="/Ucenter/balancef/recharge">-->
+                        <!--<i class="icon-double-angle-right"></i>-->
+                        <!--资金充值-->
+                    <!--</a>-->
+                    <!--</li> &ndash;&gt;-->
+                    <!--<li <if condition="$nowAct eq 'withdrawals' ">class="active"</if>>-->
+                    <!--<a href="/Ucenter/balancef/withdrawals">-->
+                        <!--<i class="icon-double-angle-right"></i>-->
+                        <!--资金提现-->
+                    <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+            <!-- 内容管理 -->
+            <!--<li <if condition="$nowMenu eq 'contentf' ">class="active open"</if>>-->
+                <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-cog"></i>-->
+                    <!--<span class="menu-text"> 内容管理 </span>-->
+
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                <!--</a>-->
+
+                <!--<ul class="submenu">-->
+
+                    <!--<li <if condition="($nowAct eq 'column') or ($nowAct eq 'columnedit') OR ($nowAct eq 'columnadd')">class="active"</if>>-->
+                        <!--<a href="/Ucenter/contentf/column">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--栏目管理-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+
+                    <!--<li <if condition="($nowAct eq 'contentlist') or ($nowAct eq 'newsedit') or ($nowAct eq 'contentadd')">class="active"</if>>-->
+                        <!--<a href="/Ucenter/contentf/contentlist">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--文章管理-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                <!--</ul>-->
+            <!--</li>-->
+            <!---->
+            <!--&lt;!&ndash; 公告消息 &ndash;&gt;-->
+            <!--<li <if condition="$nowMenu eq 'noticef' ">class="active open"</if>>-->
+                <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-cog"></i>-->
+                    <!--<span class="menu-text"> 公告消息 </span>-->
+
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                <!--</a>-->
+
+                <!--<ul class="submenu">-->
+                    <!--<li <if condition="($nowAct eq 'noticelist') or ($nowAct eq 'edit') or ($nowAct eq 'noticeadd')">class="active"</if>>-->
+                        <!--<a href="/Ucenter/noticef/noticelist">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--公告列表-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                    <!--<li <if condition="$nowAct eq 'jpush' ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/noticef/jpush">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--消息推送-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                    <!--<li <if condition="$nowAct eq 'jpushmsg' ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/noticef/jpushmsg">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--推送历史-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+        <!--&lt;!&ndash; 直播管理 &ndash;&gt;-->
+            <!--<li <if condition="$nowMenu eq 'livef' ">class="active open"</if>>-->
+                <!--<a href="#" class="dropdown-toggle">-->
+                    <!--<i class="icon-cog"></i>-->
+                    <!--<span class="menu-text"> 直播管理 </span>-->
+
+                    <!--<b class="arrow icon-angle-down"></b>-->
+                <!--</a>-->
+
+                <!--<ul class="submenu">-->
+                    <!--<li <if condition="($nowAct eq 'roomlist') or ($nowAct eq 'anchoradd') ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/livef/roomlist">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--房间列表-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                    <!--<li <if condition="$nowAct eq 'anchor' ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/livef/anchor">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--主播列表-->
+                        <!--</a>-->
+                    <!--</li>-->
+
+                    <!--<li <if condition="$nowAct eq 'chatmsg' ">class="active"</if>>-->
+                        <!--<a href="/Ucenter/livef/chatmsg">-->
+                            <!--<i class="icon-double-angle-right"></i>-->
+                            <!--历史消息-->
+                        <!--</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</li>-->
+
+        </ul><!-- /.nav-list -->
+
+        <div class="sidebar-collapse" id="sidebar-collapse">
+            <i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+        </div>
+
+        <script type="text/javascript">
+            try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+        </script>
+    </div>
+
+    <div class="main-content">
+        <!--div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home home-icon"></i>
+                    <a href="#">首页</a>
+                </li>
+                <li class="active">控制台</li>
+            </ul><!-- .breadcrumb -->
+        <!--/div>
+        <!--end breadcrumbs-->

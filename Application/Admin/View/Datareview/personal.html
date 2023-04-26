@@ -1,0 +1,312 @@
+<extend name="Base/common"/>
+<block name="content">
+    <link rel="stylesheet" href="__CSS__/compiled/order-list.css" type="text/css" media="screen" />
+    <link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+    <script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+    <style>
+        .table-hover img{
+            cursor: pointer;
+        }
+        #box{
+            position: fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,.5);
+            z-index: 9999;
+            display: none;
+        }
+        #box span{
+            display: inline-block;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            <div class="row-fluid header">
+                <form id="form1" action="__URL__/personal" method="get">
+                <h3 style="height:40px;width: 100%">个人信息审核</h3>
+                <div class="span10 pull-left">
+
+                    <div class="tpsearch" style="width: 20%">
+                        手机号码：<input type="text" value="{$sea.utel}" class="span6 search" placeholder="请输入手机号码查找..." name="utel"/>
+                    </div>
+
+                    <div class="tpsearch" style="width: 20%">
+                        用户名称：<input type="text" value="{$sea.username}" class="span6 search" placeholder="请输入用户名称查找..." name="username" />
+                    </div>
+
+                    <div class="tpsearch" style="width: 20%">
+                        用户昵称：<input type="text" value="{$sea.nickname}" class="span6 search" placeholder="请输入用户昵称查找..." name="nickname" />
+                    </div>
+
+                    <div class="tpsearch" style="width: 20%">
+                      <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime" id="starttime">
+                    </div>
+                    <div class="tpsearch" style="width: 20%">
+                        <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime" id="endtime">
+                    </div>
+                </div>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+
+                    <div class="tpsearch" style="width: 25%">
+                        用户类型：<select class="span6" name="user_type">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea.user_type eq 1">
+                                    <option value="1" selected>普通用户</option>
+                                    <else/>
+                                    <option value="1">普通用户</option>
+                                    </if>
+                                    <if condition="$sea.user_type eq '2'">
+                                    <option value="2" selected>运营中心</option>
+                                    <else/>
+                                    <option value="2">运营中心</option>
+                                    </if>
+                                </select>
+                    </div>
+
+
+                    <div class="tpsearch" style="width: 25%;margin-left: 2.6%;">
+
+                        审核状态：<select class="span6" name="status">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea['status'] eq '0'">
+                                        <option value="0" selected>待处理</option>
+                                    <else />
+                                         <option value="0">待处理</option>
+                                    </if>
+
+                                    <if condition="$sea['status'] eq '1'">
+                                        <option value="1" selected>已通过</option>
+                                    <else />
+                                         <option value="1">已通过</option>
+                                    </if>
+
+                                    <if condition="$sea['status'] eq '2'">
+                                        <option value="2" selected>已拒绝</option>
+                                    <else />
+                                         <option value="2">已拒绝</option>
+                                    </if>
+                                </select>
+
+                    </div>
+
+                </div>
+    
+                <input type="hidden" name="type" value="1">
+                <div class="span10 pull-left" style="margin-top: 20px;">
+                    <a href="javascript:void(0)" class="btn-flat" onclick="submit()">开始查找</a>
+                    <a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a>
+                </div>
+                </form>
+            </div>
+            <!-- Users table -->
+            <div class="row-fluid table">
+                <!--//这个地方动态加载-->
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="span2 sortable">
+                                <span class="line"></span>编号id
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>用户名称
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>手机号码
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>用户昵称
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>用户类型
+                            </th>
+                            <th class="span3 sortable">
+                                <span class="line"></span>真实姓名
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>身份证号
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>正面<span style="color: red">(可点击)</span>
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>反面<span style="color: red">(可点击)</span>
+                            </th>
+
+                            <th class="span2 sortable">
+                                <span class="line"></span>银行卡
+                            </th>
+
+                            <th class="span1 sortable">
+                                <span class="line"></span>审核状态
+                            </th>       
+                            <th class="span1 sortable">
+                                <span class="line"></span>申请时间
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>操作
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+                        <volist name="personal" id="tl">
+                        <tr class="first">
+                            <td>{$tl.id}</td>
+                            <td>{$tl.username}</td>
+                            <td>{$tl.utel}</td>
+                            <td>{$tl.nickname}</td>
+                            <td>{$tl.userType} </td>
+                            <td>{$tl.real_name} </td>
+                            <td>{$tl.card}</td>
+                            <td style="width: 20%;"><img style="width: 20%;" src="/Uploads/{$tl.card_positive}"></td>
+                            <td style="width: 20%;"><img style="width: 20%" src="/Uploads/{$tl.card_side}"></td>
+                            <td><a href="{:U('bank',array('utel' => $tl['utel']))}">点击查看</a></td>
+                            <td>{$tl.userStaus}</td>
+                            <td>{$tl.create_time|date='Y-m-d H:i:s',###}</td>
+                            <td>
+                                <if condition="$tl['status'] eq '0'">
+                                    <a class="elecl" id="elecl{$tl.id}" bpid="{$tl.id}">处理/拒绝</a>
+                                <elseif condition="$tl['status'] eq '1'" />
+                                    已通过
+                                <else />
+                                    已拒绝
+                                </if>
+                            </td>
+                        </tr>
+
+                    <div class="shtc" id="elesh{$tl.id}">
+                        <div class="shtitle"><a class="closesh" id="closesh{$tl.id}" href="javascript:void(0)" >关闭</a></div>
+                        <ul class="shtcu">
+                            <li><label>申请用户：</label><a href="{:U('User/updateuser',array('uid'=>$tl['uid']))}">{$tl.username}</a></li>
+                            <li class="sqs"><label>申请操作：</label>
+                                <input type="radio" name="isverified" value="1" checked="checked">同意
+                                <input type="radio" name="isverified" value="2">拒绝
+                            </li>
+                            <li class="lastli"><a class="btn-flat success shtj" bpid="{$tl.id}" userid="{$tl.uid}">提交</a></li>
+                        </ul>
+                    </div>
+
+
+                        </volist>
+                    </tbody>
+                </table>
+                <div class="qjcz">
+                    <span style="margin-right:30px;float:right">
+                        已审核：<em style="color:red;font-weight: bold; font-size: 14px;">{$data.succesCount|default=0}</em><br>
+                        未审核：<em style="color:red;font-weight: bold; font-size: 14px;">{$data.failCount|default=0}</em><br>
+                    </span>
+                </div>
+            </div>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+    </div>
+    <div id="box">
+        <span class="img">
+            <img class="img" style="max-width: 700px;max-height: 550px" src="" alt="">
+        </span>
+    </div>
+    <!-- end main container -->
+<div id="loading" style="width: 100%;height: 105%;position: absolute;top: 0; z-index: 9999;display: none;">
+    <div class="load-center" style="background: #000;position: absolute;width: 60%;height: 14%;bottom: 10%;border-radius: 10px;color: #fff;text-align: center;font-size: 24px;left: 17%;padding: 1%;">
+        <img src="__IMG__/ajax-loading.jpg" alt="ajax-loading" width="40"/><br/>页面加载中...
+    </div>
+</div>
+<!-- scripts -->
+
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        // datepicker plugin
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+function sub()
+{
+    $('#form1').attr("action","__URL__/personal_daochu");
+    $('#form1').submit();
+}
+
+function submit() {
+
+    $('#form1').attr("action","__URL__/personal");
+    $('#form1').submit();
+}
+
+    $(".elecl").click(function(){
+        var bpid = $(this).attr("bpid");
+        $('#popupLayer').css('display','block');
+        $('#elesh'+bpid).animate({
+            right: '45%', top: 200 ,opacity: 'toggle'
+        },600);
+    });
+
+    $('.closesh').click(function(){
+        $('#popupLayer').css('display','none');
+        $('.shtc').css('display','none');
+    });
+
+    $(".shtj").click(function(){
+        var bpid = $(this).attr("bpid");
+        var userid = $(this).attr("userid");
+        var isverified = $('#elesh'+bpid+' input[name="isverified"]:checked ').val();
+        if(isverified == null) {
+            alert('请选择同意或者拒绝');
+            return false;
+        }
+
+        $.ajax({  
+            type: "post",  
+            url: "{:U('examine')}",
+            data:{"bpid":bpid,"isverified":isverified,"userid":userid},
+            success: function(data) {
+                if(data.code == 200)
+                {
+                    $('#popupLayer').css('display','none');
+                    $('.shtc').css('display','none');
+                    alert(data.msg);
+                    return window.location.reload();
+                } else {
+                    return alert(data.msg);
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+      });
+    })
+
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+    
+    $('.table-hover img').click(function () {
+        $('#box').show()
+        $('#box img').attr('src',$(this).attr('src'))
+    })
+
+    $('#box').click(function (e) {
+        if(!$(e.target).hasClass('img')){
+            $('#box').hide()
+        }
+    })
+</script>
+</block>

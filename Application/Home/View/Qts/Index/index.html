@@ -1,0 +1,414 @@
+
+<include file="Base:header" />
+<title data-n-head="true">{:config('webname')}</title>
+
+<link rel="stylesheet" href="__PUBLIC__Qts/Home/css/swiper.min.css">
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script src="__PUBLIC__Qts/Home/js/swiper.min.js"></script>
+<link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__Qts/Home/css/style.css" rel="stylesheet">
+
+
+<style data-n-head="true" type="text/css">
+    body {
+        -webkit-text-size-adjust: none;
+        background: #1F1d28;
+    }
+</style>
+
+
+
+    <style type="text/css">
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-container a{
+            color: #4E4E4E;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-container2 .swiper-wrapper {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            /*width: 250px;*/
+            width: 53%;
+            float: right;
+            margin-right: 0.5rem;
+        }
+
+        .swiper-container2 .swiper-slide {
+            background: transparent;
+        }
+
+        .swiper-wrapper > .swiper-slide {
+            font-size: 0.12rem;
+        }
+        .activity[data-v-58525266] {
+            position: fixed;
+            width: 2.8rem;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            margin-left: -1.4rem;
+            z-index: 100;
+        }
+
+        .swiper-container[data-v-58525266] {
+            width: 100%;
+            height: 3.4rem;
+            top: 19%;
+        }
+        .modal[data-v-58525266] {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .3;
+            background: #000;
+        }
+        .del-img[data-v-58525266] {
+            position: absolute;
+            width: .14rem;
+            height: .14rem;
+            top: .14rem;
+            right: .14rem;
+            z-index: 2001;
+        }
+        .swiper-container[data-v-58525266] li{
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .button-img[data-v-58525266] {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: .67rem;
+            background-size: 100%;
+        }
+
+    </style>
+</head>
+<body data-n-head="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+    <div data-v-63966bdb="" class="bgImgContent">
+        <section data-v-63966bdb="" class="page-main">
+            <div data-v-f2c7254e="" data-v-63966bdb="" class="swiper-wrap">
+                <!-- Swiper -->
+                <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+    
+                        <volist name="newsinfo" id="vo">
+                            <div class="swiper-slide">
+                                <if condition="$vo['n_type'] eq 1">
+                                    <a href="{:U('adDetails',array('nid' =>$vo['nid']))}">
+                                        <img src="/Uploads/{$vo.ncover}" alt="">
+                                    </a>
+                                    <else/>
+                                    <a href="{$vo.ncontent}" target="_blank">
+                                        <img src="/Uploads/{$vo.ncover}" alt="">
+                                    </a>
+                                </if>
+                            </div>
+                        </volist>
+
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <ul data-v-63966bdb="" class="content-tip">
+
+                <li data-v-63966bdb="" class="mr14">
+                    <a href="{:U('advanced')}">
+                        <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/book.png">
+                        <p data-v-63966bdb="" class="title">{$Think.lang.beginner_must}</p>
+                        <p data-v-63966bdb="" class="sub-title">{$Think.lang.from_to}</p>
+                    </a>
+                </li>
+
+                <li data-v-63966bdb="" class="mr14">
+                    <a href="{:U('watch')}">
+                        <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/gather.png">
+                        <p data-v-63966bdb="" class="title">{$Think.lang.drying_list}</p>
+                        <p data-v-63966bdb="" class="sub-title">{$Think.lang.pick_steak}</p>
+                    </a>
+                </li>
+
+                <li data-v-63966bdb="" class="mr14">
+                    <a href="{:U('financeNews')}">
+                        <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/news.png">
+                        <p data-v-63966bdb="" class="title">{$Think.lang.information}</p>
+                        <p data-v-63966bdb="" class="sub-title">{$Think.lang.material}</p>
+                    </a>
+                </li>
+
+                <li data-v-63966bdb="" class="mr14">
+                    <a href="{:U('Lang/index')}">
+                        <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/lang.png">
+                        <p data-v-63966bdb="" class="title">{$Think.lang.common_language}</p>
+                        <p data-v-63966bdb="" class="sub-title">{$Think.lang.common_language_des}</p>
+                    </a>
+                </li>
+            </ul>
+
+            <if condition="$lang eq 'zh-cn'">
+                <div data-v-63966bdb="" class="notice_cn">
+                <elseif condition="$lang eq 'zh-tw'" />
+                    <div data-v-63966bdb="" class="notice_tw">
+                <else />
+                    <div data-v-63966bdb="" class="notice_en">
+            </if>
+
+                <div data-v-63966bdb="" class="dashi-wrap">
+                    <!-- Swiper -->
+                    <div class="swiper-container swiper-container2">
+                        <div class="swiper-wrapper">
+                            <volist name="stretch" id="vo">
+                                <div class="swiper-slide" onclick="window.location.href='{:U('Stretch/stretchDetails',array('id' => $vo['id']))}'"><a href="{:U('Stretch/stretchDetails',array('id' => $vo['id']))}">{$vo.title}</a>
+                                </div>
+                            </volist>
+                        </div>
+                    </div>
+                </div>
+                    <a href="{:U('Stretch/stretchList')}">
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/right.png" class="arrow-right" style="z-index: 9999">
+                    </a>
+                </div>
+
+            <div data-v-63966bdb="" class="hot-wrap">
+
+                <if condition="$lang eq 'zh-cn'">
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_cn.png">
+                <elseif condition="$lang eq 'zh-tw'" />
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_tw.png">
+                <else />
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_en.png" style="width: 1.4rem;">
+                </if>
+
+
+                <a href="{:U('Product/lists')}"><span data-v-63966bdb="" class="hot-txt">{$Think.lang.show_all}</span></a>
+                <ul data-v-63966bdb="" class="zixuan clearfix">
+                    <foreach name="option" item="vo">
+                        <input type="hidden" class="capital_key" value="{$vo.capital_key}">
+                        <input type="hidden" id="length{$vo.capital_key}" value="{$vo.capital_length}">
+
+                        <li data-v-63966bdb="" class="left clearfix {$vo.capital_key}">
+                            <a href="{:U('Product/details',array('id' => $vo['id']))}" class="clearfix">
+                                <p data-v-63966bdb="" class="variety-name1">{$vo.capital_name}</p>
+                                <p data-v-63966bdb="" class="variety-price {$vo.calssColor}">{$vo.Price}</p>
+                                <p data-v-63966bdb="" class="variety-rate {$vo.calssColor}">{$vo.DiffRate}%</p>
+                                <!--  {$vo.id} -->
+                            </a>
+                        </li>
+                    </foreach>
+                </ul>
+            </div>
+            <div data-v-63966bdb="" class="earnings-wrap">
+                <if condition="$lang eq 'zh-cn'">
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_cn.png" class="earning-img">
+                    <elseif condition="$lang eq 'zh-tw'" />
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_tw.png" class="earning-img">
+                    <else />
+                    <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_en.png" class="earning-img" style="width: 1.6rem;">
+                </if>
+
+                <a href="{:U('profitAll')}"><span data-v-63966bdb="" class="earnings-txt">{$Think.lang.show_more} &gt;</span></a>
+                <div data-v-63966bdb="" class="earnings-con">
+                    <ul data-v-63966bdb="" class="earnings-list">
+
+                        <volist name="order" id="vo">
+                            <li data-v-63966bdb="" class="earnings-list-wrap">
+                                <a href="{:U('profitDetails',array('uid' => $vo['uid']))}">
+                                    <div data-v-63966bdb="" class="portrait-wrap left">
+                                        <img data-v-63966bdb="" src="{$vo.face}" class="portrait top-{$i}">
+                                        <span data-v-63966bdb="" class="portrait-grade">Lv{$vo.level}</span>
+                                    </div>
+
+                                    <div data-v-63966bdb="" class="left earnings-name-wrap">
+                                        <p data-v-63966bdb="" class="earnings-list-name">{$vo.nickname}</p>
+                                        <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/TOP{$i}.png"
+                                             class="earnings-list-top">
+                                    </div>
+
+                                    <ol data-v-63966bdb="" class="earnings-list-con left">
+                                        <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                            {$vo.profit}%</p>
+                                            <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.yield}</p></li>
+                                        <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                            {$vo.correct}%</p>
+                                            <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.accurate}</p></li>
+                                        <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                            {$vo.followCount}</p>
+                                            <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.follow_people}</p></li>
+                                    </ol>
+                                </a>
+
+                                <notempty name="vo['follow_user_id']">
+                                    <eq name="user_id" value="$vo['follow_user_id']">
+                                        <div data-v-63966bdb="" class="earnings-list-btn earnings-edit-btn">
+                                            <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                    data-v-63966bdb="">{$Think.lang.edit}</span></a>
+                                        </div>
+                                        <else/>
+                                        <div data-v-63966bdb="" class="earnings-list-btn earnings-list-btn">
+                                            <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                    data-v-63966bdb="">{$Think.lang.follow}</span></a>
+                                        </div>
+                                    </eq>
+                                    <else/>
+                                    <div data-v-63966bdb="" class="earnings-list-btn earnings-list-btn">
+                                        <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                data-v-63966bdb="">{$Think.lang.follow}</span></a>
+                                    </div>
+                                </notempty>
+                            </li>
+                        </volist>
+
+                    </ul>
+                    <a href="{:U('profitAll')}">
+                        <p data-v-63966bdb="" class="earnings-tips">{$Think.lang.show_master}<em data-v-63966bdb="" class="arrow">
+                            &gt;</em></p>
+                    </a>
+                </div>
+            </div>
+        </section><!---->
+
+
+        <notempty name="info['id']">
+            <div data-v-58525266="" data-v-63966bdb="" class="activity">
+                <div data-v-58525266="" class="swiper-container swiper-container-horizontal">
+                    <ul data-v-58525266="" class="swiper-wrapper"
+                        style="transform: translate3d(-280px, 0px, 0px); transition-duration: 0ms;">
+
+                        <li data-v-58525266="" class="swiper-slide swiper-list swiper-slide-active swiper-slide-duplicate-next swiper-slide-duplicate-prev" style="background-image: url(&quot;/Uploads/{$info.thumb}&quot;); width: 280px;" data-swiper-slide-index="0">
+                            <img data-v-58525266="" src="__PUBLIC__Qts/Home/img/index/exit.png" class="del-img">
+                            <div data-v-58525266="" class="button-img" style="background-image: url(&quot;__PUBLIC__Qts/Home/img/index/details.png&quot;);">
+                            </div>
+                        </li>
+
+                        <li data-v-58525266="" class="swiper-slide swiper-list swiper-slide-duplicate swiper-slide-duplicate-active swiper-slide-next"
+                            style="background-image: url(&quot;/Uploads/{$info.thumb}&quot;); width: 280px;" data-swiper-slide-index="0">
+                                <img data-v-58525266="" src="__PUBLIC__Qts/Home/img/index/exit.png" class="del-img">
+
+                            <div data-v-58525266="" onclick='window.location.href="{:U('Stretch/details',array('id' => $info['id']))}"' class="button-img" onclick="" style="background-image: url(&quot;__PUBLIC__Qts/Home/img/index/details.png&quot;);">
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div data-v-58525266="" class="modal"></div>
+            </div>
+        </notempty>
+
+        <include file="Base:footer" />
+
+    </div>
+</div>
+<script type="text/javascript">
+    var swiper1 = new Swiper('.swiper-container1', {
+        autoplay: true,
+        loop: true,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    var swiper2 = new Swiper('.swiper-container2', {
+        autoplay: true,
+        loop: true,
+        direction: 'vertical'
+    });
+
+    /**
+     * websocket 传输数据
+     */
+    var arr = [];
+    $.each($('.capital_key'), function () {
+        var key = $(this).val();
+        arr.push(key);
+    });
+    var arrString = arr.join(',');
+
+    // ws = new WebSocket("ws://47.244.175.58:2346");
+    ws = new WebSocket("ws://39.107.99.235:8026");
+    ws.onopen = function () {
+        ws.send('tom');
+    };
+    ws.onmessage = function (e) {
+
+        var data = eval("(" + e.data + ")");
+        var type = data.type || '';
+        switch (type) {
+            case 'init':
+                $.post('{:U("Bind/binding")}', {client_id: data.client_id, group: arrString}, function (data) {
+                }, 'json');
+                break;
+            default :
+
+                var data = JSON.parse(e.data);
+
+                var operator    = data.DiffRate <= 0 ? '' : '+';
+                var length      = $('#length' + data.capital_key + '').val();
+                var prePrice    = $('.' + data.capital_key + ' p').eq(1).html();
+
+                data.Price = data.Price.toFixed(length);
+
+                $('.' + data.capital_key + ' p').eq(1).html(data.Price);
+                $('.' + data.capital_key + ' p').eq(2).html(operator + data.DiffRate + '%');
+
+                if(data.Price < prePrice)
+                {
+                    $('.' + data.capital_key + ' p').eq(1).removeClass('price-green').addClass('price-orange');
+                    $('.' + data.capital_key + ' p').eq(2).removeClass('price-green').addClass('price-orange');
+                } else {
+                    $('.' + data.capital_key + ' p').eq(1).removeClass('price-orange').addClass('price-green');
+                    $('.' + data.capital_key + ' p').eq(2).removeClass('price-orange').addClass('price-green');
+                }
+        }
+    };
+
+    //点击关闭弹出框 (保持时间一周)
+    $('.del-img[data-v-58525266]').click(function () {
+
+        var id = "{$info['id']}";
+        $.get("{:U('Stretch/setCookie')}",{'id':id},function(data){});
+
+        $('.activity').hide();
+    });
+
+
+    window.onload=function(){
+        //设置底部导航选中状态
+        $('.footer > ul > li').first().find('a').addClass('common1');
+        $('.footer > ul > li').first().find('em').addClass('selected');
+    }
+
+</script>
+</body>
+</html>

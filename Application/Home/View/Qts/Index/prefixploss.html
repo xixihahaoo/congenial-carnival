@@ -1,0 +1,810 @@
+    
+    <include file="Base:header" />
+    <title data-n-head="true">盈亏计算小助手</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/style.css" rel="stylesheet">
+
+
+    <style type="text/css">
+    .page-main[data-v-53ae3de8] {
+        padding: .5rem 0 0;
+    }
+
+    .trade-wrap[data-v-53ae3de8] {
+        padding: .15rem .15rem 0;
+        /*background: rgba(0,0,0,.2);*/
+        margin-bottom: .2rem
+    }
+
+    .con-txt[data-v-53ae3de8] {
+        display: inline-block;
+        width: 24%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: left;
+        font-size: 16px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .con-right[data-v-53ae3de8] {
+        width: 72%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: .4rem;
+        line-height: .4rem;
+        position: relative
+    }
+
+    .setting-txt[data-v-53ae3de8], .setting[data-v-53ae3de8] {
+        height: .31rem;
+        line-height: .31rem
+    }
+
+    .setting[data-v-53ae3de8] {
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: .52rem
+    }
+
+    .setting-open[data-v-53ae3de8] {
+        background: url(__PUBLIC__Qts/Home/img/zhushou/img1.png) no-repeat 0 0;
+        background-size: cover
+    }
+
+    .setting-close[data-v-53ae3de8] {
+        background: url(__PUBLIC__Qts/Home/img/zhushou/img2.png) no-repeat 0 0;
+        background-size: cover
+    }
+
+    .con-btn[data-v-53ae3de8] {
+        display: inline-block;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        height: .38rem;
+        line-height: .38rem;
+        text-align: center;
+        border-radius: .01rem
+    }
+
+    .con-right .txt_green[data-v-53ae3de8] {
+        border: 1px solid #00cf8c
+    }
+
+    .con-right .txt_red[data-v-53ae3de8] {
+        border: 1px solid #f64e43
+    }
+
+    .con-btn[data-v-53ae3de8]:first-child {
+        margin-right: .15rem
+    }
+
+    .sprice[data-v-53ae3de8] {
+        border: 1px solid #00cf8c;
+        border-radius: 2px;
+        color: #00cf8c
+    }
+
+    .bprice[data-v-53ae3de8], .sprice[data-v-53ae3de8] {
+        display: inline-block;
+        height: .3rem;
+        width: 1rem;
+        text-align: center;
+        line-height: .3rem;
+        margin-right: .1rem;
+        margin-top: .06rem
+    }
+
+    .bprice[data-v-53ae3de8] {
+        border: 1px solid #dd5073;
+        border-radius: 2px;
+        color: #dd5073
+    }
+
+    .pricesell[data-v-53ae3de8] {
+        background: #f3fffb url(__PUBLIC__Qts/Home/img/zhushou/img3.png) no-repeat 100% 100%;
+        background-size: .08rem .08rem;
+        border: 1px solid #00cf8c;
+        border-radius: 2px;
+        color: #00cf8c
+    }
+
+    .pricebuy[data-v-53ae3de8], .pricesell[data-v-53ae3de8] {
+        display: inline-block;
+        height: .3rem;
+        width: 1rem;
+        text-align: center;
+        line-height: .3rem;
+        margin-right: .1rem;
+        margin-top: .06rem
+    }
+
+    .pricebuy[data-v-53ae3de8] {
+        background: #fff1f0 url(__PUBLIC__Qts/Home/img/zhushou/img4.png) no-repeat 100% 100%;
+        background-size: .08rem .08rem;
+        border: 1px solid #f64e43;
+        border-radius: 2px;
+        color: #f64e43
+    }
+
+    .tipimg[data-v-53ae3de8] {
+        width: .15rem;
+        height: .15rem;
+        position: absolute;
+        top: .13rem;
+        left: .6rem
+    }
+
+    .taparea[data-v-53ae3de8] {
+        position: relative
+    }
+
+    .changei[data-v-53ae3de8] {
+        position: absolute;
+        right: 0;
+        font-size: 12px;
+        color: #ffbf23;
+    }
+
+    .changeimg[data-v-53ae3de8] {
+        width: .15rem;
+        height: .15rem;
+        display: inline-block;
+        margin-top: .12rem;
+        float: left;
+        margin-right: .05rem
+    }
+
+    .zixuan[data-v-53ae3de8] {
+        width: 100%;
+        height: 100%;
+        overflow: hidden
+    }
+
+    .zixuan-wrap[data-v-53ae3de8] {
+        width: 1.08rem;
+        max-height:90% !important;
+        overflow-y: auto;
+        background: #171520;
+        padding: 0 0 .14rem .14rem;
+        position: fixed;
+        top: .5rem;
+        z-index: 1001;
+        right: 0
+    }
+
+    .zixuan-content[data-v-53ae3de8] {
+        height: 100% !important;
+        overflow-y: auto
+    }
+
+    .zixuan-list[data-v-53ae3de8] {
+        border-bottom: 1px solid #c8c8c8;
+        padding: .14rem 0
+    }
+
+    .zixuan-name[data-v-53ae3de8] {
+        font-size: .15rem;
+        color: #fcffec
+    }
+
+    .zixuan-price[data-v-53ae3de8] {
+        font-size: .11rem;
+        color: #fcffec
+    }
+
+    .modal[data-v-53ae3de8] {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: .75;
+        background: #000;
+        z-index: 1000;
+        overflow: hidden
+    }
+
+    .xupay[data-v-53ae3de8] {
+        width: 72%;
+        text-align: center;
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .tradebtn[data-v-53ae3de8] {
+        height: .3rem;
+        line-height: .3rem;
+        width: 70%;
+        /*background: #2187f7 url(__PUBLIC__Qts/Home/img/zhushou/img5.png) no-repeat 0 0;*/
+        background: #ffbf23;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        padding: .01rem 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        border-radius: .2rem;
+        border: 1px solid transparent;
+
+    }
+
+    .tradebtn p[data-v-53ae3de8] {
+        display: inline-block;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        /*background: url(__PUBLIC__Qts/Home/img/zhushou/calculator_btn_nor@2x.png) no-repeat center .05rem;*/
+        /*background-size: contain;*/
+        background: #000;
+        font-size: 15px;
+        color: #ffbf23;
+        border-radius: .2rem;
+        line-height: .26rem;
+    }
+
+    .tradebtn .pactive[data-v-53ae3de8] {
+        /*background: url(__PUBLIC__Qts/Home/img/zhushou/calculator_btn_sel@2x.png) no-repeat center .05rem;*/
+        /*background-size: contain*/
+        background: #ffbf23;
+        color: #000;
+        border-radius: .2rem;
+    }
+
+    .tradenum[data-v-53ae3de8] {
+        /*background: rgba(0,0,0,.5);*/
+        padding: .2rem .15rem;
+        width: 100%;
+        position: relative
+    }
+
+    .tradetip[data-v-53ae3de8] {
+        left: 26%
+    }
+
+    .tradetip[data-v-53ae3de8], .tradetiptwo[data-v-53ae3de8] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 15px solid #333;
+        top: .05rem
+    }
+
+    .tradetiptwo[data-v-53ae3de8] {
+        right: 26%
+    }
+
+    .variety li[data-v-53ae3de8] {
+        width: 100%;
+        height: .35rem;
+        padding-top: .01rem;
+        overflow: hidden;
+        position: relative;
+        width: 95%;
+        margin: 0 auto
+    }
+
+    .variety .variety_right[data-v-53ae3de8] {
+        position: absolute;
+        right: .15rem;
+        top: .1rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        text-align: center;
+        height: .24rem;
+        line-height: .24rem;
+        color: #000000 !important;
+        font-size: .15rem
+    }
+
+    .variety_right div[data-v-53ae3de8] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        border-radius: .02rem;
+        font-size: .15rem;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    .variety_right div[data-v-53ae3de8]:first-of-type {
+        margin-right: .12rem
+    }
+
+    .variety_right div[data-v-53ae3de8]:nth-of-type(3) {
+        margin-left: .22rem
+    }
+
+    .variety_right .pop_img[data-v-53ae3de8] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: .4rem;
+        height: .16rem;
+        text-align: center;
+        line-height: .16rem;
+        font-size: .15rem;
+        color: #999;
+        /*background: url(__PUBLIC__Qts/Home/img/zhushou/img6.png) no-repeat 0 -.03rem;*/
+        background-size: 100%;
+        -webkit-transform: scale(.95);
+        -ms-transform: scale(.95);
+        transform: scale(.95)
+    }
+
+    p.variety_name[data-v-53ae3de8] {
+        font-size: .15rem;
+        color: #999;
+        margin-top: .1rem;
+        font-weight: 400
+    }
+
+    .bg_red[data-v-53ae3de8] {
+        /*background: #ff6056*/
+    }
+
+    .variety_left[data-v-53ae3de8] {
+        width: 43%;
+        text-indent: .1rem
+    }
+
+    .variety_right[data-v-53ae3de8] {
+        float: left;
+        width: 57%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        text-align: center
+    }
+
+    .my-variety[data-v-53ae3de8] {
+        /*background: #1F222B;*/
+        border-radius: 4px;
+        padding-bottom: .1rem
+    }
+
+    .explain[data-v-53ae3de8] {
+        width: 100%;
+        /*background: #1F222B;*/
+        border-radius: 4px;
+        padding-top: .28rem
+    }
+
+    .explain .explain_title[data-v-53ae3de8] {
+        text-align: center;
+        font-size: 20px;
+        color: #999;
+        letter-spacing: 0;
+        position: relative
+    }
+
+    .explain_title span[data-v-53ae3de8] {
+        position: absolute;
+        top: .13rem;
+        display: block;
+        height: 1px;
+        width: .35rem;
+        background: #444
+    }
+
+    .ex_left[data-v-53ae3de8] {
+        left: 23%
+    }
+
+    .ex_right[data-v-53ae3de8] {
+        right: 23%
+    }
+
+    .ex_bottom[data-v-53ae3de8] {
+        font-size: 12px;
+        color: #c8c8c8;
+        letter-spacing: 0;
+        text-align: center
+    }
+
+    .ex_coputer[data-v-53ae3de8] {
+        width: 100%;
+        padding: .1rem .15rem;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        border-bottom: 1px solid #444;
+        width: 90%;
+        padding: .1rem 0;
+        margin: 0 auto
+    }
+
+    .coputer_left[data-v-53ae3de8] {
+        width: 25%;
+        font-size: 15px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .coputer_right[data-v-53ae3de8] {
+        width: 75%;
+        font-size: 15px;
+        color: #999;
+        letter-spacing: 0;
+        word-wrap: break-word;
+        word-break: break-all
+    }
+
+    .green[data-v-53ae3de8] {
+        color: #00cf8c !important
+    }
+        #__nuxt {
+            /*background: rgba(0,0,0,.8);*/
+            height: auto;
+        }
+         #head {
+             /*background: none;*/
+         }
+
+    </style>
+
+
+</head>
+<body>
+
+<volist name="option" id="vo">
+    <input type="hidden" data-contract="{$vo.contract_number}" data-bond="{$vo.bond}" data-wave="{$vo.wave}" data-capital_dot_length="{$vo.capital_dot_length}" data-length="{$vo.capital_length}" id="{$vo.id}">
+</volist>
+
+<input type="hidden" value="{$option[0]['id']}" id="now_id">   <!--当前id-->
+
+<div class="zhushouContent">
+    <div id="__nuxt" >
+        <div class="progress" data-v-4a8a9a01=""
+             style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+        <div data-v-53ae3de8="" class="">
+            <div data-v-53ae3de8="" id="head">
+                <div class="head_content"><h3 class="product-name"><span>盈亏计算小助手</span><em></em></h3>
+                    <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                    <div class="right arrow_right"><b></b></div>
+                </div>
+            </div>
+            <section data-v-53ae3de8="" class="page-main">
+                <div data-v-53ae3de8="" class="trade-wrap">
+                    <div data-v-53ae3de8="" class="list clearfix">
+                        <div data-v-53ae3de8=""><span data-v-53ae3de8="" class="con-txt">交易品种</span>
+                            <div data-v-53ae3de8="" class="con-right right taparea">
+                                <div data-v-53ae3de8="">{$option[0]['capital_name']}</div>
+                                <a href="{:U('Product/playIntroduce',array('pid' => $option[0]['id']))}" id="option_rule">
+                                    <img data-v-53ae3de8="" src="__PUBLIC__Qts/Home/img/zhushou/img14.png" class="tipimg">
+                                </a>
+                                <div data-v-53ae3de8="" class="changei">
+                                    <img data-v-53ae3de8="" src="__PUBLIC__Qts/Home/img/zhushou/img15.png" class="changeimg">
+                                    <p data-v-53ae3de8="" style="display: inline-block;">切换品种</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-53ae3de8="" class="list clearfix">
+                        <div data-v-53ae3de8=""><span data-v-53ae3de8="" class="con-txt">交易方向</span>
+                            <div data-v-53ae3de8="" class="con-right right" id="direction">
+                                <span data-v-53ae3de8="" class="pricesell sprice is" data-ostyle="1">卖出<span class="sellout">{$option[0]['bp']}</span></span>
+                                <span data-v-53ae3de8="" class="bprice" data-ostyle="0">买入<span class="sellin">{$option[0]['sp']}</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-v-53ae3de8="" class="list clearfix">
+                        <div data-v-53ae3de8=""><span data-v-53ae3de8="" class="con-txt">交易手数</span>
+                            <div data-v-53ae3de8="" class="con-right right taparea">
+                                <em data-v-53ae3de8="" class="icon-min minusBtn"></em>
+                                <input data-v-53ae3de8="" type="number" value="0.1" class="handnum hands">
+                                <em data-v-53ae3de8="" class="icon-add addBtn"></em>
+                            </div>
+                            <p data-v-53ae3de8="" class="right clearfix xupay">占用保证金约
+                                <em data-v-53ae3de8="" data-v-6bc54b5e="" id="bond">$100</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-53ae3de8="" class="tradebtn">
+                    <p data-v-53ae3de8="" class="pactive" data-ostyle="0">看盈利</p>
+                    <p data-v-53ae3de8="" class="" data-ostyle="1">看亏损</p>
+                </div>
+                <div data-v-53ae3de8="" class="tradenum">
+                    <div data-v-53ae3de8="" class="tradetip"></div>
+                    <div data-v-53ae3de8="" class="tradetiptwo" style="display: none;"></div>
+                    <ul data-v-53ae3de8="" class="my-variety variety">
+                        <li data-v-53ae3de8="">
+                            <div data-v-53ae3de8="" class="variety_left"><p data-v-53ae3de8="" class="variety_name"
+                                                                            style="color: rgb(153, 153, 153);">交易品种</p>
+                            </div>
+                            <div data-v-53ae3de8="" class="variety_right">
+                                <div data-v-53ae3de8="" class="wave_left" style="color: rgb(153, 153, 153);">卖出</div>
+                                <div data-v-53ae3de8="" class="wave_left" style="color: rgb(153, 153, 153);">买入</div>
+                            </div>
+                        </li>
+                        <li data-v-53ae3de8="">
+                            <div data-v-53ae3de8="" class="variety_left"><p data-v-53ae3de8="" class="variety_name footer_name">{$option[0]['capital_name']}</p>
+                            </div>
+                            <div data-v-53ae3de8="" class="variety_right">
+                                <!--<div data-v-53ae3de8="" class="wave_left bg_red">1.18596</div>-->
+                                <div data-v-53ae3de8="" class="wave_left bp" style="color: #00cf8c;border: 1px solid #00cf8c">{$option[0]['bp']}</div>
+                                <div data-v-53ae3de8="" class="pop_img">
+                                    {$option[0]['erence']}
+                                </div>
+                                <div data-v-53ae3de8="" class="wave_left bg_red sp" style="color: #dd5073">{$option[0]['sp']}</div>
+                            </div>
+                        </li>
+                        <li data-v-53ae3de8=""
+                            style="text-indent: 0.1rem; width: 95%; margin-top: 0.1rem; line-height: 0.35rem; height: 0.25rem; font-size: 0.12rem; color: rgb(153, 153, 153); background: rgb(245, 245, 245); display: none;">
+                            <div data-v-53ae3de8="">*计价货币兑美元汇率</div>
+                        </li>
+                        <li data-v-53ae3de8=""
+                            style="background: rgb(245, 245, 245); width: 95%; height: 0.4rem; display: none;">
+                            <div data-v-53ae3de8="" class="variety_left"><p data-v-53ae3de8="" class="variety_name"></p>
+                            </div>
+                            <div data-v-53ae3de8="" class="variety_right">
+                                <div data-v-53ae3de8="" class="wave_left bg_red"></div>
+                                <div data-v-53ae3de8="" class="pop_img">
+
+                                </div>
+                                <div data-v-53ae3de8="" class="wave_left bg_red"></div>
+                            </div>
+                        </li>
+                        <li data-v-53ae3de8=""
+                            style="height: 0.3rem; line-height: 0.4rem; padding: 0px; color: rgb(153, 153, 153); border-top: 1px solid #444; margin-top: 0.1rem; text-indent: 0.1rem;">
+                            我的盈亏:<span data-v-53ae3de8="" class=""
+                                       style="font-size: 18px; color: rgb(255, 58, 55); margin-left: 0.1rem;" id="profit_loss">$2.1</span>
+                        </li>
+                    </ul>
+                </div>
+                <div data-v-53ae3de8="" class="tradenum">
+                    <div data-v-53ae3de8="" class="explain"><p data-v-53ae3de8="" class="explain_title"><span
+                            data-v-53ae3de8="" class="ex_left"></span>
+                        计算说明
+                        <span data-v-53ae3de8="" class="ex_right"></span></p>
+                        <div data-v-53ae3de8="" class="ex_bottom">计价货币均为美元</div>
+                        <div data-v-53ae3de8="" class="ex_coputer">
+                            <div data-v-53ae3de8="" class="coputer_left">
+                                下单特征
+                            </div>
+                            <div data-v-53ae3de8="" class="coputer_right" id="tezheng">
+                                直盘，卖出(做空)
+                            </div>
+                        </div>
+                        <div data-v-53ae3de8="" class="ex_coputer">
+                            <div data-v-53ae3de8="" class="coputer_left">
+                                计算公式
+                            </div>
+                            <div data-v-53ae3de8="" class="coputer_right" id="ploosDesc">
+                                (开仓价-平仓价）* (品种价格基数*每点波动金额*手数)=盈亏
+                            </div>
+                        </div>
+                        <div data-v-53ae3de8="" class="ex_coputer">
+                            <div data-v-53ae3de8="" class="coputer_left">
+                                本单计算
+                            </div>
+                            <div data-v-53ae3de8="" class="coputer_right" id="orderCalculation">
+                                (1.18625-1.18604)*100000*0.1=$2.1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div data-v-53ae3de8="" class="zixuan" style="display: none;">
+                <div data-v-53ae3de8="" class="zixuan-wrap">
+                    <ul data-v-53ae3de8="" class="zixuan-content">
+
+                        <volist name="option" id="vo">
+                            <li data-v-53ae3de8="" class="zixuan-list"><p data-v-53ae3de8="" class="zixuan-name" data-id="{$vo.id}">{$vo.capital_name}</p>
+                                <p data-v-53ae3de8="" class="zixuan-price">{$vo.option_key}</p></li>
+                        </volist>
+
+                    </ul>
+                </div>
+                <div data-v-53ae3de8="" class="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script>
+    $('.tradebtn p[data-v-53ae3de8]').click(function(){
+        $('.tradebtn p[data-v-53ae3de8]').removeClass('pactive');
+        $(this).addClass('pactive');
+        if($('.tradebtn p:first-child').hasClass('pactive')){
+            $('.tradetip').show();
+            $('.tradetiptwo').hide();
+        }else{
+            $('.tradetip').hide();
+            $('.tradetiptwo').show();
+        }
+
+        bond();
+    })
+
+    $('.changei').click(function () {
+        $('.zixuan').show();
+        $('html,body').css({'overflow':'hidden','height':'100%'});
+    })
+
+    $('.zixuan-list').click(function(){
+        $('.taparea[data-v-53ae3de8] div:first-child').html($(this).find('.zixuan-name').html());
+        $('.footer_name').html($(this).find('.zixuan-name').html());
+
+        var url = "{:U('Product/playIntroduce')}" + '?pid='+ $(this).find('.zixuan-name').attr('data-id');
+        $('#option_rule').attr('href',url);
+        
+        $('#now_id').val($(this).find('.zixuan-name').attr('data-id')); //设置当前id
+        bond();
+        
+        $('.zixuan').hide();
+
+    });
+
+    $('.modal').click(function(){
+        $('.zixuan').hide();
+        $('html,body').css({'overflow':'auto','height':'auto'});
+    });
+
+    //点击买入
+    $('.bprice').click(function () {
+       $(this).addClass('pricebuy is');
+       $(this).siblings().removeClass('pricesell').addClass('sprice');
+       $('.sprice').removeClass('is');
+       calculation();
+       bond();
+    });
+
+    //点击卖出
+    $('.sprice').click(function(){
+        $(this).addClass('pricesell is');
+        $(this).siblings().removeClass('pricebuy');
+        $('.bprice').removeClass('is');
+        calculation();
+        bond();
+    });
+    
+    //手数 减
+    $('.minusBtn').click(function(){
+        var val=parseFloat($(this).siblings('.handnum').val());
+        if(val==0.01){
+            val==0.01;
+        }else{
+            val=val-0.01;
+        }
+        $(this).siblings('.handnum').val(val.toFixed(2));
+        bond();
+    });
+    
+    //手数 加
+    $('.addBtn').click(function(){
+        
+        var val = parseFloat($(this).siblings('.handnum').val());
+        val+=0.01
+        $(this).siblings('.handnum').val(val.toFixed(2));
+        
+        bond();
+    });
+    
+    function bond() {
+        var id          = $('#now_id').val();                                   //当前产品编号
+        var number      = parseFloat($('.handnum').val()).toFixed(2);           //当前手数
+        
+        var contract            = $('#'+id+'').attr('data-contract');           //合数数量
+        var bond                = $('#'+id+'').attr('data-bond');               //最大杠杆
+        var wave                = $('#'+id+'').attr('data-wave');               //每点波动金额
+        var capital_dot_length  = $('#'+id+'').attr('data-capital_dot_length'); //用于计算波动盈亏
+        
+        tradePoint();
+        
+        bond        = parseFloat(((contract / bond) * 2) * number).toFixed(2);             //所需保证金
+        
+        var ostyle  = $('#direction > .is').attr('data-ostyle');    //0涨 1跌
+        var look    = $('.tradebtn > .pactive').attr('data-ostyle');//0看盈利 1看亏损
+        var sp      = $('.sp').html();   //买入
+        var bp      = $('.bp').html();   //卖出
+        
+        var sellin  = $('.sellin').html();  //下单买入价
+        var sellout = $('.sellout').html(); //下单卖出价
+        
+        if(ostyle == 0)
+        {
+            ploss = parseFloat((bp - sellin) * (wave * capital_dot_length)).toFixed(2);
+            ploss = parseFloat(ploss * number).toFixed(2);
+            $('#orderCalculation').html('('+bp+'-'+sellin+')*('+wave+'*'+capital_dot_length+'*'+number+')=$'+ploss+'');
+            
+        } else {
+            ploss = parseFloat((sellout - sp) * (wave * capital_dot_length)).toFixed(2);
+            ploss = parseFloat(ploss * number).toFixed(2);
+            $('#orderCalculation').html('('+sellout+'-'+sp+')*('+wave+'*'+capital_dot_length+'*'+number+')=$'+ploss+'');
+        }
+
+        
+
+        $('#profit_loss').html('$'+ploss);
+        $('#bond').html('$'+bond);
+    }
+    
+    //切换下单时的点位
+    function tradePoint() {
+        var id      = $('#now_id').val();                           //当前产品id
+        var length  = $('#'+id+'').attr('data-length');             //小数位长度
+        var ostyle  = $('#direction > .is').attr('data-ostyle');    //0涨 1跌
+        var look    = $('.tradebtn > .pactive').attr('data-ostyle');//0看盈利 1看亏损
+        var sp      = $('.sp').html();   //买入
+        var bp      = $('.bp').html();   //卖出
+        
+        var num = lengthToNumber(8)[length];    //默认高出或低出8个点位
+        
+        if(ostyle == 0) {
+            
+            if(look == 0) {
+                $('.sellin').html(parseFloat(bp-num).toFixed(length));  //盈利
+            } else {
+                var price = parseFloat(bp) + parseFloat(num);
+                $('.sellin').html(price.toFixed(length));  //亏损
+            }
+        } else {
+            if(look == 0) {
+                var price = parseFloat(sp) + parseFloat(num);
+                $('.sellout').html(price.toFixed(length)); //盈利
+            } else {
+                $('.sellout').html(parseFloat(sp-num).toFixed(length)); //亏损
+            }
+        }
+    }
+
+    bond();
+    
+    /**
+     * [lengthToNumber 数字位数转换小说之]
+     * @param  {[Number]} num [数字位数]
+     * @author wang 990529346@qq.com
+     */
+    function lengthToNumber(num)
+    {
+        var numberArr = {};
+        numberArr[0] = num;
+        numberArr[1] = '0.'+num;
+        numberArr[2] = '0.0'+num;
+        numberArr[3] = '0.00'+num;
+        numberArr[4] = '0.000'+num;
+        numberArr[5] = '0.0000'+num;
+        numberArr[6] = '0.00000'+num;
+        numberArr[7] = '0.000000'+num;
+        return numberArr;
+    }
+    
+    
+    //计算说明
+	function calculation() {
+	    var ostyle = $('#direction > .is').attr('data-ostyle');
+		
+	    if(ostyle == 1) {
+	        $('#tezheng').html(' 直盘，卖出(做空)');
+	        $('#ploosDesc').html('\n' + '(开仓价-平仓价）* (品种价格基数*每点波动金额*手数)=盈亏\n' + '');
+	    } else {
+            $('#tezheng').html(' 直盘，买入(做多)');
+            $('#ploosDesc').html('\n' + '(平仓价-开仓价）* (品种价格基数*每点波动金额*手数)=盈亏\n' + '');
+	    }
+    }
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,1056 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.follow_details}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="2171aacc:0 f6ab7448:0 4134c036:0">
+        .zixuan li[data-v-63966bdb] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            padding: .09rem .1rem;
+            color: #fff;
+            border-radius: .04rem;
+            margin-right: .1rem;
+            text-align: center;
+            overflow: hidden;
+            background: #fff;
+            -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1)
+        }
+
+        .zixuan li[data-v-63966bdb]:last-child {
+            margin-right: 0
+        }
+
+        .content-tip li[data-v-63966bdb] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            height: 1.1rem;
+            width: 100%;
+            text-align: center
+        }
+
+        .content-tip li img[data-v-63966bdb] {
+            width: .55rem;
+            height: .55rem;
+            display: inline-block
+        }
+
+        .link-right p[data-v-63966bdb] {
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            padding-right: .1rem
+        }
+
+        .dashi ul[data-v-63966bdb] {
+            height: .36rem;
+            padding-left: 30%;
+            position: relative
+        }
+
+        .dashi li[data-v-63966bdb] {
+            height: .38rem;
+            line-height: .38rem
+        }
+
+        .hot-wrap img[data-v-63966bdb] {
+            width: .6rem
+        }
+
+        .earnings-list-con li[data-v-63966bdb] {
+            height: .5rem;
+            float: left;
+            margin-top: .14rem;
+            min-width: 60px;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1
+        }
+
+        .textNone_content div[data-v-ea184226] {
+            width: 1.5rem;
+            height: 1.23rem;
+            margin: 0 auto
+        }
+
+        .textNone_content p[data-v-ea184226] {
+            width: 100%;
+            text-align: center;
+            color: #b3b3b3;
+            font-size: .15rem;
+            line-height: .4rem
+        }
+
+        a[data-v-18c6d448] {
+            display: block;
+            width: .24rem;
+            height: .23rem;
+            background-size: 100%;
+            margin: .06rem auto
+        }
+
+        .history span[data-v-7ecec926] {
+            display: block;
+            width: .8rem;
+            height: .2rem;
+            line-height: .2rem;
+            text-align: center;
+            font-size: .14rem;
+            border-radius: .1rem 0 0 .1rem;
+            margin-top: .1rem;
+            margin-right: -.01rem
+        }
+
+        .titles > div[data-v-7ecec926] {
+            width: 25%;
+            float: left;
+            text-align: center;
+            line-height: .36rem
+        }
+
+        .titles > div.on[data-v-7ecec926] {
+            color: #2187f7;
+            position: relative
+        }
+
+        .titles > div[data-v-7ecec926]:last-child {
+            -webkit-box-shadow: none;
+            box-shadow: none
+        }
+
+        .titles > div.on span[data-v-7ecec926] {
+            display: inline-block;
+            width: 30%;
+            height: .02rem;
+            background: #2187f7;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -15%;
+            border-radius: .2rem
+        }
+
+        .titles > div.on[data-v-145cf773] {
+            color: #2187f7;
+            position: relative
+        }
+
+        .titles > div[data-v-145cf773]:last-child {
+            -webkit-box-shadow: none;
+            box-shadow: none
+        }
+
+        .titles > div.on span[data-v-145cf773] {
+            display: inline-block;
+            width: 30%;
+            height: .02rem;
+            background: #2187f7;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -15%;
+            border-radius: .2rem
+        }
+
+        .head_tab li[data-v-6524b236] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            height: .3rem;
+            line-height: .3rem;
+            border-radius: .4rem
+        }
+
+        .touch-border[data-v-6524b236] {
+            height: 20px;
+            width: 100%;
+            border-radius: .1rem .1rem 0 0;
+            background: #fff;
+            position: fixed;
+            z-index: 99;
+            margin-top: .14rem
+        }
+
+        .con-btn b[data-v-6524b236] {
+            font-size: .13rem;
+            font-weight: 400
+        }
+
+        .trade-con p[data-v-6524b236] {
+            width: 75%;
+            text-align: center;
+            font-size: .12rem;
+            line-height: .16rem;
+            margin-top: .07rem;
+            color: #999
+        }
+
+        .quick-btn em[data-v-6524b236] {
+            font-size: .16rem
+        }
+
+        .con-btn em[data-v-6524b236] {
+            font-size: .14rem;
+            line-height: .16rem;
+            margin-top: .02rem
+        }
+
+        .putType-wrap li[data-v-6524b236] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            text-align: center;
+            border: 1px solid #c8c8c8;
+            border-radius: .02rem;
+            font-size: .14rem;
+            color: #666;
+            height: .24rem;
+            line-height: .22rem
+        }
+
+        .stock-wrap {
+            background: #1F222B;
+        }
+
+        .stock-price, .stock-title {
+            width: 100%;
+            height: .34rem;
+            position: absolute;
+            z-index: 99
+        }
+
+        .stock-title {
+            width: 100%;
+            height: .3rem;
+            position: relative;
+            z-index: 999;
+            background: #1F222B;
+            border-radius: .1rem .1rem 0 0
+        }
+
+        .nav-wrap {
+            margin: 0 .15rem;
+            overflow-x: auto;
+            height: .3rem
+        }
+
+        .nav-img {
+            position: absolute;
+            width: .1rem;
+            right: .15rem;
+            height: .24rem
+        }
+
+        .stock-price {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            z-index: 999;
+            display: none
+        }
+
+        .stock-title {
+            overflow-x: scroll
+        }
+
+        #priceMsg {
+            left: 0
+        }
+
+        #priceMsg p {
+            display: block;
+            width: 100%;
+            height: .24rem;
+            padding-left: .14rem;
+            overflow: hidden
+        }
+
+        #priceMsg p, ul.stock-tab {
+            background: #f5f5f5;
+            line-height: .24rem;
+            width: 4.7rem;
+            background: #999;
+        }
+
+        ul.stock-tab {
+            height: .25rem;
+            color: #999;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            border-radius: .4rem 0 0 .4rem;
+            /*width: 100%;*/
+            display: flex;
+        }
+
+        .stock-tab li {
+            width: .5rem;
+            height: .24rem;
+            float: left;
+            margin-left: .1rem;
+            color: #333;
+            text-align: center
+        }
+
+        .stock-tab li:first-child {
+            margin-left: 0
+        }
+
+        .stock-tab li.has {
+            color: #ffbf23;
+            border: 1px solid #ffbf23;
+            border-radius: .2rem
+        }
+
+        #priceMsg span {
+            padding: 0 .03rem;
+            font-size: .1rem;
+            color: #222
+        }
+
+        .mod-kline text, .mod-lightning text, .mod-sline text {
+            font: 12px Arial;
+            text-anchor: start;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        article {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            position: relative
+        }
+
+        .article {
+            top: .36rem
+        }
+
+        .ma {
+            font-size: .1rem;
+            color: #333;
+            margin: 0 .15rem
+        }
+
+        .ma span {
+            padding-left: .22rem;
+            margin-right: .1rem
+        }
+
+        span.ma5 {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAAMhJREFUOBG1VLsOwjAMPPeHurBSmJHgb1iQYEIs/A0IZh4rC3xQzbmqIrUKVRxRT4l9vpwucQSZ8Z7pFIq1ABOjUOAFwbG8yzOHkjz+oIiN1Njz8E4/N7UW2FLMwcvaIUppNico4kYRRQzfipl7nYmSxQ4IOV7HLxGGaWrEBHziQj6VXlSxSMSPAhPB1e/IKFKg/jdS6Yn+Lwf1CM7lQ1aDmF7R7whH1B5kjydsmxoxIZG4cAuxaaCPu5gYy7Xj6/5L2JsX//7Qvn1lPzRdJgJuAAAAAElFTkSuQmCC) no-repeat 0;
+            background-size: 20%
+        }
+
+        span.ma10 {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAAMNJREFUOBFjZCATpMz/bwvUWgrEJlAjzgDp7jmJjIehfJIoRpJUQxUDHVH1n4GhheE/A4p+IOcfUKQW6Jg2Us1FMYgYzeCQ+M9wAOgQJmzqoY5xIDVksBqGzQIksVJcjgCpgcqBoowkwAj04db//xm8SNJFZcWMjAzbyAkRKjsDHIr/yUkjm4Ah6IvPNUAfbgamET98atDlyAmRbnCCRDcJyofKdeOQxilMskPAuYGJoQ6bY8BikOxLclkC1EseoHaBBgC7gzdCKck6xgAAAABJRU5ErkJggg==) no-repeat 0;
+            background-size: 20%
+        }
+
+        span.ma20 {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAANpJREFUOBFjZCATvHvkb8vw51/pf0YGE5ARjP8ZzjCwMHULyW08TI6RjORoevfAt4rh//+W//8ZUPQzMjL+A4rUCilsbiPVXBSDiNEMDom//w78//+fCZt6sGOYmRxIDRmshmGzAC4Gig4cjgCpAcsB1cDVE8lgfHffZyswiL2IVE8TZYyMDNtIDxFaOOU/IzDNkwje3fPd9J/hvy8+bYwMjJuFlDb74VODLkd6iACzKDhBopsE5YPlgGpwSOMUJtkh4NzAyFCHzTFgMVD2JaMsITlqYF6idoEGAG3STCOh+37pAAAAAElFTkSuQmCC) no-repeat 0;
+            background-size: 20%
+        }
+
+        .product-name {
+            position: relative
+        }
+
+        #head2 h3 span:first-of-type {
+            display: block;
+            font-size: .16rem
+        }
+
+        .product-name em {
+            position: absolute;
+            top: .18rem;
+            font-size: .12rem;
+            left: 50%;
+            margin-left: -.32rem
+        }
+
+        .detail[data-v-3313d0ea] {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%
+        }
+
+        .kline-main[data-v-3313d0ea] {
+            padding-top: .6rem;
+            z-index: 100
+        }
+
+        .kline-main article[data-v-3313d0ea] {
+            top: .1rem
+        }
+
+        .detail-title[data-v-3313d0ea] {
+            background: #1F222B;
+            padding: 0.1rem .15rem .1rem;
+        }
+
+        .article[data-v-3313d0ea] {
+            top: .1rem
+        }
+
+        .variety-title[data-v-3313d0ea] {
+            height: .25rem;
+            line-height: .25rem
+        }
+
+        .detail-title .buy-tag[data-v-3313d0ea] {
+            border-radius: .1rem;
+            font-size: .1rem
+        }
+
+        .detail-title .win[data-v-3313d0ea] {
+            font-size: .16rem
+        }
+
+        .detail-wrap[data-v-3313d0ea] {
+            position: relative
+        }
+
+        .detail-wrap ul[data-v-3313d0ea] {
+            background: #1F222B;
+            padding: 0 .15rem
+        }
+
+        .detail-list[data-v-3313d0ea] {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            height: .49rem;
+            line-height: .5rem
+        }
+
+        .eee[data-v-3313d0ea] {
+            background: #1c1a25
+        }
+
+        .f5[data-v-3313d0ea] {
+            background: #1c1a15
+        }
+
+        .list-txt[data-v-3313d0ea] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            padding-left: .3rem;
+            color: #999
+        }
+
+        .list-num[data-v-3313d0ea] {
+            margin-right: .2rem;
+            text-align: left;
+            color: #999;
+            display: inline-block;
+            width: 38%
+        }
+
+        .detail-btn[data-v-3313d0ea] {
+            width: 100%;
+            height: .55rem;
+            position: fixed;
+            bottom: 0;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            /*background: hsla(0, 0%, 100%, .8)*/
+            background: #1F222B;
+        }
+
+        .detail-btn a[data-v-3313d0ea] {
+            -webkit-box-flex: 2;
+            -ms-flex: 2;
+            flex: 2;
+            -webkit-flex: 2;
+            height: .4rem;
+            line-height: .4rem;
+            text-align: center;
+            color: #000;
+            font-size: .16rem;
+            margin: 0 .1rem;
+            border-radius: .05rem;
+            border: .01rem solid #ffbf23;
+        }
+
+        .detail-btn a.flex[data-v-3313d0ea] {
+            -webkit-box-flex: 3;
+            -ms-flex: 3;
+            flex: 3;
+            -webkit-flex: 3
+        }
+
+        .detail-btn a.bor_blue[data-v-3313d0ea] {
+            color: #2187f7
+        }
+
+        .detail-btn a.bg_blue[data-v-3313d0ea] {
+            /*background: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+            /*background: linear-gradient(-229deg, #1254a8, #0c62c1)*/
+            background: #ffbf23;
+        }
+
+        .line[data-v-3313d0ea] {
+            width: 100%;
+            background: #fff
+        }
+
+        .line img[data-v-3313d0ea] {
+            display: block;
+            width: 100%
+        }
+
+        .stock-wrap[data-v-3313d0ea] {
+            top: 0
+        }
+
+        .order-info[data-v-3313d0ea] {
+            background: #1F222B;
+            padding: 0.1rem .15rem
+        }
+
+        .order-info p[data-v-3313d0ea] {
+            line-height: .25rem;
+            color: #999;
+            font-size: .1rem
+        }
+
+        .winloss a[data-v-3313d0ea] {
+            float: right;
+            color: #0086ff;
+            text-decoration: underline
+        }
+
+        .dealer[data-v-3313d0ea] {
+            color: #666;
+            height: .2rem
+        }
+
+        .con-wrap[data-v-3313d0ea] {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            overflow-y: scroll;
+        }
+
+        .con-main[data-v-3313d0ea] {
+            width: 100%;
+            height: 100%;
+            overflow-y: scroll;
+            padding-bottom: .55rem;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .stock-title {
+            width: 100%;
+            height: .34rem;
+            overflow-x: scroll
+        }
+
+        #priceMsg {
+            width: 5.5rem;
+            height: .24rem;
+            line-height: .34rem;
+            background: #f9f9f9;
+            color: #999;
+            border-top: .01rem solid #ddd;
+            border-bottom: .01rem solid #ddd;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        .stock-tab li {
+            width: .5rem;
+            padding: 0 .05rem;
+            float: left;
+            margin-left: .1rem
+        }
+
+        #priceMsg span {
+            padding: 0 .03rem;
+            font-size: .1rem;
+            color: #222
+        }
+
+        .stock-line {
+            height: 3rem;
+            width: 100%;
+            vertical-align: middle;
+            background: #f2f2f2
+        }
+
+        .mod-kline, .mod-sline {
+            height: 3rem;
+            width: 100%;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .mod-kline text, .mod-lightning text, .mod-sline text {
+            font: 12px Arial;
+            text-anchor: start;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .popup-img {
+            padding-top: .1rem;
+        }
+
+        .popup-title {
+            font-size: .2rem;
+            color: #222;
+            padding: .15rem;
+        }
+
+        .popup-img .btns {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            margin-top: .2rem;
+        }
+
+        .popup-title .buy-tag {
+            border-radius: .1rem;
+            font-size: .12rem;
+            margin: 0 .03rem;
+        }
+
+        .popup-title em {
+            color: #b2b2b2;
+            font-size: .14rem;
+            padding-left: .02rem;
+        }
+
+        .popup, .popup ul {
+            width: 100%;
+        }
+
+        .popup ul li {
+            width: 100%;
+            height: .3rem;
+            line-height: .3rem;
+            clear: both;
+        }
+
+        .popup-content p {
+            width: 85%;
+            text-align: center;
+            font-size: .12rem;
+            color: #999;
+            line-height: .16rem;
+            margin-top: .02rem;
+        }
+
+        .list .con-txt {
+            height: .2rem;
+            line-height: .2rem;
+        }
+
+        .popup-img .btns a {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            height: .44rem;
+            display: block;
+            text-align: center;
+            line-height: .44rem;
+            font-size: .17rem;
+        }
+
+        .btn-ok {
+            border-top: .01rem solid #2187f7;
+            color: #fff;
+            background: #2187f7;
+        }
+
+        .btn-cancel {
+            border-top: .01rem solid #ddd;
+            color: #2187f7;
+        }
+
+        .btn-cancel {
+            border-top: .01rem solid #ddd;
+            color: #2187f7;
+        }
+
+        .popup-window {
+            display: none;
+        }
+
+        .article {
+            height: 350px;
+        }
+        .qts-window {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,.5);
+            z-index: 999;
+            top: 0;
+            left: 0;
+        }
+        .qts-img {
+            width: 75%;
+            background: #fff;
+            border-radius: 4px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+            padding-top: .3rem;
+        }
+        .qts-name {
+            text-align: center;
+            margin-top: .1rem;
+            padding: 0 .1rem .1rem;
+            margin-bottom: 0;
+            font-size: .2rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .qts-content, .qts-order {
+            line-height: .3rem;
+            text-align: center;
+        }
+        .qts-order {
+            font-size: .14rem;
+            color: #b2b2b2;
+        }
+        .qts-content {
+            padding: 10px 20px 15px;
+            min-height: 36px;
+            position: relative;
+            font-size: .16rem;
+            color: #999;
+            margin: 0;
+            margin-top: .15rem;
+        }
+        .qts-window .btns {
+            width: 100%;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            margin-top: .2rem;
+        }
+        .qts-content li {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        .qts-content li span:first-child {
+            display: inline-block;
+            text-align: right;
+            color: #999;
+            font-size: .16rem;
+            margin-right: .05rem;
+            min-width: 1rem;
+        }
+        .qts-content .txt_black {
+            color: #222;
+            font-size: .16rem;
+            width: .6rem;
+        }
+        .qts-content li span {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+        .txt_black {
+            color: #727272;
+        }
+        .txt_red {
+            color: #f64e43;
+        }
+        .qts-content li span:last-child {
+            display: inline-block;
+            text-align: left;
+            margin-left: .1rem;
+        }
+        .qts-window .btns a {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            height: .44rem;
+            display: block;
+            text-align: center;
+            line-height: .44rem;
+            font-size: .17rem;
+        }
+        .btn-cancel {
+            border-top: .01rem solid #ddd;
+            color: #2187f7;
+        }
+        .box{
+            display: none;
+        }
+    </style>
+</head>
+<body class="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-3313d0ea="" class="detail">
+        <div data-v-3313d0ea="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>{$Think.lang.follow_details}</span><em></em></h3>
+                <div class="left"><a class="arrow_left" onclick="window.location.href='{:U('trade')}'"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+        <div data-v-3313d0ea="" class="kline-main">
+            <div data-v-3313d0ea="" class="stock-wrap">
+                <div class="touch-border"></div>
+                <div id="stock-title" class="stock-title">
+                    <div class="nav-wrap"><img
+                            src="__PUBLIC__/Qts/Home/img/chicang/img2.png"
+                            class="nav-img">
+                        <ul id="stock" class="stock-tab clearfix" style="width: 4.7rem">
+                            <li data="fenshi" class="nav-list has">Time</li>
+                            <li data="1" class="nav-list">1M</li>
+                            <li data="5" class="nav-list">5M</li>
+                            <li data="15" class="nav-list">15M</li>
+                            <li data="30" class="nav-list">30M</li>
+                            <li data="1h" class="nav-list">1H</li>
+                            <li data="4h" class="nav-list">4H</li>
+                            <li data="1d" class="nav-list">1D</li>
+                            <!--<li data="1w" class="nav-list">1周</li>-->
+                            <!--<li data="1m" class="nav-list">1月</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <article class="article" style="top: 0px;">
+                    <iframe id="nowtu" name='nowtu' style='width:100%;height:100%;border: 0;'
+                            src="{:U('Product/highcharts',array('code' => $option['capital_key'],'interval' => 'fenshi','type' => 'candlestick','height' =>350,'length' => $info['capital_length']))}"></iframe>
+                </article>
+            </div>
+            <!--<div data-v-3313d0ea="" class="line">-->
+                <!--<img data-v-3313d0ea="" src="__PUBLIC__/Qts/Home/img/chicang/img3.png">-->
+            <!--</div>-->
+        </div>
+        <div data-v-3313d0ea="" class="con-wrap">
+            <section data-v-3313d0ea="" class="con-main">
+                <div data-v-3313d0ea="" class="detail-wrap">
+                    <div data-v-3313d0ea="" class="detail-title">
+                        <p data-v-3313d0ea="" class="variety-title">
+                            <span data-v-3313d0ea="" class="variety-name">{$order.option_name}</span>
+                            <span data-v-3313d0ea="" class="buy-tag {$order.ostyleColor}" style="padding: .02rem .04rem">{$order.ostyleMsg}</span>
+                            <span data-v-3313d0ea="" class="right win txt_green ploss">${$order.ploss}</span>
+                        </p>
+                    </div>
+
+                    <ul data-v-3313d0ea="">
+                        <li data-v-3313d0ea="" class="detail-list">
+                            <div data-v-3313d0ea="" class="list-txt eee">{$Think.lang.stop_loss}
+                                <em data-v-3313d0ea="" class="list-num right">{$order.endloss}</em>
+                            </div>
+                            <div data-v-3313d0ea="" class="list-txt f5">{$Think.lang.current_price}
+                                <em data-v-3313d0ea="" class="list-num right newPrice">{$order.sellprice}</em>
+                            </div>
+                        </li>
+
+                        <li data-v-3313d0ea="" class="detail-list">
+                            <div data-v-3313d0ea="" class="list-txt f5">{$Think.lang.target_profit}
+                                <em data-v-3313d0ea="" class="list-num right">{$order.endprofit}</em>
+                            </div>
+                            <div data-v-3313d0ea="" class="list-txt eee">{$Think.lang.opening_price}
+                                <em data-v-3313d0ea="" class="list-num right openPrice">{$order.buyprice}</em>
+                            </div>
+                        </li>
+
+                        <li data-v-3313d0ea="" class="detail-list">
+                            <div data-v-3313d0ea="" class="list-txt eee">{$Think.lang.trade_lots}
+                                <em data-v-3313d0ea="" class="list-num right">{$order.onumber}</em>
+                            </div>
+                            <div data-v-3313d0ea="" class="list-txt f5">{$Think.lang.bond}
+                                <em data-v-3313d0ea="" class="list-num right">${$order.Bond}</em>
+                            </div>
+                        </li>
+
+                        <li data-v-3313d0ea="" class="detail-list">
+                            <div data-v-3313d0ea="" class="list-txt f5">{$Think.lang.stock}
+                                <em data-v-3313d0ea="" class="list-num right">{$order.overnight_fee|default='-'}</em>
+                            </div>
+                            <div data-v-3313d0ea="" class="list-txt eee">{$Think.lang.fee}
+                                <em data-v-3313d0ea="" class="list-num right">{$order.fee|default='-'}</em>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--<div data-v-3313d0ea="" class="line">-->
+                    <!--<img data-v-3313d0ea="" src="__PUBLIC__/Qts/Home/img/chicang/img3.png">-->
+                <!--</div>-->
+
+                <div data-v-3313d0ea="" class="order-info">
+                    <p data-v-3313d0ea="">{$Think.lang.open_time}:{:date('Y/m/d H:i:s',$order['buytime'])}</p>
+                    <p data-v-3313d0ea="">{$Think.lang.orderno}:{$order.orderno}</p>
+                </div>
+                <div data-v-3313d0ea="" class="detail-btn">
+                    <a data-v-3313d0ea="" href="javascript:;" class="bg_blue flex" onclick="changeOrder('{$order['oid']}');">{$Think.lang.self_hold}</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script>
+    
+$('.detail-btn .bor_blue').click(function () {
+    $('.box').show()
+})
+    
+    $('.stock-tab li').click(function () {
+        var interval = $(this).attr('data')
+        var code = "{$option.capital_key}";
+        var type = 'type';
+        var height = 350;
+        var length = "{$info.capital_length}";
+        var src = '{:U("Product/highcharts")}' + "?code=" + code + "&interval=" + interval + "&type=" + type + "&height=" + height + "&length=" + length + "";
+        $('#nowtu').attr('src', src)
+        $('.stock-tab li').removeClass('has');
+        $(this).addClass('has');
+    });
+</script>
+</body>
+</html>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+    /**
+     * [websocketByAcceptData 以websocket方式接受数据]
+     * @return {[type]} [description]
+     */
+    
+    var loading = "{$Think.lang.loading}";
+    function websocketByAcceptData(index) {
+        // ws = new WebSocket("ws://47.244.175.58:2346");
+        ws = new WebSocket("ws://39.107.99.235:8026");
+        ws.onopen = function () {
+            ws.send('tom');
+        };
+        ws.onmessage = function (e) {
+
+            var data = eval("(" + e.data + ")");
+            var type = data.type || '';
+            switch (type) {
+                case 'init':
+                    $.post('{:U("Bind/bindUid")}', {client_id: data.client_id}, function (data) {
+                    }, 'json');
+                    break;
+                default :
+                    data = JSON.parse(e.data);
+
+                    var oid = "{$order.oid}";
+                    if (oid != '') {
+                        $.each(data.followData, function (key, val) {
+                            if (oid == val.oid) 
+                            {
+                                if(val.ploss <= 0)
+                                {
+                                    $('.ploss').removeClass('txt_green');
+                                    $('.ploss').addClass('txt_red');
+                                } else {
+                                    $('.ploss').removeClass('txt_red');
+                                    $('.ploss').addClass('txt_green');
+                                }
+                                
+                                $('.ploss').html('$' + val.ploss);
+                                $('.newPrice').html(val.sellprice);
+                            }
+                        });
+                    }
+                    layer.close(index);
+            }
+        };
+    }
+
+    window.onload = function () {
+        var index = layer.open({type: 2,shadeClose:false,content:loading});
+        websocketByAcceptData(index);
+    }
+
+    //9分钟后刷新页面
+    window.setTimeout("location.reload()", 540000);
+
+
+    var arrString = "{$option.capital_key}";
+
+    // ws = new WebSocket("ws://47.244.175.58:2346");
+    ws = new WebSocket("ws://39.107.99.235:8026");
+    ws.onopen = function () {
+        ws.send('tom');
+    };
+    ws.onmessage = function (e) {
+
+        var data = eval("(" + e.data + ")");
+        var type = data.type || '';
+        switch (type) {
+            case 'init':
+                $.post('{:U("Bind/binding")}', {client_id: data.client_id, group: arrString}, function (data) {
+                }, 'json');
+                break;
+            default :
+                var data = JSON.parse(e.data);
+                var length = "{$info.capital_length}";
+
+                price = data.Price.toFixed(length);
+
+                try {
+                    frames['nowtu'].updateData1M(price);
+                } catch (e) {
+                }
+        }
+    };
+
+    /**
+     * [changeOrder 跟随订单转自持]
+     * @author wang 990529346@qq.com
+     */
+    function changeOrder(oid)
+    {
+        layer.open({
+            content: '{$Think.lang.confirm_turn}？'
+            ,btn: ['{$Think.lang.determine}', '{$Think.lang.cancel}']
+            ,shadeClose:false
+            ,yes: function(index){
+
+                var load   = layer.open({type: 2,shadeClose:false,content:loading});
+                $.ajax({
+                    url: "{:U('changeOrder')}",
+                    dataType: 'json',
+                    type: 'post',
+                    data: {'oid': oid},
+                    success: function (data) {
+                        layer.open({
+                            content: data.msg
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                        layer.close(load);
+                        return setTimeout(" window.location.href='{:U('trade')}'",500);
+                    },
+                    error: function (res) {
+                        console.log(res);
+                    }
+                });
+            }
+        });
+    }
+
+</script>

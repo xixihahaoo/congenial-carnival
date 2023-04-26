@@ -1,0 +1,191 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header" style="margin-bottom: 10px">
+                    <form id="form1" action="__URL__/ulist" method="get">
+                    <div class="span10 pull-left">
+                    
+                        <div class="tpsearch" style="width: 20%">
+                        登录用户数：{:count($loginUser)}， 游客数：{:count($guestUser)}
+                        </div>
+                    </div>
+
+                    </form>
+                </div>
+                <!-- Users table -->
+                <div class="row-fluid table">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    编号
+                                </th>
+                                <th class="span2 sortable">
+                                    用户名称
+                                </th>
+                                <!--<th class="span2 sortable">-->
+                                    <!--手机号码-->
+                                <!--</th>-->
+                                <!--<th class="span2 sortable">-->
+                                    <!--上级-->
+                                <!--</th>-->
+                                <th class="span2 sortable">
+                                    最后操作时间
+                                </th>
+                                <!--<th class="span2 sortable"> 运营中心</th>-->
+                                <!--<th class="span2 sortable">机构</th>-->
+                            </tr>
+                        </thead>
+                        <tbody id="ajaxback">
+                        <volist name="loginUser" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                <php>if($ult['userid'] > 0){</php>
+                                {$ult['userid']}
+                                <php>}else{</php>
+                                {$ult['cuid']}
+                                <php>}</php>
+                            </td>
+                            <td>
+                                <php>if($ult['username']){</php>
+                                <a href="{:U('User/updateuser',array('uid'=>$ult['userid']))}">{$ult['username']}</a>
+                                <php>}else{</php>
+                                <a href="{:U('User/updateuser',array('uid'=>$ult['cuid']))}">{$ult['newusername']}</a>
+                                <php>}</php>
+
+                            </td>
+                            <!--<td>-->
+                                <!--{$ult['tel']}-->
+                            <!--</td>-->
+                            <!--<td>-->
+                                <!--{:superior($ult['rid'])}-->
+                            <!--</td>-->
+                            <td>
+                                <span title="{$ult['utime']|date='Y-m-d H:m',###}">{$ult['lasttime']|date='Y-m-d H:i:s',###}</span>
+                            </td>
+                            <!--<td>{:change(exchange($ult[userid],2))} </td>-->
+                            <!--<td>{:change(exchange($ult[userid],1))} </td>-->
+                        </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination pull-right">
+                    <ul>
+                        {$page}
+                    </ul>
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+<!-- scripts -->
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+    <script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        
+        /** 
+         * 时间对象的格式化; 
+         */  
+        Date.prototype.format = function(format) {  
+            /* 
+             * eg:format="yyyy-MM-dd hh:mm:ss"; 
+             */  
+            var o = {  
+                "M+" : this.getMonth() + 1, // month  
+                "d+" : this.getDate(), // day  
+                "h+" : this.getHours(), // hour  
+                "m+" : this.getMinutes(), // minute  
+                "s+" : this.getSeconds(), // second  
+                "q+" : Math.floor((this.getMonth() + 3) / 3), // quarter  
+                "S" : this.getMilliseconds()  
+                // millisecond  
+            }  
+          
+            if (/(y+)/.test(format)) {  
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4  
+                                - RegExp.$1.length));  
+            }  
+          
+            for (var k in o) {  
+                if (new RegExp("(" + k + ")").test(format)) {  
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1  
+                                    ? o[k]  
+                                    : ("00" + o[k]).substr(("" + o[k]).length));  
+                }  
+            }  
+            return format;  
+        }
+    });
+function sub()
+{
+    $('#form1').attr("action","__URL__/daochu");
+    $('#form1').submit();
+}
+
+function submit() {
+    $('#form1').attr("action","__URL__/ulist");
+    $('#form1').submit();
+}
+
+$(function(){
+  var user_id = $("#user_id").val();
+  $("#oid option").each(function(){
+        if(user_id == $(this).val()){
+             $(this).attr('selected',true);
+        }
+  });
+
+    /*根据选择运营中心机构选择*/
+    $("#oid").change(function() {
+        var parent_id = $("#oid").val();
+        $.ajax({
+            type: "GET",
+            url: "{:U("user/ajax_get_brokers")}",
+            data: "parent_id="+parent_id,
+            success: function(data){
+            var html = '';
+            var list = data.data;
+            html +="下属机构：<select name=\"jjr\"  class=\"span7\">";
+            html +="<option value=\"\">默认不选</option>"
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            html +="</select>";
+               $("#jjr").html(html);
+            }
+        });
+    });
+
+ });
+
+$('.sort').click(function(){
+     var cat = $(this).attr('data-cat');
+     var sort = $(this).attr('data-sort');
+     if(sort == 'desc')
+     {
+         sort = 'asc';
+     } else {
+         sort = 'desc';
+     }
+     window.location.href="{:U('ulist')}"+'?cat='+cat+'&sort='+sort+'';
+});
+</script>
+</block>

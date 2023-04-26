@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<message 
+	application="CertPayOrderH5" 
+	version="1.0.1" 
+	merchantId="[merchantId]" 
+	merchantOrderId="[merchantOrderId]"
+	merchantName="[merchantName]"
+	merchantOrderAmt="[merchantOrderAmt]" 
+	merchantOrderDesc="[merchantOrderDesc]" 
+	payerId="[payerId]" 
+	salerId="'[salerId]" 
+	guaranteeAmt="[guaranteeAmt]"
+	merchantPayNotifyUrl="[merchantPayNotifyUrl]"
+	merchantFrontEndUrl="[merchantFrontEndUrl]"
+/>

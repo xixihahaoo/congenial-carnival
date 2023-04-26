@@ -1,0 +1,395 @@
+<extend name="Base/common"/>
+<block name="content">
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="../../../../Public/font-awesome/css/font-awesome.min.css">
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="users-list">
+			<div class="row-fluid header" style="margin-bottom: 10px">
+				<form id="form1" action="__URL__/ulist" method="get">
+					<div class="span10 pull-left">
+						
+						<div class="tpsearch" style="width: 20%">
+							用户名称：<input type="text" class="span6 search" value="{$sea.username}" placeholder="请输入用户名称" name="username"/>
+						</div>
+						
+						<div class="tpsearch" style="width: 20%">
+							电子邮箱：<input type="text" class="span6 search" value="{$sea.email}" placeholder="请输入电子邮箱" name="email" id="email"/>
+						</div>
+						
+						<div class="tpsearch" style="width: 20%">
+							用户昵称：<input type="text" class="span6 search" value="{$sea.nickname}" placeholder="请输入用户昵称" name="nickname"/>
+						</div>
+						
+						<div class="tpsearch" style="width: 20%">
+							编号id：<input type="text" class="span6 search" value="{$sea.uid}" placeholder="请输入编号" name="uid"/>
+						</div>
+					</div>
+					
+					<div class="span10 pull-left" style="margin-top: 20px;">
+						<input type="hidden" id="user_id" value="{$user_id}">
+						<div class="tpsearch" style="width: 20%">
+							运营中心：<select name="oid" id="oid" class="span7">
+							<option value="">默认不选</option>
+							<volist name="info" id="vo">
+								<option value="{$vo.uid}">{$vo.username}</option>
+							</volist>
+						</select>
+						</div>
+						
+						<div class="tpsearch" id="jjr">
+							{$jjr_info?$jjr_info:''}
+						</div>
+						
+						<div class="tpsearch" style="width: 20%">
+							交易状态：<select name="trade_frozen" class="span7" id="option">
+							<option value="">默认不选</option>
+							
+							<if condition="$sea[trade_frozen] eq '0'">
+								<option value="0" selected>正常</option>
+								<else/>
+								<option value="0">正常</option>
+							</if>
+							
+							<if condition="$sea[trade_frozen] eq '1'">
+								<option value="1" selected>冻结</option>
+								<else/>
+								<option value="1">冻结</option>
+							</if>
+						
+						</select>
+						</div>
+					
+					</div>
+					
+					<div class="tpsearch" style="width:12%;float:right">
+						<a href="javascript:void(0)" class="btn-flat info" onclick="submit();">开始查找</a>
+						<a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a>
+					</div>
+					<!-- 标题排序 -->
+					<input type="hidden" name="cat" value="{$sea.cat}">
+					<input type="hidden" name="sort" value="{$sea.sort}">
+					<!-- 标题排序 -->
+				</form>
+			</div>
+			<!-- Users table -->
+			<div class="row-fluid table">
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th class="span1 sortable">
+							编号id
+						</th>
+						<th class="span2 sortable">
+							用户名称
+						</th>
+						<th class="span2 sortable">
+							电子邮箱
+						</th>
+						<th class="span2 sortable">
+							用户昵称
+						</th>
+						<th class="span2 sortable">
+							上级
+						</th>
+						<th class="span2 sortable">
+							创建日期
+						</th>
+						<th class="span2 sortable">
+							首次入金
+						</th>
+						<th class="span2 sortable">
+							最近登录时间
+						</th>
+						<th class="span2 sortable">
+							订单数量
+						</th>
+						<th class="span2 sortable sort" data-cat="b.balance" data-sort="{$sea.sort}">
+							<a href="javascript:void">账户余额</a></th>
+						
+						<th class="span2 sortable sort" data-cat="b.gold" data-sort="{$sea.sort}">
+							<a href="javascript:void">模拟金额</a></th>
+						
+						<!--<th class="span2 sortable sort" data-cat="b.integral" data-sort="{$sea.sort}">-->
+							<!--<a href="javascript:void">账户积分</a></th>-->
+						
+						<th class="span2 sortable sort" data-cat="b.recharge_total" data-sort="{$sea.sort}">
+							<a href="javascript:void">累计充值</a></th>
+						<th class="span2 sortable sort" data-cat="b.money_total" data-sort="{$sea.sort}">
+							<a href="javascript:void">累计提现</a></th>
+						
+						<th class="span2 sortable sort" data-cat="d.money" data-sort="{$sea.sort}">
+							<a href="javascript:void">当前佣金</a></th>
+						<th class="span2 sortable">
+							运营中心
+						</th>
+						<th class="span2 sortable">销售商</th>
+						<th class="span2 sortable">交易冻结</th>
+						<th class="span2 sortable">账号冻结</th>
+						<th class="span2 sortable">银行卡</th>
+						<th class="span2 sortable">设置交易员</th>
+						<th class="span2 sortable">
+							操作
+						</th>
+					
+					</tr>
+					</thead>
+					<tbody id="ajaxback">
+					<volist name="ulist" id="ult">
+						<!-- row -->
+						<tr class="first">
+							<td>
+								{$ult['uid']}
+							</td>
+							<td>
+								
+								<a href="{:U('User/updateuser',array('uid'=>$ult['uid']))}">{$ult['username']}</a>
+							</td>
+							<td>
+								{$ult['email']}
+							</td>
+							<td>{$ult['nickname']}</td>
+
+							<td>
+								{:change($ult['rid'])}
+							</td>
+							<td>
+								<span title="{$ult['utime']|date='Y-m-d H:m',###}">{$ult['utime']|date='Y-m-d H:i:s',###}</span>
+							</td>
+							<td>
+								<span>{$ult['recharge_time']}</span>
+							</td>
+							<td>
+                                <span title="{$ult['utime']|date='Y-m-d H:m',###}">
+                                <if condition="$ult[lastlog] neq ''">
+                                {$ult['lastlog']|date='Y-m-d H:i:s',###}
+                                <else/>
+                                 未登录过
+                                </if>
+                                </span>
+							</td>
+							
+							<td>
+								<if condition="$ult['count'] eq 0">
+									0
+									<else/>
+									{$ult['count']}
+								</if>
+								<br/>
+								[持仓{$ult['total_jc']}] [平仓{$ult['total_pc']}]
+							</td>
+							
+							<td>{$ult['balance']}</td>
+							<td>{$ult['gold']?$ult['gold']:0}</td>
+							<!--<td>{$ult['integral']|default=0.00}</td>-->
+							<td>{$ult['recharge_total']}</td>
+							<td>{$ult['money_total']}</td>
+							<td>{$ult['fee_receive']?$ult['fee_receive']:0}</td>
+							
+							<td>{:change(exchange($ult[uid],2))}</td>
+							<td>{:change(exchange($ult[uid],1))}</td>
+							
+							<if condition="$ult['trade_frozen'] eq 1">
+								<td>
+									<a href="{:U('User/frozen',array('uid'=>$ult['uid'],'trade_frozen' => 0))}" onclick="if(confirm('确定要解冻该客户吗?')){return true;}else{return false;}" style="color:red;">解冻</a>
+								</td>
+								<else/>
+								<td>
+									<a href="{:U('User/frozen',array('uid'=>$ult['uid'],'trade_frozen' => 1))}" onclick="if(confirm('确定要冻结该客户吗?')){return true;}else{return false;}">冻结</a>
+								</td>
+							</if>
+					
+							
+							
+							<if condition="$ult['ustatus'] eq 1">
+								
+								<td>
+									<a href="{:U('User/cusfrozen',array('uid'=>$ult['uid'],'trade_frozen' => 0))}" onclick="if(confirm('确定要解冻该客户吗?')){return true;}else{return false;}" style="color:red;">解冻</a>
+								</td>
+								<else/>
+								<td>
+									<a href="{:U('User/cusfrozen',array('uid'=>$ult['uid'],'trade_frozen' => 1))}" onclick="if(confirm('确定要冻结该客户账号吗?')){return true;}else{return false;}">冻结</a>
+								</td>
+							</if>
+							
+							
+							<td><a href="{:U('User/bankInfo',array('uid' => $ult['uid']))}">查看</a></td>
+							
+							
+						<if condition="$ult['is_trader'] eq 1">
+								
+								<td>
+									<a href="{:U('User/upgrade',array('uid'=>$ult['uid'],'is_trader' => 0))}" onclick="if(confirm('您要取消该客户的交易员资格吗?')){return true;}else{return false;}" style="color:red;">取消</a>
+								</td>
+								<else/>
+								<td>
+									<a href="{:U('User/upgrade',array('uid'=>$ult['uid'],'is_trader' => 1))}" onclick="if(confirm('您要设置该客户为交易员吗?')){return true;}else{return false;}">升级</a>
+								</td>
+							</if>
+							
+							
+							
+							<td>
+								<ul class="actions">
+									<li>
+										<a href="{:U('User/updateuser',array('uid'=>$ult['uid']))}"><i class="table-edit"></i></a>
+									</li>
+									<li class="last">
+										<a href="{:U('User/userdel',array('uid'=>$ult['uid']))}" onclick="if(confirm('确定要删除吗?客户账户请谨慎操作！')){return true;}else{return false;}"><i class="table-delete"></i></a>
+									</li>
+							<!--		<li>
+										<a href
+												   ="{:U('User/upgrade',array('uid'=>$ult['uid']))}" style="text-decoration: none; "
+										   onclick="if(confirm('您确定要升级为交易员吗？')){return true;}else{return false;}"><i class="fa fa-user fa-lg"></i></a>
+									</li>-->
+								</ul>
+							</td>
+						</tr>
+					</volist>
+					<tr>
+						<td colspan="1"></td>
+						<td>总用户：{$data.count}</td>
+						
+						<td colspan="1"></td>
+						<td>总余额：{$data.balance}</td>
+						
+						<td colspan="2"></td>
+						<td>总模拟金额：{$data.gold}</td>
+						
+						<!--<td colspan="2"></td>-->
+						<!--<td>总积分：{$data.integral}</td>-->
+						
+						<td colspan="2"></td>
+						<td>累计充值：{$data.recharge_total}</td>
+						
+						<td colspan="2"></td>
+						<td>累计提现：{$data.money_total}</td>
+						
+						<td colspan="2"></td>
+						<td>佣金总额：{$data.fee_receive}</td>
+					
+					
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="pagination pull-right">
+				<ul>
+					{$page}
+				</ul>
+			</div>
+			<!-- end users table -->
+		</div>
+	</div>
+	<!-- scripts -->
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/bootstrap.datepicker.js"></script>
+	<script src="__JS__/theme.js"></script>
+	<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+	<script type="text/javascript">
+        $(function () {
+            $('.datepicker').datepicker().on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+        });
+	</script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+
+            /**
+             * 时间对象的格式化;
+             */
+            Date.prototype.format = function (format) {
+                /*
+				 * eg:format="yyyy-MM-dd hh:mm:ss";
+				 */
+                var o = {
+                    "M+": this.getMonth() + 1, // month
+                    "d+": this.getDate(), // day
+                    "h+": this.getHours(), // hour
+                    "m+": this.getMinutes(), // minute
+                    "s+": this.getSeconds(), // second
+                    "q+": Math.floor((this.getMonth() + 3) / 3), // quarter
+                    "S": this.getMilliseconds()
+                    // millisecond
+                }
+
+                if (/(y+)/.test(format)) {
+                    format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4
+                        - RegExp.$1.length));
+                }
+
+                for (var k in o) {
+                    if (new RegExp("(" + k + ")").test(format)) {
+                        format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                            ? o[k]
+                            : ("00" + o[k]).substr(("" + o[k]).length));
+                    }
+                }
+                return format;
+            }
+        });
+
+        function sub() {
+            $('#form1').attr("action", "__URL__/daochu");
+            $('#form1').submit();
+        }
+
+        function submit() {
+            $('#form1').attr("action", "__URL__/ulist");
+            $('#form1').submit();
+        }
+
+        $(function () {
+            var user_id = $("#user_id").val();
+            $("#oid option").each(function () {
+                if (user_id == $(this).val()) {
+                    $(this).attr('selected', true);
+                }
+            });
+
+            /*根据选择运营中心机构选择*/
+            $("#oid").change(function () {
+                var parent_id = $("#oid").val();
+                $.ajax({
+                    type: "GET",
+                    url: "{:U("user / ajax_get_brokers
+                ")}",
+                    data
+            :
+                "parent_id=" + parent_id,
+                    success
+            :
+
+                function (data) {
+                    var html = '';
+                    var list = data.data;
+                    html += "下属机构：<select name=\"jjr\"  class=\"span7\">";
+                    html += "<option value=\"\">默认不选</option>"
+                    if (data.status > 0) {
+                        for (x in list) {
+                            html += "<option value=\"" + list[x]['uid'] + "\">" + list[x]['username'] + "</option>"
+                        }
+                    }
+                    html += "</select>";
+                    $("#jjr").html(html);
+                }
+            })
+                ;
+            });
+
+        });
+
+        $('.sort').click(function () {
+            var cat = $(this).attr('data-cat');
+            var sort = $(this).attr('data-sort');
+            if (sort == 'desc') {
+                sort = 'asc';
+            } else {
+                sort = 'desc';
+            }
+            window.location.href = "{:U('ulist')}" + '?cat=' + cat + '&sort=' + sort + '';
+        });
+	</script>
+</block>

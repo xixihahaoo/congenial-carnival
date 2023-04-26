@@ -1,0 +1,170 @@
+<include file="Common:layer_content_header" />
+<!--   <link rel="stylesheet" href="//res.layui.com/layui/build/css/layui.css"  media="all"> -->
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            <i class="icon-double-angle-right"></i>
+            {$optionRs.capital_name}
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <form class="form-horizontal" role="form" id="id_form">
+                <input type="hidden" name="uid" value="{$uid}">
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 姓名 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id_option_intro" value="{$bankinfo.busername}" name="j_name" placeholder="持卡人" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 身份证/护照 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id_option_"  value="{$bankinfo.card}" name="Card" placeholder="身份证/护照" class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 电话 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="" value="{$bankinfo.tel}" name="j_bankPhone" placeholder="手机号码  " class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for=""> 银行名称 </label>
+                <div class="col-sm-9">
+                    <input type="text" value="{$bankinfo.bankname}" name="bankName" placeholder="银行名称  " class="col-xs-10 col-sm-5 " />
+                </div>
+                </div>
+                
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 开户行 </label>
+                    <div class="col-sm-9">
+                        <input type="text"  value="{$bankinfo.branch}" name="branch" placeholder="开户支行  " class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 银行卡号 </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="{$bankinfo.banknumber}" name="j_bankNo" placeholder="银行卡号  " class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+                
+                <div class="space-4"></div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 确认卡号 </label>
+                    <div class="col-sm-9">
+                        <input type="text" value="{$bankinfo.banknumber}" name="j_bankNoNote" placeholder="确认卡号  " class="col-xs-10 col-sm-5 " />
+                    </div>
+                </div>
+
+                <div class="hr hr-24"></div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-7 control-label no-padding-right text-success" for=""> 温馨提示：请填写你的真实信息 </label>
+                    <div class="col-sm-5">
+                    </div>
+                </div>
+
+
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9 center">
+                        <button class="btn btn-info" id="submit_btn" type="button">
+                            <i class="icon-ok bigger-110"></i>
+                            确定
+                        </button>
+                    </div>
+                </div>
+
+
+            </form>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+<include file="Common:layer_content_footer" />
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+
+$("#submit_btn").bind('click',function(){
+
+        var data = $("#id_form").serialize();
+               
+        $.ajax({
+
+            url:"{:U('binding')}",
+            dataType: 'json',
+            type: 'post',
+            data: data,
+            success:function(data){
+                console.log(data);
+                if(data.status == 1)
+                {
+                    alert(data.msg);
+                    parent.location.reload();
+                    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+                    parent.layer.close(index);
+                }
+                else
+                {
+                    alert(data.msg);
+                    return false;
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+    });
+});
+
+
+
+        $(".province").change(function(){
+               var id = $(this).val();
+               $(".city option").remove();
+               $.ajax({
+                       url:"{:U('city')}",
+                       dataType:'JSON',
+                       type:'post',
+                       data:{'id':id},
+                       success:function(data){
+                         var html = '';
+                         $.each(data,function(key,val){
+                            html = "<option value="+val.id+">"+val.name+"</option>"
+                            $(".city").append(html);
+                         });
+                       }
+               })
+        });
+
+var province = $('#province').val();
+$.each($('.province option'),function(){
+    if($(this).val() == province)
+    {
+        $(this).attr('selected',true);
+    }
+});
+</script>
+
+<script src="__PUBACE__/assets/js/ace-elements.min.js"></script>
+<script src="__PUBACE__/assets/js/ace.min.js"></script>

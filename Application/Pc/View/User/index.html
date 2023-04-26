@@ -1,0 +1,559 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.personal_center}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Qts/Home/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Qts/Home/css/user.css">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style>
+      /*.footer {*/
+          /*position: relative;*/
+          /*top: 0;*/
+          /*height: .55rem;*/
+          /*line-height: .55rem;*/
+      /*}*/
+      /*.footer:after {*/
+          /*content: '';*/
+          /*clear: both;*/
+          /*display: block;*/
+      /*}*/
+      /*.footer > div {*/
+          /*float: left;*/
+          /*width: 50%;*/
+      /*}*/
+      /*.footer > ul {*/
+          /*float: right;*/
+          /*width: 50%;*/
+      /*}*/
+      /*.footer[data-v-18c6d448] {*/
+          /*width: 100%;*/
+          /*background-color: #1F222B;*/
+      /*}*/
+      /*.footer em[data-v-18c6d448] {*/
+          /*display: block;*/
+          /*margin: auto;*/
+          /*color: #666;*/
+          /*font-size: .16rem;*/
+      /*}*/
+      body, html {
+        height: 100% !important;
+        width: 100% !important;
+        background: #262b41 !important;
+        /*background: url('__PUBLIC__/Qts/Home/img/index/bodyBack.jpg') no-repeat center center !important;*/
+        /*background-size: 100% 100% !important;*/
+      }
+      .contentWrap {
+        width: 1014px;
+        min-height: 720px;
+        float: left;
+        background: #212139;
+        padding: 0 68px;
+      }
+      .title {
+        height: 66px;
+        line-height: 66px;
+        font-size: 16px;
+        font-weight: normal;
+        border-bottom: 2px solid #262b41;
+        color: #ddd;
+      }
+      /*个人信息*/
+      .contentWrap .userInf {
+        height: 120px;
+        line-height: 120px;
+        border-bottom: 2px solid #262b41;
+      }
+      .contentWrap .userInf .userHeader {
+        float: left;
+        position: relative;
+        margin-top: 29px;
+        width: 64px;
+        height: 64px;
+      }
+      .contentWrap .userInf .userHeader img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+      }
+      .contentWrap .userInf .userHeader #upDateImg{
+        position: absolute;
+        width:100%;
+        height: 100%;
+        left: 0;
+        top:0;
+        opacity: 0;
+        cursor: pointer;
+      }
+      .contentWrap .userInf a {
+        display: inline-block;
+        margin: 0 20px;
+        color: #ddd;
+      }
+      /*安全设置*/
+      .contentWrap .security {
+        border-bottom: 2px solid #262b41;
+      }
+      .contentWrap .security ul li {
+        height: 44px;
+        line-height: 44px;
+        padding: 0 66px;
+      }
+      .contentWrap .security ul li a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        color: #ddd;
+      }
+      .contentWrap .security ul li a p {
+        float: left;
+      }
+      .contentWrap .security ul li a span {
+        float: right;
+      }
+      /*银行卡管理*/
+      .contentWrap .backCard .backCon {
+        text-align: center;
+      }
+      .contentWrap .backCard .backCon .backInfo {
+        border: 2px solid #262b41;
+        height: 96px;
+        background: #262b41;
+        border-radius: 2px;
+        margin: 10px 0;
+      }
+      .contentWrap .backCard .backCon .backInfo .info {
+        float: left;
+        margin: 13px 0 13px 60px;
+      }
+      .contentWrap .backCard .backCon .backInfo .info p,
+      .contentWrap .backCard .backCon .backInfo .info span {
+        display: block;
+        line-height: 35px;
+        color: #ddd;
+      }
+      .contentWrap .backCard .backCon .backInfo .unbundle {
+        float: right;
+        margin: 13px 60px 13px 0;
+      }
+      .contentWrap .backCard .backCon .backInfo .unbundle p,
+      .contentWrap .backCard .backCon .backInfo .unbundle span {
+        display: block;
+        line-height: 35px;
+        color: #ddd;
+      }
+      .contentWrap .backCard .backCon .backInfo .unbundle p {
+        color: #7aaeed;
+        cursor: pointer;
+      }
+      .contentWrap .backCard .backCon .addBack {
+        width: 120px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background: #7aaeed;
+        border-radius: 4px;
+        color: #fff;
+        margin: 20px 0;
+      }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background: rgba(1, 40, 97,.5); opacity: 1;"></div>
+    <!--引入导航条-->
+    <include file="Base:footer" />
+    <div data-v-adff73de="" class="page-main generalBG" style="padding: 0 !important; background: #262b41 !important;">
+      <div data-v-adff73de="" class="page-shadowC clearfix">
+          <!--引入个人中心公共组件-->
+          <include file="User:userPublic" />
+          <!--内容区-->
+          <div class="contentWrap">
+            <empty name="Think.session.user_id">
+              <!--登录前-->
+              <!--头像昵称修改-->
+              <div class="userInf">
+                <div class="userHeader">
+                  <img src="__PUBLIC__Qts/Home/img/me/1499222434250.png" alt="">
+                </div>
+                <a href="{:U('Login/login')}" class="nickName">{$Think.lang.not_logged} {$Think.lang.login}</a>
+              </div>
+              <!--安全设置-->
+              <div class="security">
+                <h5 class="title"></h5>
+                <ul>
+                  <li>
+                    <a href="{:U('Login/login')}">
+                      <p class="fl">{$Think.lang.email_binding}</p>
+                      <span class="fr" style="color: #7aaeed">{$Think.lang.setting}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{:U('Login/login')}">
+                      <p>{$Think.lang.login_password}</p>
+                      <span class="fr" style="color: #7aaeed">{$Think.lang.setting}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!--银行卡管理-->
+              <div class="backCard">
+                <h5 class="title">{$Think.lang.bank_management}</h5>
+                <div class="backCon">
+                  <button class="addBack" onclick="window.location.href = '{:U(\'Login/login\')}'">{$Think.lang.add_back}</button>
+                </div>
+              </div>
+            <else />
+              <!--登录后-->
+              <!--头像昵称修改-->
+              <div class="userInf">
+                <div class="userHeader">
+                  <img src="{$user.face}" alt="">
+                  <input type="file" id="upDateImg">
+                </div>
+                <a href="{:U('nicknameSave')}" class="nickName">{$user.nickname}</a>
+              </div>
+              <!--安全设置-->
+              <div class="security">
+                <h5 class="title">{$Think.lang.security_settings}</h5>
+                <ul>
+                  <li>
+                    <a href="javascript:void(0);">
+                      <p>{$Think.lang.email_binding}</p>
+                      <span>{$user.email|default='****'}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{:U('Setting/modifyLoginPwd')}">
+                      <p>{$Think.lang.login_password}</p>
+                      <span class="fr" style="color: #7aaeed">{$Think.lang.setting}</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <!--银行卡管理-->
+              <div class="backCard">
+                <h5 class="title">{$Think.lang.bank_management}</h5>
+                <div class="backCon">
+                  <volist name="bank" id="vo">
+                    <div class="backInfo">
+                      <div class="info">
+                        <p>{$vo.bankname}</p>
+                        <span>{$vo.banknumber}</span>
+                      </div>
+                      <div class="unbundle">
+                        <p onclick="Unbundling('{$vo.bid}')">{$Think.lang.untying}</p>
+                        <if condition="$vo['status'] eq '0'">
+                          <span>{$Think.lang.in_audit}</span>
+                          <else />
+                          <span>{$Think.lang.audited}</span>
+                        </if>
+                      </div>
+                    </div>
+                  </volist>
+                  <button class="addBack" onclick="window.location.href = '{:U(\'User/BrokersOpen\')}'">{$Think.lang.add_back}</button>
+                </div>
+              </div>
+            </empty>
+  <!-- -----------------------------------------------------旧样式 ---------------------------------------------- -->
+            <!--&lt;!&ndash;个人信息/余额&ndash;&gt;-->
+            <!--<empty name="Think.session.user_id">-->
+
+                <!--<div class="h-h" data-v-adff73de="">-->
+                    <!--<div class="p-img fr" data-v-adff73de="">-->
+                        <!--<img src="__PUBLIC__Qts/Home/img/me/1499222434250.png" class="fr" data-v-adff73de="">-->
+                    <!--</div>-->
+                    <!--<div class="p-info fl" data-v-adff73de="">-->
+                        <!--<div class="p-login" data-v-adff73de="">-->
+                            <!--<span data-v-adff73de="">{$Think.lang.hello},</span>-->
+                        <!--</div>-->
+
+                        <!--<div style="display:flex" data-v-adff73de="">-->
+                            <!--<p class="accountchange" data-v-adff73de="">{$Think.lang.not_logged}。</p>-->
+                            <!--<div class="p-plates" data-v-adff73de="">-->
+                                <!--<strong class="plate-selected" data-v-adff73de="" onclick="window.location.href='{:U('Login/login')}'">{$Think.lang.login}</strong>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div data-v-adff73de="" class="h-con1">-->
+                    <!--<img data-v-adff73de="" src="__PUBLIC__Qts/Home/img/me/img1.png">-->
+                    <!--<div data-v-adff73de="" class="h-con1lf">-->
+                        <!--{$Think.lang.account_balance}：$0.00-->
+                    <!--</div>-->
+                        <!--<div data-v-adff73de="" class="h-con1rf" onclick="window.location.href='{:U('Login/login')}'">-->
+                            <!--<span data-v-adff73de="" class="h-t1" style="float: left;">{$Think.lang.recharge}</span>-->
+                            <!--<span data-v-adff73de="" class="h-t1">{$Think.lang.withdrawal}</span>-->
+                        <!--</div>-->
+                <!--</div>-->
+
+            <!--<else />-->
+
+                <!--<div data-v-adff73de="" class="h-h">-->
+                    <!--<div data-v-adff73de="" class="p-img fr">-->
+                        <!--<a href="{:U('userInfo')}">-->
+                            <!--<img data-v-adff73de="" src="{$user.face}" class="fr">-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div data-v-adff73de="" class="p-info fl">-->
+                        <!--<div data-v-adff73de="" class="p-login1" style="color: #ffbf23">{$user.nickname}</div>-->
+                        <!--<div data-v-adff73de="" style="display: flex;">-->
+
+                            <!--<eq name="user['now_trade_status']" value="1">-->
+                                <!--<p data-v-adff73de="" class="accountchange">{$Think.lang.firm_account}</p>-->
+                            <!--<else />-->
+                                <!--<p data-v-adff73de="" class="accountchange">{$Think.lang.simulated_accounts}</p>-->
+                            <!--</eq>-->
+
+                            <!--<div data-v-adff73de="" class="p-plate">-->
+                                <!--<a href="{:U('BrokersSwitch')}">-->
+                                    <!--<strong data-v-adff73de="" class="plate-selected">{$Think.lang.switching_accounts}</strong>-->
+                                <!--</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<img data-v-adff73de="" src="__PUBLIC__Qts/Home/img/public/LV{$user.level}@2x.png" class="gradeimg">-->
+
+                        <!--&lt;!&ndash;<if condition="$personal['status'] eq '1'">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<elseif condition="$personal['status'] eq '0'" />&ndash;&gt;-->
+                            <!--&lt;!&ndash;<p style="color: #E3950D; font-weight: bold; position: absolute; right: .16rem;font-size: 14px;">{$Think.lang.in_audit}</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<else/>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<p style="color: #E3950D; font-weight: bold; position: absolute; right: .16rem;font-size: 14px;">{$Think.lang.uncertified}</p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</if>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<eq name="user['now_trade_status']" value="1">-->
+                    <!--<div class="h-con1" data-v-adff73de="">-->
+                        <!--<img src="__PUBLIC__Qts/Home/img/me/img1.png" style="display:none;" data-v-adff73de="">-->
+                        <!--<div class="h-con1lf" data-v-adff73de="">-->
+                            <!--{$Think.lang.account_balance}：<span style="color: #ffca34">${$account.balance}</span>-->
+                        <!--</div>-->
+                        <!--<div class="h-con1rf" data-v-adff73de="">-->
+                            <!--<a href="{:U('Recharge/index')}">-->
+                                <!--<span class="h-t" style="border:1px solid #ffca34;float: left;border-radius: .05rem" data-v-adff73de="">{$Think.lang.recharge}</span>-->
+                            <!--</a>-->
+                            <!--<a href="{:U('Withdrawals/index')}">-->
+                                <!--<span class="h-t" style="border:1px solid #ffca34;border-radius: .05rem" data-v-adff73de="">{$Think.lang.withdrawal}</span>-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--<else />-->
+                    <!--<div class="h-con1" data-v-adff73de="">-->
+                        <!--<img src="__PUBLIC__Qts/Home/img/me/img1.png" style="display:block" data-v-adff73de="">-->
+                        <!--<div class="h-con1lf" data-v-adff73de="">-->
+                            <!--{$Think.lang.simulated_balance}：${$account.gold}-->
+                        <!--</div>-->
+                        <!--<div class="h-con1rf" data-v-adff73de="">-->
+                            <!--<span class="h-t1" style="float: left;" data-v-adff73de="" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.recharge}</span>-->
+                            <!--<span class="h-t1" data-v-adff73de="" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.withdrawal}</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</eq>-->
+
+            <!--</empty>-->
+            <!--&lt;!&ndash;菜单&ndash;&gt;-->
+            <!--<div data-v-adff73de="" class="managerlist">-->
+                <!--<ul data-v-adff73de="" class="man-f">-->
+
+                <!--<a href="{:U('Follow/index')}">-->
+                    <!--<li data-v-adff73de="">-->
+                        <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img2.png">-->
+                        <!--<p data-v-adff73de="">{$Think.lang.following}</p>-->
+                    <!--</li>-->
+                <!--</a>-->
+
+                <!--<a href="{:U('Investment/index')}">-->
+                    <!--<li data-v-adff73de="">-->
+                        <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img3.png">-->
+                        <!--<p data-v-adff73de="">{$Think.lang.statistics}</p>-->
+                    <!--</li>-->
+                <!--</a>-->
+
+                <!--<a href="{:U('Withdrawals/bankinfo')}">-->
+                    <!--<li data-v-adff73de="">-->
+                        <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img4.png">-->
+                        <!--<p data-v-adff73de="">{$Think.lang.banks}</p>-->
+                    <!--</li>-->
+                <!--</a>-->
+
+
+                <!--<notempty name="user['code']">-->
+                    <!--<a href="{:U('Extension/index')}">-->
+                        <!--<li data-v-adff73de="">-->
+                            <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img6.png">-->
+                            <!--<p data-v-adff73de="">{$Think.lang.promotion}</p>-->
+                        <!--</li>-->
+                    <!--</a>-->
+                <!--<else />-->
+                        <!--<li data-v-adff73de="" onclick="applyAgent();">-->
+                            <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img6.png">-->
+                            <!--<p data-v-adff73de="">{$Think.lang.promotion}</p>-->
+                        <!--</li>-->
+                <!--</notempty>-->
+
+                <!--<a href="{:U('Message/index')}">-->
+                    <!--<li data-v-adff73de="" class="linksystem">-->
+                        <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img7.png">-->
+                        <!--<p data-v-adff73de="">{$Think.lang.meessage}</p>-->
+                        <!--<if condition="$NoreadCount egt '1'">-->
+                        <!--<strong data-v-adff73de=""></strong>-->
+                        <!--</if>-->
+                    <!--</li>-->
+                <!--</a>-->
+                <!--</ul>-->
+                    <!--&lt;!&ndash;<img onclick="window.location.href='{:U('Index/advanced')}'" data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/pic_enter_class@2x.png" class="waihuiweek">&ndash;&gt;-->
+            <!--</div>-->
+            <!--&lt;!&ndash;菜单列表&ndash;&gt;-->
+            <!--<div data-v-adff73de="" class="m-m">-->
+                      <!--<ul data-v-adff73de="" class="h-f">-->
+                          <!--&lt;!&ndash;<li data-v-adff73de="" class="linkus" onclick="window.location.href='http://tb.53kf.com/code/client/10173921/1'">&ndash;&gt;-->
+                              <!--&lt;!&ndash;{$Think.lang.service}&ndash;&gt;-->
+                              <!--&lt;!&ndash;<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img8.png">&ndash;&gt;-->
+                          <!--&lt;!&ndash;</li>&ndash;&gt;-->
+
+                          <!--<li data-v-adff73de="" class="warning linkus" onclick="window.location.href='{:U('Help/Risk')}'">-->
+                              <!--{$Think.lang.risk_warning}-->
+                              <!--<img data-v-adff73de="" src="__PUBLIC__/Qts/Home/img/me/img8.png">-->
+                          <!--</li>-->
+
+                          <!--<li data-v-adff73de="" class="helps" onclick="window.location.href='{:U('Help/help')}'">{$Think.lang.help_center}</li>-->
+
+                          <!--<li data-v-adff73de="" class="set" onclick="window.location.href='{:U('Lang/index')}'">{$Think.lang.lang_choice}</li>-->
+
+                          <!--<li data-v-adff73de="" class="set" onclick="window.location.href='{:U('Setting/index')}'">{$Think.lang.account_settings}</li>-->
+
+                      <!--</ul>-->
+                  <!--</div>-->
+
+    <!-- -----------------------------------------------------旧样式 ---------------------------------------------- -->
+
+          </div>
+      </div>
+
+    </div>
+    <include file="Base:trueFooter" />
+</div>
+
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+
+<script type="text/javascript">
+
+//信息提示
+//   function MsgPrompt(msg)
+//   {
+//       layer.open({
+//           content: msg
+//           ,skin: 'msg'
+//           ,time: 2 //2秒后自动关闭
+//       });
+//   }
+
+  window.onload=function(){
+      //设置底部导航选中状态
+      $('.headertop .wapper > ul > li').last().find('a').addClass('active');
+      // $('.footer > ul > li').last().find('em').addClass('selected');
+
+      $('.userPublic .userMenu > ul > li').first().find('a').addClass('active');
+  }
+
+
+  // function sort(array)
+  // {
+  //     var compare = function(val1,val2){
+  //         return val2 - val1;
+  //     };
+  //
+  //     array.sort(compare);
+  //
+  //     return array;
+  // }
+// console.log(sort([2,3,45,7]));
+
+  // function sum(head,foot){
+    //     let arr = [];
+    //     let a   = 0;//鸡
+    //     let b   = 0;//兔
+    //     for(let a = 0; a < head; a++){
+    //         b= (head-a);
+    //         if(2*a+4*b==foot){
+    //             arr.push(a,b);
+    //         }
+    //     }
+    //
+    //     return arr;
+    // }
+    //
+    // arr = sum(48,132);
+  //上传图片
+  var formdata = new FormData();
+  formdata.append("action", "UploadVMKImagePath");
+  $('#upDateImg').change(function () {
+
+    var index = layer.load(2);
+
+    var file = this.files[0];
+    if(!/image\/\w+/.test(file.type)){
+      layer.close(index);
+      return layer.msg('{$Think.lang.upload_error}');
+    }
+    formdata.append("face",$(this)[0].files[0]);
+    $.ajax({
+      type:'post',
+      url:"{:U('faceUpload')}",
+      cache: false,//上传文件无需缓存
+      processData: false,//用于对data参数进行序列化处理 这里必须false
+      contentType: false, //必须
+      data:formdata,
+      success:function(data){
+        if(data.status==1){
+          layer.close(index);
+          layer.msg(data.info);
+          return window.location.reload();
+        }else{
+          laeyr.close(index);
+          return layer.msg(data.info);
+        }
+      }
+    });
+  });
+
+  // 解绑银行卡
+function Unbundling(id)
+{
+  layer.open({
+    content: '{$Think.lang.are_you_unbind}'
+    ,btn: ['{$Think.lang.bank_determine}', '{$Think.lang.cancel}']
+    ,shadeClose:false
+    ,yes: function(index){
+
+      var load   = layer.open({type: 2,shadeClose:false,content:'解绑中'});
+      $.ajax({
+        url: "{:U('Withdrawals/Unbundling')}",
+        dataType: 'json',
+        type: 'post',
+        data: {'id': id},
+        success: function (data) {
+          layer.open({
+            content: data.msg
+            ,skin: 'msg'
+            ,time: 2 //2秒后自动关闭
+          });
+          layer.close(load);
+          if(data.code == 200)
+            return window.location.reload();
+        },
+        error: function (res) {
+          console.log(res);
+        }
+      });
+    }
+  });
+}
+
+</script>

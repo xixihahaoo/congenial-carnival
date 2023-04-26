@@ -1,0 +1,64 @@
+<extend name="Base/common"/>
+<block name="content">
+
+
+    <link href="__CSS__/lib/bootstrap-wysihtml5.css" type="text/css" rel="stylesheet" />
+    <link href="__CSS__/lib/uniform.default.css" type="text/css" rel="stylesheet" />
+    <link href="__CSS__/lib/select2.css" type="text/css" rel="stylesheet" />
+    <link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="__CSS__/compiled/article-add.css" type="text/css" media="screen" />
+
+              
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+  <legend>用户交易手数限制</legend>
+</fieldset>
+<div id="pad-wrapper" class="form-page">
+    <div class="row-fluid form-wrapper">
+    <div class="field-box">
+        <label>用户交易手数限制：</label>
+        <input type="text" name="sys_date" value="{$sys_date}" id="sys_date" lay-verify="title" autocomplete="off"  placeholder="请输入限制的手数（数字）" class="layui-input">&nbsp;&nbsp;手
+    </div>
+    <div class="field-box">
+        注：<span style="color:red;">实盘交易|模拟交易</span> 设置交易手数后，用户当前购买商品持仓的手数不能超过当前设置的手数<br>
+            如果禁止下单 填充&nbsp;<font style="font-size: 14px; color: red; font-weight: bold;">0</font>&nbsp;即可
+    </div>
+  <div class="layui-form-item">
+    <button class="layui-btn" lay-submit="" lay-filter="demo2">确认提交</button>
+  </div>
+</div>
+</div>
+<script src="__CSS__/layerui/layui.js" charset="utf-8"></script>
+
+
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+
+
+<script>
+ 
+ $(".layui-btn").click(function(){
+
+          var sys_date  = $("#sys_date").val();
+          
+            $.ajax({
+                url: "{:U('Tools/product_number_opt')}",
+                dataType: 'json',
+                type: 'post',
+                data: {'sys_date':sys_date},
+                success: function(data) {
+                    if(data.status == 1)
+                    {
+                        alert('保存成功');
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+
+ });
+</script>
+
+</block>

@@ -1,0 +1,284 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="/Public//Qts/Home/js/jquery.js" type="text/javascript"></script>
+    <script src="/Public//Qts/Home/js/highstock.js"></script>
+    <script type="text/javascript" src="/Public//Home/css/layer/layer.js"></script>
+</head>
+<body style='margin-left: 0;margin-right: 0'>
+<div id="container" style="height: 100%; min-width: 310px"></div>
+</body>
+</html>
+<style>
+    body{
+        margin:0;
+    }
+    html,body{
+        height:100%;
+    }
+</style>
+
+<script type="text/javascript">
+
+    var height = "<?php echo ($height); ?>";
+    $('#container').css('height',height * 1);
+    var length = "<?php echo ($length); ?>";
+
+</script>
+
+
+<script type="text/javascript">
+    var globalData=[];
+
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        },
+        legend: {
+            enabled: false,   //禁止图例
+        },
+        exporting: {
+            enabled: false   //设置导出按钮不可用
+        },
+        credits: {
+            enabled: false // 禁用版权信息
+        },
+        chart: {
+            events: {
+                load: updateData1M
+            },
+        },
+        plotOptions: {
+            series: {
+                states: {
+                    hover: {
+                        enabled: true,
+                    }
+                }
+            },
+        },
+        lang: {
+            resetZoom: '重置',
+            resetZoomTitle: '重置缩放比例'
+        }
+    });
+
+
+    function renderIt1D(data)
+    {
+        var ohlc    = [];
+
+        dataLength = data.length,
+
+            i = 0;
+        for (i; i < dataLength; i += 1) {
+            ohlc.push([
+                data[i][0], // the date
+                data[i][1] // open
+            ]);
+        }
+
+        $('#container').highcharts({
+            chart: {
+
+                zoomType: "",
+                panning: false,
+                pinchType:'',
+                // panning: true,
+                // pinchType: 'x',
+                // zoomType: '',
+                // resetZoomButton: {
+                //     // 按钮定位
+                //     position: {
+                //         align: 'right', // by default
+                //         verticalAlign: 'top', // by default
+                //         x: 30,
+                //         y: -10
+                //     },
+                // },
+                backgroundColor: 'rgba(0,0,0,0)',
+                renderTo: $('#container')[0],
+                animation: {
+                    duration: 600,  //更长时间动画
+                    // easing: 'easeOutBounce' //jQuery UI缓慢动画：
+                }
+            },
+            title: {
+                text: ''
+            },
+            subtitle: {
+                text: '',
+                align:'left',
+            },
+            xAxis: {
+                type: 'datetime',
+                dateTimeLabelFormats: {
+                    millisecond: '%H:%M:%S.%L',
+                    second: '%H:%M:%S',
+                    minute: '%H:%M',
+                    hour: '%H:%M',
+                    day: '%m-%d',
+                    week: '%m-%d',
+                    month: '%Y-%m',
+                    year: '%Y'
+                },
+                labels: {
+                    enabled: true, //x轴禁止显示
+                },
+                tickWidth: 1,      //去掉最下方白角
+                lineWidth: 0.5,
+            },
+            tooltip: {
+                enabled:true,
+                formatter: function() {
+                    var tip = "";
+                    tip += Highcharts.dateFormat("%Y-%m-%d %H:%M", this.x, false) + "<br/>";
+                    tip += "最新价：" + this.y + "<br/>";
+                    return tip;
+                },
+                followTouchMove:false,
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                plotLines:[{
+                    color:'red',
+                    dashStyle:'longdashdot',
+                    value:ohlc[dataLength-1][1],       //定义在那个值上显示标示线，
+                    width:0.5,       //标示线的宽度，2px
+                    id:'plot-line',
+                    label:{
+                        text:ohlc[dataLength-1][1],
+                        align:'right',
+                        x:-10,
+                        y: -15,
+                        style: {
+                            color: 'red'
+                        }
+                    }
+                }],
+                labels: {
+                    zIndex: 9999,
+                    y: -10,
+                    x: 5,
+                    formatter: function() {
+                        return this.value.toFixed(length);
+                    }
+                },
+                height: '100%',
+                lineWidth: 0,
+                gridLineWidth: 0.5,
+                opposite: true,
+            },
+            legend: {
+                enabled: false
+            },
+
+            plotOptions: {
+                spline: {
+                    fillColor: {
+                        linearGradient: {
+                            x1: 0,
+                            y1: 0,
+                            x2: 0,
+                            y2: 1
+                        },
+                        stops: [
+                            [0, '#3C3423'],
+                            [1, '#2D2924'],
+                            // [0, Highcharts.getOptions().colors[0]],
+                            // [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    marker: {
+                        radius: 0
+                    },
+                    lineWidth: 1,
+                    lineColor:'#D9B328',
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                },
+            },
+
+            series: [{
+                type: 'spline',
+                name: '分时图',
+                data: ohlc
+            }]
+        });
+    }
+
+    function Init1D()
+    {
+        var url     = "<?php echo U('Data/getData',array('code' => $code,'interval' => '1m','rows' => 60));?>";
+        // var url   = 'http://data.21jrd.com/chart/chart.php?Code=<?php echo ($code); ?>&interval=1&Rows=60&callback=?';
+        var index   = layer.load(2);
+        $.getJSON(url, function (data) {
+            renderIt1D(data);
+            globalData=data;
+            layer.close(index);
+        });
+    }
+
+    window.onload=function()
+    {
+        Init1D();
+    }
+
+
+    function updateData1M(price)
+    {
+        var chart   = $('#container').highcharts();
+        series      = chart.series[0];
+
+        price = parseFloat(price);
+
+        if(globalData != '')
+        {
+            globalLength = globalData.length;
+
+            lastData = globalData[globalLength-1];
+
+            lastData[0] = getTimestamp();
+            lastData[1] = price;
+
+            globalData[globalLength-1] = lastData;
+            series.setData(globalData);
+        }
+
+
+        yAxis = chart.yAxis[0];
+        yAxis.removePlotLine('plot-line');
+        yAxis.addPlotLine({
+            color: 'red',
+            dashStyle:'solid',
+            value: price,
+            width: 1,
+            id: 'plot-line',
+            label: {
+                text: '<span style="color: #FFF;font-family:\'微软雅黑\'; background-color: #e4393c; margin-right: 10px;">' + price + '</span>',
+                align: 'right',
+                useHTML: true,
+                y: 3,   //上下位置
+                x: 55,  //左右位置
+                style: {
+                    color: 'red'
+                },
+            },
+            zIndex:200
+        });
+    }
+
+    //获取当前时间戳
+    function getTimestamp(){
+        var timestamp = (new Date()).getTime();
+        var timestamp;
+    }
+
+</script>

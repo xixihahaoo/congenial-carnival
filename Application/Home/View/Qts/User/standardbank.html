@@ -1,0 +1,564 @@
+    <include file="Base:header" />
+    <title>开设经纪商账户</title>
+
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Home/css/layui2/css/layui.css"  media="all">
+    <style data-vue-ssr-id="6c62b982:0 73881502:0">
+
+    .audit img[data-v-ce61b306] {
+        width: .97rem;
+        height: .72rem
+    }
+
+    .buzou[data-v-ce61b306] {
+        width: 85%;
+        margin: .2rem auto;
+        height: .05rem;
+        background: #ddd;
+        position: relative
+    }
+
+    .buzou img[data-v-ce61b306] {
+        width: .14rem;
+        height: .14rem;
+        position: absolute;
+        top: -.04rem
+    }
+
+    .buzou b[data-v-ce61b306] {
+        position: absolute;
+        top: .15rem;
+        font-size: 12px;
+        color: #999;
+        font-weight: 400
+    }
+
+    .bone[data-v-ce61b306] {
+        left: -.18rem
+    }
+
+    .btwo[data-v-ce61b306] {
+        left: 21%
+    }
+
+    .bthree[data-v-ce61b306] {
+        right: 27%
+    }
+
+    .bfour[data-v-ce61b306] {
+        right: -.07rem
+    }
+
+    .yuanimg1[data-v-ce61b306] {
+        left: -.01rem
+    }
+
+    .yuanimg2[data-v-ce61b306] {
+        left: 32%
+    }
+
+    .yuanimg3[data-v-ce61b306] {
+        right: 32%
+    }
+
+    .yuanimg4[data-v-ce61b306] {
+        right: -.01rem
+    }
+
+    .buzou span[data-v-ce61b306] {
+        display: inline-block;
+        height: .08rem;
+        width: 23%;
+        background: #ddd
+    }
+
+    #head2 {
+        width: 100%;
+        height: .5rem;
+        text-align: center;
+        background: #1c1a25;
+        -webkit-box-shadow: inset 0 0 0 0 #e5e5e5;
+        box-shadow: inset 0 0 0 0 #e5e5e5;
+        font-size: 17px;
+        color: #ffbf23;
+        letter-spacing: -.41px;
+        position: fixed;
+        z-index: 1000;
+        top: 0
+    }
+
+    #head2 h3 {
+        height: .5rem;
+        line-height: .5rem;
+        margin: 0;
+        font-size: .16rem;
+        font-weight: 400;
+        overflow: hidden
+    }
+
+    .product-name {
+        position: relative
+    }
+
+    #head2 h3 span:first-of-type {
+        display: block;
+        font-size: .16rem
+    }
+
+    .product-name em {
+        position: absolute;
+        top: .18rem;
+        font-size: .12rem;
+        left: 50%;
+        margin-left: -.32rem
+    }
+
+    #head2 .head_content .left {
+        position: absolute;
+        top: 0;
+        left: .2rem
+    }
+
+    #head2 .head_content .left a {
+        font-size: .2rem
+    }
+
+    #head1 .head_content .left a, #head2 .head_content .left a, #head2 .head_content .right a {
+        color: #fff;
+        line-height: .5rem
+    }
+
+    #head2 .arrow_left:after {
+        content: " ";
+        display: inline-block;
+        -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        height: 13px;
+        width: 13px;
+        border-width: 2px 2px 0 0;
+        border-color: #fff;
+        border-style: solid;
+        position: relative;
+        top: -2px;
+        position: absolute;
+        left: 0;
+        top: 19px
+    }
+
+    #head2 .arrow_right {
+        top: -.45rem
+    }
+
+    #head2 .arrow_right img {
+        width: .18rem
+    }
+
+    .banktip[data-v-4d6ffd4e] {
+        font-family: PingFangSC-Regular;
+        font-size: 15px;
+        color: #999;
+        letter-spacing: 0;
+        padding: 0 .14rem;
+        margin-top: .5rem
+    }
+
+    .userInfor[data-v-4d6ffd4e] {
+        padding: 0 .14rem;
+        /*background: #fff;*/
+        font-size: .15rem
+    }
+
+    .card[data-v-4d6ffd4e] {
+        width: 100%
+    }
+
+    .fiemd[data-v-4d6ffd4e] {
+        height: .5rem;
+        line-height: .5rem;
+        position: relative;
+        border: 1px solid #444;
+        border-radius: 4px;
+        margin-top: .2rem
+    }
+
+    input[data-v-4d6ffd4e] {
+        height: .3rem;
+        line-height: .3rem;
+        width: 100%;
+        text-indent: .1rem
+    }
+
+    .fiemd > div[data-v-4d6ffd4e] {
+        display: inline-block
+    }
+
+    .fiemd > div[data-v-4d6ffd4e]:first-of-type {
+        width: 100%
+    }
+
+    .exitOut[data-v-4d6ffd4e] {
+        margin: .14rem;
+        height: .4rem;
+        line-height: .4rem;
+        color: #000;
+        text-align: center;
+        background: -o-linear-gradient(319deg, #cdcfd1 0, #d1d2d5 100%);
+        background: linear-gradient(-229deg, #cdcfd1, #d1d2d5);
+        border-radius: 0.05rem
+    }
+
+    .btn_color[data-v-4d6ffd4e] {
+        background: #ffc42f
+    }
+
+    .layer-box1 p[data-v-4d6ffd4e] {
+        text-align: center;
+        font-size: .2rem;
+        line-height: 1rem;
+        color: #222
+    }
+
+    .layer-box1 img[data-v-4d6ffd4e] {
+        display: block;
+        margin: 0 auto;
+        margin-top: -.6rem;
+        width: 70%
+    }
+
+    .layer-box h3[data-v-4d6ffd4e] {
+        line-height: .45rem;
+        position: relative;
+        text-align: center;
+        font-size: .17rem;
+        font-weight: 400;
+        color: #030303;
+        border-bottom: .01rem solid #ddd
+    }
+
+    .layer-money em[data-v-4d6ffd4e] {
+        font-size: .4rem;
+        margin-top: .05rem;
+        margin-bottom: .05rem;
+        color: #222;
+        display: block;
+        text-align: center
+    }
+
+    .buzou[data-v-4d6ffd4e] {
+        width: 85%;
+        margin: .2rem auto;
+        height: .05rem;
+        background: #ddd;
+        position: relative
+    }
+
+    .buzou img[data-v-4d6ffd4e] {
+        width: .14rem;
+        height: .14rem;
+        position: absolute;
+        top: -.04rem;
+        z-index: 10
+    }
+
+    .buzou b[data-v-4d6ffd4e] {
+        position: absolute;
+        top: .15rem;
+        font-size: 12px;
+        color: #999;
+        font-weight: 400
+    }
+
+    .bone[data-v-4d6ffd4e] {
+        left: -.18rem
+    }
+
+    .btwo[data-v-4d6ffd4e] {
+        left: 21%
+    }
+
+    .bthree[data-v-4d6ffd4e] {
+        right: 27%
+    }
+
+    .bfour[data-v-4d6ffd4e] {
+        right: -.07rem
+    }
+
+    .yuanimg1[data-v-4d6ffd4e] {
+        left: -.01rem
+    }
+
+    .yuanimg2[data-v-4d6ffd4e] {
+        left: 32%
+    }
+
+    .yuanimg3[data-v-4d6ffd4e] {
+        right: 32%
+    }
+
+    .yuanimg4[data-v-4d6ffd4e] {
+        right: -.01rem
+    }
+
+    .buzou span[data-v-4d6ffd4e] {
+        display: inline-block;
+        height: .05rem;
+        width: 33%;
+        background: #ffc42f;
+        position: absolute;
+        top: 0;
+        z-index: 5
+    }
+    .jiantou select{
+        color: #666;
+        padding-left:5px;
+    }
+    .upload[data-v-ce61b306] {
+        width: 100%;
+        height: 1.7rem;
+        font-size: 30px;
+        border-radius: 5px;
+        text-align: center;
+        position: relative;
+        background: url(__PUBLIC__Qts/Home/img/02.png);
+        background-size: 100% 1.7rem;
+        background-repeat: no-repeat;
+        background-position: 50%;
+    }
+    .last.fiemd{
+        height:auto;
+        border: none;
+    }
+    .page-main {
+        padding: .5rem 0 0.1rem;
+    }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-4d6ffd4e="" class="content">
+        <div data-v-d7866d92="" id="head2">
+            <div class="head_content"><h3 class="product-name"><span>开设经纪商账户</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right">
+                <a href="{:U('index')}"><img src="__PUBLIC__Qts/Home/img/user/exit.png"></a>
+                </div>
+            </div>
+        </div>
+        <section data-v-4d6ffd4e="" class="page-main">
+            <div data-v-4d6ffd4e="" class="buzou">
+                <img data-v-4d6ffd4e="" src="__PUBLIC__Qts/Home/img/user/yellow.png" class="yuanimg1">
+                <b data-v-4d6ffd4e="" class="bone" style="color: #999;">完善信息</b>
+                <span data-v-4d6ffd4e=""></span>
+                <img data-v-4d6ffd4e="" src="__PUBLIC__Qts/Home/img/user/yellow.png" class="yuanimg2">
+                <b data-v-4d6ffd4e="" class="btwo" style="color: #999">填写银行卡信息</b>
+                <img data-v-4d6ffd4e="" src="__PUBLIC__Qts/Home/img/user/gray.png" class="yuanimg3">
+                <b data-v-4d6ffd4e="" class="bthree">签订协议</b>
+                <img data-v-4d6ffd4e="" src="__PUBLIC__Qts/Home/img/user/gray.png" class="yuanimg4">
+                <b data-v-4d6ffd4e="" class="bfour">审核</b>
+            </div>
+            <div data-v-4d6ffd4e="" class="banktip">填写信息</div>
+            <div data-v-4d6ffd4e="" class="userInfor">
+                <div data-v-4d6ffd4e="" class="fiemd">
+                    <input data-v-4d6ffd4e="" type="tel" maxlength="23" placeholder="银行卡号(仅限储蓄卡)" class="card banknumber" value="{$info.banknumber}" name="banknumber">
+                    <i data-v-4d6ffd4e="" class="icon icon_tel" style="display: none;"></i>
+                </div>
+
+                <div data-v-4d6ffd4e="" class="fiemd">
+                    <div data-v-4d6ffd4e="" class="jiantou">
+                        <select name="bankname" class="bankname">
+                            <option value="中国工商银行">中国工商银行</option>
+                            <option value="中国农业银行">中国农业银行</option>
+                            <option value="中国建设银行">中国建设银行</option>
+                            <option value="中国银行">中国银行</option>
+                            <option value="中国交通银行">中国交通银行</option>
+                            <option value="招商银行">招商银行</option>
+                            <option value="广发银行">广发银行</option>
+                            <option value="浦发银行">浦发银行</option>
+                            <option value="兴业银行">兴业银行</option>
+                            <option value="中国光大银行">中国光大银行</option>
+                            <option value="平安银行">平安银行</option>
+                            <option value="中国民生银行">中国民生银行</option>
+                            <option value="中信银行">中信银行</option>
+                            <option value="上海银行">上海银行</option>
+                            <option value="中国邮政储蓄银行">中国邮政储蓄银行</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div data-v-4d6ffd4e="" class="fiemd">
+                    <div data-v-4d6ffd4e="" class="jiantou">
+                        <select name="province" id="location_p">
+                            <volist name="province" id="vo">
+                                <eq name="info['bank_province']" value="$vo['id']">
+                                    <option value="{$vo.id}" selected="">{$vo.joinname}</option>
+                                <else />
+                                    <option value="{$vo.id}">{$vo.joinname}</option>
+                                </eq>
+                            </volist>
+                        </select>
+                        <select name="city" id="location_c">
+                            <volist name="city" id="vo">
+                                <eq name="info['bank_city']" value="$vo['id']">
+                                    <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                <else />
+                                    <option value="{$vo.id}">{$vo.name}</option>
+                                </eq>
+                            </volist>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div data-v-4d6ffd4e="" class="fiemd">
+                    <input data-v-4d6ffd4e="" type="text" placeholder="开户支行"  class="card branch" value="{$info.branch}" name="branch">
+                    <i data-v-4d6ffd4e="" class="icon icon_tel" style="display: none;"></i>
+                </div>
+
+                <div data-v-4d6ffd4e="" class="fiemd">
+                    <input data-v-4d6ffd4e="" type="tel" placeholder="预留手机号" maxlength="11" class="card tel" value="{$info.tel}" name="tel">
+                    <i data-v-4d6ffd4e="" class="icon icon_tel" style="display: none;"></i>
+                </div>
+                <div data-v-4d6ffd4e="" class="banktip" style="margin-top: .2rem">请上传银行卡正面</div>
+                <div data-v-4d6ffd4e="" class="fiemd last">
+                    
+                    <notempty name="info['bank_img']">
+                        <div class="upload" data-v-ce61b306="" id="test1" style="background-image: url('../../Uploads/{$info.bank_img}')">
+                    <else />
+                        <div class="upload" data-v-ce61b306="" id="test1">
+                    </notempty>
+                        <input type="hidden" id="bank_img" value="{$info.bank_img}">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div data-v-4d6ffd4e="" class="exitOut btn_color" id="submit">下一步</div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script src="__PUBLIC__/Home/css/layui2/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+    
+    $(function () {
+
+        var bankname = "{$info.bankname}";
+        $.each($('select[name=bankname] > option'),function(){
+            if(bankname == $(this).val())
+                $(this).attr('selected',true);
+        });
+    });
+
+    $('#location_p').change(function(){
+
+        var id = $(this).val();
+        var index = layer.load(2);
+
+        $.ajax({
+            url:"{:U('getCity')}",
+            async:true,
+            dataType:'json',
+            type:'get',
+            data:{id:id},
+            success:function(data){
+                var option = '';
+                $.each(data,function(key,val){
+                    option += '<option value="'+val.id+'">'+val.name+'</option>';
+                });
+                $('#location_c').html(option);
+                layer.close(index);
+            },
+            error:function(response){
+                console.log(response);
+            }
+        });
+    });
+
+</script>
+    
+<script>
+    
+    $(function () {
+        var bankname = "{$info.bankname}";
+        $.each($('select[name=bankname] > option'),function(){
+            if(bankname == $(this).val())
+                $(this).attr('selected',true);
+        });
+    })
+    
+    
+    layui.use('upload', function(){
+        var $ = layui.jquery
+            ,upload = layui.upload;
+
+        //正面图片上传
+        upload.render({
+            elem: '#test1'
+            ,url: 'imageUpload'
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                layer.load(2); //上传loading
+            }
+            ,done: function(res){
+                //如果上传失败
+                if(res.code > 0){
+                    layer.closeAll('loading'); //关闭loading
+                    return layer.msg(res.msg);
+                }
+                //上传成功
+                $('#test1').css('background-image','url('+res.data.src+')');
+                $('#bank_img').val(res.data.url);
+                layer.closeAll('loading'); //关闭loading
+            }
+            ,error: function(){
+                layer.closeAll('loading'); //关闭loading
+                return layer.msg('网络延迟，请稍后再试');
+            }
+        });
+    });
+
+
+    $('#submit').on('click',function () {
+        
+        var banknumber  = $('.banknumber').val();
+        var bankname    = $('.bankname').val();
+        var province    = $('#location_p').val();
+        var city        = $('#location_c').val();
+        var branch      = $('.branch').val();
+        var tel         = $('.tel').val();
+        var bank_img    = $('#bank_img').val();
+        
+        
+        console.log(banknumber,bankname,province,city,branch,tel,bank_img);
+        
+        var index = layer.load(2);
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:"{:U('standardBankBind')}",
+            data:{'banknumber':banknumber,'bankname':bankname,'province':province,'city':city,'branch':branch,'tel':tel,'bank_img':bank_img},
+            success:function(data){
+                layer.msg(data.info)
+                layer.close(index);
+                if(data.status == 1)
+                {
+                    window.location.href="{:U('agreement')}";
+                } else {
+                    return layer.msg(data.info);
+                }
+            },
+            error:function(response){
+                layer.close(index);
+                console.log(response);
+            }
+        });
+    });
+    
+    
+</script>

@@ -1,0 +1,124 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ margin:0; padding:0;}
+li{ list-style:none;}
+img{ border:none; vertical-align:top;}
+a{ text-decoration:none; color:inherit;}
+.clear{zoom:1;}
+.clear:after{ content:""; display:block; clear:both;}
+
+body{ font-size:14px; font-family: Microsoft YaHei,Arial,Verdana,Sans-serif; background:#EDF0F5; color: #252525;}
+
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?gnnhfe1');
+    src:    url('../fonts/icomoon.eot?gnnhfe#iefix1') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?gnnhfe1') format('truetype'),
+        url('../fonts/icomoon.woff?gnnhfe1') format('woff'),
+        url('../fonts/icomoon.svg?gnnhfe#icomoon1') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-getcoin:before {
+  content: "\e94f";
+}
+.icon-icon_list2:before {
+  content: "\e946";
+}
+.icon-icon_exchange:before {
+  content: "\e945";
+}
+.icon-icon_buy:before {
+  content: "\e943";
+}
+.icon-icon_coin:before {
+  content: "\e944";
+}
+.icon-youjiantou:before {
+    content: "\e91e";
+}
+.icon-moni:before {
+    content: "\e916";
+}
+.icon-mingxi:before {
+    content: "\e915";
+}
+
+.head{ width:100%; height:0.5rem; background:#da2f35; position:fixed; top:0; z-index:100;}
+.head h3{ width:100%; font-weight:400; font-size:0.16rem; color:#FFF; text-align:center; line-height:0.5rem;}
+.head .left{ width:0.066rem; height:0.12rem; display:block; float:left; position:absolute; left:0.18rem; top:0.17rem; font-size:0.16rem; line-height:0.16rem; color:#FFF;}
+.head .right{ width: 0.5rem; height: 0.5rem; display:block; color:#FFF; font-size:0.14rem; text-align: center; line-height: 0.5rem; position: absolute; right: 0.1rem; top: 0;}
+
+.main{ margin-top: 0.5rem;}
+
+.top{ width: 100%; height: 1rem; background: #FFF; position: relative; overflow: hidden;}
+.top:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -50%;
+    bottom: 0;
+    width: 200%;
+    height: 1px;
+    background: #ededed;
+    -webkit-transform: scale(0.5);
+}
+.top p{ font-size: 0.15rem; margin-top: 0.18rem; text-indent: 0.18rem; color: #7f7f7f;}
+.top .user span{ color: #da2f35; font-size: 0.17rem;}
+.top p span:nth-of-type(2){ display: inline-block; text-indent: 0.1rem;}
+.top .cold span{ color: #252525; font-size: 0.14rem;}
+.top .btn{ width: 0.8rem; height: 0.3rem; line-height: 0.3rem; background: #da2f35; color: #FFF; text-align: center; border-radius: 5px; position: absolute; top: 0.14rem; right: 0.2rem; display: block;}
+
+.money{ width: 100%; height: 0.78rem; background: #FFF;}
+.money ul{ width: 100%; height: 100%; display: flex; display: -webkit-flex;}
+.money li{ flex: 1;  -webkit-flex: 1; text-align: center;}
+.money li span{ font-size: 0.34rem; color: #da2f35; padding-top: 0.1rem; display: block;}
+.money li a{ width: 100%; height: 100%; display: block;}
+.money li p{ line-height: 0.3rem;}
+
+.content{ width: 100%; background: #FFF; margin-top: 0.1rem; padding-bottom: 0.2rem;}
+.conMain{ width: 90%; margin: 0 auto;}
+.content .p1{ font-size: 0.15rem; color: #7f7f7f; line-height: 0.4rem;}
+.content .prize{ width: 100%; margin-bottom: 0.12rem;}
+.content .prize li{ width: 50%; float: left;}
+.content .prize .prizeCentent{ width: 96%;}
+.content .prize li:nth-of-type(2) .prizeCentent{ margin-left: 3%;}
+.prize .prizeCentent img{ width: 100%;}
+.prize .prizeCentent div{ width: 100%; height: 0.5rem; background: #eef1f6; overflow: hidden; text-indent: 0.1rem; border: 1px solid #e5e5e5; box-sizing: border-box; border-top: none; border-radius: 0 0 3px 3px;}
+.prize .prizeCentent div .text1{ margin-top: 0.08rem;}
+.prize .prizeCentent div .text2{ margin-top: 0.03rem; font-size: 0.12rem; color: #da2f35;}
+.prize .prizeCentent div .text2 span{ font-size: 0.1rem; display: inline-block; margin-right: 0.05rem; text-indent: 0;}
+
+.Most{ width: 80%; height: 0.4rem; border: 1px solid #ccc; text-align: center; line-height: 0.4rem; color: #CCC; margin: 0 auto; border-radius: 5px;}
+
+
+#alert1{width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;top:0;left:0;z-index:10000; display:none; }
+#alert1 .input{ width:75%; background:#FFF; position:absolute; top:35%; left:50%; margin-left:-37%; border-radius:5px;}
+#alert1 .input p{ width:75%; padding:12% 9%; margin-left:5%; text-align:center; font-size:0.14rem; line-height:0.18rem;}
+#alert1 .input .btn{ width:100%; height:0.35rem; line-height:0.35rem; text-align:center; border-top:1px solid #e5e5e5;}
+#alert1 .input .btn div{ width:50%; height:100%; float:left; color:#FFF; background:#da3333;}
+#alert1 .input .btn .btnL{ border-right:1px solid #e5e5e5; box-sizing:border-box; border-radius:0 0 0 0.05rem;}
+#alert1 .input .btn .btnR{ border-radius:0 0 0.05rem 0;}
+
+
+#alert2{width:100%;height:100%;background:rgba(0,0,0,0.5);position:fixed;top:0;left:0;z-index:10000; display:none; }
+#alert2 .input{ width:75%; background:#FFF; position:absolute; top:35%; left:50%; margin-left:-37%; border-radius:5px;}
+#alert2 .input p{ width:75%; padding:12% 9%; margin-left:5%; text-align:center; font-size:0.14rem; line-height:0.18rem;}
+#alert2 .input .btn{ width:100%; height:0.35rem; line-height:0.35rem; text-align:center; border-top:1px solid #e5e5e5;}
+#alert2 .input .btn a{ width:100%; height:100%; display: block; float:left; color:#FFF; background:#da3333;border-radius:0 0 0.05rem 0.05rem;}

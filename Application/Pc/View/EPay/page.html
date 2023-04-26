@@ -1,0 +1,63 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.result}</title>
+
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<style>
+	body, html {
+		height: 100%;
+		width: 100%;
+		background: #262b41 !important;
+	}
+	.page-main {
+		background: #212139;
+		min-height: 600px;
+		margin: 30px auto !important;
+		padding: 0 80px !important;
+	}
+	.page-main  .content {
+		padding: 30px 50px;
+		color: #fff;
+	}
+	.page-main  .content h4 {
+		font-size: 30px;
+		color: #51803c;
+		margin: 40px 0;
+	}
+	.page-main  .content .btns {
+		margin: 40px 0;
+	}
+	.page-main  .content .btns button {
+		padding: 10px 20px;
+		font-size: 16px;
+		margin-right: 10px;
+		background: #006ea3;
+	}
+</style>
+</head>
+<body data-n-head="" style="background: #1c1a25">
+<div data-server-rendered="true" id="__nuxt">
+	<div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+	<div data-v-383e5a05="">
+		<!--引入导航条-->
+		<include file="Base:footer" />
+
+		<section class="page-main" data-v-383e5a05="">
+			<div class="content">
+				<h4>金额充值成功</h4>
+				<p>您已成功充值kmoption平台，可前往交易</p>
+				<div class="btns">
+					<button onclick="window.location.href='{:U('User/index')}'">前往会员中心</button>
+					<button onclick="window.location.href='{:U('Recharge/index')}'">继续充值</button>
+				</div>
+			</div>
+		</section>
+
+		<include file="Base:trueFooter" />
+	</div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>

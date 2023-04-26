@@ -1,0 +1,553 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.market}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/details.css" rel="stylesheet">
+    
+    <script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+
+    <style type="text/css" data-n-head="true">
+        body {
+            overflow: hidden;
+            background: #191A22;
+        }
+
+        html {
+            overflow: hidden
+        }
+        .add-list li .variety_left p{
+            color: #FCFCFE;
+        }
+        .add-content .titles1{
+            background: #F5F5F5;
+            color: #666;
+        }
+        .edit-list .variety-edit .variety_name{
+            color: #FCFCFE;
+        }
+        .head_edit,.head_add {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<volist name="option" id="vo">
+    <input type="hidden" class="capital_key" value="{$vo.capital_key}">
+    <input type="hidden" id="length{$vo.capital_key}" value="{$vo.capital_length}">
+    <input type="hidden" id="price{$vo.capital_key}" value="">
+</volist>
+
+
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-145cf773="" class="">
+        <div data-v-145cf773="" id="head" class="" style="border-bottom: 1px solid #444">
+            <div data-v-145cf773="" class="head_edit">{$Think.lang.editor}</div>
+            <span data-v-145cf773="" class="head_name">{$Think.lang.market}</span>
+            <div data-v-145cf773="" class="head_add">+</div>
+        </div>
+        <section data-v-145cf773="" class="page-main">
+            <div data-v-145cf773="" class="titles list_class">
+                <div data-v-145cf773="" data="0" >{$Think.lang.focus}<span data-v-145cf773=""></span></div>
+                <volist name="optionClass" id="vo">
+                    <div data-v-145cf773="" data="{$i}">{$vo.name}<span data-v-145cf773=""></span></div>
+                </volist>
+            </div>
+            <div data-v-145cf773="">
+                <div data-v-145cf773="" class="title_top">
+                    <div data-v-145cf773="" class="title_left">{$Think.lang.trades}</div>
+                    <div data-v-145cf773="" class="title_right">
+                        <div data-v-145cf773="">{$Think.lang.sell}</div>
+                        <div data-v-145cf773="">{$Think.lang.buy}</div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-145cf773="" class="swiper-container swiper-container-horizontal">
+                <div data-v-145cf773="" class="swiper-wrapper list-wrapper"
+                     style="transform: translate3d(0px, 0px, 0px); transition-duration:300ms;">
+                    
+                    <!-- 自选品种 -->
+                    <ul data-v-145cf773="" class="my-variety variety swiper-slide swiper-slide-active"
+                        style="width: 414px;">
+                        <volist name="selfData" id="vo">
+                            <a href="{:U('details',array('id' => $vo['id'],'index' => 0))}">
+                                <li data-v-145cf773="">
+                                    <div data-v-145cf773="" class="variety_left"><p data-v-145cf773="" class="variety_name">
+                                        {$vo.capital_name}</p>
+                                        <p data-v-145cf773="" class="variety_type">{$vo.option_key}</p></div>
+                                    <div data-v-145cf773="" class="variety_right">
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="bp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.bp}</span>
+                                        </div>
+                                        <div data-v-145cf773="" class="pop_img diff{$vo.capital_key}">
+                                            {$vo.difference}
+                                        </div>
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="sp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.sp}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                        </volist>
+                    </ul>
+                    <!-- 自选品种 -->
+                    
+                    <!-- 外汇品种 -->
+                    <ul data-v-145cf773="" class="variety swiper-slide swiper-slide-next" style="width: 414px;">
+                        <volist name="data['exchange']" id="vo">
+                            <a href="{:U('details',array('id' => $vo['id'],'index' => 1))}">
+                                <li data-v-145cf773="">
+                                    <div data-v-145cf773="" class="variety_left"><p data-v-145cf773="" class="variety_name">
+                                        {$vo.capital_name}</p>
+                                        <p data-v-145cf773="" class="variety_type">{$vo.option_key}</p></div>
+                                    <div data-v-145cf773="" class="variety_right">
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="bp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.bp}</span>
+                                        </div>
+                                        <div data-v-145cf773="" class="pop_img diff{$vo.capital_key}">
+                                            {$vo.difference}
+                                        </div>
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="sp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.sp}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                        </volist>
+                    </ul>
+                    <!-- 外汇品种 -->
+                    
+                    <!-- 贵金属品种 能源品种 -->
+                    <ul data-v-145cf773="" class="variety swiper-slide" style="width: 414px;">
+                        <volist name="data['metal']" id="vo">
+                            <a href="{:U('details',array('id' => $vo['id'],'index' => 2))}">
+                                <li data-v-145cf773="">
+                                    <div data-v-145cf773="" class="variety_left"><p data-v-145cf773="" class="variety_name">
+                                        {$vo.capital_name}</p>
+                                        <p data-v-145cf773="" class="variety_type">{$vo.option_key}</p></div>
+                                    <div data-v-145cf773="" class="variety_right">
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="bp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.bp}</span>
+                                        </div>
+                                        <div data-v-145cf773="" class="pop_img diff{$vo.capital_key}">
+                                            {$vo.difference}
+                                        </div>
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="sp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.sp}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                        </volist>
+                    </ul>
+                    <!-- 贵金属品种 能源品种-->
+
+
+                    <!-- 港股美股品种 -->
+                    <ul data-v-145cf773="" class="variety swiper-slide" style="width: 414px;">
+                        <volist name="data['honkong']" id="vo">
+                            <a href="{:U('details',array('id' => $vo['id'],'index' => 3))}">
+                                <li data-v-145cf773="">
+                                    <div data-v-145cf773="" class="variety_left"><p data-v-145cf773="" class="variety_name">
+                                        {$vo.capital_name}</p>
+                                        <p data-v-145cf773="" class="variety_type">{$vo.option_key}</p></div>
+                                    <div data-v-145cf773="" class="variety_right">
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="bp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.bp}</span>
+                                        </div>
+                                        <div data-v-145cf773="" class="pop_img diff{$vo.capital_key}">
+                                            {$vo.difference}
+                                        </div>
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="sp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.sp}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                        </volist>
+                    </ul>
+                    <!-- 港股美股品种 -->
+
+                    <!-- 数字货币品种 -->
+                    <ul data-v-145cf773="" class="variety swiper-slide" style="width: 414px;">
+                        <volist name="data['currency']" id="vo">
+                            <a href="{:U('details',array('id' => $vo['id'],'index' => 4))}">
+                                <li data-v-145cf773="">
+                                    <div data-v-145cf773="" class="variety_left"><p data-v-145cf773="" class="variety_name">
+                                        {$vo.capital_name}</p>
+                                        <p data-v-145cf773="" class="variety_type">{$vo.option_key}</p></div>
+                                    <div data-v-145cf773="" class="variety_right">
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="bp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.bp}</span>
+                                        </div>
+                                        <div data-v-145cf773="" class="pop_img diff{$vo.capital_key}">
+                                            {$vo.difference}
+                                        </div>
+                                        <div data-v-145cf773="" class="wave_left bg_h color{$vo.capital_key}"><span class="sp{$vo.capital_key}" 
+                                                style="font-size:.15rem">{$vo.sp}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                        </volist>
+                    </ul>
+                    <!-- 数字货币品种 -->
+                </div>
+            </div>
+        </section>
+        
+        <include file="Base:footer" />
+
+        <div data-v-145cf773="" class="edit add">
+            <div data-v-145cf773="" class="add-content">
+                <div data-v-145cf773="" class="head edit-head"><h3 data-v-145cf773="" class="product-name"><a
+                        data-v-145cf773="" class="arrow_left"></a><span data-v-145cf773="">{$Think.lang.add_optional}</span></h3>
+                        </div>
+        <!--   esitlist -->
+        <section class=" edit-page-main" style="height: 100%;height: 100%;background: #fff;z-index: 99999999;" >
+            <!--titles-->
+            <div class="titles">
+                
+                <volist name="optionClass" id="vo">
+                   <eq name="i" value="1">
+                        <div data-v-145cf773 class="on" data="{$i-1}">{$vo.name}<span data-v-145cf773></span></div>
+                   <else />
+                       <div data-v-145cf773  data="{$i-1}">{$vo.name}<span data-v-145cf773></span></div>
+                   </eq>
+                </volist>
+
+            </div>
+            <!--content-->
+            <div class="swiper-container" style="top:46px; height: 100%;">
+                <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px); transition-duration:300ms;">
+                <!-- 自选产品外汇 -->
+                    <ul class="add-list" data-v-145cf773>
+                        <volist name="listData['exchange']" id="vo">
+                            <eq name="vo['status']" value="1">
+                                <li data-v-145cf773 class="selected" data-id="{$vo.id}">
+                            <else />
+                                <li data-v-145cf773 class="" data-id="{$vo.id}">
+                            </eq>
+                                <div class="variety_left" data-v-145cf773="">
+                                    <p class="variety_name" data-v-145cf773>{$vo.capital_name}</p>
+                                    <p class="variety_type" data-v-145cf773>{$vo.option_key}</p>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <!-- 自选产品外汇 -->
+                    
+                    <!-- 自选产品大宗商品 -->
+                    <ul class="add-list" data-v-145cf773>
+                        <volist name="listData['metal']" id="vo">
+                            <eq name="vo['status']" value="1">
+                                <li data-v-145cf773 class="selected" data-id="{$vo.id}">
+                            <else />
+                                <li data-v-145cf773 class="" data-id="{$vo.id}">
+                            </eq>
+                                <div class="variety_left" data-v-145cf773="">
+                                    <p class="variety_name" data-v-145cf773>{$vo.capital_name}</p>
+                                    <p class="variety_type" data-v-145cf773>{$vo.option_key}</p>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <!-- 自选产品大宗商品 -->
+                    
+                    <!-- 自选产品指数 -->
+                    <ul class="add-list" data-v-145cf773>
+                        <volist name="listData['honkong']" id="vo">
+                            <eq name="vo['status']" value="1">
+                                <li data-v-145cf773 class="selected" data-id="{$vo.id}">
+                            <else />
+                                <li data-v-145cf773 class="" data-id="{$vo.id}">
+                            </eq>
+                                <div class="variety_left" data-v-145cf773="">
+                                    <p class="variety_name" data-v-145cf773>{$vo.capital_name}</p>
+                                    <p class="variety_type" data-v-145cf773>{$vo.option_key}</p>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <!-- 自选产品指数 -->
+                    
+                    <!-- 自选产品数字币 -->
+                    <ul class="add-list" data-v-145cf773>
+                        <volist name="listData['currency']" id="vo">
+                            <eq name="vo['status']" value="1">
+                                <li data-v-145cf773 class="selected" data-id="{$vo.id}">
+                            <else />
+                                <li data-v-145cf773 class="" data-id="{$vo.id}">
+                            </eq>
+                                <div class="variety_left" data-v-145cf773="">
+                                    <p class="variety_name" data-v-145cf773>{$vo.capital_name}</p>
+                                    <p class="variety_type" data-v-145cf773>{$vo.option_key}</p>
+                                </div>
+                            </li>
+                        </volist>
+                    </ul>
+                    <!-- 自选产品数字币 -->
+
+                </div>
+            </div>
+        </section>
+    </div>
+                <div data-v-145cf773="" class="edit-bottom">
+                    <div data-v-145cf773="" class="edit-btn" onclick="addUserOption();">{$Think.lang.save}</div>
+                </div>
+            </div>
+        </div>
+
+        <div data-v-145cf773="" class="edit bianji">
+            <div data-v-145cf773="" class="edit-content">
+                <div data-v-145cf773="" class="head edit-head"><h3 data-v-145cf773="" class="product-name"><a
+                        data-v-145cf773="" class="arrow_left"></a><span data-v-145cf773="">{$Think.lang.edit_optional}</span></h3></div>
+                <div data-v-145cf773="" class="edit-list">
+                    
+                    <volist name="selfData" id="vo">
+                        <div data-v-145cf773="" class="">
+                            <img data-v-145cf773="" src="__PUBLIC__Qts/Home/img/details/img16.png" class="del">
+                            <div data-v-145cf773="" class="variety-edit"><p data-v-145cf773="" class="variety_name">{$vo.capital_name}</p>
+                                <p data-v-145cf773="" class="variety_type">{$vo.capital_key}</p></div>
+                            <div data-v-145cf773="" class="drag"></div>
+                            <div data-v-145cf773="" class="remove empty_{$vo.id}" onclick="delOption('{$vo.id}');">
+                                {$Think.lang.delete}
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+<!--                 <div data-v-145cf773="" class="edit-bottom">
+                    <div data-v-145cf773="" class="edit-btn">保存</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+
+
+        /**
+         * websocket 传输数据
+         */
+        function websocket()
+        {
+            var arr = [];
+            $.each($('.capital_key'),function(){
+                var key = $(this).val();
+                arr.push(key);
+            });
+            var arrString = arr.join(',');
+
+            // ws = new WebSocket("ws://47.244.175.58:2346");
+            ws = new WebSocket("ws://39.107.99.235:8026");
+            ws.onopen = function() {
+                ws.send('tom');
+            };
+            ws.onmessage = function(e) {
+
+                var data = eval("("+e.data+")");
+                
+                var type = data.type || '';
+                switch(type){
+                    case 'init':
+                        $.post('{:U("Bind/binding")}', {client_id: data.client_id,group:arrString}, function(data){}, 'json');
+                        break;
+                    default :
+
+                        var data        = JSON.parse(e.data);
+                        var length      = $('#length'+data.capital_key+'').val();
+
+                        data.sp     = parseFloat(data.sp).toFixed(length);
+                        data.bp     = parseFloat(data.bp).toFixed(length);
+                        difference  = parseFloat(data.erence).toFixed(1);
+                        price       = parseFloat(data.Price);
+
+                        preverence  = $('.diff'+data.capital_key+'').html();
+
+                        $('.sp'+data.capital_key+'').html(data.sp);
+                        $('.diff'+data.capital_key+'').html(difference);
+                        $('.bp'+data.capital_key+'').html(data.bp);
+                        $('#price'+data.capital_key+'').val(price);
+
+
+                        //颜色切换
+                        if(difference > preverence)
+                        {
+                            $('.color'+data.capital_key+'').removeClass('bg_green bg_h').addClass('bg_red txt_w');
+                        } else if(difference == preverence)
+                        {
+                            $('.color'+data.capital_key+'').removeClass('bg_red bg_green txt_w').addClass('bg_h');
+                        } else {
+                            $('.color'+data.capital_key+'').removeClass('bg_red bg_h').addClass('bg_green txt_w');
+                        }
+                }
+            };
+        }
+        
+        websocket();    //websoket 传输数据
+        
+        //对列表的分类进行显示
+        $('.page-main .titles').on('click','div',function(){
+            $('.page-main .titles > div').removeClass('on');
+            $(this).addClass('on');
+            var cWidth=window.innerWidth;
+            // alert($(this).attr('data'))
+            $('.page-main .swiper-wrapper').css('transform','translate3d(-'+$(this).attr('data')*cWidth+'px, 0px, 0px)');
+            // if ($(this).)
+        });
+
+        //对添加关注进行显示
+        $('.edit-page-main .titles div').click(function () {
+            $('.edit-page-main .titles > div').removeClass('on');
+            $(this).addClass('on');
+            var cWidth = window.innerWidth;
+            $('.edit-page-main .swiper-wrapper').css('transform','translate3d(-'+$(this).attr('data')*cWidth+'px, 0px, 0px)');
+        });
+
+        //选中和解除选中
+        $('.add-list').on('click','li[data-v-145cf773]',function(){
+            if($(this).hasClass('selected')){
+                $(this).removeClass('selected')
+            }else{
+                $(this).addClass('selected')
+            }
+        });
+
+        //点击编辑显示弹出层
+        $('.head_edit').click(function(){
+            var user_id = "{$Think.session.user_id}";
+            if(user_id == ''){
+                return window.location.href="{:U('Login/login')}";
+            } else {
+                $('.bianji').show();
+            }
+        });
+
+        //点击添加 显示弹出层
+        $('.head_add').click(function(){
+            var user_id = "{$Think.session.user_id}";
+            if(user_id == ''){
+                return window.location.href="{:U('Login/login')}";
+            } else {
+                $('.add').show();
+            }
+        });
+
+        //点击删除
+        $('.edit-content .edit-list > div .del[data-v-145cf773]').click(function(){
+            $('.edit-content .edit-list > div[data-v-145cf773]').removeClass('deleteX')
+            $(this).parent().addClass('deleteX')
+        });
+        //点击body不让删除
+        $('body').click(function(e){
+            if(!$(e.target).hasClass('del')){
+                $('.edit-content .edit-list > div[data-v-145cf773]').removeClass('deleteX')
+            }
+        });
+
+        //点击关闭弹出层
+        $('.arrow_left').click(function(){
+            $('.edit').hide();
+        });
+        
+
+        //获取当前品种宽度 自动加载当前产品对应列表
+        var index   = "{$index}";
+        var cWidth  = window.innerWidth;
+        $('.list-wrapper').css('transform','translate3d(-'+(parseInt(index)+1)*cWidth+'px, 0px, 0px)');
+
+        //对产品分类执行选中状态
+        $.each($('.list_class > div'),function(){
+            if((parseInt(index)+1) == $(this).attr('data')){
+                $('.page-main .titles > div').removeClass('on');
+                $(this).addClass('on');
+                if ($(this).attr('data') == 0){
+                    $('.head_edit,.head_add').show();
+                }else {
+                    $('.head_edit,.head_add').hide();
+                }
+            }
+        });
+
+        $('.list_class > div').click(function () {
+            if ($(this).attr('data') != 0){
+                $('.head_edit,.head_add').hide();
+            }else {
+                $('.head_edit,.head_add').show();
+            }
+        });
+
+
+        //设置底部导航选中状态
+        $('.footer > ul > li').eq(1).find('a').addClass('common2');
+        $('.footer > ul > li').eq(1).find('em').addClass('selected');
+    });
+</script>
+
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+    
+    //删除自选产品
+    function delOption(option_id='')
+    {
+       if(option_id == '')
+       {
+            return layer.msg('删除失败');
+       }
+       var index = layer.load(2);
+       $.post('{:U("selfOptionDel")}', {'option_id': option_id}, function(data){
+            
+            if(data.code == 400)
+            {   layer.close(index);
+                return layer.msg(data.msg);
+            } else {
+                layer.close(index);
+                layer.msg(data.msg);   
+                $('.empty_'+option_id+'').parent().remove();    //删除之后自动清除当前元素
+            }
+       }, 'json');
+    }
+    
+
+    /**
+     * [addUserOption 添加自选产品]
+     */
+    function addUserOption()
+    {
+        var arr = [];
+        $.each($('.add-list > .selected'),function(){
+            arr.push($(this).attr('data-id'));
+        });
+    
+        idStr = arr.join(',');
+    
+    
+        console.log(idStr);
+    
+    
+        var load2 = layer.load(2);
+        
+        $.post("{:U('addUserOption')}",{'id':idStr},function(data){
+    
+            if(data.code == 400)
+            {
+                layer.close(load2);
+                return layer.msg(data.msg);
+            } else {
+                layer.close(load2);
+                return location.reload();
+            }
+    
+        },'json');
+    }
+
+
+</script>
+</body>
+</html>

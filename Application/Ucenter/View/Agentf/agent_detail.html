@@ -1,0 +1,208 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+
+<style>
+    .specla_background_class{
+        background:#edf3f4 !important;
+    }
+    table {
+        border:1px solid #dcebf7 !important;
+    }
+    td{color: #336199 !important;}
+    td.special_color{color:#000 !important;}
+    </style>
+
+<div class="page-content">
+    <!--div class="page-header">
+        <h1>
+            我的销售商
+            <small>
+                <i class="icon-double-angle-right"></i>
+                销售商详细信息
+            </small>
+        </h1>
+    </div--><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-sm-3">
+                    <h3 class="header smaller lighter blue">销售商用户信息</h3>
+
+                    <div class="profile-user-info profile-user-info-striped">
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">销售商ID</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.uid}&nbsp;{$userinfoRs.status_n}</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">销售商账户</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.username}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">销售商昵称</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.nickname}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">销售商手机号</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.utel}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <h3 class="header smaller lighter blue">销售商帐号信息</h3>
+
+                    <div class="profile-user-info profile-user-info-striped">
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> 注册时间 </div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.u_reg_time}</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> 最后登录时间 </div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.u_lastlog_time}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> 注册IP </div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.u_reg_ip}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name"> 最后登录IP</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.u_last_login_ip}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="space-12"></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">销售商当前资金信息</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center specla_background_class">#</td>
+                            <td class="hidden-xs specla_background_class">
+                                累计盈亏
+                            </td>
+                            <td class="specla_background_class">
+                                累计手续费
+                            </td>
+                            <td class="hidden-xs specla_background_class">
+                                用户累计佣金
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="center specla_background_class">$</td>
+                            <td class="orange hidden-480 "><b>{$returnRs['total_money']}</b></td>
+                            <td class="orange"><b>{$returnRs['total_fee']}</b></td>
+                            <td class="orange hidden-480 "><b>{$returnRs['total_commission']}</b></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">销售商本周资金信息</h3>
+                    <table class="special_table_border table table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <td class="center specla_background_class">#</td>
+                            <td class="hidden-xs specla_background_class">
+                                累计盈亏
+                            </td>
+                            <td class="specla_background_class">
+                                累计手续费
+                            </td>
+                            <td class="hidden-xs specla_background_class">
+                                用户累计佣金
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="center specla_background_class">$</td>
+                            <td class="orange hidden-480 "><b>{$returnWeek['total_money']}</b></td>
+                            <td class="orange"><b>{$returnWeek['total_fee']}</b></td>
+                            <td class="orange hidden-480 "><b>{$returnWeek['total_commission']}</b></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="__PUBACE__/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="__PUBACE__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.slimscroll.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.sparkline.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+
+    });
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

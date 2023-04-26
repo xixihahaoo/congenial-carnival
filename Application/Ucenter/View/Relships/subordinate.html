@@ -1,0 +1,241 @@
+<include file="Common:header_s" />
+<include file="Common:main_container_header_s" />
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<style type="text/css">
+.dataTables_length span{color: red;}
+td{text-align: center;}
+#id_search_area>div>div>div{height: 70px}
+</style>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            下级流水
+            <small>
+                <i class="icon-double-angle-right"></i>
+                {:getUsername($user_id)}
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        代理商列表&nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                    <div class="table-responsive">
+                    <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                        <form action="__URL__/relship_list" method="get" id="form1">
+                            <div class="row" id="id_search_area">
+                                <input type="hidden" name="user_id" value="{$user_id}">
+                                <div class="col-sm-9">
+                                <div style=" width: 1350px; height: 100px;">
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                结算状态：<select name="status" class="span7" id="option" style="width: 120px;">
+                                                    <option value="">默认不选</option>
+                                                    <if condition="$sea['status'] eq 1">
+                                                    <option value="1" selected>已结算</option>
+                                                    <else />
+                                                    <option value="1">已结算</option>
+                                                    </if>
+                                                    <if condition="$sea['status'] eq 2">
+                                                    <option value="2" selected>未结算</option>
+                                                    <else />
+                                                    <option value="2">未结算</option>
+                                                    </if>
+                                                </select>
+                                            </label>
+                                        </div>
+                                    </div>
+                                <div class="col-sm-2">
+                                    <!-- <label>开始时间:</label> -->
+                                <if condition="$sea['starttime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime">
+                                   <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="starttime">
+                                </if>
+                                </div>
+
+                                <div class="col-sm-2">
+                                 <!--    <label>结束时间:</label> -->
+                            <if condition="$sea['endtime']">
+                                   <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime">
+                                <else />
+                                    <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="" name="endtime">
+                                </if>
+                                </div>
+
+                                    </div>
+                                </div>
+                                <div class="hr hr-24"></div>
+                                <div class="col-sm-12">
+                                    <div class="dataTables_length" id="sample-table-2_length1">
+                                        <label>
+                                            <input type="button"  onclick="sub()" value="点击查询" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+  <!--                                       <label>
+                                            <input type="button" onclick="daochu()" value="查找导出" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp; -->
+                                        <label>
+                                            <input type="button" id="id_reset" value="清空数据" class="btn btn-xs btn-info">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable">
+                                <thead>
+                                <tr>
+                                    <th class="center">编号</th>
+                                    <th class="center">购买人</th>
+                                    <th class="center">产品名称</th>
+                                    <th class="center">购买日期</th>
+                                    <!--<th class="center">手数</th>-->
+                                    <th class="center">状态</th>
+                                    <th class="center">佣金结算</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="user" id="v">
+                                    <tr>
+                                        <td class="center">{$v.id}</td>
+                                        <td class="">
+                                            {:getUsername($v['purchaser_id'])}
+                                        </td>
+                                        <td>{$v.option_name}</td>
+                                        <td class="center">{$v.create_time}</td>
+                                        <!--<td>{$v.onumber}</td>-->
+                                        <td>
+                                          <if condition="$v[status] eq 1">
+                                             <font style="color: red;">已结算</font>
+                                            <else />
+                                             <font style="color: green;">未结算</font>
+                                          </if>
+                                      </td>
+
+                                        <td> <font style="color: red;" class="profit">{$v.profit}</font></td>
+                                    </tr>
+                                </volist>
+
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="sample-table-2_info">共<b class="orange">{$data.count}</b>，当前显示第 <b class="orange">{$data.nowStart}</b>到<b class="orange">{$data.nowEnd}</b></div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_bootstrap">
+                                        <ul class="pagination">
+                                            {$page}
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                <div class="dataTables_length" id="" style="width: 265px;">
+                                    <label>
+                                     <span>总佣金:{$data.profit}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <!--<span>总手续费:{$data.fee}</span>-->
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <!--end id sample-table-2_wrapper-->
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+            <div class="space-20"></div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+
+<script src="__PUBACE__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.slimscroll.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.sparkline.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+<script type="text/javascript">
+jQuery(function($) {
+
+var user_id = $("#jingji").val();
+$("#jinjiren option").each(function(){
+        if(user_id == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+$("#id_reset").click(function(){
+    
+     $('.input').val("");
+     $('.selected').attr('selected',true);
+});
+
+
+});
+
+function sub() {
+    $('#form1').attr("action","__URL__/subordinate");
+    $('#form1').submit();
+}
+
+function daochu() {
+    $('#form1').attr("action","__URL__/relship_list_daochu");
+    $('#form1').submit();
+}
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+</script>
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />
+
+<style type="text/css">
+.pagination{
+    /*border: solid 1px #ccc;*/
+}
+.pagination>div>span{
+    width: 34px;
+    height: 34px;
+    float: left;
+    background-color: #6faed9;
+    border-color: #6faed9;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+    text-align: center;
+    line-height: 34px;
+}
+.pagination>div>a{
+    width: 34px;
+    height: 34px;
+    display:block;
+    float: left;
+    color: #2283c5;
+    background-color: #fafafa;
+    margin: 0 1px 0 0;
+    border-color: #6faed9;
+    line-height: 34px;
+    text-align: center;
+
+}
+</style>

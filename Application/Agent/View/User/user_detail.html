@@ -1,0 +1,263 @@
+<include file="Common:header" />
+<include file="Common:main_container_header" />
+
+<style>
+    .specla_background_class{
+        background:#edf3f4 !important;
+    }
+    table {
+        border:1px solid #dcebf7 !important;
+    }
+    td{color: #336199 !important;}
+    td.special_color{color:#000 !important;}
+</style>
+<div class="page-content">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-8">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="header smaller lighter blue">用户信息</h3>
+
+                    <div class="profile-user-info profile-user-info-striped">
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">用户ID</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.uid} {$userinfoRs.status_n}</span>
+                            </div>
+                        </div>
+
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">用户名称</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.username}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">用户昵称</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.nickname}</span>
+                            </div>
+                        </div>
+                        <div class="profile-info-row">
+                            <div class="profile-info-name">电子邮箱</div>
+
+                            <div class="profile-info-value">
+                                <span class="editable" id="">{$userinfoRs.email}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="col-xs-12 col-sm-6">-->
+                    <!--<h3 class="header smaller lighter blue">用户真实信息</h3>-->
+
+                    <!--<div class="profile-user-info profile-user-info-striped">-->
+                        <!--<div class="profile-info-row">-->
+                            <!--<div class="profile-info-name"> 用户姓名 </div>-->
+
+                            <!--<div class="profile-info-value">-->
+                                <!--<span class="editable" id="">{$userinfoRs.u_busername}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="profile-info-row">-->
+                            <!--<div class="profile-info-name"> 身份证号 </div>-->
+
+                            <!--<div class="profile-info-value">-->
+                                <!--<span class="editable" id="">{$userinfoRs.u_card}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="profile-info-row">-->
+                            <!--<div class="profile-info-name"> 所在省 </div>-->
+
+                            <!--<div class="profile-info-value">-->
+                                <!--<span class="editable" id="">{$userinfoRs.province}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="profile-info-row">-->
+                            <!--<div class="profile-info-name"> 所在市</div>-->
+
+                            <!--<div class="profile-info-value">-->
+                                <!--<span class="editable" id="">{$userinfoRs.city}</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+
+            <div class="space-12"></div>
+
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">帐号信息</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                注册时间
+                            </td>
+                            <td class="center specla_background_class">
+                                最后登录时间
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                注册IP
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                最后登录IP
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="center ">{$userinfoRs.u_reg_time}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.u_lastlog_time}</td>
+                            <td class="center special_color">{$userinfoRs.u_reg_ip}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.u_last_login_ip}</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="space-12"></div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">当前资金信息</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                资金类型
+                            </td>
+                            <td class="center specla_background_class">
+                                总资产
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                可提佣金
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td class="center specla_background_class">现金</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.real_account}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.commission_available}</td>
+                        </tr>
+                        <tr>
+                            <td class="center specla_background_class">模拟</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.gold_account}</td>
+                            <td class="center special_color hidden-480 ">-</td>
+                        </tr>
+                        <!--<tr>-->
+                            <!--<td class="center specla_background_class">积分</td>-->
+                            <!--<td class="center special_color hidden-480 ">{$userinfoRs.integral_account}</td>-->
+                            <!--<td class="center special_color hidden-480 ">-</td>-->
+                        <!--</tr>-->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="space-12"></div>
+            <div class="row">
+                <div class="col-sm-6">
+
+                    <h3 class="header smaller lighter blue">累计资金信息</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                资金类型
+                            </td>
+                            <td class="center specla_background_class">
+                                累计充值
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                累计提现
+                            </td>
+                            <td class="center specla_background_class">
+                                累计盈亏
+                            </td>
+                            <td class="center hidden-xs specla_background_class">
+                                累计手续费
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="center specla_background_class">现金</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.money_in}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.money_out}</td>
+                            <td class="center special_color hidden-480">{$userinfoRs.money_real}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.money_fee_real}</td>
+                        </tr>
+                        <tr>
+                            <td class="center specla_background_class">模拟</td>
+                            <td class="center special_color hidden-480 ">-</td>
+                            <td class="center special_color hidden-480 ">-</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.money_gold}</td>
+                            <td class="center special_color hidden-480 ">{$userinfoRs.money_fee_gold}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+        <!--<notempty name="userinfoRs['card_positive']">-->
+            <!--<div class="col-sm-12 col-md-4" style="padding-left: 100px;margin-top:20px;display: inline-block">-->
+                <!--<div style="margin-bottom: 20px"><img style="max-width: 70%;" src="/Uploads/{$userinfoRs.card_positive}" alt=""></div>-->
+                <!--<div><img  style="max-width: 70%;" src="/Uploads/{$userinfoRs.card_side}" alt=""></div>-->
+            <!--</div>-->
+        <!--</notempty>-->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<!--[if lte IE 8]>
+<script src="__PUBACE__/assets/js/excanvas.min.js"></script>
+<![endif]-->
+
+<script src="__PUBACE__/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.slimscroll.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.easy-pie-chart.min.js"></script>
+<script src="__PUBACE__/assets/js/jquery.sparkline.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.pie.min.js"></script>
+<script src="__PUBACE__/assets/js/flot/jquery.flot.resize.min.js"></script>
+
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    jQuery(function($) {
+
+    });
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

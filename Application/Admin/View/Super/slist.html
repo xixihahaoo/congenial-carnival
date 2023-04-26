@@ -1,0 +1,225 @@
+<extend name="Base/common"/>
+<block name="content">
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+	<link rel="stylesheet" type="text/css" href="__CSS__/layui/css/layui.css">
+	
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="users-list">
+			<div class="row-fluid header">
+				<h3>管理员列表</h3>
+			</div>
+			<!-- Users table -->
+			<div class="row-fluid table header">
+				<table class="table table-hover">
+					<thead>
+					<tr>
+						<th class="span1 sortable">
+							编号
+						</th>
+						<th class="span3 sortable">
+							帐号
+						</th>
+						<th class="span3 sortable">
+							手机号码
+						</th>
+						<th class="span3 sortable">
+							管理员类型
+						</th>
+						<th class="span3 sortable">
+							创建时间
+						</th>
+						<th class="span3 sortable">
+							操作
+						</th>
+					</tr>
+					</thead>
+					<tbody>
+					<volist name="ulist" id="ult">
+						<!-- row -->
+						<tr class="first">
+							<td>
+								{$ult['uid']}
+							</td>
+							<td>
+								<a href="{:U('Super/sedit',array('uid'=>$ult['uid']))}" class="name">{$ult['username']}</a>
+							</td>
+							<td>
+								{$ult['utel']}
+							</td>
+							<td>
+								<if condition="$ult.is_admin eq '1'">
+									普通管理员
+									<else/>
+									超级管理员
+								</if>
+							</td>
+							<td>
+								{$ult['utime']|date='Y-m-d',###}
+							</td>
+							<td>
+								<ul class="actions">
+									
+									<if condition="$ult.is_admin eq '1'">
+										<button type="button" class="layui-btn layui-btn-small layui-btn-sm layui-btn-normal role" data-role-id="{$ult.role_id}" data-uid="{$ult.uid}">
+											权限设置
+										</button>
+									</if>
+									
+									<a href="{:U('Super/sedit',array('uid'=>$ult['uid']))}">
+										<button type="button" class="layui-btn layui-btn-small layui-btn-sm layui-btn-normal">
+											编辑
+										</button>
+									</a>
+									
+									<if condition="$ult.is_admin eq '1'">
+										
+										<a href="{:U('Super/sdel',array('uid'=>$ult['uid']))}" onclick="if(confirm('确定要删除吗?')){return true;}else{return false;}">
+											<button type="button" class="layui-btn layui-btn-small layui-btn-sm layui-btn-danger">
+												删除
+											</button>
+										</a>
+									</if>
+								
+								</ul>
+							</td>
+						</tr>
+					</volist>
+					</tbody>
+				</table>
+			</div>
+			<div class="pagination pull-right">
+				<ul>
+					{$page}
+				</ul>
+			</div>
+			<!-- end users table -->
+		</div>
+	</div>
+	
+	
+	<div class="modal fade" id="role" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<h3 class="modal-title" id="roleLabel">角色选择</h3>
+				</div>
+				
+				<div class="modal-body">
+					
+					<div id="test12" class="demo-tree-more"></div>
+				
+				</div>
+				
+				<div class="layui-form-item">
+					<button class="layui-btn" lay-submit="" lay-filter="demo2" style="margin-left: 5%;" lay-demo="getChecked" id="role_submit" data-uid="">
+						保存
+					</button>
+				</div>
+				
+				<div class="modal-footer">
+				
+				</div>
+			
+			</div>
+		</div>
+	</div>
+	
+	<!-- scripts -->
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/theme.js"></script>
+	<script src="__CSS__/layui/layui.js" charset="utf-8"></script>
+	
+	<script>
+        //权限界面
+        $('.role').click(function () {
+            $('#role').modal({
+                show: true,
+                backdrop: 'static',
+            })
+
+            var role_id = $(this).attr('data-role-id');
+            var uid     = $(this).attr('data-uid');
+
+            $('#role_submit').attr('data-uid', uid);
+
+            layui.use('tree', function () {
+                var tree = layui.tree;
+
+                tree.reload('demoId1', {
+                    //新的参数
+                });
+
+                tree.setChecked('demoId1', JSON.parse(role_id));
+            })
+        });
+
+        //权限树
+        layui.use(['tree', 'util'], function () {
+
+            var role = {$role};
+            var tree = layui.tree
+                , layer = layui.layer
+                , util = layui.util
+
+                //模拟数据
+                , data = role;
+
+
+            //基本演示
+            tree.render({
+                elem: '#test12'
+                , data: data
+                , showCheckbox: true  //是否显示复选框
+                , id: 'demoId1'
+                , isJump: false //是否允许点击节点时弹出新窗口跳转
+            });
+
+            //按钮事件
+            util.event('lay-demo', {
+                getChecked: function (othis) {
+                    var checkedData = tree.getChecked('demoId1'); //获取选中节点的数据
+                    role_submit(checkedData);
+                }
+            });
+        });
+
+        //角色配置提交
+        function role_submit(data) {
+            var index = layer.load(0, {
+                shade: [0.1, '#fff'] //0.1透明度的白色背景
+            });
+
+            var uid = $('#role_submit').attr('data-uid');
+
+            $.ajax({
+                url: "{:U('role_setting')}",
+                dataType: 'json',
+                type: 'post',
+                data: {role_id: JSON.stringify(data), uid: uid},
+                success: function (data) {
+
+                    if (data.status === 0) {
+
+                        layer.close(index);
+                        layer.msg(data.msg, {icon: 7});
+                        return false;
+                    }
+
+                    if (data.status === 1) {
+
+                        layer.close(index);
+                        layer.msg(data.msg, {icon: 6});
+                        window.setTimeout("location.reload()", 1000);
+                        return false;
+                    }
+                }
+            });
+        }
+	</script>
+
+
+</block>

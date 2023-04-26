@@ -1,0 +1,670 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.following_management}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="80f88608:0 3405f4c6:0">div, li, ul {
+        margin: 0;
+        padding: 0
+    }
+
+    li, ul {
+        list-style: none outside none
+    }
+
+
+    .listright p[data-v-5061d562] {
+        height: 100%;
+        text-align: center;
+        line-height: .65rem;
+        width: 100%
+    }
+
+    .isred[data-v-5061d562] {
+        color: #f64e43
+    }
+    .ourlist[data-v-46d1b599] {
+        padding: 0 0 0 .14rem
+    }
+
+    .ourlist li[data-v-46d1b599] {
+        height: .65rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .listleft[data-v-46d1b599], .listright[data-v-46d1b599] {
+        float: left;
+        width: 50%;
+        height: 100%;
+        text-align: center;
+    }
+
+    .listleft img[data-v-46d1b599] {
+        display: inline-block;
+        width: .3rem;
+        height: .3rem;
+        border-radius: 50%;
+        vertical-align: middle;
+    }
+
+    .listleft .usermess[data-v-46d1b599] {
+      display: inline-block;
+        line-height: .64rem;
+        margin-left: .05rem;
+        vertical-align: middle;
+    }
+
+    .listleft .usermess p[data-v-46d1b599] {
+        font-size: 14px;
+        color: #ccc;
+        letter-spacing: 0;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .listleft .usermess span[data-v-46d1b599] {
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .listright[data-v-46d1b599] {
+        position: relative
+    }
+
+    .listright a[data-v-46d1b599] {
+        position: absolute;
+        right: .14rem;
+        top: .23rem;
+        width: .35rem;
+        height: .2rem;
+        text-align: center;
+        line-height: .2rem;
+        border: 1px solid #2187f7;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #2187f7
+    }
+
+    .listright p[data-v-46d1b599] {
+        height: 100%;
+        text-align: center;
+        line-height: .65rem;
+        width: 100%
+    }
+
+    .isred[data-v-46d1b599] {
+        color: #f64e43
+    }
+
+/*.page-main[data-v-4d6ceb64] {*/
+        /*padding: .5rem 0 0;*/
+        /*background: #171520;*/
+    /*}*/
+
+    .fixmain[data-v-4d6ceb64] {
+        position: absolute;
+        z-index: 200;
+        width: 878px;
+        top: 30px;
+    }
+
+    .title[data-v-4d6ceb64] {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99
+    }
+
+    .title2[data-v-4d6ceb64], .title[data-v-4d6ceb64] {
+        width: 100%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        border-bottom: 1px solid #444
+    }
+
+    .title2 span[data-v-4d6ceb64], .title span[data-v-4d6ceb64] {
+        line-height: .4rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        color: #ddd;
+        font-size: .15rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .title2 span.on[data-v-4d6ceb64], .title span.on[data-v-4d6ceb64] {
+        color: #519ae9;
+    }
+
+    .title2 span.on[data-v-4d6ceb64]:after, .title span.on[data-v-4d6ceb64]:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0;
+        border-bottom: 1px solid #519ae9;
+        position: absolute;
+        bottom: -1px;
+    }
+
+    .followmain[data-v-4d6ceb64] {
+        padding: 0 .14rem;
+        width: 100%;
+        /*background: #fff*/
+    }
+
+    .mainfir[data-v-4d6ceb64] {
+        width: 100%;
+        padding: .18rem 0 .2rem;
+        overflow: hidden
+    }
+
+    .mainfir p[data-v-4d6ceb64] {
+        font-size: 15px;
+        color: #ddd;
+        float: left;
+        letter-spacing: 0
+    }
+
+    .mainfir .mainfirdiv[data-v-4d6ceb64] {
+        font-size: 22px;
+        color: #f64e43;
+        letter-spacing: 0;
+        position: relative;
+        text-align: center
+    }
+
+    .mainfir span[data-v-4d6ceb64] {
+        padding-top: .08rem;
+        text-align: left;
+        display: inline-block;
+        margin-left: .1rem
+    }
+
+    .mainfir img[data-v-4d6ceb64] {
+        width: .28rem;
+        top: .05rem;
+        position: relative
+    }
+
+    .isred[data-v-4d6ceb64] {
+        color: #f64e43;
+        font-size: .18rem
+    }
+
+    .isgreen[data-v-4d6ceb64] {
+        color: #00cf8c;
+        font-size: .18rem
+    }
+
+    .followcut[data-v-4d6ceb64] {
+        /*background: #171520;*/
+        height: .65rem;
+        border-radius: .1rem .1rem 0 0;
+        padding: .14rem;
+        width: 100%;
+        margin-top: .15rem
+    }
+
+    .cutchange span[data-v-4d6ceb64] {
+        display: inline-block;
+        font-size: 14px;
+        color: #333;
+        height: .34rem;
+        background: #e5e5e5;
+        border-radius: 4px;
+        line-height: .34rem;
+        margin-right: .08rem;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .cutchange .on[data-v-4d6ceb64] {
+        color: #fff;
+        background: #519ae9;
+    }
+
+    .cutchange img[data-v-4d6ceb64] {
+        display: none
+    }
+
+    .cutchange .on img[data-v-4d6ceb64] {
+        width: .18rem;
+        position: absolute;
+        bottom: -.09rem;
+        left: 50%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block
+    }
+
+    .cutchange .on b[data-v-4d6ceb64] {
+        color: #519ae9
+    }
+
+    .cutchange b[data-v-4d6ceb64] {
+        display: inline-block;
+        height: .18rem;
+        padding: 0 .02rem;
+        min-width: .18rem;
+        border-radius: .08rem;
+        text-align: center;
+        line-height: .18rem;
+        background: #fff;
+        font-size: 12px;
+        color: #333
+    }
+
+    .followtab[data-v-4d6ceb64] {
+        height: .24rem;
+        width: 100%;
+        /*background: #1c1a25;*/
+    }
+
+    .followtab li[data-v-4d6ceb64] {
+        float: left;
+        width: 50%;
+        height: 100%;
+        line-height: .24rem;
+        font-size: 14px;
+        color: #ddd;
+        text-align: center;
+    }
+
+    .mainfir .tobtn[data-v-4d6ceb64] {
+        background-image: -webkit-gradient(linear, left top, right top, from(#2289f8), to(#136eed));
+        background-image: -o-linear-gradient(left, #2289f8 0, #136eed 100%);
+        background-image: linear-gradient(90deg, #2289f8, #136eed);
+        border-radius: 100px;
+        width: 146px;
+        height: 34px;
+        margin: .1rem auto 0;
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 0;
+        text-align: center;
+        line-height: 34px
+    }
+
+    #delfir[data-v-4d6ceb64], #delfour[data-v-4d6ceb64], #delsec[data-v-4d6ceb64], #delthird[data-v-4d6ceb64] {
+        padding: 0 .05rem
+    }
+
+    .tofloow[data-v-4d6ceb64] {
+        float: right;
+        width: 1rem;
+        height: .24rem;
+        text-align: center;
+        line-height: .24rem;
+        background: #519ae9;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #fff;
+        margin-top: .05rem
+    }
+
+    .ourlist li[data-v-058f4f54] {
+        height: .65rem;
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .listleft[data-v-058f4f54], .listright[data-v-058f4f54] {
+        float: left;
+        width: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%
+    }
+
+    .listleft img[data-v-058f4f54] {
+        display: inline-block;
+        width: .3rem;
+        height: .3rem;
+        border-radius: 50%;
+        margin-top: .16rem
+    }
+
+    .listleft .usermess[data-v-058f4f54] {
+        margin-top: .22rem;
+        margin-left: .05rem
+    }
+
+    .listleft .usermess p[data-v-058f4f54] {
+        font-size: 14px;
+        color: #333;
+        letter-spacing: 0;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .listleft .usermess span[data-v-058f4f54] {
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .listright[data-v-058f4f54] {
+        position: relative
+    }
+
+    .listright a[data-v-058f4f54] {
+        position: absolute;
+        right: .14rem;
+        top: .23rem;
+        width: .35rem;
+        height: .2rem;
+        text-align: center;
+        line-height: .2rem;
+        border: 1px solid #519ae9;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #519ae9
+    }
+
+    .listright p[data-v-058f4f54] {
+        height: 100%;
+        text-align: right;
+        line-height: .65rem;
+        width: 100%;
+    }
+
+    .isred[data-v-058f4f54] {
+        color: #f64e43
+    }
+
+    <style type="text/css">.ourlist[data-v-40441d20] {
+        padding: 0 0 0 .14rem
+    }
+
+    .ourlist li[data-v-40441d20] {
+        height: .65rem;
+        border-bottom: 1px solid #f5f5f5
+    }
+
+    .listleft[data-v-40441d20], .listright[data-v-40441d20] {
+        float: left;
+        width: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 100%
+    }
+
+    .listleft img[data-v-40441d20] {
+        display: inline-block;
+        width: .3rem;
+        height: .3rem;
+        border-radius: 50%;
+        margin-top: .16rem
+    }
+
+    .listleft .usermess[data-v-40441d20] {
+        margin-top: .22rem;
+        margin-left: .05rem
+    }
+
+    .listleft .usermess p[data-v-40441d20] {
+        font-size: 14px;
+        color: #333;
+        letter-spacing: 0;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .listleft .usermess span[data-v-40441d20] {
+        font-size: 12px;
+        color: #999;
+        letter-spacing: 0
+    }
+
+    .listright[data-v-40441d20] {
+        position: relative
+    }
+
+    .listright a[data-v-40441d20] {
+        position: absolute;
+        right: .14rem;
+        top: .23rem;
+        width: .35rem;
+        height: .2rem;
+        text-align: center;
+        line-height: .2rem;
+        border: 1px solid #519ae9;
+        border-radius: 2px;
+        font-size: 12px;
+        color: #519ae9;
+    }
+
+    .listright p[data-v-40441d20] {
+        height: 100%;
+        text-align: right;
+        line-height: .65rem;
+        width: 100%;
+        margin-right: .4rem;
+    }
+
+    .isred[data-v-40441d20] {
+        color: #f64e43;
+    }
+
+    .listleft[data-v-54dbf443] {
+        width: 50%;
+        font-size: 12px;
+        color: #999;
+    }
+
+    .listright[data-v-54dbf443] {
+        width: 55%;
+        text-align: right;
+        font-size: 12px;
+        color: #999;
+    }
+
+    /*新增*/
+    body, html {
+        height: 100%;
+        width: 100%;
+        background: #262b41 !important;
+    }
+    .contentWrap {
+        width: 1014px;
+        min-height: 720px;
+        float: left;
+        background: #212139;
+        padding: 0 68px;
+        position: relative;
+    }
+    .rules {
+      position: absolute;
+      top: 15px;
+      right: 70px;
+      color: #519ae9;
+    }
+  </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-4d6ceb64="" class="content">
+        <!--<div data-v-4d6ceb64="" id="head" style="width: 60%">-->
+            <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.following_management}</span><em></em></h3>-->
+                <!--<div class="left" onclick="window.history.back()"><a class="arrow_left"></a></div>-->
+                <!--<a href="{:U('rule')}"><div class="right arrow_right"><b>{$Think.lang.rules}</b></div></a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+        <section data-v-4d6ceb64="" class="page-main clearfix" style="padding: 0 !important;">
+            <!--引入个人中心公共组件-->
+            <include file="User:userPublic" />
+            <div class="contentWrap">
+                <a class="rules" href="{:U('rule')}">{$Think.lang.rules}</a>
+                <div data-v-4d6ceb64="" class="fixmain">
+
+                    <div data-v-4d6ceb64="" class="title2">
+
+                        <span data-v-4d6ceb64="" onclick="window.location.href='{:U('index')}'">{$Think.lang.i_follower}</span>
+
+                        <span data-v-4d6ceb64="" class="on">{$Think.lang.i_trader}</span>
+                    </div>
+
+                    <div data-v-4d6ceb64="" class="followmain">
+                        <div data-v-4d6ceb64="" class="mainfir">
+                            <p data-v-4d6ceb64="">{$Think.lang.trader_total}:
+                            <span data-v-4d6ceb64="" class="isred">${$trader_profit}</span>
+                        </p>
+                            <eq name="is_trader" value="0">
+                                <a href="{:U('Index/tradeUser')}"><div data-v-4d6ceb64="" class="tofloow">{$Think.lang.apply_trader}</div></a>
+                            </eq>
+                        </div>
+                    </div>
+
+                    <div data-v-4d6ceb64="" class="followcut">
+                        <div data-v-4d6ceb64="" class="cutchange">
+                            <span data-v-4d6ceb64="" id="delsec" class="on" data-status="1">
+                                {$Think.lang.follower}
+                                <b data-v-4d6ceb64="" style="display: none;">0</b>
+                                <!--<img data-v-4d6ceb64="" src="__PUBLIC__/Qts/Home/img/public/other.png">-->
+                            </span>
+                            <span data-v-4d6ceb64="" id="delfour" class="" data-status="2">
+                                {$Think.lang.cancelled}
+                                <b data-v-4d6ceb64="" style="display: none;">0</b>
+                                <!--<img data-v-4d6ceb64="" src="__PUBLIC__/Qts/Home/img/public/other.png">-->
+                            </span>
+    <!--                             <span data-v-4d6ceb64="" class="" style="padding: 0px 0.05rem; margin-right: 0px;">收益记录
+                                <img data-v-4d6ceb64="" src="__PUBLIC__/Qts/Home/img/public/other.png"></span> -->
+                        </div>
+                    </div>
+
+                    <ul data-v-4d6ceb64="" class="followtab">
+                        <li data-v-4d6ceb64="">{$Think.lang.follower}</li>
+                        <li data-v-4d6ceb64="">{$Think.lang.follow_earnings}</li>
+                    </ul>
+                    <div data-v-4d6ceb64=""
+                         style="height: 0.07rem; width: 100%; background: rgb(245, 245, 245); display: none;"></div>
+                </div>
+                <div data-v-4d6ceb64="" class="main" style="margin-top: 250px;">
+                <div data-v-058f4f54="" data-v-4d6ceb64="">
+                    <div data-v-058f4f54="" id="mescroll" class="mescroll mescroll-bar"
+                         style="overflow: auto; height: 3.5rem; ">
+                        <div data-v-46d1b599="" class="mescroll-bounce">
+                            <ul data-v-46d1b599="" id="dataList" class="ourlist">
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script id="tpl" type="text/html">
+    {{each data as vo}}
+        <li data-v-46d1b599="">
+            <div data-v-46d1b599="" class="listleft">
+                <img data-v-46d1b599="" src="{{vo.face}}">
+                <div data-v-46d1b599="" class="usermess">
+                    <p data-v-46d1b599="">{{vo.nickname}}</p>
+                </div>
+            </div>
+
+            <div data-v-46d1b599="" class="listright">
+                <p data-v-46d1b599="" class="isred">${{vo.follow_profit}}</p>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+<script id="tpl2" type="text/html">
+     {{each data as vo}}
+        <li data-v-46d1b599="">
+            <div data-v-46d1b599="" class="listleft">
+                <img data-v-46d1b599="" src="{{vo.face}}">
+                <div data-v-46d1b599="" class="usermess">
+                    <p data-v-46d1b599="">{{vo.nickname}}</p>
+                </div>
+            </div>
+
+            <div data-v-46d1b599="" class="listright">
+                <p data-v-46d1b599="" class="isred" style="margin-left: 0.65rem;">${{vo.follow_profit}}</p>
+            </div>
+        </li>
+    {{/each}}
+</script>
+
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+
+<script>
+    $('.cutchange span').click(function(){
+        $('.cutchange span').removeClass('on');
+        $(this).addClass('on');
+
+        var status = $(this).attr('data-status');
+        getFollow(status);
+
+    });
+
+    //获取交易员信息
+    function getFollow(status=1)
+    {
+        var index = layer.load(2);
+        $.ajax({
+            type:'post',
+            url:"{:U('getFollow')}",
+            data:{'status':status},
+            success:function(data){
+                layer.close(index);
+
+                if(status == 1)
+                    var html=template('tpl',data);
+                else
+                    var html=template('tpl2',data);
+                $('.ourlist').html(html);
+            },
+            error:function(response){
+                layer.close(index);
+                console.log(response);
+            }
+        });
+    }
+
+    window.onload=function(){
+        getFollow();
+      //设置底部导航选中状态
+      $('.headertop .wapper > ul > li').last().find('a').addClass('active');
+      // $('.footer > ul > li').last().find('a').addClass('common3');
+      // $('.footer > ul > li').last().find('em').addClass('selected');
+
+      $('.userPublic .userMenu > ul > li').eq(2).find('a').addClass('active');
+    }
+
+</script>
+</body>
+</html>

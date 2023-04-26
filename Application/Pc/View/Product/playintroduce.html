@@ -1,0 +1,146 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.rules}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="80f88608:0 3405f4c6:0">
+    div, li, ul {
+        margin: 0;
+        padding: 0
+    }
+
+    li, ul {
+        list-style: none outside none
+    }
+
+
+    .stock-tab li {
+        width: .5rem;
+        height: .24rem;
+        float: left;
+        margin-left: .1rem;
+        color: #333;
+        text-align: center
+    }
+
+    .stock-tab li:first-child {
+        margin-left: 0
+    }
+
+    .stock-tab li.has {
+        color: #2187f7;
+        border: 1px solid #2187f7;
+        border-radius: .2rem
+    }
+
+    #priceMsg span {
+        padding: 0 .03rem;
+        font-size: .1rem;
+        color: #222
+    }
+
+    li[data-v-7111eb26] {
+        /*height: .45rem;*/
+        line-height: .45rem;
+        color: #333;
+        font-size: .14rem;
+        padding: 0 .14rem
+    }
+
+    .bg_white[data-v-7111eb26] {
+        /*background: #fff*/
+    }
+
+    .bg_gray[data-v-7111eb26] {
+        background: #f9f9f9
+    }
+    /*.footer {*/
+        /*position: relative;*/
+        /*top: 0;*/
+        /*height: .55rem;*/
+        /*line-height: .55rem;*/
+    /*}*/
+    /*.footer:after {*/
+        /*content: '';*/
+        /*clear: both;*/
+        /*display: block;*/
+    /*}*/
+    /*.footer > div {*/
+        /*float: left;*/
+        /*width: 50%;*/
+    /*}*/
+    /*.footer > ul {*/
+        /*float: right;*/
+        /*width: 50%;*/
+    /*}*/
+    /*.footer[data-v-18c6d448] {*/
+        /*width: 100%;*/
+        /*background-color: #1F222B;*/
+    /*}*/
+    /*.footer em[data-v-18c6d448] {*/
+        /*display: block;*/
+        /*margin: auto;*/
+        /*color: #666;*/
+        /*font-size: .21rem;*/
+    /*}*/
+    #head {
+        width: 60%;
+    }
+    /*新增css*/
+    body, html {
+        height: 100%;
+        width: 100%;
+        background: #262b41 !important;
+    }
+    .page-main {
+        background: #212139;
+        min-height: 600px;
+        margin: 30px auto !important;
+        padding: 0 80px !important;
+    }
+    .page-main h3 {
+        line-height: 110px;
+        text-align: center;
+        position: relative;
+    }
+    .page-main h3 span {
+      color: #ddd;
+    }
+    .page-main h3 a {
+        position: absolute;
+        font-size: 14px;
+        color: #77abf4;
+        top: 0;
+        right: 160px;
+    }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-7111eb26="" class="">
+        <div>
+            <!--<div data-v-7111eb26="" id="head">-->
+                <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.rules}</span><em></em></h3>-->
+                    <!--<div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>-->
+                    <!--<div class="right arrow_right"><b></b></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--引入导航条-->
+            <include file="Base:footer" />
+            <section data-v-7111eb26="" class="page-main">
+              <h3>
+                <span>{$Think.lang.rules}</span>
+                <a href="javascript: void (0);" onclick="window.history.back()">{$Think.lang.back}</a>
+              </h3>
+                <ul data-v-7111eb26="">
+                    {$content}
+                </ul>
+            </section>
+
+            <include file="Base:trueFooter" />
+        </div>
+    </div>
+</div>
+</body>
+</html>

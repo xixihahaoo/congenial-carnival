@@ -1,0 +1,42 @@
+<div data-v-18c6d448="" data-v-63966bdb="" class="footer">
+        <ul data-v-18c6d448="">
+
+            <li data-v-18c6d448="" onclick="jumpUrl('/')">
+                <a data-v-18c6d448="" class="footer_common1"></a>
+                <em data-v-18c6d448="" class="">{$Think.lang.common_home}</em>
+            </li>
+
+            <li data-v-18c6d448="" onclick="jumpUrl('{:U('Product/lists')}')">
+                <a data-v-18c6d448="" class="footer_common2"></a>
+                <em data-v-18c6d448="" class="">{$Think.lang.common_market}</em>
+            </li>
+
+            <li data-v-18c6d448="" onclick="jumpUrl('{:U('Position/trade')}')">
+                <a data-v-18c6d448="" class="footer_common4">
+                </a>
+                <em data-v-18c6d448="" class="">{$Think.lang.common_position}</em>
+            </li>
+
+            <!--<li data-v-18c6d448="" onclick="jumpUrl('{:U('Broadcast/index')}')">-->
+                <!--<a data-v-18c6d448="" class="footer_common5"></a>-->
+                <!--<em data-v-18c6d448="" class="">{$Think.lang.live}</em>-->
+            <!--</li>-->
+
+            <li data-v-18c6d448="" onclick="jumpUrl('{:U('User/index')}')">
+                <a data-v-18c6d448="" class="footer_common3">
+                    <if condition="$NoreadCount egt '1'">
+                    <span data-v-18c6d448=""></span>
+                    </if>
+                </a>
+                <em data-v-18c6d448="" class="">{$Think.lang.common_my}</em>
+            </li>
+        </ul>
+    </div>
+<style>
+
+</style>
+    <script type="text/javascript">
+        function jumpUrl(url) {
+            window.location.href = url;
+        }
+    </script>

@@ -1,0 +1,137 @@
+<extend name="Base/common"/>
+<block name="content">
+	<!-- this page specific styles -->
+	<link rel="stylesheet" href="__CSS__/compiled/article.css" type="text/css" media="screen" />
+	
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="users-list">
+			<div class="row-fluid header">
+				<h3>国家列表</h3>
+			</div>
+			<div class="row-fluid header head2">
+				<a href="{:U('add')}" class="btn-flat success">
+					添加国家
+				</a>
+			</div>
+			<!-- Users table -->
+			<form  action="{:U('del')}" method="post" name="del">
+				<div class="row-fluid table">
+					<table class="table table-hover">
+						<thead>
+						<tr>
+							<th class="span1 sortable">
+								编号
+							</th>
+							<th class="span1 sortable">
+								选择
+							</th>
+							<th class="span3 sortable">
+								<span class="line"></span>国家名称
+							</th>
+							<th class="span2 sortable">
+								<span class="line"></span>国旗标志
+							</th>
+							<th class="span2 sortable">
+								<span class="line"></span>更新时间
+							</th>
+							
+							<th class="span1 sortable">
+								<span class="line"></span>操作
+							</th>
+						</tr>
+						</thead>
+						<tbody id="ajaxback">
+						<volist name="newlist" id="nl">
+							<!-- row -->
+							<tr class="first">
+								<td>
+									{$nl['id']}
+								</td>
+								<td>
+									<input type="checkbox" name="id[]" value="{$nl['id']}">
+								</td>
+								<td>
+									<a href="{:U('edit',array('id'=>$nl['id']))}" class="name">{$nl['name']}</a>
+								</td>
+								<td>
+									<img src="/Uploads/{$nl['logo']}" style="width: 80px;"/>
+								</td>
+								<td>
+									{$nl['update_time']|date='Y-m-d',###}
+								</td>
+								<td>
+									<ul class="actions">
+										<li><a href="{:U('edit',array('id'=>$nl['id']))}"><i class="table-edit"></i></a></li>
+										<li class="last"><a href="{:U('/del',array('id'=>$nl['id']))}" onclick="if(confirm('确定要删除吗?')){return true;}else{return false;}"><i class="table-delete"></i></a></li>
+									</ul>
+								</td>
+							</tr>
+						</volist>
+						</tbody>
+					</table>
+					<div class="qjcz">
+						<a id="checkall">全选</a>
+						<a id="checkallno">全不选</a>
+						<a id="check_revsern">反选</a>
+						<input type="submit" id='sbtn' onclick ="return valid();" value="批量删除">
+					</div>
+				</div>
+			</form>
+			<div class="pagination pull-right">
+				<ul>
+					{$page}
+				</ul>
+			</div>
+			<!-- end users table -->
+		</div>
+	</div>
+	
+	
+	<!-- scripts -->
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/theme.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#checkall").click(function(){
+                $("input[name='id[]']").each(function(){
+                    this.checked = true;
+                });
+            });
+
+            $("#checkallno").click(function(){
+                $("input[name='id[]']").each(function(){
+                    this.checked = false;
+                })
+            });
+
+            $("#check_revsern").click(function(){
+                $("input[name='id[]']").each(function(){
+                    if (this.checked) {
+                        this.checked = false;
+                    }
+                    else {
+                        this.checked = true;
+                    }
+                });
+            });
+
+            $("input[type='checkbox']").click(function(){
+                $("#sbtn").attr("onclick","if(confirm('确定要删除吗?请谨慎操作')){return true;}else{return false;}");
+            })
+        });
+        function valid(){
+            var check = "";
+            $("input:checkbox[name='id[]']:checked").each(function() {
+                check += $(this).val();
+            });
+            if(check==''){
+                alert('请选择要删除的国家');
+                return false;
+            }else{
+                return true;
+            }
+        };
+	</script>
+</block>

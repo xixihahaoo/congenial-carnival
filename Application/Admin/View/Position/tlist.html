@@ -1,0 +1,425 @@
+<extend name="Base/common"/>
+<block name="content">
+	<!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/order-list.css" type="text/css" media="screen" />
+    <link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            <div class="row-fluid header">
+				<form id="form1" action="__URL__/tlist" method="get">
+                <h3 style="height:40px;width: 100%">实盘持仓监控</h3>
+                <div class="span10 pull-left">
+                    <input type="hidden" value="1" name="type">
+                    <div class="tpsearch" style="width: 25%">
+                    	电子邮箱：<input type="text" value="{$sea.email}" class="span6 search" placeholder="请输入电子邮箱查找..." name="email" id="email"/>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                    	开始时间：<input type="text" value="{$sea.starttime}" data-date-format="yyyy-mm-dd"  class="input-large datepicker" style="margin-bottom: 0;" name="starttime" id="starttime">
+                    </div>
+					<div class="tpsearch" style="width: 25%">
+                    	结束时间：<input type="text" value="{$sea.endtime}"  data-date-format="yyyy-mm-dd" class="input-large datepicker" style="margin-bottom: 0;" name="endtime" id="endtime">
+                    </div>
+                </div>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+
+                    <div class="tpsearch" style="width: 25%">
+                    <input type="hidden" id="user_id" value="{$user_id}">
+                    	运营中心：<select id="otype" class="span6" name="otype">
+                    				<option value="">默认不选</option>
+                    				<volist name="info" id="vo">
+                                    <option value="{$vo.uid}">{$vo.username}</option>
+                                    </volist>
+                    			</select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%;">
+                    	销售商：<select id="jingjiren" class="span6" name="jingjiren">
+                    				<option value="">默认不选</option>
+						<notempty name="jingjiren">
+							<option value="{$jingjiren['uid']}" selected>{$jingjiren['username']}</option>
+						</notempty>
+                    			</select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                    	会员：<select id="user" class="span6" name="user">
+                    				<option value="">默认不选</option>
+						<notempty name="user">
+							<option value="{$user['uid']}" selected>{$user['username']}</option>
+						</notempty>
+                    			</select>
+                    </div>
+
+
+                   <div style="margin-top: 50px;">
+                    <div class="tpsearch" style="width: 25%">
+                    	交易品种：<select name="option" class="span7" id="option">
+                    				<option value="">默认不选</option>
+                                    <volist name="options" id="vo">
+									 <option value="{$vo.capital_name}">{$vo.capital_name}</option>
+                                    </volist>
+                                     <input type="hidden" value="{$sea.option}" id="op_name">
+                    			</select>
+                    </div>
+
+                    <div class="tpsearch" style="width: 25%">
+                        订单号码：<input type="text" value="{$sea.orderno}" class="span6 search" placeholder="请输入订单号码查找..." name="orderno"/>
+                    </div>
+                </div>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+                	<a href="javascript:void(0)" class="btn-flat" onclick="submit()">开始查找</a>
+   <!--              	<a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a> -->
+                </div>
+				</form>
+            </div>
+            <!-- Users table -->
+            <div class="row-fluid table">
+                <!--//这个地方动态加载-->
+                <table class="table table-hover">
+                	<thead>
+                        <tr>
+                            <th class="span2 sortable">
+                                <span class="line"></span>编号
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>订单号码
+                            </th>
+							<th class="span2 sortable">
+                                <span class="line"></span>用户名称
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>用户昵称
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>电子邮箱
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>运营中心
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>销售商
+                            </th>
+                            <th class="span3 sortable">
+                                <span class="line"></span>建仓时间
+                            </th>
+                            <th class="span2 sortable">
+                                <span class="line"></span>产品信息
+                            </th>
+							<th class="span2 sortable">
+                                <span class="line"></span>数量(手)
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>方向
+                            </th>				
+                            <th class="span1 sortable">
+                                <span class="line"></span>止盈
+                            </th>		
+                            <th class="span1 sortable">
+                                <span class="line"></span>止损
+                            </th>					
+                            <th class="span1 sortable">
+                                <span class="line"></span>保证金
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>手续费
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>隔夜费
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>买入价
+                            </th>
+	                        <th class="span1 sortable">
+		                        <span class="line"></span>买入时长
+	                        </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>现价
+                            </th>
+							<th class="span1 sortable">
+                                <span class="line"></span>盈亏
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>当日盈亏
+                            </th>
+                            <th class="span1 sortable">
+                                <span class="line"></span>盈亏百分比
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+
+                    <volist name="tlistAll" id="vo">
+                        <input type="hidden" value="{$vo.oid}" class="oids">
+                    </volist>
+
+                    	<volist name="tlist" id="tl">
+                    	<input type="hidden" value="{$tl.oid}" class="oid">
+                    	<tr class="first oid{$tl.oid}">
+                            <td>
+	                              {$tl.oid}
+	                            </a>
+	                        </td>
+                            <td>
+                                  {$tl.orderno}
+                                </a>
+                            </td>
+	                        <td>
+	                            <a href="{:U('User/updateuser',array('uid'=>$tl['uid']))}" class="name">
+	                            {$tl['username']}
+	                            </a>
+	                        </td>
+                            <td>
+                                {$tl.nickname}
+                            </td>
+	                        <td>
+	                            {$tl.email}
+	                        </td>
+	                        <td>{:change(exchange($tl[uid],2))} </td>
+	                        <td>{:change(exchange($tl[uid],1))} </td>
+	                        <td>{$tl.buytime|date='Y-m-d H:i:s',###}</td>
+	                        <td>{$tl.option_name}</td>
+		                    
+		                    <if condition="$tl['order_scene'] eq 1">
+			                    <td>{$tl.onumber}手</td>
+		                    <else />
+			                    <td>--</td>
+		                    </if>
+	                        
+	                        <td>
+					            <if condition='$tl.ostyle eq 1'>
+	                                <span class="label label-success">卖出</span>
+	                            	<else/>
+									<span class="label label-cc">买入</span>
+								</if>
+	                        </td>
+		
+		                    <if condition="$tl['order_scene'] eq 1">
+			                    <td>{$tl.endprofit}</td>
+			                    <td>{$tl.endloss}</td>
+		                    <else />
+			                    <td>--</td>
+			                    <td>--</td>
+		                    </if>
+
+							<td>{$tl.Bond}</td>
+							<td>{$tl.fee}</td>
+		                    <if condition="$tl['order_scene'] eq 1">
+                                <td>{$tl.overnight_fee}</td>
+		                    <else />
+			                    <td>--</td>
+		                    </if>
+		                    
+							<td>{$tl.buyprice}</td>
+		
+		                    <if condition="$tl['order_scene'] eq 1">
+		                        <td>--</td>
+		                    <else />
+			                    <td>{$tl.second}秒</td>
+		                    </if>
+		                    
+							<td class="price">
+                            </td>
+                            <td class="ploss">
+			
+                            </td>
+                            <td class="day_ploss">
+                            
+                            </td>
+                            <td class="profit_count">
+                            
+                            </td>
+	                    </tr>
+	                    </volist>
+                	</tbody>
+                </table>
+                <div class="qjcz">
+                <if condition="$tlist">
+					<span style="margin-right:30px;float:right">
+						订单盈亏：<em style="color:red;font-weight: bold; font-size: 14px;" id="ploss"></em><br>
+						手续费：<em style="color:red;font-weight: bold;font-size: 14px;" id="fee"></em><br>
+                        隔夜费：<em style="color:red;font-weight: bold;font-size: 14px;" id="overnight_fee"></em><br>
+						订单：<em style="color:red;font-weight: bold; font-size: 14px;" id="count"></em>
+				    </span>
+                </if>
+				</div>
+            </div>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+    </div>
+    <!-- end main container -->
+<div id="loading" style="width: 100%;height: 105%;position: absolute;top: 0; z-index: 9999;display: none;">
+	<div class="load-center" style="background: #000;position: absolute;width: 60%;height: 14%;bottom: 10%;border-radius: 10px;color: #fff;text-align: center;font-size: 24px;left: 17%;padding: 1%;">
+		<img src="__IMG__/ajax-loading.jpg" alt="ajax-loading" width="40"/><br/>页面加载中...
+	</div>
+</div>
+<!-- scripts -->
+
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        // datepicker plugin
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+
+function sub()
+{
+	$('#form1').attr("action","__URL__/daochu");
+	$('#form1').submit();
+}
+
+function submit() {
+
+	$('#form1').attr("action","__URL__/tlist");
+	$('#form1').submit();
+}
+
+$(function(){
+
+  var user_id = $("#user_id").val();
+  $("#otype option").each(function(){
+      
+        if(user_id == $(this).val()){
+
+        	 $(this).attr('selected',true);
+        }
+  });
+
+ var op_name = $("#op_name").val();
+$("#option option").each(function(){
+        if(op_name == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+ });
+
+	/*根据选择运营中心机构选择*/
+	$("#otype").change(function() {
+		var parent_id = $("#otype").val();
+		$.ajax({
+			type: "GET",
+			url: "{:U("user/ajax_get_brokers")}",
+			data: "parent_id="+parent_id,
+			success: function(data){
+			var html = '';
+			var list = data.data;
+			html +='<option value="">默认不选</option>';
+			if(data.status>0){
+				for (x in list) {
+					html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+				}
+			}
+			$("#jingjiren").html(html);
+		}
+	});
+	});
+	/*根据选择机构获取下属会员列表*/
+	$("#jingjiren").change(function() {
+		var parent_id = $("#jingjiren").val();
+		$.ajax({
+					type: "GET",
+					url: "{:U("user/ajax_get_brokers")}",
+				data: "parent_id="+parent_id,
+				success: function(data){
+			var html = '';
+			var list = data.data;
+			html +='<option value="">默认不选</option>';
+			if(data.status>0){
+				for (x in list) {
+					html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+				}
+			}
+			$("#user").html(html);
+		}
+	});
+	});
+</script>
+
+
+<script type="text/javascript">
+
+var arr = [];
+$.each($('.oids'),function(){
+   var oid = $(this).val();
+   arr.push(oid);
+});
+var arrString = arr.join(',');
+
+var isRequst = true;
+fnSetMarkPoint = function (param) {
+$.ajax({
+        url: "{:U('getdata')}",
+        dataType: 'json',
+        type: 'post',
+        data: {'oid':arrString,'type':1},
+        success: function (data) {
+
+       if(data.code == 300)
+        {   
+            location.reload();
+            return false;
+        }
+        
+        var arr1 = [];
+        $.each(data,function(key,val){
+
+            $('.oid'+val.oid+' .ploss').html(val.ploss);
+            $('.oid'+val.oid+' .price').html(val.sellprice);
+            $('.oid'+val.oid+' .day_ploss').html(val.day_ploss);
+            $('.oid'+val.oid+' .profit_count').html(val.percentage+'%');
+            arr1.push(val.oid);
+        });
+
+        $('#ploss').html(data.ploss_sum);
+        $('#fee').html(data.fee_sum);
+        $('#overnight_fee').html(data.overnight_fee_sum);
+        $("#count").html(data.count+'个');
+
+           //删除指定元素
+            var arr2 = [];
+            for(key in arr) {
+                var stra = arr[key];
+                var count = 0;
+                for(var j= 0; j < arr1.length; j++) {
+                    var strb = arr1[j];
+                    if(stra == strb) {
+                        count++;  
+                    }  
+                }    
+                if(count === 0) {
+                    arr2.push(stra);
+                }  
+            }
+            if(arr2 != '') {
+                for (k in arr2) {
+                    $(".oid"+arr2[k]+"").remove();
+                }
+            }
+
+     }
+  });
+
+}
+
+if(arrString != '')
+{
+  if (isRequst) {
+    isRequst = false;
+    window.setInterval("fnSetMarkPoint()", 1000);
+  }
+}
+
+</script>
+</block>

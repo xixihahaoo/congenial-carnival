@@ -1,0 +1,688 @@
+
+<include file="Base:header" />
+<title data-n-head="true">{:config('webname')}</title>
+
+<link rel="stylesheet" href="__PUBLIC__Qts/Home/css/swiper.min.css">
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script src="__PUBLIC__Qts/Home/js/swiper.min.js"></script>
+<link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__Qts/Home/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__Qts/Home/css/pchome.css" rel="stylesheet">
+
+
+<style data-n-head="true" type="text/css">
+    body {
+        -webkit-text-size-adjust: none;
+        background: #1F1d28;
+    }
+    .trueFoot {
+        background: #21213a !important;
+    }
+</style>
+
+
+
+    <style type="text/css">
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        .swiper-container a{
+            color: #4E4E4E;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-container2 .swiper-wrapper {
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            -ms-flex-direction: column;
+            -webkit-flex-direction: column;
+            flex-direction: column;
+            /*width: 250px;*/
+            width: 53%;
+            float: right;
+            margin-right: 0.5rem;
+        }
+
+        .swiper-container2 .swiper-slide {
+            background: transparent;
+        }
+
+        .swiper-wrapper > .swiper-slide {
+            font-size: 0.12rem;
+        }
+        .activity[data-v-58525266] {
+            position: fixed;
+            width: 2.8rem;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            margin-left: -1.4rem;
+            z-index: 100;
+        }
+
+        .swiper-container[data-v-58525266] {
+            width: 100%;
+            height: 3.4rem;
+            top: 19%;
+        }
+        .modal[data-v-58525266] {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: .3;
+            background: #000;
+        }
+        .del-img[data-v-58525266] {
+            position: absolute;
+            width: .14rem;
+            height: .14rem;
+            top: .14rem;
+            right: .14rem;
+            z-index: 2001;
+        }
+        .swiper-container[data-v-58525266] li{
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .button-img[data-v-58525266] {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: .67rem;
+            background-size: 100%;
+        }
+
+        .dashi-wrap[data-v-63966bdb] {
+            padding: .14rem;
+            padding-right: 8%;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        #news {
+            display: inline-block;
+            height: 290px;
+        }
+        #news li {
+            width: 508px;
+            height: 65px;
+            display: inline-block;
+            padding: 0 0 30px 34px;
+            box-sizing: border-box;
+            border-left: 1px solid #ddd;
+            position: relative;
+            float: left;
+        }
+        #news li h4 {
+            font-size: 18px;
+            color: #ccc;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            height: 28px;
+            width: 473px;
+        }
+        #news li h4 a{
+            color: #ccc;
+        }
+        #news li p {
+            font-size: 14px;
+            color: #999;
+            margin: 10px 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+         #news li span {
+            font-size: 14px;
+            color: #999;
+        }
+        #news li i {
+            background: #368ae5;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            position: absolute;
+            left: -5px;
+            top: -5px;
+        }
+        .dashi-wrap[data-v-63966bdb] > div > p, .onTimeInfo > div > p{
+            color: #c6c4c4;
+            margin-bottom: 0.1rem;
+        }
+        .annouceWrap > div.onTimeInfo {
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            margin-left: 2%;
+        }
+        .hotWrapC > div.hot-wrap,.hotWrapC > div.earnings-wrap{
+            background-color: #21213a;
+            border: 0;
+            box-shadow: none;
+        }
+        .zixuan li{
+            border-bottom: 1px solid #464646;
+        }
+        .earnings-list-wrap[data-v-63966bdb]:after{
+            background: #464646;
+        }
+        .earnings-txt[data-v-63966bdb], .hot-txt[data-v-63966bdb]{
+            font-size: .12rem;
+        }
+        .headertop{
+            position: absolute;
+            background: transparent !important;
+            box-shadow: none !important;
+        }
+        /*.heads {*/
+            /*height: 0 !important;*/
+        /*}*/
+        body, html {
+            background: #272b41 !important;
+        }
+        .nav li a {
+            color: #fff !important;
+        }
+        .coin_footer {
+            width: 100%;
+            background: #333848;
+            z-index: 9999;
+        }
+        .coin_footer .footerView {
+            width: 1140px;
+            height: 235px;
+            margin: 0 auto;
+            padding: 35px 0;
+            box-sizing: border-box;
+        }
+        .coin_footer .footerView .footer_left {
+            width: 370px;
+            float: left;
+            color: #999;
+            font-size: 14px;
+        }
+        .coin_footer .footerView .footer_left img {
+            margin-bottom: 33px;
+            width: 140px;
+        }
+        .coin_footer .footerView .footer_left p, .coin_footer .footerView .footer_right p {
+            margin-bottom: 12px;
+        }
+        .coin_footer .footerView .footer_center {
+            min-width: 250px;
+            float: left;
+            color: #999;
+            font-size: 14px;
+            margin-left: 103px;
+        }
+        .coin_footer .footerView .footer_center ul.footerNav_a {
+            margin-right: 80px;
+        }
+
+        .coin_footer .footerView .footer_center ul {
+            float: left;
+        }
+
+
+        .coin_footer .footerView .footer_center ul h3 {
+            font-size: 14px;
+            color: #999;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .coin_footer .footerView .footer_center ul.footerNav_a h3, .coin_footer .footerView .footer_center ul.footerNav_b h3 {
+            text-align: left;
+        }
+        .coin_footer .footerView .footer_center ul li {
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .coin_footer .footerView .footer_center ul li a {
+            font-size: 14px;
+            color: #fff;
+        }
+        .coin_footer .footerView .footer_right {
+            float: right;
+            min-width: 196px;
+            color: #fff;
+            font-size: 14px;
+        }
+        .coin_footer .footerView .footer_right p {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body data-n-head="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01="" style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+    <div data-v-63966bdb="" class="">
+        <include file="Base:footer" />
+
+        <section data-v-63966bdb="" class="page-main" style="background: #272b41;padding: 0 !important;">
+            <div data-v-f2c7254e="" data-v-63966bdb="" class="swiper-wrap">
+                <!-- Swiper -->
+                <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                        
+                        <volist name="newsinfo" id="vo">
+                            <div class="swiper-slide">
+            
+                                <if condition="$vo['n_type'] eq 1">
+                                        <img src="/Uploads/{$vo.ncover}" alt="">
+                                <else/>
+                                    <a href="{$vo.ncontent}" target="_blank">
+                                        <img src="/Uploads/{$vo.ncover}" alt="">
+                                    </a>
+                                </if>
+        
+                            </div>
+                        </volist>
+
+                    </div>
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="contentWrap">
+                <div class="hotWrapC">
+                    <div data-v-63966bdb="" class="earnings-wrap">
+                        <if condition="$lang eq 'zh-cn'">
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_cn.png" class="earning-img">
+                            <elseif condition="$lang eq 'zh-tw'" />
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_tw.png" class="earning-img">
+                            <else />
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/top_en.png" class="earning-img" style="width: 1.6rem;">
+                        </if>
+
+                        <a href="{:U('profitAll')}"><span data-v-63966bdb="" class="earnings-txt">{$Think.lang.show_more} &gt;</span></a>
+                        <div data-v-63966bdb="" class="earnings-con">
+                            <ul data-v-63966bdb="" class="earnings-list">
+
+                                <volist name="order" id="vo">
+                                    <li data-v-63966bdb="" class="earnings-list-wrap">
+                                        <a href="{:U('profitDetails',array('uid' => $vo['uid']))}">
+                                            <div data-v-63966bdb="" class="portrait-wrap left">
+                                                <img data-v-63966bdb="" src="{$vo.face}" class="portrait top-{$i}">
+                                                <span data-v-63966bdb="" class="portrait-grade">Lv{$vo.level}</span>
+                                            </div>
+
+                                            <div data-v-63966bdb="" class="left earnings-name-wrap">
+                                                <p data-v-63966bdb="" class="earnings-list-name">{$vo.nickname}</p>
+                                                <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/TOP{$i}.png"
+                                                     class="earnings-list-top">
+                                            </div>
+
+                                            <ol data-v-63966bdb="" class="earnings-list-con left">
+                                                <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                                    {$vo.profit}%</p>
+                                                    <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.yield}</p></li>
+                                                <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                                    {$vo.correct}%</p>
+                                                    <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.accurate}</p></li>
+                                                <li data-v-63966bdb=""><p data-v-63966bdb="" class="earnings-num">
+                                                    {$vo.followCount}</p>
+                                                    <p data-v-63966bdb="" class="earnings-list-txt">{$Think.lang.follow_people}</p></li>
+                                            </ol>
+                                        </a>
+
+                                        <notempty name="vo['follow_user_id']">
+                                            <eq name="user_id" value="$vo['follow_user_id']">
+                                                <div data-v-63966bdb="" class="earnings-list-btn earnings-edit-btn">
+                                                    <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                        data-v-63966bdb="">{$Think.lang.edit}</span></a>
+                                                </div>
+                                                <else/>
+                                                <div data-v-63966bdb="" class="earnings-list-btn earnings-list-btn">
+                                                    <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                        data-v-63966bdb="">{$Think.lang.follow}</span></a>
+                                                </div>
+                                            </eq>
+                                            <else/>
+                                            <div data-v-63966bdb="" class="earnings-list-btn earnings-list-btn">
+                                                <a href="{:U('orderFollow',array('uid' => $vo['uid']))}"><span
+                                                    data-v-63966bdb="">{$Think.lang.follow}</span></a>
+                                            </div>
+                                        </notempty>
+                                    </li>
+                                </volist>
+
+                            </ul>
+                            <!--<a href="{:U('profitAll')}">-->
+                                <!--<p data-v-63966bdb="" class="earnings-tips">{$Think.lang.show_master}<em data-v-63966bdb="" class="arrow">-->
+                                    <!--&gt;</em></p>-->
+                            <!--</a>-->
+                        </div>
+                    </div>
+
+
+                    <div data-v-63966bdb="" class="hot-wrap">
+
+                        <if condition="$lang eq 'zh-cn'">
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_cn.png">
+                            <elseif condition="$lang eq 'zh-tw'" />
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_tw.png">
+                            <else />
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/hot_en.png" style="width: 1.4rem;">
+                        </if>
+
+
+                        <a href="{:U('Product/lists')}"><span data-v-63966bdb="" class="hot-txt">{$Think.lang.show_all}</span></a>
+                        <ul data-v-63966bdb="" class="zixuan clearfix">
+                            <foreach name="option" item="vo">
+                                <input type="hidden" class="capital_key" value="{$vo.capital_key}">
+                                <input type="hidden" id="length{$vo.capital_key}" value="{$vo.capital_length}">
+
+                                <li data-v-63966bdb="" class="left clearfix {$vo.capital_key}">
+                                    <a href="{:U('Product/details',array('id' => $vo['id']))}" class="clearfix">
+                                        <p data-v-63966bdb="" class="variety-name1">{$vo.capital_name}</p>
+                                        <p data-v-63966bdb="" class="variety-price {$vo.calssColor}">{$vo.Price}</p>
+                                        <p data-v-63966bdb="" class="variety-rate {$vo.calssColor}">{$vo.DiffRate}%</p>
+                                        <!--  {$vo.id} -->
+                                    </a>
+                                </li>
+                            </foreach>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul data-v-63966bdb="" class="content-tip">
+
+                    <li data-v-63966bdb="" class="">
+                        <a href="{:U('advanced')}">
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/newUser.png">
+                            <p data-v-63966bdb="" class="title">{$Think.lang.beginner_must}</p>
+                            <p data-v-63966bdb="" class="sub-title">{$Think.lang.from_to}</p>
+                        </a>
+                    </li>
+
+                    <li data-v-63966bdb="" class="">
+                        <a href="{:U('watch')}">
+                            <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/shaidan.png">
+                            <p data-v-63966bdb="" class="title">{$Think.lang.drying_list}</p>
+                            <p data-v-63966bdb="" class="sub-title">{$Think.lang.pick_steak}</p>
+                        </a>
+                    </li>
+
+                    <li data-v-63966bdb="" class="mr14">
+                        <a href="{:U('financeNews')}">
+                           <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/news.png">
+                            <p data-v-63966bdb="" class="title">{$Think.lang.information}</p>
+                           <p data-v-63966bdb="" class="sub-title">{$Think.lang.material}</p>
+                        </a>
+                    </li>
+                </ul>
+               <!-- <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/xsbb.png" onclick="window.location.href='{:U('advanced')}'">-->
+               <!--  <img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/dssd.png" onclick="window.location.href='{:U('watch')}'">-->
+               <!--  <div class="annouceWrap">
+                    <if condition="$lang eq 'zh-cn'">
+                        <div data-v-63966bdb="" class="notice_cn">
+                    <elseif condition="$lang eq 'zh-tw'" />
+                        <div data-v-63966bdb="" class="notice_tw">
+                    <else />
+                        <div data-v-63966bdb="" class="notice_en">
+                    </if>
+
+                            <div data-v-63966bdb="" class="dashi-wrap">
+                                <!-- Swiper -->
+                               <!--  <div>
+                                    <empty name="Think.session.user_id">
+                                        <p><span>{$Think.lang.system_notice}</span><span style="cursor: pointer;font-size:.12rem"  onclick="window.location.href='{:U('Login/login')}'">{$Think.lang.more}</span></p>
+                                    <else/>
+                                        <p><span>{$Think.lang.system_notice}</span><span style="cursor: pointer;font-size:.12rem"  onclick="window.location.href='{:U('Message/publicMsg')}'">{$Think.lang.more}</span></p>
+                                    </empty>
+                                    <!--<div class="swiper-container swiper-container2">-->
+                                  <!--   <div>
+                                        <!--<div class="swiper-wrapper">-->
+                                        <!-- <volist name="stretch" id="vo">
+                                            <div class="" onclick="window.location.href='{:U('Stretch/stretchDetails',array('id' => $vo['id']))}'"><a href="{:U('Stretch/stretchDetails',array('id' => $vo['id']))}">{$vo.title}</a>
+                                            </div>
+                                        </volist> -->
+                                     <!--    <ul id="news">
+                                      <!--       <volist name="stretch" id="vo">
+                                                <li onclick="window.location.href='{:U('Stretch/stretchDetails',array('id' => $vo['id']))}'">
+                                                    <h4><a href="{:U('Stretch/stretchDetails',array('id' => $vo['id']))}">{$vo.title}</a></h4>
+                                                    <!-- <p>全球首个智能区块链研究实验室成立</p><span>2018-8-11&nbsp;16:51</span> -->
+                                        <!--             <i></i>
+                                                </li>
+                                            </volist>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<a href="{:U('Stretch/stretchList')}">-->
+                                <!--<img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/right.png" class="arrow-right" style="z-index: 9999">-->
+                            <!--</a>-->
+                      <!--  </div>-->
+                      <!--  <div class="onTimeInfo">
+                            <div>
+                                <p><span>{$Think.lang.information}</span><span style="cursor: pointer;font-size:.12rem" onclick="window.location.href='{:U('financeNews')}'">{$Think.lang.more}</span></p>
+
+                                <div>
+                                    <!-- <a href="{:U('financeNews')}"> -->
+                                        <!--<img data-v-63966bdb="" src="__PUBLIC__Qts/Home/img/index/news.png">-->
+                                        <!-- <p data-v-63966bdb="" class="title">{$Think.lang.information}</p>
+                                        <p data-v-63966bdb="" class="sub-title">{$Think.lang.material}</p> -->
+                                    <!-- </a> -->
+                          <!--      <ul id="news">
+                            <!--        <li>
+                                        <h4><a href="{:U('financeNews')}">{$Think.lang.information}</a></h4>
+                                        <!-- <p>全球首个智能区块链研究实验室成立</p><span>2018-8-11&nbsp;16:51</span> -->
+                            <!--            <i></i>
+                            <!--        </li>
+                                    <!--<li>-->
+                                        <!--<h4><a href="{:U('financeNews')}">{$Think.lang.material}</a></h4>-->
+                                        <!--&lt;!&ndash; <p>全球首个智能区块链研究实验室成立</p><span>2018-8-11&nbsp;16:51</span> &ndash;&gt;-->
+                                        <!--<i></i>-->
+                                    <!--</li>-->
+                             <!--   </ul>
+                                </div>
+
+                            </div>
+
+                        </div>-->
+                </div>
+            </div>
+
+        </section>
+
+        <include file="Base:trueFooter" />
+
+
+        <notempty name="info['id']">
+            <div data-v-58525266="" data-v-63966bdb="" class="activity">
+                <div data-v-58525266="" class="swiper-container swiper-container-horizontal">
+                    <ul data-v-58525266="" class="swiper-wrapper"
+                        style="transform: translate3d(-280px, 0px, 0px); transition-duration: 0ms;">
+
+                        <li data-v-58525266="" class="swiper-slide swiper-list swiper-slide-active swiper-slide-duplicate-next swiper-slide-duplicate-prev" style="background-image: url(&quot;/Uploads/{$info.thumb}&quot;); width: 280px;" data-swiper-slide-index="0">
+                            <img data-v-58525266="" src="__PUBLIC__Qts/Home/img/index/exit.png" class="del-img">
+                            <div data-v-58525266="" class="button-img" style="background-image: url(&quot;__PUBLIC__Qts/Home/img/index/details.png&quot;);">
+                            </div>
+                        </li>
+
+                        <li data-v-58525266="" class="swiper-slide swiper-list swiper-slide-duplicate swiper-slide-duplicate-active swiper-slide-next"
+                            style="background-image: url(&quot;/Uploads/{$info.thumb}&quot;); width: 280px;" data-swiper-slide-index="0">
+                                <img data-v-58525266="" src="__PUBLIC__Qts/Home/img/index/exit.png" class="del-img">
+
+                            <div data-v-58525266="" onclick='window.location.href="{:U('Stretch/details',array('id' => $info['id']))}"' class="button-img" onclick="" style="background-image: url(&quot;__PUBLIC__Qts/Home/img/index/details.png&quot;);">
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div data-v-58525266="" class="modal"></div>
+            </div>
+        </notempty>
+
+    </div>
+</div>
+    <!-- footer-->
+
+<div class="coin_footer" style="position:absolute;bottom: 0;left:0;display:none;">
+    <div class="footerView">
+
+        <div class="footer_left">
+            <a href="/"><img src="http://www.molly.mobi/resource/frontend/img/white_logo.png" alt="JinglanEX"></a>
+            <p>JingLanEx数字币交易所 仅供软件演示</p>
+            <p>© 2018 北京景蓝信息技术有限公司 All Rights Reserved.</p>
+            <p data-i18n="a_investment">市场有风险，投资需谨慎</p>
+        </div>
+        <div class="footer_center">
+            <ul class="footerNav_a">
+                <h3 data-i18n="nav_6">关于</h3>
+                <li>
+                    <a href="/about" data-i18n="a_about">关于我们</a>
+
+                </li>
+                <li>
+                    <a href="/download" data-i18n="a_about">APP下载</a>
+                </li>
+                <li>
+                    <a href="/recent" data-i18n="a_about">公告</a>
+                </li>
+            </ul>
+            <ul class="footerNav_b">
+                <h3 data-i18n="nav_7">条款说明</h3>
+                <li>
+                    <a href="/help/14" data-i18n="a_clause">使用条款</a>
+                </li>
+                <li>
+                    <a href="/help/13" data-i18n="a_policy">隐私政策</a>
+                </li>
+                <li>
+                    <a href="/help/15" data-i18n="a_rules">反洗钱条例</a>
+                </li>
+                <li style="margin-right:46px;">
+                    <a href="/help/16" data-i18n="a_rate">费率说明</a>
+                </li>
+            </ul>
+            <ul class="footerNav_c">
+                <h3 data-i18n="nav_8">服务支持</h3>
+                <li>
+                    <a href="/deploy" data-i18n="apply">上币申请</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer_right">
+            <p style="text-align: left;" data-i18n="a_contact">联系我们</p>
+            <p style="white-space: nowrap;margin-top: 25px;margin-right: -40px;text-align: left;color: #999;"
+                class="contact_msg">
+                客服邮箱： kinlink010@163.com </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var swiper1 = new Swiper('.swiper-container1', {
+        autoplay: true,
+        loop: true,
+        spaceBetween: 30,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+
+    var swiper2 = new Swiper('.swiper-container2', {
+        autoplay: true,
+        loop: true,
+        direction: 'vertical'
+    });
+
+    /**
+     * websocket 传输数据
+     */
+    var arr = [];
+    $.each($('.capital_key'), function () {
+        var key = $(this).val();
+        arr.push(key);
+    });
+    var arrString = arr.join(',');
+
+    // ws = new WebSocket("ws://47.244.175.58:2346");
+    ws = new WebSocket("ws://39.107.99.235:8026");
+    ws.onopen = function () {
+        ws.send('tom');
+    };
+    ws.onmessage = function (e) {
+
+        var data = eval("(" + e.data + ")");
+        var type = data.type || '';
+        switch (type) {
+            case 'init':
+                $.post('{:U("Bind/binding")}', {client_id: data.client_id, group: arrString}, function (data) {
+                }, 'json');
+                break;
+            default :
+
+                var data = JSON.parse(e.data);
+
+                var operator    = data.DiffRate <= 0 ? '' : '+';
+                var length      = $('#length' + data.capital_key + '').val();
+                var prePrice    = $('.' + data.capital_key + ' p').eq(1).html();
+
+                data.Price = data.Price.toFixed(length);
+
+                $('.' + data.capital_key + ' p').eq(1).html(data.Price);
+                $('.' + data.capital_key + ' p').eq(2).html(operator + data.DiffRate + '%');
+
+                if(data.Price < prePrice)
+                {
+                    $('.' + data.capital_key + ' p').eq(1).removeClass('price-green').addClass('price-orange');
+                    $('.' + data.capital_key + ' p').eq(2).removeClass('price-green').addClass('price-orange');
+                } else {
+                    $('.' + data.capital_key + ' p').eq(1).removeClass('price-orange').addClass('price-green');
+                    $('.' + data.capital_key + ' p').eq(2).removeClass('price-orange').addClass('price-green');
+                }
+        }
+    };
+
+    //点击关闭弹出框 (保持时间一周)
+    $('.del-img[data-v-58525266]').click(function () {
+
+        var id = "{$info['id']}";
+        $.get("{:U('Stretch/setCookie')}",{'id':id},function(data){});
+
+        $('.activity').hide();
+    });
+
+
+    window.onload=function(){
+        //设置底部导航选中状态
+      $('.headertop .wapper > ul > li').first().find('a').addClass('active');
+        // $('.footer > ul > li').first().find('a').addClass('common1');
+        // $('.footer > ul > li').first().find('em').addClass('selected');
+    }
+
+</script>
+</body>
+</html>

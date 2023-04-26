@@ -1,0 +1,146 @@
+<extend name="Base/common"/>
+<block name="content">
+<link rel="stylesheet" href="__CSS__/compiled/new-user.css" type="text/css" media="screen" />  
+   <div class="container-fluid">
+            <div id="pad-wrapper" class="new-user">
+                <div class="row-fluid header">
+                    <h3>客户管理&nbsp;>&nbsp修改用户</h3>
+                </div>
+
+                <div class="row-fluid form-wrapper row">
+                    <form  method="post" class="new_user_form" action="{:U(User/updateuser)}" style="overflow: hidden">
+                        <input type="hidden" name="uid" value="{$userme['uid']}"/>
+                        <div class="span6 with-sidebar col-sm-12 col-md-8" style="display: inline-block">
+                            <div class="span9 field-box uname" style="margin-top: 20px;">
+                                <label>用户昵称:</label>
+                                <input class="span3" type="text" name="nickname" value="{$userme['nickname']}" readonly="true"/>
+                            </div>
+                            <!--<div class="span9 field-box">-->
+                                <!--<label>真实姓名:</label>-->
+                                  <!--<input class="span8" type="text" name="real_name" value="{$person['real_name']}" disabled="" />-->
+                            <!--</div>-->
+
+                            <div class="span9 field-box">
+                                <label>邮箱:</label>
+                                <input class="span8" disabled type="text" name="email" value="{$userme['email']}" />
+                            </div>
+
+                            <div class="span9 field-box">
+                                <label>金额:</label>
+                                <input class="span2" type="text" name="balance" value=""  style="border: solid 1px #ccc;" />
+                                <span>{$account.balance}</span>
+                                &nbsp;输入”-“可减去金额
+                            </div>
+
+                            <div class="span9 field-box">
+                                <label>模拟金额:</label>
+                                <input class="span2" type="text" name="gold" value="" style="border: solid 1px #ccc;" />
+                                <span>{$account.gold}</span>
+                                &nbsp;输入”-“可减去模拟金额
+                            </div>
+
+                            <!--<div class="span9 field-box">-->
+                                <!--<label>当前积分:</label>-->
+                                <!--<input class="span2" type="text" name="integral" value="" style="border: solid 1px #ccc;" />-->
+                                <!--<span>{$account.integral}</span>-->
+                                <!--积分&nbsp;输入”-“可减去积分-->
+                            <!--</div>-->
+
+                            <div class="span9 field-box">
+                                <label>注册时间:</label>
+                                <input class="span8" type="text" name="utime" value="{$userme.utime|date='Y-m-d H:m',###}" readonly="true"/>
+                            </div>
+                            <!--<div class="span9 field-box">-->
+                                <!--<label>身份证号码:</label>-->
+                                <!--<input class="span8" type="text" name="card" value="{$person['card']}" disabled="" />-->
+                            <!--</div>-->
+                            <!--<div class="span9 field-box">-->
+                                <!--<label>当前省市:</label>-->
+                                <!--<select id="selProvince" class="f-select span2" name="province" disabled="">-->
+                                    <!--<volist name="province" id="vo">-->
+                                        <!--<eq name="person['province']" value="$vo['id']">-->
+                                            <!--<option value="{$vo.id}" selected>{$vo.joinname}</option>-->
+                                        <!--<else />-->
+                                            <!--<option value="{$vo.id}">{$vo.joinname}</option>-->
+                                        <!--</eq>-->
+                                    <!--</volist>-->
+                                <!--</select>-->
+                                <!--<select id="selCity" class="f-select span2 city" name="city" disabled="">-->
+                                    <!--<volist name="city" id="vo">-->
+                                        <!--<eq name="person['city']" value="$vo['id']">-->
+                                            <!--<option value="{$vo.id}" selected>{$vo.name}</option>-->
+                                        <!--<else />-->
+                                            <!--<option value="{$vo.id}">{$vo.name}</option>-->
+                                        <!--</eq>-->
+                                    <!--</volist>-->
+                                <!--</select>-->
+                            <!--</div>-->
+
+                            <div class="span3 field-box">
+                                <label>新密码:</label>
+                                <input class="span5" type="text" value="" name="upwd" style="border: solid 1px #ccc;"/>
+                            </div>
+                            <div class="span8 field-box actions" style="padding-bottom: 20px;">
+                                <input type="submit" class="btn-glow primary" value="修改" />
+                            </div>
+                        </div>
+                        <!--<notempty name="person['card']">-->
+                            <!--<div class="col-sm-12 col-md-4" style="padding-left: 100px;display: inline-block">-->
+                                <!--<div style="margin-bottom: 20px"><img style="max-width: 300px" src="/Uploads/{$person.card_positive}" alt=""></div>-->
+                                <!--<div><img style="max-width: 300px" src="/Uploads/{$person.card_side}" alt=""></div>-->
+                            <!--</div>-->
+                        <!--</notempty>-->
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            // toggle form between inline and normal inputs
+            var $buttons = $(".toggle-inputs button");
+            var $form = $("form.new_user_form");
+
+            $buttons.click(function () {
+                var mode = $(this).data("input");
+                $buttons.removeClass("active");
+                $(this).addClass("active");
+
+                if (mode === "inline") {
+                    $form.addClass("inline-input");
+                } else {
+                    $form.removeClass("inline-input");
+                }
+            });
+        });
+    </script>
+
+
+<script type="text/javascript">
+
+$("#selProvince").change(function(){
+    var id = $(this).val();
+    $(".city option").remove();
+    $.ajax({
+            url:"{:U('User/city')}",
+            dataType:'JSON',
+            type:'post',
+            data:{'id':id},
+            success:function(data){
+            var html = '';
+            $.each(data,function(key,val){
+                html = "<option value="+val.id+">"+val.name+"</option>"
+                $(".city").append(html);
+            });
+            }
+    })
+});
+</script>
+
+</block>

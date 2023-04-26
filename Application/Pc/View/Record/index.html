@@ -1,0 +1,454 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.transaction_records}</title>
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Qts/Home/js/layerui/css/layui.css"  media="all">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style>
+
+        ul.lists[data-v-161fa528] {
+            width: 100%;
+            padding: .15rem
+        }
+
+        ul.lists li[data-v-161fa528] {
+            width: 100%;
+            padding: .1rem .15rem .1rem .25rem;
+            border-bottom: 1px solid #ddd;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            position: relative;
+            color: #ddd !important;
+            /*-webkit-box-shadow: 0 2px 5px #ebeff3;*/
+            /*box-shadow: 0 2px 5px #ebeff3;*/
+            border-radius: .1rem;
+            margin-bottom: .2rem
+        }
+
+        ul.lists li > div.left[data-v-161fa528] {
+            -webkit-box-flex: 4;
+            -ms-flex: 4;
+            flex: 4;
+            -webkit-flex: 4;
+            border-right: .01rem solid #444;
+            padding-left: .05rem
+        }
+
+        ul.lists li > div.right[data-v-161fa528] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            padding-left: .1rem
+        }
+
+        ul.lists li p[data-v-161fa528] {
+            line-height: .2rem
+        }
+
+        ul.lists li span.hands[data-v-161fa528], ul.lists li span.name[data-v-161fa528] {
+            font-size: .14rem;
+            color: #ddd
+        }
+
+        ul.lists li span.tag[data-v-161fa528] {
+            display: inline-block;
+            vertical-align: middle;
+            width: .16rem;
+            height: .16rem;
+            text-align: center;
+            line-height: .16rem;
+            color: #fff !important;
+            font-size: .1rem;
+            border-radius: .08rem;
+            margin: 0 .05rem
+        }
+
+        ul.lists li span.ask[data-v-161fa528], ul.lists li span.open[data-v-161fa528] {
+            font-size: 12px;
+            color: #ddd
+        }
+
+        ul.lists li span.ask[data-v-161fa528] {
+            padding-left: .1rem
+        }
+
+        .txt_red[data-v-161fa528] {
+            color: #f64e43 !important
+        }
+
+        .txt_green[data-v-161fa528] {
+            color: #00cf8c !important
+        }
+
+        .bg_red[data-v-161fa528] {
+            background: #f64e43 !important;
+            color: #fff
+        }
+
+        .bg_green[data-v-161fa528] {
+            background: #00cf8c !important;
+            color: #fff
+        }
+
+        ul.lists li div.right[data-v-161fa528] {
+            text-align: center
+        }
+
+        ul.lists li span.win[data-v-161fa528] {
+            font-size: .14rem
+        }
+
+        ul.lists li span.sale[data-v-161fa528] {
+            display: block;
+            margin: 0 auto;
+            width: .48rem;
+            height: .23rem;
+            text-align: center;
+            line-height: .23rem;
+            border: .01rem solid #2187f7;
+            color: #2187f7;
+            font-size: .14rem
+        }
+
+        .put[data-v-161fa528], ul.lists li.put span.sale[data-v-161fa528] {
+            margin-top: .15rem
+        }
+
+        .showimgtip[data-v-161fa528] {
+            width: .28rem;
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+
+        .float[data-v-161fa528] {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .4);
+            z-index: 9999
+        }
+
+        .sift[data-v-161fa528] {
+            background: #fff;
+            border-radius: 5px;
+            padding: .1rem;
+            position: absolute;
+            top: .55rem;
+            right: .05rem
+        }
+
+        .sift ul[data-v-161fa528] {
+            width: 100%;
+            position: relative
+        }
+
+        .sift ul[data-v-161fa528]:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: .1rem solid transparent;
+            border-right: .1rem solid transparent;
+            border-bottom: .1rem solid #fff;
+            position: absolute;
+            top: -.2rem;
+            right: .06rem
+        }
+
+        .sift ul li[data-v-161fa528] {
+            line-height: 35px;
+            border-bottom: 1px solid #ddd;
+            color: #000;
+            font-size: .14rem;
+            text-align: center;
+            width: .8rem;
+            cursor: pointer;
+        }
+
+        .sift ul li.on[data-v-161fa528] {
+            color: #2187f7
+        }
+
+        .sift ul li[data-v-161fa528]:last-child {
+            border: none
+        }
+        /*新增css*/
+        body, html {
+          height: 100%;
+          width: 100%;
+          background: #262b41 !important;
+        }
+        .page-main {
+          background: #212139;
+          min-height: 600px;
+          margin: 30px auto !important;
+          padding: 0 80px !important;
+        }
+        .page-main h3 {
+          line-height: 110px;
+          text-align: center;
+          position: relative;
+        }
+        .page-main h3 span {
+            color: #ddd;
+        }
+        .page-main h3 a {
+          position: absolute;
+          font-size: 14px;
+          color: #77abf4;
+          top: 0;
+          right: 160px;
+        }
+        .page-main h3 .left {
+          position: absolute;
+          left: 160px;
+          color: #77abf4;
+          font-size: 14px;
+          top: 0;
+          margin-right: 0;
+          line-height: 110px;
+          cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="hidden" name="orderType" value="0">
+
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-161fa528="" class="content">
+        <!--<div data-v-161fa528="" id="head" style="width: 60%">-->
+            <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.transaction_records}<eq name="user['now_trade_status']" value="2">（{$Think.lang.simulation}）</eq></span><em></em></h3>-->
+                <!--<div class="left" onclick="window.location.href='{$urlcan}'"><a class="arrow_left"></a></div>-->
+                <!--<div class="right arrow_right"><b>{$Think.lang.screening}</b></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+        <section data-v-161fa528="" class="page-main">
+            <h3>
+              <span>{$Think.lang.transaction_records}<eq name="user['now_trade_status']" value="2">（{$Think.lang.simulation}）</eq></span>
+              <a href="javascript: void (0);" onclick="window.location.href='{$urlcan}'">{$Think.lang.back}</a>
+              <div class="left arrow_right"><b>{$Think.lang.screening}</b></div>
+            </h3>
+            <div data-v-161fa528="">
+                <div data-v-161fa528="" class="trade-list">
+                    <div data-v-ecaca2b0="" data-v-161fa528="" id="outer-vhr7b" class="_v-container" snappingheight="50"
+                         style="top: 0.5rem;">
+                        <div data-v-ecaca2b0="" id="inner-3rvho" class="_v-content"
+                             style="transform: translate3d(0px, 0px, 0px) scale(1);">
+                            <ul data-v-161fa528="" data-v-ecaca2b0="" class="lists">
+
+
+                            </ul>
+                            <div data-v-ecaca2b0="" class="loading-layer" id="LAY_demo1"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-161fa528="" class="float" style="display: none;">
+                <div data-v-161fa528="" class="sift">
+                    <ul data-v-161fa528="">
+                        <li data-v-161fa528="" data-order-type=0>{$Think.lang.all}</li>
+                        <li data-v-161fa528="" data-order-type=2>{$Think.lang.follow}</li>
+                        <li data-v-161fa528="" data-order-type=1>{$Think.lang.own}</li>
+                        <li data-v-161fa528="" data-order-type=3>{$Think.lang.cancel}</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+
+<script id="template" type="text/html">
+    {{each data as vo}}
+    {{if vo.orderType == 1}}
+        <a href="{:U('recordDetails')}?oid={{vo.oid}}">
+            <li data-v-161fa528="" data-v-ecaca2b0="" class="list-hold">
+                <div data-v-161fa528="" data-v-ecaca2b0="" class="left">
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="name">{{vo.option_name}}</span>
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="tag {{vo.ostyleColor}}">{{vo.ostyleMsg}}</span>
+                        {{if vo.order_scene == 1}}
+                        <em data-v-161fa528="" data-v-ecaca2b0="" class="hands"> x {{vo.onumber}} {$Think.lang.lots}</em>
+                        {{else}}
+                        <em data-v-161fa528="" data-v-ecaca2b0="" class="hands"> $ {{vo.Bond}}</em>
+                        {{/if}}
+                    </p>
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.opening_price}  {{vo.buyprice}}</span>
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="ask">{$Think.lang.exit_price}  {{vo.sellprice}}</span>
+                    </p>
+
+                    {{if vo.order_scene == 1}}
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.target_profit}  {{vo.endprofit}}</span>
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="ask">{$Think.lang.stop_loss}  {{vo.endloss}}</span>
+                    </p>
+                    {{else}}
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.hold_time}  {{vo.second}} s</span>
+                    </p>
+                    {{/if}}
+                </div>
+                <div data-v-161fa528="" data-v-ecaca2b0="" class="right">
+                    <div data-v-161fa528="" data-v-ecaca2b0="">
+                        <p data-v-161fa528="" data-v-ecaca2b0="" class="" style="padding-top: 0.1rem;">
+                            <span data-v-161fa528="" data-v-ecaca2b0="">{$Think.lang.cover}</span>
+                        </p>
+                        <p data-v-161fa528="" data-v-ecaca2b0="">
+                            <span data-v-161fa528="" data-v-ecaca2b0="" class="win {{vo.plossColor}}">${{vo.ploss}}</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </a>
+    {{else}}
+        <li data-v-161fa528="" data-v-ecaca2b0="" class="list-hold">
+            <div data-v-161fa528="" data-v-ecaca2b0="" class="left">
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="name">{{vo.option_name}}</span>
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="tag {{vo.ostyleColor}}">{{vo.ostyleMsg}}</span>
+                    <em data-v-161fa528="" data-v-ecaca2b0="" class="hands"> x {{vo.onumber}} {$Think.lang.lots}</em>
+                </p>
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.entrust}  {{vo.guadan_price}}</span>
+                </p>
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.target_profit}  {{vo.endprofit}}</span>
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="ask">{$Think.lang.stop_loss}  {{vo.endloss}}</span>
+                </p>
+            </div>
+            <div data-v-161fa528="" data-v-ecaca2b0="" class="right">
+                <div data-v-161fa528="" data-v-ecaca2b0="">
+                    <p data-v-161fa528="" data-v-ecaca2b0="" class="put" style="padding-top: 0.1rem;">
+                        <span data-v-161fa528="" data-v-ecaca2b0="">{$Think.lang.already_cancel}</span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    {{/if}}
+    {{/each}}
+</script>
+
+
+<script>
+    $('.arrow_right').click(function () {
+        $('.float').show();
+        $('html').css({"overflow":"hidden","height":"100%"});
+        $('body').css({"overflow":"hidden","height":"100%"});
+    })
+    $('.float').click(function (e) {
+        if (!$(e.target).hasClass('sift')) {
+            $('.float').hide();
+            $('html').css({"overflow":"auto","height":"auto"});
+            $('body').css({"overflow":"auto","height":"auto"});
+        }
+    });
+</script>
+
+<script src="__PUBLIC__/Qts/Home/js/layerui/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+layui.use('flow', function(){
+  var flow = layui.flow;
+
+  flow.load({
+    elem: '#LAY_demo1' //流加载容器
+    ,scrollElem: '' //滚动条所在元素，一般不用填，此处只是演示需要。
+    ,done: function(page, next){ //执行下一页的回调
+
+      //模拟数据插入
+      setTimeout(function(){
+        var lis = [];
+
+        var lists = GetRecordOrder(page);
+        $('.lists').append(lists);
+
+        next(lis.join(''), page < "{$count}");
+          $('#LAY_demo1 > div > a > cite').html('{$Think.lang.load_more}');
+      }, 1500);
+    }
+  });
+    $('#LAY_demo1 > div > a > cite').html('{$Think.lang.load_more}');
+});
+</script>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+
+var loading = "{$Think.lang.loading}";
+
+window.onload=function(){
+    var index = layer.open({type: 2,shadeClose:false,content:loading});
+    var lists = GetRecordOrder(1,index);
+    $('.lists').html(lists);
+}
+
+
+/**
+ * 获取订单信息
+ */
+function GetRecordOrder(page=1,index)
+{
+    var  orderType = $('input[name=orderType]').val();
+    $.ajax({
+        url:"{:U('GetRecordOrder')}",
+        async:false,
+        dataType:'json',
+        type:'get',
+        data:{'page':page,'orderType':orderType},
+        success:function(data){
+            layer.close(index);
+            if(data.code == 200)
+            {
+                lists = template('template', data);
+                if(data.data.length < 10) {
+                    $('#LAY_demo1 > div').html('{$Think.lang.no_more}');
+                    return;
+                }
+
+            } else {
+                lists = '';
+            }
+        },
+        error:function(response){
+            console.log(response);
+        }
+
+    });
+
+    return lists;
+}
+
+//检索
+$('.sift > ul > li').on('click',function(){
+
+    var orderType = $(this).attr('data-order-type');
+    $('input[name=orderType]').val(orderType);
+
+    var index = layer.open({type: 2,shadeClose:false,content:loading});
+    var lists = GetRecordOrder(1,index);
+    $('.lists').html(lists);
+});
+
+
+</script>

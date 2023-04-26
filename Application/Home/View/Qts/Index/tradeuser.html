@@ -1,0 +1,250 @@
+    
+    <include file="Base:header" />
+    <title data-n-head="true">申请交易员</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+
+    <script type="text/javascript" src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+
+    <style type="text/css">.trader-top[data-v-97ee62f6] {
+        position: releative
+    }
+
+    .trader-con[data-v-97ee62f6] {
+        /*background: url(__PUBLIC__/Qts/Home/img/public/trader_bg@2x.png) 0 0 no-repeat;*/
+        background-size: 100%;
+        /*height: 3.5rem;*/
+        margin-top: .12rem
+    }
+
+    .con-top[data-v-97ee62f6] {
+        height: 50%;
+        margin: 0 auto;
+        width: 50%;
+        text-align: center;
+        padding-top: 10%
+    }
+
+    .con-top img[data-v-97ee62f6] {
+        width: .64rem;
+        height: .64rem;
+        border-radius: 50%
+    }
+
+    .con-top .name[data-v-97ee62f6] {
+        font-size: .2rem;
+        margin-top: .07rem
+    }
+
+    .con-bot[data-v-97ee62f6] {
+        width: 100%;
+        height: 50%;
+        float: left;
+        margin: 0 auto;
+        text-align: center;
+        padding: 5% 0;
+    }
+
+    .con-bot p[data-v-97ee62f6] {
+        font-size: .17rem;
+        height: .3rem;
+        line-height: .3rem
+    }
+
+    .con-bot span[data-v-97ee62f6] {
+        color: #ff6056;
+        margin: 0 .03rem
+    }
+
+    .txt-con[data-v-97ee62f6] {
+        padding: .08rem .14rem 0;
+        position: relative
+    }
+
+    .txt-con img[data-v-97ee62f6] {
+        width: .18rem;
+        height: .16rem
+    }
+
+    .txt-con p[data-v-97ee62f6] {
+        text-align: center;
+        font-size: .17rem;
+        height: .24rem;
+        line-height: .24rem;
+        color: #999
+    }
+
+    .txt-con p[data-v-97ee62f6]:last-child {
+        margin-top: .05rem
+    }
+
+    .txt-con .mark-right[data-v-97ee62f6] {
+        position: absolute;
+        right: .14rem;
+        bottom: -.08rem
+    }
+
+    .txt-con p.right[data-v-97ee62f6] {
+        float: right;
+        margin-top: .16rem
+    }
+
+    .btn-wrap[data-v-97ee62f6] {
+        width: 100%;
+        padding: .1rem .14rem;
+        position: fixed;
+        bottom: 0
+    }
+
+    .btn-wrap p[data-v-97ee62f6] {
+        text-align: center;
+        color: #999;
+        font-size: .14rem;
+        margin-bottom: .1rem
+    }
+
+    .btn-wrap button[data-v-97ee62f6] {
+        width: 100%;
+        height: .4rem;
+        /*background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+        /*background-image: linear-gradient(-229deg, #1254a8, #0c62c1);*/
+        background: #ffbf23;
+        border-radius: 0.05rem;
+        font-size: .17rem;
+        color: #000;
+        text-align: center
+    }
+
+    @media screen and (max-width: 340px) {
+        .trader-con[data-v-97ee62f6] {
+            height: 3.2rem
+        }
+    }
+
+    .btn-wrap1 {
+        padding: .1rem .14rem;
+    }
+
+    .btn-wrap1 p {
+        box-shadow: 0 0 1px #999;
+        border-radius: 10px;
+        text-align: center;
+        padding: .13rem 0;
+        margin: .1rem 0;
+    }
+    .gray{
+        color:gray;
+    }
+    .first_trade {
+        position: relative;
+    }
+    .reachT {
+        position: absolute;
+        top: -.03rem;
+        right: -.08rem;
+        background: url(__PUBLIC__/Qts/Home/img/public/dacheng.png) 0 0 no-repeat;
+        background-size: contain;
+        display: inline-block;
+        color: #ff6056;
+        height: 100%;
+        width: .5rem;
+    }
+    </style>
+
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-97ee62f6="" class="" style="height: 100%;">
+        <div data-v-97ee62f6="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>申请成为交易员</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+        <section data-v-97ee62f6="" id="banner" class="page-main">
+            <div data-v-97ee62f6="" class="trader-con">
+                <div data-v-97ee62f6="" class="con-top"><img data-v-97ee62f6="" src="{$info.face}">
+                    <p data-v-97ee62f6="" class="name">{$info.nickname}</p></div>
+                <div data-v-97ee62f6="" class="con-bot"><p data-v-97ee62f6="">您已实盘交易<span data-v-97ee62f6="">{$order.count|default=0}</span>手，
+                </p>
+                    <p data-v-97ee62f6="">当前资金<span data-v-97ee62f6="">${$user.balance}</span>,</p>
+                    <p data-v-97ee62f6="">总收益率<span data-v-97ee62f6="">{$order.profit}%</span>,</p>
+                    <p data-v-97ee62f6="">第一次交易时间<span data-v-97ee62f6="">{$order.time}</span>。</p>
+                </div>
+            </div>
+<!--                 <div data-v-97ee62f6="" class="txt-con" style="display: block;">
+                    <img data-v-97ee62f6="" src="__PUBLIC__/Qts/Home/img/public/img1.png">
+                    <p data-v-97ee62f6="">投资不仅仅是一种行为，</p>
+                    <p data-v-97ee62f6="">更是一种带有哲学意味的东西</p>
+                    <img data-v-97ee62f6="" src="__PUBLIC__/Qts/Home/img/public/img2.png" class="mark-right">
+                    <p data-v-97ee62f6="" class="right">——约翰坎贝尔</p>
+                </div> -->
+
+            <div data-v-97ee62f6="" class="txt-con">
+                <img data-v-97ee62f6="" src="__PUBLIC__/Qts/Home/img/public/img3.png">
+                <p data-v-97ee62f6="">投资未来的人，是忠于现实的人</p>
+                <img data-v-97ee62f6="" src="__PUBLIC__/Qts/Home/img/public/img4.png" class="mark-right">
+            </div>
+
+            <if condition="$info['trade'] eq 0">
+
+                <eq name="tradeStatus" value="1">
+                    <div data-v-97ee62f6="" class="btn-wrap">
+                        <button data-v-97ee62f6="">申请中</button>
+                    </div>
+                    <else/>
+                    <if condition="$order['status'] eq 1 ">
+                        <div data-v-97ee62f6="" class="btn-wrap">
+                            <a href="javascript:void(0);" onclick="tradeApply()">
+                                <button data-v-97ee62f6="">立即申请</button>
+                            </a>
+                        </div>
+                        <else/>
+                        <div class="btn-wrap1">
+                            {$data.month_note}
+                            {$data.profit_note}
+                            {$data.balance_note}
+                        </div>
+                        <div data-v-97ee62f6="" class="btn-wrap">
+                            <a href="{:U('Product/lists')}">
+                                <button data-v-97ee62f6="">马上去交易</button>
+                            </a>
+                        </div>
+                    </if>
+                </eq>
+            <else/>
+                <div data-v-97ee62f6="" class="btn-wrap">
+                    <a href="javascript:void(0);">
+                        <button data-v-97ee62f6="">跟随管理</button>
+                    </a>
+                </div>
+            </if>
+            <!-- 收益率超过50%才可申请交易员 -->
+
+        </section>
+    </div>
+</div>
+</body>
+</html>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+    //交易员申请
+    function tradeApply() {
+        var index = layer.load(2);
+
+        $.post("{:U('tradeApply')}", function (data) {
+            if (data.code == 400) {
+                layer.close(index);
+                return layer.msg(data.msg);
+            } else {
+                layer.close(index);
+                return location.reload();
+            }
+        }, 'json');
+    }
+
+</script>

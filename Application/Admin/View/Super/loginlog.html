@@ -1,0 +1,62 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+<div class="container-fluid">
+            <div id="pad-wrapper" class="users-list">
+                <div class="row-fluid header">
+                    <h3>登录日志</h3>
+                </div>
+                <!-- Users table -->
+                <div class="row-fluid table header">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th class="span1 sortable">
+                                    编号
+                                </th>
+                                <th class="span3 sortable">
+                                    帐号
+                                </th>
+                                <th class="span3 sortable">
+                                    登录时间
+                                </th>
+                                <th class="span3 sortable">
+                                    登录IP
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <volist name="ulist" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['id']}
+                            </td>
+                            <td>
+                                <a href="javascript:void(0)" class="name">{$ult['uname']}</a>
+                            </td>
+                            <td>
+                                {$ult['cTime']}
+                            </td>
+                            <td>
+                                {$ult['ip']}
+                            </td>
+                        </tr>
+                        </volist>                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination pull-right">
+                    <ul>
+                        {$page}
+                    </ul>
+                </div>
+                <!-- end users table -->
+            </div>
+        </div>
+	<!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+</block>

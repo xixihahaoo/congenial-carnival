@@ -1,0 +1,608 @@
+<extend name="Base/common"/>
+<block name="content">
+    <link rel="stylesheet" href="__CSS__/compiled/order-list.css" type="text/css" media="screen" />
+    <link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+    <script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+    <style>
+        .tpsearch{
+            margin-bottom: 20px;
+        }
+    </style>
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            <div class="row-fluid header">
+                <form id="form1" action="__URL__/moni" method="get">
+                <h3 style="height:40px;width: 100%">模拟交易流水</h3>
+                <div class="span10 pull-left">
+                    <div class="tpsearch" style="width: 25%">
+                        电子邮箱：<input type="text" value="{$sea.email}" class="span6 search" placeholder="请输入电子邮箱查找..." name="email" id="email"/>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        订单号码：<input type="text" value="{$sea.orderno}" class="span6 search" placeholder="请输入订单号码查找..." name="orderno" />
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                      <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['starttime']}" name="starttime" id="starttime">
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$sea['endtime']}" name="endtime" id="endtime">
+                    </div>
+                </div>
+                <div class="span10 pull-left" style="margin-top: 20px;">
+
+                    <div class="tpsearch" style="width: 25%">
+                    <input type="hidden" id="user_id" value="{$user_id}">
+                        运营中心：<select id="otype" class="span6" name="otype">
+                                    <option value="">默认不选</option>
+                                    <volist name="info" id="vo">
+                                    <option value="{$vo.uid}">{$vo.username}</option>
+                                    </volist>
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%;">
+                        销售：<select id="jingjiren" class="span6" name="jingjiren">
+                                    <option value="">默认不选</option>
+                        <notempty name="jingjiren">
+                            <option value="{$jingjiren['uid']}" selected>{$jingjiren['username']}</option>
+                        </notempty>
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        会员：<select id="user" class="span6" name="user">
+                                    <option value="">默认不选</option>
+                                <notempty name="user">
+                                    <option value="{$user['uid']}" selected>{$user['username']}</option>
+                                </notempty>
+                            </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%">
+                        订单类型：<select id="ostyle" class="span6" name="ostyle">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea.ostyle eq '0'">
+                                    <option value="0" selected>买入</option>
+                                    <else/>
+                                    <option value="0">买入</option>
+                                    </if>
+                                    <if condition="$sea.ostyle eq '1'">
+                                    <option value="1" selected>卖出</option>
+                                    <else/>
+                                    <option value="1">卖出</option>
+                                    </if>
+                                </select>
+                    </div>
+
+
+                   <div style="margin-top: 50px;">
+                        <div class="tpsearch" style="width: 21.5%">
+                        订单状态：<select name="ostaus" id="ostaus" class="span7">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea.ostaus eq '0'">
+                                    <option value="0" selected>建仓</option>
+                                    <else/>
+                                    <option value="0">建仓</option>
+                                    </if>
+                                    <if condition="$sea.ostaus eq 1">
+                                    <option value="1" selected>平仓</option>
+                                    <else/>
+                                     <option value="1">平仓</option>
+                                    </if>
+
+                                </select>
+                    </div>
+                    <div class="tpsearch" style="width: 25%;margin-left: 2.6%;">
+                        订单盈亏：<select id="ploss" class="span6" name="ploss">
+                                    <option value="">默认不选</option>
+                                    <if condition="$sea.ploss eq '0'">
+                                    <option value="0" selected>盈利</option>
+                                    <else/>
+                                    <option value="0">盈利</option>
+                                    </if>
+                                    <if condition="$sea.ploss eq '1'">
+                                    <option value="1" selected>亏损</option>
+                                    <else/>
+                                    <option value="1">亏损</option>
+                                    </if>
+                                </select>
+                    </div>
+                        <div class="tpsearch" style="width: 25%">
+                        产品大类：<select name="optin_class_max" class="span7 optin_class_max">
+                                    <option value="">默认不选</option>
+                                    <volist name="classify" id="vo">
+                                        <eq name="optin_class_max" value="$vo['id']">
+                                            <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                        <else />
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        </eq>
+                                    </volist>
+                                </select>
+                        </div>
+
+                        <div class="tpsearch" style="width: 25%">
+                        产品小类：<select name="optin_class_min" class="span7 optin_class_min">
+                                    <option value="">默认不选</option>
+                                    <volist name="mindata" id="vo">
+                                        <eq name="optin_class_min" value="$vo['id']">
+                                            <option value="{$vo.id}" selected="">{$vo.name}</option>
+                                        <else />
+                                            <option value="{$vo.id}">{$vo.name}</option>
+                                        </eq>
+                                    </volist>
+                                </select>
+                        </div>
+
+                        <div class="tpsearch" style="width: 25%">
+                        交易产品：<select name="option_name" class="span7 option_name">
+                                        <option value="">默认不选</option>
+                                            <volist name="option" id="vo">
+                                                <eq name="option_name" value="$vo['id']">
+                                                    <option value="{$vo.id}" selected="">{$vo.capital_name}</option>
+                                                <else />
+                                                    <option value="{$vo.id}">{$vo.capital_name}</option>
+                                                </eq>
+                                            </volist>
+                                    </select>
+                        </div>
+                    <div class="tpsearch" style="width: 25%">
+                        交易时间：<select name="datetype" class="span7" id="datetype" onchange="cleanDateTime()">
+                                        <option value="">默认不选</option>
+                                        <option value="1" data-start="{$starttimeYesterday}" data-end="{$endtimeYesterday}" <if condition="$datetype eq 1">selected="selected"</if>>昨日</option>
+                                        <option value="2" data-start="{$starttimeWeek}" data-end="{$endtimeWeek}" <if condition="$datetype eq 2">selected="selected"</if>>本周</option>
+                                        <option value="3" data-start="{$starttimeLastWeek}" data-end="{$endtimeLastWeek}" <if condition="$datetype eq 3">selected="selected"</if>>上周</option>
+                                        <option value="4" data-start="{$starttimeLastMonth}" data-end="{$endtimeLastMonth}" <if condition="$datetype eq 4">selected="selected"</if>>上月</option>
+                                </select>
+                    </div>
+                </div>
+
+                <input type="hidden" name="type" value="2">
+                <div class="span10 pull-left" style="margin-top: 20px;">
+                    <a href="javascript:void(0)" class="btn-flat" onclick="submit()">开始查找</a>
+                    <a href="javascript:void(0)" class="btn-flat info" onclick="sub()">查找导出</a>
+                </div>
+                </form>
+            </div>
+            <!-- Users table -->
+            <div class="row-fluid table">
+                <!--//这个地方动态加载-->
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="span2 sortable">
+                            <span class="line"></span>编号
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>订单号
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户名称
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户昵称
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>电子邮箱
+                        </th>
+                        <th class="span1 sortable">
+                            <span class="line"></span>运营中心
+                        </th>
+                        <th class="span1 sortable">
+                            <span class="line"></span>销售
+                        </th>
+                        <th class="span3 sortable">
+                            <span class="line"></span>建仓时间
+                        </th>
+                        <th class="span3 sortable">
+                            <span class="line"></span>平仓时间
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>产品信息
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>数量(手)
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>方向
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>止盈
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>止损
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>保证金
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>手续费
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>隔夜费
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>买入价
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>卖出价
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>买入时长
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>出入金
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>盈亏
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>平仓类型
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>订单结果
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>订单类型
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+                    <volist name="tlist" id="tl">
+                        <tr class="first">
+                            <td>
+                                {$tl.oid}
+                            </td>
+                            <td>
+                                {$tl.orderno}
+                            </td>
+                            <td>
+                                <a href="{:U('User/updateuser',array('uid'=>$tl['uid']))}" class="name">
+                                    {$tl.username}
+                                </a>
+                            </td>
+                            <td>{$tl.nickname}</td>
+                            <td>
+                                {$tl.email}
+                            </td>
+                
+                            <td>{:change(exchange($tl[uid],2))}</td>
+                            <td>{:change(exchange($tl[uid],1))}</td>
+                            <td>{$tl.buytime|date='Y-m-d H:i:s',###}</td>
+                
+                            <eq name="tl['ostaus']" value="0">
+                                <td>--</td>
+                                <else/>
+                                <td>{$tl.selltime|date='Y-m-d H:i:s',###}</td>
+                            </eq>
+                
+                            <td>
+                                {$tl.option_name}
+                            </td>
+                            <if condition="$tl['order_scene'] eq 1">
+                                <td>{$tl.onumber}手</td>
+                                <else/>
+                                <td>--</td>
+                            </if>
+                            <td>
+                                <if condition='$tl.ostyle eq 1'>
+                                    <span class="label label-success">卖出</span>
+                                    <else/>
+                                    <span class="label label-cc">买入</span>
+                                </if>
+                            </td>
+                
+                            <if condition="$tl['order_scene'] eq 1">
+                                <td>{$tl.endprofit}</td>
+                                <td>{$tl.endloss}</td>
+                                <else/>
+                                <td>--</td>
+                                <td>--</td>
+                            </if>
+                
+                            <td>
+                                {$tl['Bond']}
+                            </td>
+                            <td>
+                                {$tl.fee}
+                            </td>
+                
+                            <td>
+                                <if condition='$tl.order_scene eq 1'>
+                                    {$tl.overnight_fee}
+                                    <else />
+                                    --
+                                </if>
+                            </td>
+                            <td>
+                                <font color="#ed0000" size="2">{$tl.buyprice}</font>
+                            </td>
+                            <td>
+                                <eq name="tl['ostaus']" value="1">
+                                    <if condition='$tl["buyprice"] lt $tl["sellprice"]'>
+                                        <font color="#ed0000" size="2">{$tl.sellprice}</font>
+                                        <else/>
+                                        <font color="#2fb44e" size="2">{$tl.sellprice}</font>
+                                    </if>
+                                    <else/>
+                                    <font color="#ed0000" size="2">--</font>
+                                </eq>
+                            </td>
+                
+                            <if condition='$tl.order_scene eq 1'>
+                                <td>--</td>
+                                <else />
+                                <td>{$tl.second}秒</td>
+                            </if>
+                
+                            <td>
+                    
+                                <if condition='$tl.access egt 0'>
+                                    <font color="#ed0000" size="2">+{$tl.access}</font>
+                                    <else/>
+                                    <font color="#2fb44e" size="2">{$tl.access}</font>
+                                </if>
+                            </td>
+                
+                            <td>
+                                <eq name="tl['ostaus']" value="1">
+                                    <if condition='$tl["ploss"] egt 0'>
+                                        <font color="#ed0000" size="2">+{$tl.ploss}</font>
+                                        <else/>
+                                        <font color="#2fb44e" size="2">{$tl.ploss}</font>
+                                    </if>
+                                    <else/>
+                                    <font color="#ed0000" size="2">0.00</font>
+                                </eq>
+                            </td>
+                
+                            <td>
+                                <eq name="tl['ostaus']" value="1">
+                                    <eq name="tl['auto']" value="1">
+                                        <font color="#2fb44e" size="2">手动</font>
+                                        <else/>
+                                        <font color="#ed0000" size="2">自动</font>
+                                    </eq>
+                                </eq>
+                            </td>
+                
+                            <td>
+                                <eq name="tl['ostaus']" value="1">
+                                    <if condition="$tl['order_result'] eq 1">
+                                        <font color="#ed0000" size="2">平局</font>
+                                        <elseif condition="$tl['order_result'] eq 2"/>
+                                        <font color="#ed0000" size="2">盈利</font>
+                                        <else/>
+                                        <font color="#2fb44e" size="2">亏损</font>
+                                    </if>
+                                </eq>
+                            </td>
+                
+                            <td>
+                                <if condition="$tl['order_type'] eq 1">
+                                    <font color="#ed0000" size="2">自持</font>
+                                    <elseif condition="$tl['order_type'] eq 2"/>
+                                    <font color="#ed0000" size="2">跟随</font>
+                                    <else/>
+                                    <font color="#ed0000" size="2">挂单</font>
+                                </if>
+                            </td>
+            
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+                <div class="qjcz">
+                    <span style="margin-right:30px;float:right">
+                        总金额：<em style="color:red;font-weight: bold; font-size: 14px;">{$data.account}</em><br>
+                        总盈亏：<em style="color:red;font-weight: bold; font-size: 14px;">{$data.ploss}</em><br>
+                        总手续费：<em style="color:red;font-weight: bold;font-size: 14px;">{$data.fee}</em><br>
+                        总隔夜费：<em style="color:red;font-weight: bold;font-size: 14px;">{$data.overnight_fee}</em><br>
+                    </span>
+                    <span style="margin-right:30px;float:right">
+                        总订单：<em style="color:red;font-weight: bold; font-size: 14px;">{$data.count}个</em><br>
+                    </span>
+                </div>
+            </div>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+    </div>
+    <!-- end main container -->
+<div id="loading" style="width: 100%;height: 105%;position: absolute;top: 0; z-index: 9999;display: none;">
+    <div class="load-center" style="background: #000;position: absolute;width: 60%;height: 14%;bottom: 10%;border-radius: 10px;color: #fff;text-align: center;font-size: 24px;left: 17%;padding: 1%;">
+        <img src="__IMG__/ajax-loading.jpg" alt="ajax-loading" width="40"/><br/>页面加载中...
+    </div>
+</div>
+<!-- scripts -->
+
+<script src="__JS__/jquery-latest.js"></script>
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/bootstrap.datepicker.js"></script>
+<script src="__JS__/theme.js"></script>
+<script type="text/javascript">
+    $(function () {
+
+        // datepicker plugin
+        $('.datepicker').datepicker().on('changeDate', function (ev) {
+            $(this).datepicker('hide');
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        
+        /** 
+         * 时间对象的格式化; 
+         */  
+        Date.prototype.format = function(format) {  
+            /* 
+             * eg:format="yyyy-MM-dd hh:mm:ss"; 
+             */  
+            var o = {  
+                "M+" : this.getMonth() + 1, // month  
+                "d+" : this.getDate(), // day  
+                "h+" : this.getHours(), // hour  
+                "m+" : this.getMinutes(), // minute  
+                "s+" : this.getSeconds(), // second  
+                "q+" : Math.floor((this.getMonth() + 3) / 3), // quarter  
+                "S" : this.getMilliseconds()  
+                // millisecond  
+            }  
+          
+            if (/(y+)/.test(format)) {  
+                format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4  
+                                - RegExp.$1.length));  
+            }  
+          
+            for (var k in o) {  
+                if (new RegExp("(" + k + ")").test(format)) {  
+                    format = format.replace(RegExp.$1, RegExp.$1.length == 1  
+                                    ? o[k]  
+                                    : ("00" + o[k]).substr(("" + o[k]).length));  
+                }  
+            }  
+            return format;  
+        }
+        
+        //var now = new Date().format("MM/dd/yyyy");
+        //$(".input-large").attr("value",now);
+    });
+
+    
+    
+    
+    
+
+    function cleanDateTime(){
+        var dt = $('#datetype').val();
+        if(dt > 0){
+            var starttime = $('#datetype').find(":selected").attr("data-start");
+            var endtime = $('#datetype').find(":selected").attr("data-end");
+            $("#starttime").val(starttime);
+            $("#endtime").val(endtime);
+        }else {
+            $("#starttime").val("");
+            $("#endtime").val("");
+        }
+    }
+
+function sub()
+{
+    $('#form1').attr("action","__URL__/daochu");
+    $('#form1').submit();
+}
+
+function submit() {
+
+    $('#form1').attr("action","__URL__/tlist");
+    $('#form1').submit();
+}
+
+$(function(){
+
+  var user_id = $("#user_id").val();
+  $("#otype option").each(function(){
+      
+        if(user_id == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+  });
+
+ var op_name = $("#op_name").val();
+$("#option option").each(function(){
+        if(op_name == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+ });
+
+    /*根据选择运营中心机构选择*/
+    $("#otype").change(function() {
+        var parent_id = $("#otype").val();
+        $.ajax({
+                    type: "GET",
+                    url: "{:U("user/ajax_get_brokers")}",
+                data: "parent_id="+parent_id,
+                success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#jingjiren").html(html);
+        }
+    });
+    });
+    /*根据选择机构获取下属会员列表*/
+    $("#jingjiren").change(function() {
+        var parent_id = $("#jingjiren").val();
+        $.ajax({
+                    type: "GET",
+                    url: "{:U("user/ajax_get_brokers")}",
+                data: "parent_id="+parent_id,
+                success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['uid']+"\">"+list[x]['username']+"</option>"
+                }
+            }
+            $("#user").html(html);
+        }
+    });
+    });
+
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+
+$(".optin_class_max").change(function() {
+    var parent_id = $(this).val();
+    $.ajax({
+        type: "get",
+        url: "{:U('getOptionClassify')}",
+        data: {'parent_id':parent_id},
+        success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['id']+"\">"+list[x]['name']+"</option>"
+                }
+            }
+            $(".optin_class_min").html(html);
+        },
+    });
+});
+
+$(".optin_class_min").change(function() {
+    var parent_id = $(this).val();
+    $.ajax({
+        type: "get",
+        url: "{:U('getOption')}",
+        data: {'parent_id':parent_id},
+        success: function(data){
+            var html = '';
+            var list = data.data;
+            html +='<option value="">默认不选</option>';
+            if(data.status>0){
+                for (x in list) {
+                    html +="<option value=\""+list[x]['id']+"\">"+list[x]['capital_name']+"</option>"
+                }
+            }
+            $(".option_name").html(html);
+        },
+    });
+});
+</script>
+</block>

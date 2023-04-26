@@ -1,0 +1,456 @@
+
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.message_center}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+
+        .mint-msgbox-title[data-v-cd4b7ab0] {
+            text-align: center;
+            padding: 0 .1rem;
+            margin-bottom: 0;
+            font-size: .16rem;
+            font-weight: 700;
+            color: #ddd
+        }
+
+        .mint-msgbox-message[data-v-cd4b7ab0] {
+            font-size: .16rem;
+            color: #ddd;
+            margin: 0;
+            text-align: center;
+            line-height: .3rem;
+            margin-top: .15rem;
+            margin-bottom: .15rem
+        }
+
+        .mint-msgbox-btns[data-v-cd4b7ab0] {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            height: 40px;
+            line-height: 40px
+        }
+
+        .mint-msgbox-btn[data-v-cd4b7ab0] {
+            line-height: 35px;
+            display: block;
+            background-color: #fff;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            margin: 0;
+            border: 0
+        }
+
+        .mint-msgbox-btn[data-v-cd4b7ab0]:focus {
+            outline: none
+        }
+
+        .mint-msgbox-btn[data-v-cd4b7ab0]:active {
+            background-color: #fff
+        }
+
+        .mint-msgbox-cancel[data-v-cd4b7ab0] {
+            width: 50%;
+            border-right: 1px solid #ccc
+        }
+
+        .mint-msgbox-cancel[data-v-cd4b7ab0]:active {
+            color: #000
+        }
+
+        .mint-msgbox-confirm[data-v-cd4b7ab0] {
+            width: 50%
+        }
+
+        .mint-msgbox-confirm[data-v-cd4b7ab0]:active {
+            color: #26a2ff
+        }
+
+        .msgbox-bounce-enter[data-v-cd4b7ab0] {
+            opacity: 0;
+            -webkit-transform: translate3d(-50%, -50%, 0) scale(.7);
+            transform: translate3d(-50%, -50%, 0) scale(.7)
+        }
+
+        .msgbox-bounce-leave-active[data-v-cd4b7ab0] {
+            opacity: 0;
+            -webkit-transform: translate3d(-50%, -50%, 0) scale(.9);
+            transform: translate3d(-50%, -50%, 0) scale(.9)
+        }
+
+        .msgbox-cancle-icon[data-v-cd4b7ab0] {
+            position: fixed;
+            bottom: 20%;
+            left: 50%;
+            color: #fff;
+            -webkit-transform: translate3d(-50%, -50%, 0);
+            transform: translate3d(-50%, -50%, 0);
+            font-size: 16px;
+            -webkit-user-select: none;
+            overflow: hidden;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transition: .2s;
+            -o-transition: .2s;
+            transition: .2s;
+            z-index: 1000;
+            width: 5%;
+            height: 5%
+        }
+
+        .navTit[data-v-3291fe86] {
+            line-height: .4rem;
+            position: fixed;
+            top: 0;
+            background-color: #fff;
+            padding: 0 .44rem;
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-bottom: .01rem solid #53524f;
+            z-index: 3
+        }
+
+        .nav2[data-v-3291fe86] {
+            margin-top: .5rem
+        }
+
+        .selected[data-v-3291fe86] {
+            color: #0086ff;
+            position: relative
+        }
+
+        .navTit > div[data-v-3291fe86] {
+            width: 50%;
+            float: left;
+            font-size: .15rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .selected > span[data-v-3291fe86]:nth-of-type(2) {
+            position: absolute;
+            top: .38rem;
+            left: 42%;
+            width: .26rem;
+            height: .02rem;
+            background-color: #0086ff
+        }
+
+        ul[data-v-3291fe86] {
+            overflow: hidden;
+            padding-top: .44rem
+        }
+
+        li[data-v-3291fe86] {
+            width: 100%;
+            padding: .25rem 0 .25rem .25rem;
+            background-color: #fff;
+            position: relative
+        }
+
+        li[data-v-3291fe86], li[data-v-3291fe86]:before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 100%;
+            /*overflow-y: scroll;*/
+        }
+        li[data-v-3291fe86]:before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            bottom: 0;
+            border-bottom: 1px solid #53524f;
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5)
+        }
+
+        li[data-v-3291fe86]:last-child {
+            border-bottom: none
+        }
+
+        p[data-v-3291fe86] {
+            overflow: hidden;
+            color: #222;
+            word-wrap: break-word
+        }
+
+        .title[data-v-3291fe86] {
+            float: left;
+            font-size: .15rem
+        }
+
+        .unread[data-v-3291fe86] {
+            position: absolute;
+            display: inline-block;
+            width: .08rem;
+            height: .08rem;
+            border-radius: .04rem;
+            background-color: #f54f4c;
+            left: .1rem;
+            top: .32rem
+        }
+
+        .selected1 .unread[data-v-3291fe86] {
+            top: .15rem;
+            right: .7rem;
+            left: inherit
+        }
+
+        .isread[data-v-3291fe86] {
+            background-color: #ddd
+        }
+
+        .detail[data-v-3291fe86] {
+            width: 100%;
+            color: #666;
+            font-size: .14rem;
+            padding-right: .2rem;
+            margin-top: .1rem
+        }
+
+        time[data-v-3291fe86] {
+            color: #ddd;
+            font-size: .12rem;
+            margin-left: .1rem
+        }
+
+        .navTit[data-v-7eceb2a2] {
+            line-height: .4rem;
+            /*position: fixed;*/
+            /*top: 0;*/
+            /*margin-top: .5rem;*/
+            padding: 0 .44rem;
+            /*width: 60%;*/
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            overflow: hidden;
+            border-bottom: .01rem solid #53524f;
+            z-index: 3
+        }
+
+        .nav2[data-v-7eceb2a2] {
+            margin-top: .5rem
+        }
+
+        .selected[data-v-7eceb2a2] {
+            color: #7aaeed;
+            position: relative
+        }
+
+        .navTit > div[data-v-7eceb2a2] {
+            width: 50%;
+            float: left;
+            font-size: .15rem;
+            text-align: center;
+            cursor: pointer;
+            color: #ddd;
+        }
+
+        .selected > span[data-v-7eceb2a2]:nth-of-type(2) {
+            position: absolute;
+            top: .38rem;
+            left: 40.5%;
+            width: .75rem;
+            height: .02rem;
+            background-color: #7aaeed
+        }
+
+        ul[data-v-7eceb2a2] {
+            overflow: hidden;
+            padding-top: .44rem
+        }
+
+        li[data-v-7eceb2a2] {
+            width: 100%;
+            padding: .25rem 0 .25rem .25rem;
+            /*background-color: #fff;*/
+            position: relative
+        }
+
+        li[data-v-7eceb2a2], li[data-v-7eceb2a2]:before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        li[data-v-7eceb2a2]:before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            bottom: 0;
+            /*border-bottom: 1px solid #e2e5e8;*/
+            -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+            -webkit-transform: scale(.5);
+            -ms-transform: scale(.5);
+            transform: scale(.5)
+        }
+
+        li[data-v-7eceb2a2]:last-child {
+            border-bottom: none
+        }
+
+        p[data-v-7eceb2a2] {
+            overflow: hidden;
+            color: #ddd;
+            word-wrap: break-word;
+
+        }
+
+        .title[data-v-7eceb2a2] {
+            display: block;
+            font-size: .16rem
+        }
+
+        .unread[data-v-7eceb2a2] {
+            position: absolute;
+            display: inline-block;
+            width: .08rem;
+            height: .08rem;
+            border-radius: .04rem;
+            background-color: #7aaeed;
+            left: .1rem;
+            top: .32rem
+        }
+
+        .isread[data-v-7eceb2a2] {
+            background-color: #ddd
+        }
+
+        .selected1 .unread[data-v-7eceb2a2] {
+            top: .15rem;
+            right: .7rem;
+            left: inherit
+        }
+
+        .selected .unread[data-v-7eceb2a2] {
+            top: .15rem;
+            right: .3rem;
+            left: inherit
+        }
+
+        .detail[data-v-7eceb2a2] {
+            width: 100%;
+            color: #ddd;
+            font-size: .14rem;
+            padding-right: .2rem;
+            margin: .05rem 0 ;
+            border-bottom: 1px solid #53524f;
+        }
+
+        time[data-v-7eceb2a2] {
+            display: block;
+            color: #999;
+            font-size: .12rem;
+            line-height: .2rem
+        }
+
+        body {
+            /*background: #f5f5f5*/
+            height: 100%;
+            /*overflow: hidden;*/
+        }
+        #__nuxt {
+            height: 100%;
+            /*background: rgba(0,0,0,.75);*/
+        }
+        .detail ~ p {
+            color: #ddd;
+            font-size: .14rem
+        }
+        #head {
+            /*background: none;*/
+        }
+        /*新增*/
+        body, html {
+          height: 100%;
+          width: 100%;
+          background: #262b41 !important;
+        }
+        .contentWrap {
+          width: 1014px;
+          min-height: 720px;
+          float: left;
+          background: #212139;
+          padding: 0 68px;
+          position: relative;
+        }
+    </style>
+</head>
+<body>
+<div id="msgPubContentC">
+    <div id="__nuxt">
+        <div class="progress" data-v-4a8a9a01=""
+             style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+        <div data-v-7eceb2a2="" class="content">
+            <!--<div data-v-7eceb2a2="" id="head" style="width: 60%">-->
+                <!--<div class="head_content"><h3 class="product-name" style="border-bottom: .01rem solid #444;"><span>{$Think.lang.message_center}</span><em></em></h3>-->
+                    <!--<div class="left" onclick="window.location.href='{:U('User/index')}'"><a class="arrow_left"></a></div>-->
+                    <!--<div class="right arrow_right"><b></b></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--引入导航条-->
+            <include file="Base:footer" />
+            <section data-v-7eceb2a2="" class="page-main clearfix" style="padding: 0 !important;">
+              <!--引入个人中心公共组件-->
+              <include file="User:userPublic" />
+              <div class="contentWrap">
+                <div data-v-7eceb2a2="" class="navTit nav2">
+                  <div data-v-7eceb2a2="" class="selected1" onclick="window.location.href='{:U('index')}'">
+                        <span data-v-7eceb2a2="">
+                            {$Think.lang.system_message}
+                          <!--<eq name="status" value="1">-->
+                          <!--<em data-v-7eceb2a2="" class="unread"></em>-->
+                          <!--</eq>-->
+                        </span>
+                  </div>
+                  <div data-v-7eceb2a2="" class="selected">
+                    <span data-v-7eceb2a2="">{$Think.lang.notice_message}</span>
+                    <span data-v-7eceb2a2=""></span>
+                  </div>
+                </div>
+                <ul data-v-7eceb2a2="">
+
+                  <volist name="list" id="vo">
+                    <a href="{:U('Stretch/stretchDetails',array('id' => $vo['id']))}">
+                      <li data-v-7eceb2a2=""><em data-v-7eceb2a2="" class="unread {$vo.class}"></em>
+                        <p data-v-7eceb2a2=""><span data-v-7eceb2a2="" class="title">{$vo.title}</span>
+                          <time data-v-7eceb2a2="">{$vo.time}</time>
+                        </p>
+                        <p data-v-7eceb2a2="" class="detail" >{$vo.content}
+                        </p>
+                      </li>
+                    </a>
+                  </volist>
+                </ul>
+              </div>
+
+            </section>
+
+            <include file="Base:trueFooter" />
+        </div>
+    </div>
+</div>
+<script>
+  window.onload = function () {
+    $('.headertop .wapper > ul > li').last().find('a').addClass('active');
+    $('.userPublic .userMenu > ul > li').eq(4).find('a').addClass('active');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<extend name="Base/common"/>
+<block name="content">
+	<!-- this page specific styles -->
+	<link href="__CSS__/lib/bootstrap-wysihtml5.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/uniform.default.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/select2.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="__CSS__/compiled/article-add.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+	
+	
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="form-page">
+			<div class="row-fluid form-wrapper">
+				<!-- left column -->
+				<form action="{:U('Live/roomImg')}" enctype="multipart/form-data" method="post" id='fr'>
+					<div class="span8 column">
+					
+			 <input type="hidden" value="{$id}" name="id">
+						<div class="field-box">
+							<label>房间图片:</label>
+							<input class="span6 inline-input" type="text" name="ncover" value="" />
+							<a href="javascript:;" class="pic-upload"><input id='file'; onchange="c()" class="span2 inline-input" name="input-file" type="file" value="" />点击上传图片</a>
+							<div style="height: 400px;width: 750px"><img src="../../../../Public/Qts/Home/img/houtairoombeijing.jpg" id='show' style="height: 400px;width: 750px"></div>
+						</div>
+						
+						<div class="field-box actions">
+							<input  id='sbtn' type="submit" class="btn-glow primary" value="提交"><span>或</span><input type="reset" value="重置" class="reset">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- scripts for this page -->
+	<script src="__JS__/wysihtml5-0.3.0.js"></script>
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/bootstrap-wysihtml5-0.0.2.js"></script>
+	<script src="__JS__/bootstrap.datepicker.js"></script>
+	<script src="__JS__/jquery.uniform.min.js"></script>
+	<script src="__JS__/select2.min.js"></script>
+	<script src="__JS__/theme.js"></script>
+	
+	<script type="text/javascript">
+        function c() {
+            var r = new FileReader();
+            f = document.getElementById('file').files[0];
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('show').src = this.result;
+            };
+
+        }
+	</script>
+	<!-- call this page plugins -->
+	<script type="text/javascript">
+        $("input[name=input-file]").change(function () {
+            $("input[name=ncover]").val($(this).val());
+        })
+
+        $(function () {
+
+            // add uniform plugin styles to html elements
+            $("input:checkbox, input:radio").uniform();
+
+            // select2 plugin for select elements
+            $(".select2").select2({
+                placeholder: "Select a State"
+            });
+
+            // datepicker plugin
+            $('.datepicker').datepicker().on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+
+            // wysihtml5 plugin on textarea
+            $(".wysihtml5").wysihtml5({
+                "font-styles": false
+            });
+        });
+	</script>
+	<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+	
+</block>

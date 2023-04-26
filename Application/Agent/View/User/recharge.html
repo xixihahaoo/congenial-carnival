@@ -1,0 +1,265 @@
+<include file="Common:header" />
+<include file="Common:main_container_header" />
+<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+<style type="text/css">
+.dataTables_length span{color: red;}
+td{text-align: center;}
+#id_search_area>div>div>div{height: 70px}
+</style>
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            用户管理
+            <small>
+                <i class="icon-double-angle-right"></i>
+                充值记录
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-header">
+                        充值记录
+                    </div>
+                    <div class="table-responsive">
+
+                    <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                        <form action="__URL__/withdrawal" method="get" id="form1">
+
+                            <div class="row" id="id_search_area">
+                                <div class="col-sm-9">
+                                <div style=" width: 1350px; height: 100px;">
+
+                                <div class="col-sm-2">
+                                    <!-- <label>开始时间:</label> -->
+                                   <input class="layui-input input" style="width: 200px;" placeholder="开始时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$starttime}" name="start_time">
+
+                                </div>
+
+                                <div class="col-sm-2">
+                                 <!--    <label>结束时间:</label> -->
+                                   <input class="layui-input input" style="width: 200px;" placeholder="结束时间" onclick="layui.laydate({elem: this, istime: true, format: 'YYYY-MM-DD hh:mm:ss'})" value="{$endtime}" name="end_time">
+
+                                </div>
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="电子邮箱" value="{$email}" aria-controls="sample-table-2" name="email" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                   <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户名称" value="{$username}" aria-controls="sample-table-2" name="username" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="用户昵称" value="{$nickname}" aria-controls="sample-table-2" name="nickname" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                                <input class="class_search_area input" placeholder="编号ID" value="{$bpid}" aria-controls="sample-table-2" name="bpid" data-type="agent_name" type="text" style="height: 36px;">
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-2">
+                                        <div class="dataTables_length" id="">
+                                            <label>
+                                    充值状态：<select id="type" class="span7" name="status" style="width: 100px;">
+                                                <option value="">默认不选</option>
+                                                <option value="1" <if condition="$status eq 1">selected="selected"</if>>充值成功</option>
+                                                <option value="2" <if condition="$status eq 2">selected="selected"</if>>充值失败</option>
+                                                <option value="0" <if condition="$status eq '0'">selected="selected"</if>>待处理</option>
+                                            </select>
+                                            </label>
+                                        </div>
+                                        <input type="hidden" value="{$operator}" id="operator">
+                                    </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="hr hr-24"></div>
+                                <div class="col-sm-12">
+                                    <div class="dataTables_length" id="sample-table-2_length1">
+                                        <label>
+                                            <input type="button"  onclick="sub()" value="点击查询" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="button" onclick="daochu()" value="查找导出" class="btn btn-xs btn-info">
+                                        </label>&nbsp;&nbsp;
+                                        <label>
+                                            <input type="button" id="id_reset" value="清空数据" class="btn btn-xs btn-info">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        <div role="grid" class="dataTables_wrapper" id="sample-table-2_wrapper">
+                            <table id="sample-table-2" class="table table-striped table-bordered table-hover dataTable">
+                                <thead>
+                                <tr>
+                                    <th class="center">编号id</th>
+                                    <th class="center">用户名称</th>
+                                    <th class="center">电子邮箱</th>
+                                    <th class="center">用户昵称</th>
+                                    <th class="center">订单号码</th>
+                                    <th class="center">充值时间</th>
+                                    <th class="center">处理时间</th>
+                                    <th class="center">充值金额</th>
+                                    <th class="center">用户余额</th>
+                                    <th class="center">充值渠道</th>
+                                    <th class="center">充值状态</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <volist name="rechargelist" id="v">
+                                <tr>
+                                    <td class="center">{$v.bpid}</td>
+
+                                    <td>{$v.username}</td>
+
+                                    <td>{$v.email}</td>
+
+                                    <td>{$v.nickname}</td>
+
+                                    <td class="center">{$v.balanceno}</td>
+                                    <td>{$v[bptime]|date='Y-m-d H:i:s',###} </td>
+
+                                    <td>
+                                        <if condition="$v.cltime eq '' ">
+                                            --
+                                        <else/>
+                                            {$v[cltime]|date='Y-m-d H:i:s',###}
+                                        </if>
+                                    </td>
+
+                                    <td>{$v.bpprice}</td>
+                                    <td>{$v.shibpprice}</td>
+                                    <td>{$v.pay_type}</td>
+
+                                    <if condition="$v['status'] eq 1 "> 
+		                              	<td>充值完成</td>
+			                        <elseif condition="$v['status'] eq 2"/>
+			                            <td>充值失败</td>
+			                        <else />
+			                            <td>待处理</td>
+			                        </if>
+
+                                </tr>
+                                </volist>
+
+                                </tbody>
+                            </table>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="dataTables_info" id="sample-table-2_info">共<b class="orange">{$totalCount}</b>，当前显示第 <b class="orange">{$nowStart}</b>到<b class="orange">{$nowEnd}</b></div>
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="dataTables_paginate paging_bootstrap">
+                                        <ul class="pagination">
+                                            {$pageShow}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <div class="dataTables_length" id="" style="width: 265px;">
+                                    <label>
+                                        <span>总充值金额: {$data.allAmount}</span></br>
+                                        <span>成功充值金额: {$data.sucessAmount}</span></br>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--end id sample-table-2_wrapper-->
+                    </div>
+                    <!-- end table-responsive -->
+                </div>
+            </div>
+            <div class="space-20"></div>
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+
+
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+
+
+var user_id = $("#jingji").val();
+$("#jinjiren option").each(function(){
+        if(user_id == $(this).val()){
+
+             $(this).attr('selected',true);
+        }
+});
+
+$("#id_reset").click(function(){
+    
+     $('.input').val("");
+     $('.selected').attr('selected',true);
+});
+
+
+//日期选择时间
+layui.use('laydate', function(){
+  var laydate = layui.laydate;
+});
+
+function sub() {
+    $('#form1').attr("action","__URL__/recharge");
+    $('#form1').submit();
+}
+
+function daochu() {
+    $('#form1').attr("action","__URL__/recharge_daochu");
+    $('#form1').submit();
+}
+
+var uid = $("#operator").val();
+$.each($('#option option'),function(){
+    var id = $(this).val();
+    if(uid == id)
+    {
+        $(this).attr('selected',true);
+    }
+});
+</script>
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

@@ -1,0 +1,86 @@
+<?php
+/**
+ * 个人中心
+ * Created by PhpStorm.
+ * User: 王海东
+ * Date: 2018/12/27
+ * Time: 11:19
+ */
+return [
+    'hello'           => '您好',
+    'not_logged'      => '您還未登錄',
+    'login'           => '去登入',
+    'personal_center' => '個人中心',
+
+    'following'          => '跟隨管理',
+    'statistics'         => '投資統計',
+    'banks'              => '銀行卡包',
+    'integral_mall'      => '積分商城',
+    'promotion'          => '我的推廣',
+    'meessage'           => '消息中心',
+    'recharge'           => '充值',
+    'withdrawal'         => '提現',
+    'account_balance'    => '帳戶餘額',
+    'firm_account'       => '實时帳戶',
+    'simulated_accounts' => '類比盤帳戶',
+    'simulated_balance'  => '類比金餘額',
+    'switching_accounts' => '切換經紀商帳戶',
+    'uncertified'        => '未認證',
+    'in_audit'           => '稽核中',
+    'please_switch'      => '請切換至實盤帳戶',
+    'confim_msg'         => '確定要成為推廣員嗎',
+    'determine'          => '確定',
+    'do_not'             => '不要',
+    'please_wait'        => '請等待',
+
+    'lang_choice'      => '語言選擇',
+    'account_settings' => '帳戶設定',
+    'help_center'      => '幫助中心',
+    'risk_warning'     => '風險提示',
+    'service'          => '聯系客服',
+
+    'api_input_name'      => '請填寫姓名',
+    'api_input_id'        => '請填寫身份證號或護照',
+    'api_input_bank'      => '請填寫銀行卡號',
+    'api_input_bank_name' => '請填寫銀行名稱',
+    'api_input_branch'    => '請填寫開戶行',
+    'api_input_tel'       => '請填寫電話',
+    'api_input_swiftcode' => '請填寫國際匯款程式碼',
+    'api_input_address'   => '請填寫開戶地址',
+    'api_bank_img'        => '請上傳銀行卡圖片',
+    'api_bank_audit'      => '銀行卡稽核中',
+    'api_repeat_bind'     => '請勿重複綁定',
+    'api_input_nickname'  => '請輸入昵稱',
+
+    'personal_data'   => '個人資料',
+    'head_portrait'   => '頭像',
+    'nickname'        => '昵稱',
+    'modify_nickname' => '修改昵稱',
+    'modify_des'      => '2-10個字元，可由中英文、數位組成',
+    'submit'          => '提交',
+    'upload_error'    => '請確保檔案為影像類型',
+    'input_nickname'  => '請輸入昵稱',
+
+    'select_account'  => '選擇帳戶',
+    'trading_account' => '請選擇您的交易帳戶',
+    'switch_analog'   => '切換至類比盤帳戶',
+    'standard'        => '標準版',
+    'since'           => '入金：100美金起',
+    'working'         => '出金：1個工作日到賬',
+    'switch_account'  => '切換至實时帳戶',
+    'account_des'     => '於2011年獲得澳大利亞證券投資委員會（ASIC）認可並接受其全面監管，監管號為389194。我們致力於提供越得交易環境節，極得交易體驗證，安全的資金保障。',
+
+    'bind_bank'       => '綁定銀行卡',
+    'name'            => '姓名',
+    'id'              => '身份Id（護照）',
+    'bank_card'       => '銀行卡號',
+    'bank_name'       => '銀行名稱',
+    'swiftcode'       => '國際匯款程式碼',
+    'branch'          => '開戶行',
+    'tel'             => '聯繫電話',
+    'address'         => '開戶地址',
+    'upload_positive' => '請上傳銀行卡正面',
+    'shot_positive'   => '拍攝正面',
+    'open_account'    => '開戶',
+    'network_delay'   => '網路延遲，請稍後再試',
+];

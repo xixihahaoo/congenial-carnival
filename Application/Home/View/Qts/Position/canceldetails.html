@@ -1,0 +1,1271 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.entrust_details}</title>
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="2171aacc:0 f6ab7448:0 4134c036:0">
+        .zixuan li[data-v-63966bdb] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        padding: .09rem .1rem;
+        color: #fff;
+        border-radius: .04rem;
+        margin-right: .1rem;
+        text-align: center;
+        overflow: hidden;
+        background: #fff;
+        -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1)
+    }
+
+    .zixuan li[data-v-63966bdb]:last-child {
+        margin-right: 0
+    }
+    .variety_right div[data-v-145cf773] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        border-radius: .02rem;
+        font-size: .15rem;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    .variety_right div[data-v-145cf773]:first-of-type {
+        margin-right: .12rem
+    }
+
+    .variety_right div[data-v-145cf773]:nth-of-type(3) {
+        margin-left: .12rem
+    }
+
+    .trade-con .list[data-v-6524b236] {
+        width: 100%;
+        margin-top: .15rem;
+        padding-bottom: .15rem;
+        border-bottom: 1px solid #e5e5e5
+    }
+
+    .trade-con .list[data-v-6524b236]:last-child {
+        border: 0 none
+    }
+
+    .con-txt[data-v-6524b236] {
+        display: inline-block;
+        width: 22%;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: left;
+        font-size: .14rem
+    }
+    .putType-wrap li[data-v-6524b236] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        text-align: center;
+        border: 1px solid #c8c8c8;
+        border-radius: .02rem;
+        font-size: .14rem;
+        color: #666;
+        height: .24rem;
+        line-height: .22rem
+    }
+
+    .putType-wrap li[data-v-6524b236]:not(:last-child) {
+        margin-right: .08rem
+    }
+    .stock-wrap {
+        background: #171520;
+    }
+
+    .stock-price, .stock-title {
+        width: 100%;
+        height: .34rem;
+        position: absolute;
+        z-index: 99
+    }
+
+    .stock-title {
+        width: 100%;
+        height: .3rem;
+        position: relative;
+        z-index: 999;
+        background: #171520;
+        border-radius: .1rem .1rem 0 0
+    }
+
+    .nav-wrap {
+        margin: 0 .15rem;
+        overflow-x: auto;
+        height: .3rem
+    }
+
+    .nav-img {
+        position: absolute;
+        width: .1rem;
+        right: .15rem;
+        height: .24rem
+    }
+
+    .stock-price {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        z-index: 999;
+        display: none
+    }
+
+    .stock-title {
+        overflow-x: scroll
+    }
+
+    #priceMsg {
+        left: 0
+    }
+
+    #priceMsg p {
+        display: block;
+        width: 100%;
+        height: .24rem;
+        padding-left: .14rem;
+        overflow: hidden
+    }
+
+    #priceMsg p, ul.stock-tab {
+        height: .25rem;
+        color: #999;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border-radius: .4rem 0 0 .4rem;
+        width: 5.6rem;
+    }
+
+    ul.stock-tab {
+        height: .25rem;
+        color: #999;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border-radius: .4rem 0 0 .4rem;
+        /*width: 100%;*/
+        display: flex;
+        background: #999;
+    }
+
+    .stock-tab li {
+        width: 0.5rem;
+        float: left;
+        margin-left: .1rem;
+        color: #333;
+        /*text-align: center;*/
+        padding: 0 .05rem;
+    }
+
+    .stock-tab li:first-child {
+        margin-left: 0
+    }
+
+    .stock-tab li.has {
+        color: #ffbf23;
+        border: 1px solid #ffbf23;
+        border-radius: .2rem
+    }
+
+    #priceMsg span {
+        padding: 0 .03rem;
+        font-size: .1rem;
+        color: #222
+    }
+
+    .stock-line {
+        height: 3rem;
+        width: 100%;
+        vertical-align: middle;
+        background: #f2f2f2
+    }
+
+    .mod-kline, .mod-sline {
+        height: 2.2rem;
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+        top: .14rem
+    }
+
+    .mod-kline text, .mod-lightning text, .mod-sline text {
+        font: 12px Arial;
+        text-anchor: start;
+        -webkit-tap-highlight-color: transparent
+    }
+
+    article {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        position: relative
+    }
+
+    .article {
+        top: .36rem
+    }
+
+    .ma {
+        font-size: .1rem;
+        color: #333;
+        margin: 0 .15rem
+    }
+
+    .ma span {
+        padding-left: .22rem;
+        margin-right: .1rem
+    }
+
+    span.ma5 {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAAMhJREFUOBG1VLsOwjAMPPeHurBSmJHgb1iQYEIs/A0IZh4rC3xQzbmqIrUKVRxRT4l9vpwucQSZ8Z7pFIq1ABOjUOAFwbG8yzOHkjz+oIiN1Njz8E4/N7UW2FLMwcvaIUppNico4kYRRQzfipl7nYmSxQ4IOV7HLxGGaWrEBHziQj6VXlSxSMSPAhPB1e/IKFKg/jdS6Yn+Lwf1CM7lQ1aDmF7R7whH1B5kjydsmxoxIZG4cAuxaaCPu5gYy7Xj6/5L2JsX//7Qvn1lPzRdJgJuAAAAAElFTkSuQmCC) no-repeat 0;
+        background-size: 20%
+    }
+
+    span.ma10 {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAAMNJREFUOBFjZCATpMz/bwvUWgrEJlAjzgDp7jmJjIehfJIoRpJUQxUDHVH1n4GhheE/A4p+IOcfUKQW6Jg2Us1FMYgYzeCQ+M9wAOgQJmzqoY5xIDVksBqGzQIksVJcjgCpgcqBoowkwAj04db//xm8SNJFZcWMjAzbyAkRKjsDHIr/yUkjm4Ah6IvPNUAfbgamET98atDlyAmRbnCCRDcJyofKdeOQxilMskPAuYGJoQ6bY8BikOxLclkC1EseoHaBBgC7gzdCKck6xgAAAABJRU5ErkJggg==) no-repeat 0;
+        background-size: 20%
+    }
+
+    span.ma20 {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAKCAYAAADRuIyZAAAAAXNSR0IArs4c6QAAANpJREFUOBFjZCATvHvkb8vw51/pf0YGE5ARjP8ZzjCwMHULyW08TI6RjORoevfAt4rh//+W//8ZUPQzMjL+A4rUCilsbiPVXBSDiNEMDom//w78//+fCZt6sGOYmRxIDRmshmGzAC4Gig4cjgCpAcsB1cDVE8lgfHffZyswiL2IVE8TZYyMDNtIDxFaOOU/IzDNkwje3fPd9J/hvy8+bYwMjJuFlDb74VODLkd6iACzKDhBopsE5YPlgGpwSOMUJtkh4NzAyFCHzTFgMVD2JaMsITlqYF6idoEGAG3STCOh+37pAAAAAElFTkSuQmCC) no-repeat 0;
+        background-size: 20%
+    }
+
+    .touch-border {
+        width: 100%;
+        height: .16rem;
+        position: fixed;
+        top: 1.48rem;
+        z-index: 999;
+        background: #fff;
+        border-radius: .1rem .1rem 0 0;
+        display: none
+    }
+
+
+    .msgbox-cancle-icon[data-v-cd4b7ab0] {
+        position: fixed;
+        bottom: 20%;
+        left: 50%;
+        color: #fff;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transform: translate3d(-50%, -50%, 0);
+        font-size: 16px;
+        -webkit-user-select: none;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+        transition: .2s;
+        z-index: 1000;
+        width: 5%;
+        height: 5%
+    }
+
+    .li-main > span[data-v-adff73de] {
+        position: relative;
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        justify-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: .4rem
+    }
+
+    .li-main > span[data-v-adff73de]:before {
+        position: absolute;
+        left: 0;
+        width: .32rem;
+        height: .38rem;
+        margin-top: .08rem;
+        content: "";
+        background-repeat: no-repeat
+    }
+
+    #head2 h3 {
+        height: .5rem;
+        line-height: .5rem;
+        margin: 0;
+        font-size: .16rem;
+        font-weight: 400;
+        overflow: hidden
+    }
+
+    .product-name {
+        position: relative
+    }
+
+    #head2 h3 span:first-of-type {
+        display: block;
+        font-size: .16rem
+    }
+
+    .product-name em {
+        position: absolute;
+        top: .18rem;
+        font-size: .12rem;
+        left: 50%;
+        margin-left: -.32rem
+    }
+
+    .kline-main[data-v-3313d0ea] {
+        padding-top: .6rem;
+        z-index: 100
+    }
+
+    .kline-main article[data-v-3313d0ea] {
+        top: .1rem
+    }
+
+    .detail-title[data-v-3313d0ea] {
+        background: #fff;
+        padding: 0 .15rem .05rem
+    }
+
+    .article[data-v-3313d0ea] {
+        top: .1rem
+    }
+
+    .variety-title[data-v-3313d0ea] {
+        height: .25rem;
+        line-height: .25rem
+    }
+
+    .detail-title .buy-tag[data-v-3313d0ea] {
+        border-radius: .1rem;
+        font-size: .1rem
+    }
+
+    .detail-wrap[data-v-3313d0ea] {
+        position: relative
+    }
+
+    .showimgtip[data-v-3313d0ea] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: .28rem
+    }
+
+    .detail-wrap ul[data-v-3313d0ea] {
+        background: #fff;
+        padding: 0 .15rem
+    }
+
+    .detail-list[data-v-3313d0ea] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        height: .49rem;
+        line-height: .5rem
+    }
+
+    .eee[data-v-3313d0ea] {
+        background: #eee
+    }
+
+    .f5[data-v-3313d0ea] {
+        background: #f5f5f5
+    }
+
+    .list-txt[data-v-3313d0ea] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        padding-left: .3rem;
+        color: #999
+    }
+
+    .list-num[data-v-3313d0ea] {
+        margin-right: .2rem;
+        text-align: left;
+        color: #333;
+        display: inline-block;
+        width: 38%
+    }
+
+    .detail-btn[data-v-3313d0ea] {
+        width: 100%;
+        height: .55rem;
+        position: fixed;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        /*background: hsla(0, 0%, 100%, .8)*/
+        background: #171520;
+    }
+
+    .detail-btn a[data-v-3313d0ea] {
+        -webkit-box-flex: 2;
+        -ms-flex: 2;
+        flex: 2;
+        -webkit-flex: 2;
+        height: .45rem;
+        line-height: .45rem;
+        text-align: center;
+        color: #000;
+        font-size: .16rem;
+        margin: 0 .1rem;
+        border-radius: .23rem;
+        background: #fff;
+        border: .01rem solid #ffbf23;
+    }
+
+    .detail-btn a.flex[data-v-3313d0ea] {
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        -webkit-flex: 3
+    }
+
+    .detail-btn a.bor_blue[data-v-3313d0ea] {
+        color: #2187f7
+    }
+
+    .detail-btn a.bg_blue[data-v-3313d0ea] {
+        background: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);
+        background: linear-gradient(-229deg, #1254a8, #0c62c1)
+    }
+
+    .line[data-v-3313d0ea] {
+        width: 100%;
+        background: #fff
+    }
+
+    .line img[data-v-3313d0ea] {
+        display: block;
+        width: 100%
+    }
+
+    .stock-wrap[data-v-3313d0ea] {
+        top: 0
+    }
+
+    .order-info[data-v-3313d0ea] {
+        background: #fff;
+        padding: 0 .15rem
+    }
+
+    .order-info p[data-v-3313d0ea] {
+        line-height: .25rem;
+        color: #999;
+        font-size: .1rem
+    }
+
+    .mod-kline text, .mod-lightning text, .mod-sline text {
+        font: 12px Arial;
+        text-anchor: start;
+        -webkit-tap-highlight-color: transparent
+    }
+
+    .popup-img {
+        padding-top: .1rem
+    }
+
+    .popup, .popup ul {
+        width: 100%
+    }
+
+    .popup ul li {
+        width: 100%;
+        height: .3rem;
+        line-height: .3rem;
+        clear: both
+    }
+
+    .popup-title {
+        font-size: .2rem;
+        color: #999;
+        padding: .15rem
+    }
+
+    .popup-title .buy-tag {
+        border-radius: .1rem;
+        font-size: .12rem;
+        margin: 0 .03rem
+    }
+
+    .popup-title em {
+        color: #b2b2b2;
+        font-size: .14rem;
+        padding-left: .02rem
+    }
+
+    .popup-img .btns {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        margin-top: .2rem
+    }
+
+    .popup-img .btns a {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        height: .44rem;
+        display: block;
+        text-align: center;
+        line-height: .44rem;
+        font-size: .17rem
+    }
+
+    .btn-cancel {
+        border-top: .01rem solid #444;
+        color: #ffbf23;
+    }
+
+    .btn-ok {
+        border-top: .01rem solid #ffbf23;
+        color: #000;
+        background: #ffbf23;
+    }
+
+    .list {
+        margin-bottom: .2rem
+    }
+
+    .list .con-txt {
+        height: .2rem;
+        line-height: .2rem
+    }
+
+        .detail[data-v-170af394] {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%
+    }
+
+    .kline-main[data-v-170af394] {
+        padding-top: .6rem;
+        z-index: 100
+    }
+
+    .kline-main article[data-v-170af394] {
+        top: .1rem
+    }
+
+    .detail-title[data-v-170af394] {
+        background: #1c1a25;
+        padding: 0 .15rem .05rem
+    }
+
+    .variety-title[data-v-170af394] {
+        height: .4rem;
+        line-height: .3rem;
+        padding-top: .1rem;
+    }
+    .variety-name {
+        color: #999999 !important;
+    }
+    .detail-title .buy-tag[data-v-170af394] {
+        border-radius: .1rem;
+        font-size: .1rem
+    }
+    .detail-wrap[data-v-170af394] {
+        position: relative
+    }
+
+    .showimgtip[data-v-170af394] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: .28rem
+    }
+
+    .detail-wrap ul[data-v-170af394] {
+        background: #1c1a25;
+        padding: 0.1rem .15rem
+    }
+
+    .detail-list[data-v-170af394] {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        height: .49rem;
+        line-height: .5rem
+    }
+
+    .eee[data-v-170af394] {
+        /*background: #eee;*/
+        background: #1c1a25
+    }
+
+    .f5[data-v-170af394] {
+        /*background: #f5f5f5*/
+        background: #1c1a15
+    }
+
+    .list-txt[data-v-170af394] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        padding-left: .15rem;
+        color: #999
+    }
+
+    .list-num[data-v-170af394] {
+        margin-right: .1rem;
+        text-align: left;
+        color: #999;
+        display: inline-block;
+        width: 44%;
+        text-align: center
+    }
+
+    .detail-btn[data-v-170af394] {
+        width: 100%;
+        height: .55rem;
+        position: fixed;
+        bottom: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        display: -webkit-flex;
+        background: #1c1a25;
+        opacity: .8
+    }
+
+    .detail-btn a[data-v-170af394] {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        -webkit-flex: 1;
+        height: .4rem;
+        line-height: .4rem;
+        text-align: center;
+        color: #000;
+        font-size: .16rem;
+        margin: 0 .1rem;
+        border-radius: .05rem;
+        background: #000;
+        border: .01rem solid #ffbf23;
+    }
+
+    .detail-btn a.bor_blue[data-v-170af394] {
+        color: #ffbf23;
+    }
+
+    .detail-btn a.bg_blue[data-v-170af394] {
+        /*background: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+        /*background: linear-gradient(-229deg, #1254a8, #0c62c1)*/
+        background: #ffbf23;
+    }
+
+    .line[data-v-170af394] {
+        width: 100%;
+        background: #fff
+    }
+
+    .line img[data-v-170af394] {
+        display: block;
+        width: 100%
+    }
+
+    .stock-wrap[data-v-170af394] {
+        top: 0
+    }
+
+    .order-info[data-v-170af394] {
+        background: #171520;
+        padding: 0.1rem .15rem;
+        margin-bottom: .3rem;
+    }
+
+    .order-info p[data-v-170af394] {
+        line-height: .25rem;
+        color: #999;
+        font-size: .1rem
+    }
+
+    .touch-border[data-v-170af394] {
+        display: none
+    }
+
+    .con-wrap[data-v-170af394] {
+        width: 100%;
+        position: relative;
+        left: 0;
+        overflow-y: scroll;
+    }
+
+    .con-main[data-v-170af394] {
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        padding-bottom: .55rem;
+        -webkit-overflow-scrolling: touch
+    }
+    .popup-window{
+        display: none;
+    }
+        .article{
+            height:350px;
+        }
+    </style>
+</head>
+<body class="">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-170af394="" class="detail">
+        <div data-v-170af394="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>{$Think.lang.entrust_details}</span><em></em></h3>
+                <div class="left" onclick="window.location.href='{:U('trade')}';"><a class="arrow_left"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+        <div data-v-170af394="" class="kline-main">
+            <div data-v-170af394="" class="stock-wrap">
+                <div class="touch-border"></div>
+                <div id="stock-title" class="stock-title" style="display: block;">
+                    <div class="nav-wrap"><img
+                            src="__PUBLIC__/Qts/Home/img/chicang/img2.png"
+                            class="nav-img" style="display: inline-block;">
+                        <ul id="stock" class="stock-tab clearfix" style="width: 4.7rem">
+                            <li data="fenshi" class="nav-list has">Time</li>
+                            <li data="1m" class="nav-list">1M</li>
+                            <li data="5m" class="nav-list">5M</li>
+                            <li data="15m" class="nav-list">15M</li>
+                            <li data="30m" class="nav-list">30M</li>
+                            <li data="1h" class="nav-list">1H</li>
+                            <li data="4h" class="nav-list">4H</li>
+                            <li data="1d" class="nav-list">1D</li>
+                            <!--<li data="1w" class="nav-list">1周</li>-->
+                            <!--<li data="1m" class="nav-list">1月</li>-->
+                        </ul>
+                    </div>
+                </div>
+                <article class="article" style="top: 0px;">
+                    <iframe id="nowtu" name='nowtu' style='width:100%;height:100%;border: 0;'
+                            src="{:U('Product/highcharts',array('code' => $option['capital_key'],'interval' => 'fenshi','type' => 'candlestick','height' =>350,'length' => $info['capital_length']))}"></iframe>
+                </article>
+            </div>
+
+        </div>
+        <div data-v-170af394="" class="con-wrap">
+            <section data-v-170af394="" class="con-main">
+                <div data-v-170af394="" class="detail-wrap">
+
+                    <div data-v-170af394="" class="detail-title">
+                        <p data-v-170af394="" class="variety-title">
+                            <span data-v-170af394="" class="variety-name">{$order.option_name}</span>
+                            <span data-v-3313d0ea="" class="buy-tag {$order.ostyleColor}" style="padding: .02rem .04rem">{$order.ostyleMsg}</span>
+                        </p>
+                        <p data-v-170af394="" class="txt_gray">{$Think.lang.deadline}
+                            <em data-v-170af394="" class="market-time">{:date('Y/m/d H:i:s',$order['end_time'])}</em>
+                        </p>
+                    </div>
+
+                    <ul data-v-170af394="">
+
+                        <li data-v-170af394="" class="detail-list">
+                            <div data-v-170af394="" class="list-txt eee">{$Think.lang.stop_loss}
+                                <em data-v-170af394="" class="list-num right">{$order.endloss}</em>
+                            </div>
+                            <div data-v-170af394="" class="list-txt f5">{$Think.lang.current_price}
+                                <em data-v-170af394="" class="list-num right nowPrice">{$order.now_price}</em>
+                            </div>
+                        </li>
+
+                        <li data-v-170af394="" class="detail-list">
+                            <div data-v-170af394="" class="list-txt f5">{$Think.lang.target_profit}
+                                <em data-v-170af394="" class="list-num right">{$order.endprofit}</em>
+                            </div>
+                            <div data-v-170af394="" class="list-txt eee">{$Think.lang.entrust}
+                                <em data-v-170af394="" class="list-num right openPrice">{$order.guadan_price}</em>
+                            </div>
+                        </li>
+
+                        <li data-v-170af394="" class="detail-list">
+                            <div data-v-170af394="" class="list-txt eee">{$Think.lang.trade_lots}
+                                <em data-v-170af394="" class="list-num right">{$order.number}</em>
+                            </div>
+                            <div data-v-170af394="" class="list-txt f5">{$Think.lang.delegate_type}
+                                <em data-v-170af394="" class="list-num right">{$order.typeMsg}</em>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--<div data-v-170af394="" class="line">-->
+                    <!--<img data-v-170af394="" src="__PUBLIC__/Qts/Home/img/chicang/img3.png">-->
+                <!--</div>-->
+                <div data-v-170af394="" class="order-info">
+                    <p data-v-170af394="">{$Think.lang.entrust_time}:{:date('Y/m/d H:i:s',$order['create_time'])}</p>
+                    <p data-v-170af394="">{$Think.lang.orderno}:{$order.order_no}</p>
+                </div>
+                <div data-v-170af394="" class="detail-btn">
+                    <a data-v-170af394="" href="javascript:;" class="bor_blue">{$Think.lang.setting_stop_loss}</a>
+                    <a data-v-170af394="" href="javascript:;" class="bg_blue" onclick="cancelOrder();">{$Think.lang.cancellations}</a>
+                </div>
+            </section>
+        </div>
+        <div data-v-170af394="">
+            <div id="popup-box" class="popup-window">
+                <div class="popup-img">
+                    <div class="popup-title">{$order.option_name}
+                        <span class="buy-tag {$order.ostyleColor}" style="padding: .02rem .04rem">{$order.ostyleMsg}</span>
+                        <em>x{$order.number} {$Think.lang.lots}</em>
+                    </div>
+                    <div class="popup-content">
+                        <div class="popup">
+                            <ul>
+                                <li><span class="left">{$Think.lang.entrusted_price}</span><span class="right">{$order.guadan_price}</span></li>
+                                <li><span>{$Think.lang.current_price}</span><span class="right alertNewPrice">{$order.now_price}</span></li>
+                            </ul>
+                        </div>
+
+                        <div class="list clearfix">
+                            <div>
+                                <span class="con-txt">{$Think.lang.stop_loss}</span>
+                                <div class="con-right right taparea">
+                                    <em class="icon-min" onclick="loss(this,2,1)"></em>
+                                    <input type="number" value="{$order.endloss}" class="handnum lossWinInput endloss" onchange="targetMarket(this,'EstimatePloss',2)">
+                                    <em class="icon-add" onclick="loss(this,1,1)"></em>
+                                </div>
+                            </div>
+                            <p class="right clearfix EstimatePloss">
+                                {$order.lossSymbol}<em>{$order.now_price}</em> {$Think.lang.expected_losses} <em>${$order.lossLoss}</em>
+                            </p>
+                        </div>
+
+                        <div class="list clearfix">
+                            <div>
+                                <span class="con-txt">{$Think.lang.target_profit}</span>
+                                <div class="con-right right taparea">
+                                    <em class="icon-min" onclick="loss(this,2,2);"></em>
+                                    <input type="number" value="{$order.endprofit}" class="handnum lossWinInput endprofit" onchange="targetMarket(this,'EstimateProfit',1)">
+                                    <em class="icon-add" onclick="loss(this,1,2)"></em>
+                                </div>
+                            </div>
+                            <p class="right clearfix EstimateProfit">
+                                {$order.profitSymbol}<em>{$order.now_price}</em> {$Think.lang.expected_profits} <em>${$order.lossLoss}</em>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="btns"><a class="btn-cancel">{$Think.lang.cancel}</a><a class="btn-ok" onclick="saveProfitAndLoss();">{$Think.lang.determine}</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script>
+    $('.bor_blue').click(function () {
+        $('.popup-window').show()
+    })
+    $('.btn-cancel').click(function () {
+        $('.popup-window').hide()
+    })
+
+
+    $('.stock-tab li').click(function () {
+        var interval = $(this).attr('data')
+        var code = "{$option.capital_key}";
+        var type = 'type';
+        var height = 350;
+        var length = "{$info.capital_length}";
+        var src = '{:U("Product/highcharts")}' + "?code=" + code + "&interval=" + interval + "&type=" + type + "&height=" + height + "&length=" + length + "";
+        $('#nowtu').attr('src', src)
+        $('.stock-tab li').removeClass('has');
+        $(this).addClass('has')
+    });
+
+    
+    /**
+     * [loss 点击止损止盈]
+     * @param  {[object]}     obj       [当前DOM对象]
+     * @param  {[Number]}     type      [1加 2减]
+     * @param  {[Number]}     stop_type [1止损 2止盈]
+     */
+    function loss(obj, type, stop_type) {
+        var val = parseFloat($(obj).siblings('input').val());
+
+        var openPrice   = $('.openPrice').html();
+        var nowPrice    = $('.alertNewPrice').html();    //当前价格
+
+        //止损价/止盈价
+        var endloss     = $('.EstimatePloss > em').html();
+        var endprofit   = $('.EstimateProfit > em').html();
+
+
+        var length  = "{$info.capital_length}";
+        var capital_dot_length = "{$option.capital_dot_length}";
+        var wave    = "{$option.wave}";
+        var number  = "{$order.number}";
+
+        wave = wave * number;
+
+        var marketBond  = "{$order.bond}";
+        var ostyle      = "{$order.ostyle}"; //买入方向 0涨 1跌
+
+        var point = (marketBond / wave) / capital_dot_length;
+
+        arr = profitFormula(openPrice, endloss, endprofit, point, length, val, type, stop_type, ostyle);
+
+        val = arr.val;
+
+        $(obj).siblings('input').val(val.toFixed(length));
+
+        SettingLoss();
+    }
+
+    //止损价，止盈价
+    function profitFormula(openPrice, endloss, endprofit, point, length, val, type, stop_type, ostyle) {
+        var numberArr   = lengthToNumber(1);
+        var num         = parseFloat(numberArr[length]);
+
+        var upperLimit  = 999999;   //上限点位
+        var lowerLimit  = num;   //止损下限点位
+        
+        if (ostyle == 1) {
+            if (stop_type == 1) {
+                if (type == 1) {
+                    if (val < upperLimit)
+                        val += num;
+                } else {
+                    if (val > endloss)
+                        val -= num;
+                }
+            } else {
+
+                if (type == 1)  //加号
+                {
+                    if (val < endprofit)
+                        val += num;
+                } else {
+                    if (val > lowerLimit)
+                        val -= num;
+                }
+            }
+        } else {
+            if (stop_type == 1) {
+                if (type == 1)  //加号
+                {
+                    if (val < endloss)
+                        val += num;
+                } else {
+                    if (val > lowerLimit)
+                        val -= num;
+                }
+            } else {
+                if (type == 1)  //加号
+                {
+                    if (val < upperLimit)
+                        val += num;
+                } else {
+                    if (val > endprofit)
+                        val -= num;
+                }
+            }
+        }
+
+        arr = {};
+        arr['val'] = val;
+
+        return arr;
+    }
+
+    //计算大约止损价以及止盈价
+    function calculationPrice() {
+        var openPrice   = $('.openPrice').html();
+        $('.EstimatePloss > em').first().html(openPrice);
+        $('.EstimateProfit > em').first().html(openPrice);
+    }
+
+    calculationPrice();
+
+    /***********************************************************************/
+
+    //计算预计亏损
+    function SettingLoss() {
+        var openPrice   = $('.openPrice').html();
+        var capital_dot_length = "{$option.capital_dot_length}";
+        var wave        = "{$option.wave}";
+        var number      = "{$order.number}";
+
+        wave = wave * number;
+        var ostyle = "{$order.ostyle}"; //0涨 1跌
+
+        //计算止损价格
+        var endloss     = $('.endloss').val();                      //获取输入框止损价格
+        var lossPrice   = $('.EstimatePloss > em').first().html();  //最小止损价格
+        var isFocus     = $('.endloss').is(":focus");               //获取止损焦点
+
+        if(ostyle == 0)
+        {
+            if(endloss > lossPrice) {
+                if(isFocus != true)
+                    $('.endloss').val(lossPrice);
+
+                endloss = lossPrice;
+            }
+        } else {
+            if(endloss < lossPrice) {
+                if(isFocus != true)
+                    $('.endloss').val(lossPrice);
+
+                endloss = lossPrice;
+            }
+        }
+
+        var loss = (openPrice - endloss) * wave * capital_dot_length;
+        $('.EstimatePloss > em').last().html('$' + Math.abs(loss.toFixed(2)));     //止损
+
+        
+        //计算止盈价格
+        var endprofit       = $('.endprofit').val();
+        var profitPrice     = $('.EstimateProfit > em').first().html();
+        var profitIsFocus   = $('.endprofit').is(":focus"); //获取止盈焦点
+
+        if(ostyle == 0)
+        {
+            if(endprofit < profitPrice ) {
+                if(profitIsFocus != true)
+                    $('.endprofit').val(profitPrice);
+
+                endprofit = profitPrice;
+            }
+        } else {
+            if(endprofit > profitPrice ) {
+                if(profitIsFocus != true)
+                    $('.endprofit').val(profitPrice);
+
+                endprofit = profitPrice;
+            }
+        }
+
+        var profit = (openPrice - endprofit) * wave * capital_dot_length;
+        $('.EstimateProfit > em').last().html('$' + Math.abs(profit.toFixed(2))); //止盈
+    }
+
+
+    /**
+     * [lengthToNumber 数字位数转换小说之]
+     * @param  {[Number]} num [数字位数]
+     * @author wang 990529346@qq.com
+     */
+    function lengthToNumber(num) {
+        var numberArr = {};
+        numberArr[0] = num;
+        numberArr[1] = '0.' + num;
+        numberArr[2] = '0.0' + num;
+        numberArr[3] = '0.00' + num;
+        numberArr[4] = '0.000' + num;
+        numberArr[5] = '0.0000' + num;
+        numberArr[6] = '0.00000' + num;
+        numberArr[7] = '0.000000' + num;
+        return numberArr;
+    }
+
+  /**
+   * 手动输入止盈止损
+   * @param  {[object]} obj       当前dom对象
+   * @param  {[string]} className 类名称
+   * @param  {[int]}    stop      止盈止损 1止盈 2止损
+   */
+    function targetMarket(obj,className,stop)
+    {
+        var minPrice    = parseFloat($('.'+className+' > em').first().html());      //最小价格
+        var maxPrice    = parseFloat($('.'+className+' > em').first().html());      //最大价格
+        var val         = parseFloat($(obj).val());
+        var ostyle      = "{$order.ostyle}";        //0买入 1卖出
+
+        var length      = "{$info.capital_length}"; //当前小数点位长度
+
+        minPrice        = parseFloat(minPrice).toFixed(length);
+        maxPrice        = parseFloat(maxPrice).toFixed(length);
+
+        var upperLimit  = 999999;   //止盈上限点位
+        var loperLimit  = 0;
+        
+        //如果当前价格小于最小止盈
+        if(ostyle == 1)
+        {
+            if(stop == 2)
+            {
+                if(val < minPrice || val > upperLimit || isNaN(val))
+                    $(obj).val(minPrice);
+            } else {
+                if(val > maxPrice || val <= loperLimit || isNaN(val))
+                    $(obj).val(maxPrice);
+            }
+        } else {
+            if(stop == 2)
+            {
+                if(val > minPrice || val <= loperLimit || isNaN(val))
+                    $(obj).val(minPrice);
+            } else {
+                if(val < maxPrice || val > upperLimit || isNaN(val))
+                    $(obj).val(maxPrice);
+            }
+        }
+        SettingLoss();
+    }
+
+</script>
+</body>
+</html>
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+    /**
+     * [websocketByAcceptData 以websocket方式接受数据]
+     * @return {[type]} [description]
+     */
+    var loading = "{$Think.lang.loading}";
+    
+    function websocketByAcceptData(index) {
+        // ws = new WebSocket("ws://47.244.175.58:2346");
+        ws = new WebSocket("ws://39.107.99.235:8026");
+        ws.onopen = function () {
+            ws.send('tom');
+        };
+        ws.onmessage = function (e) {
+
+            var data = eval("(" + e.data + ")");
+            var type = data.type || '';
+            switch (type) {
+                case 'init':
+                    $.post('{:U("Bind/bindUid")}', {client_id: data.client_id}, function (data) {
+                    }, 'json');
+                    break;
+                default :
+                    data = JSON.parse(e.data);
+
+                    var id = "{$order.id}";
+                    if (id != '') {
+                        $.each(data.restingData, function (key, val) {
+                            if (id == val.id) {
+                                $('.nowPrice').html(val.now_price);
+
+                                //操作弹窗的价格
+                                $('.alertNewPrice').html(val.now_price);
+                                SettingLoss(); //预计亏损
+                                // calculationPrice();
+                            }
+                        });
+                    }
+                    layer.close(index);
+            }
+        };
+    }
+
+    window.onload = function () {
+        var index = layer.open({type: 2,shadeClose:false,content:loading});
+        websocketByAcceptData(index);
+    }
+
+    //9分钟后刷新页面
+    window.setTimeout("location.reload()", 540000);
+
+
+    var arrString = "{$option.capital_key}";
+
+    // ws = new WebSocket("ws://47.244.175.58:2346");
+    ws = new WebSocket("ws://39.107.99.235:8026");
+    ws.onopen = function () {
+        // ws.send('tom');
+    };
+    ws.onmessage = function (e) {
+
+        var data = eval("(" + e.data + ")");
+        var type = data.type || '';
+        switch (type) {
+            case 'init':
+                $.post('{:U("Bind/binding")}', {client_id: data.client_id, group: arrString}, function (data) {
+                }, 'json');
+                break;
+            default :
+                var data = JSON.parse(e.data);
+                var length = "{$info.capital_length}";
+
+                price = data.Price.toFixed(length);
+
+                try {
+                    frames['nowtu'].updateData1M(price);
+                } catch (e) {
+                }
+        }
+    };
+
+    //止盈止损参数提交
+    function saveProfitAndLoss() {
+        var id          = "{$order.id}";
+        var endprofit   = $('.endprofit').val();
+        var endloss     = $('.endloss').val();
+
+        var index = layer.open({type: 2,shadeClose:false,content:loading});
+
+        $.ajax({
+            url: "{:U('guadanSaveProfitAndLoss')}",
+            dataType: 'json',
+            type: 'post',
+            data: {'id': id, 'endprofit': endprofit, 'endloss': endloss},
+            success: function (data) {
+                layer.open({
+                    content: data.msg
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+
+                if (data.code == 200)
+                    setTimeout("window.location.reload()",1500);
+
+                layer.close(index);
+            },
+            error: function (res) {
+                console.log(res);
+            }
+        });
+    }
+
+    //订单撤单操作
+    function cancelOrder()
+    {
+        var id      = "{$order.id}";
+        var index   = layer.open({type: 2,shadeClose:false,content:loading});
+
+        $.ajax({
+            url: "{:U('cancelOrder')}",
+            dataType: 'json',
+            type: 'post',
+            data: {'id': id},
+            success: function (data) {
+                layer.open({
+                    content: data.msg
+                    ,skin: 'msg'
+                    ,time: 2 //2秒后自动关闭
+                });
+                layer.close(index);
+                if(data.code == 200){
+                    setTimeout("window.location.href='{:U('trade')}';",500);
+                }
+            },
+            error: function (res) {
+                console.log(res);
+            }
+        });
+    }
+
+
+</script>

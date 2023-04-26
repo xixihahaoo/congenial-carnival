@@ -1,0 +1,160 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.modify_nickname}</title>
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+    <style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+        .ipt-group[data-v-7ccdb03b] {
+            overflow: hidden;
+            /*background-color: #fff;*/
+            padding: 0 .14rem;
+            line-height: .6rem;
+            font-size: .15rem
+        }
+
+        label[data-v-7ccdb03b] {
+            display: block;
+            border-bottom: 1px solid #444
+        }
+
+        input[data-v-7ccdb03b] {
+            display: block;
+            line-height: .5rem;
+            top: .2rem;
+            width: 80%;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #77abf4;
+        }
+
+        label .icon_s[data-v-7ccdb03b] {
+            position: absolute;
+            display: block;
+            right: 0;
+            top: .15rem;
+            background-size: 100%
+        }
+
+        p[data-v-7ccdb03b] {
+            padding: .09rem .14rem .47rem;
+            color: #ddd;
+            font-size: .12rem
+        }
+
+        span[data-v-7ccdb03b] {
+            color: #77abf4
+        }
+
+        .ipt-btn[data-v-7ccdb03b] {
+            margin: .25rem auto 0;
+            line-height: .4rem;
+            text-align: center;
+            border-radius: .04rem;
+            background-color: #999;
+            color: #fff;
+            width: 30%;
+
+        }
+
+        .btnColor[data-v-7ccdb03b] {
+            /*background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+            /*background-image: linear-gradient(-229deg, #1254a8, #0c62c1)*/
+            background: #77abf4;
+        }
+        /*新增css*/
+        body, html {
+          height: 100%;
+          width: 100%;
+          background: #262b41 !important;
+        }
+        .page-main {
+          background: #212139;
+          min-height: 600px;
+          margin: 30px auto !important;
+          padding: 0 80px !important;
+        }
+        .page-main h3 {
+          line-height: 110px;
+          text-align: center;
+          position: relative;
+        }
+        .page-main h3 a {
+          position: absolute;
+          font-size: 14px;
+          color: #77abf4;
+          top: 0;
+          right: 160px;
+        }
+        .page-main .content {
+          padding: 40px 80px;
+          background: #262b41;
+        }
+
+    </style>
+    <style type="text/css" data-n-head="true">
+      /*body {*/
+        /*background: #1c1a25*/
+      /*}*/
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-7ccdb03b="" class="">
+        <!--<div data-v-7ccdb03b="" id="head" style="width: 60%">-->
+            <!--<div class="head_content"><h3 class="product-name"><span style="color: #ffbf23">{$Think.lang.modify_nickname}</span><em></em></h3>-->
+                <!--<div class="left" onclick="window.history.back()"><a class="arrow_left"></a></div>-->
+                <!--<div class="right arrow_right"><b></b></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+        <section data-v-7ccdb03b="" class="page-main">
+            <h3>
+              <span>{$Think.lang.modify_nickname}</span>
+              <a href="javascript: void (0);" onclick="window.location.href = '{:U(\'User/index\')}'">{$Think.lang.back}</a>
+            </h3>
+            <div data-v-7ccdb03b="" class="content">
+                <div data-v-7ccdb03b="" class="ipt-group">
+                    <label data-v-7ccdb03b="">
+                        <input data-v-7ccdb03b="" type="text" name="nickname" value="{$user.nickname}" placeholder="{$Think.lang.input_nickname}">
+                    </label>
+                </div>
+                <p data-v-7ccdb03b="">{$Think.lang.modify_des}</p>
+
+            </div>
+            <div data-v-7ccdb03b="" class="ipt-btn btnColor" onclick="saveNickname()">{$Think.lang.submit}</div>
+        </section>
+
+        <include file="Base:trueFooter" />
+    </div>
+</div>
+
+
+</body>
+</html>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+//提交信息
+function saveNickname()
+{
+    var index       = layer.load(2);
+    var nickname    = $("input[name='nickname']").val();
+
+    $.ajax({
+        url:"{:U('nicknameSave')}",
+        dataType:'json',
+        type:'post',
+        data:{'nickname':nickname},
+        success:function(data){
+            layer.msg(data.msg);
+            layer.close(index);
+        },
+        error:function(response){
+            console.log(response);
+        }
+    });
+}
+</script>

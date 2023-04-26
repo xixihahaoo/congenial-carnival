@@ -1,0 +1,559 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.my_promotion}</title>
+
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="06d13674:0 309b0fcd:0">ul[data-v-6bfd1221] {
+        margin: 0 .14rem .14rem
+    }
+
+    li[data-v-6bfd1221] {
+        height: .72rem;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+
+    .h-f > li[data-v-6bfd1221] {
+        height: .5rem;
+        line-height: .5rem;
+        font-size: .15rem;
+        color: #333;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding-left: .48rem
+    }
+
+    .h-f > li[data-v-6bfd1221]:before {
+        position: absolute;
+        left: .25rem;
+        width: .28rem;
+        height: .28rem;
+        margin-top: .12rem;
+        content: ""
+    }
+
+    b[data-v-6bfd1221] {
+        display: inline-block;
+        width: .48rem;
+        height: .01rem;
+        background-color: #f5f5f5;
+        position: relative;
+        top: -.05rem
+    }
+
+    .secti[data-v-e17e7db0] {
+        /*background: url(__PUBLIC__/Qts/Home/img/extension/genaralize_bg@2x.png) no-repeat center -.2rem;*/
+        /*background-size: cover;*/
+        /*background: #171520;*/
+        position: relative;
+        height: 1.3rem
+    }
+
+    .promotionhead[data-v-e17e7db0] {
+        padding: .15rem .14rem 0
+    }
+
+    .balance[data-v-e17e7db0] {
+        padding-top: 0.13rem;
+        float: left;
+        width: 50%
+    }
+
+    .balance span[data-v-e17e7db0] {
+        font-size: 14px;
+        color: #fff;
+        letter-spacing: 0
+    }
+
+    .balance span[data-v-e17e7db0]:nth-child(2) {
+        display: inline-block;
+        border: 1px solid #2187f7;
+        border-radius: 3px;
+        width: .75rem;
+        height: .22rem;
+        line-height: .22rem;
+        font-size: 14px;
+        color: #2187f7;
+        text-align: center;
+        margin-left: .1rem
+    }
+
+    .balance p[data-v-e17e7db0] {
+        font-size: 32px;
+        color: #fff;
+        letter-spacing: 0;
+        text-align: left;
+        margin-top: .1rem
+    }
+
+    .promotionstart[data-v-e17e7db0] {
+        text-align: right;
+        padding-top: .1rem
+    }
+
+    .promotionstart img[data-v-e17e7db0] {
+        width: .15rem;
+        height: .18rem;
+        /*margin-left: .06rem*/
+    }
+
+    .promotionstart p[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #2187f7;
+        letter-spacing: 0
+    }
+
+    .promotiondata[data-v-e17e7db0] {
+        padding: 0 .15rem;
+        position: absolute;
+        height: .7rem;
+        width: 100%;
+        top: 1rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1;
+        /*background: #171520;*/
+        -webkit-box-shadow: 0 6px 15px 0 rgba(1, 45, 103, .09);
+        box-shadow: 0 6px 15px 0 rgba(1, 45, 103, .09);
+        border: 1px solid rgba(1, 45, 103, .09);
+        border-radius: 4px
+    }
+
+    .promotiondata li[data-v-e17e7db0] {
+        width: 50%;
+        height: 75%;
+        float: left;
+        text-align: center;
+        border-right: 1px solid #444;
+        margin-top: .08rem
+    }
+    /*.promotiondata li[data-v-e17e7db0]:last-child{*/
+        /*border-right: none*/
+    /*}*/
+
+    .promotiondata li[data-v-e17e7db0]:nth-child(2) {
+        border: 0
+    }
+
+    .promotiondata li p[data-v-e17e7db0] {
+        font-size: 20px;
+        color: #ffbf23;
+        letter-spacing: 0;
+        margin-top: .05rem
+    }
+
+    .promotiondata li span[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #ddd;
+        letter-spacing: 0
+    }
+
+    .topjt[data-v-e17e7db0] {
+        margin-top: .7rem;
+        text-align: center
+    }
+
+    .bottomjt img[data-v-e17e7db0], .topjt img[data-v-e17e7db0] {
+        width: .5rem
+    }
+
+    .peoplecode[data-v-e17e7db0] {
+        padding: .2rem .14rem 0;
+        position: relative
+    }
+
+    .tipimg img[data-v-e17e7db0] {
+        width: .15rem;
+        margin-right: .05rem
+    }
+
+    .tipimg[data-v-e17e7db0] {
+        font-size: 15px;
+        color: #ffbf23;
+        letter-spacing: 0;
+        position: relative
+    }
+
+    .linkrule[data-v-e17e7db0] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 14px;
+        color: #ddd;
+        letter-spacing: 0
+    }
+
+    .linkrule img[data-v-e17e7db0] {
+        float: right;
+        margin: .02rem 0 0 .05rem
+    }
+
+    .peoplecode p[data-v-e17e7db0] {
+        font-size: 14px;
+        color: #ddd;
+        letter-spacing: 0;
+        /*text-indent: .22rem;*/
+        line-height: .25rem;
+        margin-top: .07rem
+    }
+
+    .pro_img[data-v-e17e7db0] {
+        height: 200px;
+        width: 200px;
+        margin: .3rem auto .25rem;
+        position: relative
+    }
+
+    .qrcodeimg[data-v-e17e7db0] {
+        width: 100%;
+        height: 100%
+    }
+
+    .topimg[data-v-e17e7db0] {
+        position: absolute;
+        top: -.15rem;
+        right: -.15rem;
+        width: .32rem
+    }
+
+    .bottomimg[data-v-e17e7db0] {
+        position: absolute;
+        bottom: -.15rem;
+        left: -.15rem;
+        width: .32rem
+    }
+
+    .titlemsg[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #ddd;
+        letter-spacing: 0;
+        text-align: center
+    }
+
+    .nowcode[data-v-e17e7db0] {
+        margin-top: .4rem;
+        padding: 0 .14rem;
+        position: relative
+    }
+
+    .startrule[data-v-e17e7db0] {
+        margin-top: .25rem;
+        height: 1.9rem;
+        padding: .1rem 0 0;
+        /*background: url(__PUBLIC__/Qts/Home/img/extension/levelcard_bg@2x.png) no-repeat center -.2rem;*/
+        /*background-size: content;*/
+        /*-webkit-box-shadow: 0 7px 12px 0 #efefef;*/
+        /*box-shadow: 0 7px 12px 0 #efefef*/
+    }
+
+    .promotionsec[data-v-e17e7db0] {
+        padding: .1rem 0 0 .15rem
+    }
+
+    .promotionsec img[data-v-e17e7db0] {
+        width: .15rem;
+        height: .18rem;
+        margin-left: .06rem
+    }
+
+    .promotionsec p[data-v-e17e7db0] {
+        /*background-image: -o-linear-gradient(131deg, #c3c9cc 0, #d4d9d9 100%);*/
+        /*background-image: linear-gradient(-41deg, #c3c9cc, #d4d9d9);*/
+        border-radius: 1px;
+        width: .74rem;
+        height: .2rem;
+        line-height: .2rem;E
+        text-align: center;
+        font-size: .12rem;
+        color: #ffbf23;
+        letter-spacing: 0;
+        /*margin-left: .06rem*/
+    }
+
+    .friendhands[data-v-e17e7db0] {
+        margin: .2rem 0 0;
+        /*background: url(__PUBLIC__/Qts/Home/img/extension/levelcard_arrow@2x.png) no-repeat 0 0;*/
+        /*background-size: contain;*/
+        height: .5rem;
+        padding-top: .07rem
+    }
+
+    .friendhands p[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #fff1c1;
+        letter-spacing: 0;
+        text-indent: .23rem
+    }
+
+    .friendhands span[data-v-e17e7db0] {
+        font-size: 20px;
+        color: #fff;
+        letter-spacing: 0;
+        text-indent: .23rem;
+        display: block
+    }
+
+    .nextstart[data-v-e17e7db0] {
+        margin: .2rem 0 0 .23rem;
+        font-size: 10px;
+        color: #ddd;
+        letter-spacing: 0
+    }
+
+    .getmoney[data-v-e17e7db0] {
+        position: absolute;
+        right: .1rem;
+        top: 55%
+    }
+
+    .getmoney span[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #ddd;
+        letter-spacing: 0;
+        text-align: right
+    }
+
+    .getmoney p[data-v-e17e7db0] {
+        font-size: 16px;
+        color: #ddd;
+        letter-spacing: 0;
+        text-align: right
+    }
+
+    .moneytime[data-v-e17e7db0] {
+        font-size: 12px;
+        color: #ddd;
+        letter-spacing: 0;
+        line-height: 24px;
+        padding: 0 .25rem;
+        margin: .2rem 0
+    }
+
+    .moneyrule[data-v-e17e7db0] {
+        padding: 0 .25rem;
+        font-size: 14px;
+        color: #ddd;
+        letter-spacing: 0;
+        line-height: 30px
+    }
+
+    .moneyrule span[data-v-e17e7db0] {
+        font-size: .2rem;
+        color: #ffcf3a
+    }
+
+    .sharefirend[data-v-e17e7db0] {
+        font-size: 14px;
+        padding: .1rem .25rem 0;
+        color: #ffbf23;
+        letter-spacing: 0;
+        line-height: 30px;
+        margin-bottom: .3rem
+    }
+
+    .sharefirend span[data-v-e17e7db0] {
+        font-size: .18rem
+    }
+
+    .sharebtn[data-v-e17e7db0] {
+        font-size: .17rem;
+        width: 2.47rem;
+        line-height: .4rem;
+        text-align: center;
+        margin: .2rem auto;
+        border-radius: .2rem;
+        color: #fff;
+        background-color: #febd21
+    }
+
+    </style>
+    <style type="text/css" data-n-head="true">
+        #head {
+            /*background: #012861 !important;*/
+        }
+        /*新增*/
+        body, html {
+          height: 100%;
+          width: 100%;
+          background: #262b41 !important;
+        }
+        .contentWrap {
+          width: 1014px;
+          min-height: 720px;
+          float: left;
+          background: #212139;
+          padding: 0 68px;
+        }
+    </style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-e17e7db0="" class="">
+        <div data-v-e17e7db0="" class="content">
+            <!--<div data-v-e17e7db0="" id="head" style="width: 60%">-->
+                <!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.my_promotion}</span><em></em></h3>-->
+                    <!--<div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>-->
+                    <!--<div class="right arrow_right"><b></b></div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--引入导航条-->
+            <include file="Base:footer" />
+            <section data-v-e17e7db0="" class="page-main clearfix" style="padding: 0 !important;">
+              <!--引入个人中心公共组件-->
+              <include file="User:userPublic" />
+              <div class="contentWrap">
+                <div data-v-e17e7db0="" id="dsad" class="secti">
+                  <div data-v-e17e7db0="" class="promotionhead">
+                    <div data-v-e17e7db0="" class="balance">
+                      <span data-v-e17e7db0="">{$Think.lang.balance}</span>
+                      <span data-v-e17e7db0="" style="border: 1px solid #ffbf23"><a style="color: #ffbf23" href="{:U('changeAccount')}">{$Think.lang.transfer_account}</a></span>
+                      <span data-v-e17e7db0="">${$data.money|default='0.00'}</span>
+                    </div>
+                    <div data-v-e17e7db0="" class="promotionstart">
+                      <div data-v-e17e7db0="">
+                        <if condition="$data['level'] eq 1">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <elseif condition="$data['level'] eq '2'" />
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <elseif condition="$data['level'] eq 3" />
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                        </if>
+                        <span data-v-e17e7db0="" style="color: #ffbf23;vertical-align: top">{$data.desc}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <ul data-v-e17e7db0="" class="promotiondata">
+                    <a href="{:U('friend')}">
+                      <li data-v-e17e7db0=""><p data-v-e17e7db0="">{$data.friend|default=0}</p><span data-v-e17e7db0="">{$Think.lang.my_friend}</span></li>
+                    </a>
+                    <a href="{:U('income')}">
+                      <li data-v-e17e7db0="" style="border-right: none"><p data-v-e17e7db0="">${$data.profit|default='0.00'}</p><span data-v-e17e7db0="">{$Think.lang.accumulated}</span></li>
+                    </a>
+                  </ul>
+                </div>
+                <div data-v-e17e7db0="" class="topjt">
+                  <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img3.png">
+                </div>
+
+                <!--<p style="text-align: center;color: #ddd ">{$Think.lang.agent_address}: {$data.admin_url}</p>-->
+
+                <div data-v-e17e7db0="" class="peoplecode">
+                  <div data-v-e17e7db0="" class="tipimg">
+                    {$Think.lang.connections}
+                  </div>
+                  <p data-v-e17e7db0="">{$Think.lang.friends}</p>
+                  <div data-v-e17e7db0="" class="pro_img">
+
+                    <div class="code_img" id="code_img" style="border: 2px solid #fff"></div>
+                  </div>
+
+                  <div class="code_img" id="canvas" style="display:none;">
+                  </div>
+                  <input type="hidden" value="{$data['url']}" class="qrcode">
+
+                  <div data-v-e17e7db0="" class="titlemsg">{$Think.lang.qrcode}</div>
+                  <div data-v-e17e7db0="" class="titlemsg">{$Think.lang.scan}</div>
+                </div>
+                <div data-v-e17e7db0="" class="nowcode">
+                  <div data-v-e17e7db0="" class="tipimg">
+                    {$Think.lang.current_star}
+                    <a href="{:U('levelRule')}">
+                      <div data-v-e17e7db0="" class="linkrule">
+                        {$Think.lang.rule}
+                        <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img7.png">
+                      </div>
+                    </a>
+                  </div>
+                  <div data-v-e17e7db0="" class="startrule">
+                    <div data-v-e17e7db0="" class="promotionsec">
+                      <div data-v-e17e7db0="">
+                        <if condition="$data['level'] eq 1">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <elseif condition="$data['level'] eq '2'" />
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img2.png">
+                          <elseif condition="$data['level'] eq 3" />
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                          <img data-v-e17e7db0="" src="__PUBLIC__/Qts/Home/img/extension/img1.png">
+                        </if>
+                      </div>
+                      <p data-v-e17e7db0="">{$data.desc}</p></div>
+                    <div data-v-e17e7db0="" class="friendhands"><p data-v-e17e7db0="">{$Think.lang.friend_trader}</p><span
+                            data-v-e17e7db0="">{$data.count}</span></div>
+                    <neq name="data['level']" value="3">
+                      <div data-v-e17e7db0="" class="nextstart">
+                        {$Think.lang.upgrades}{$data['level']+1}{$Think.lang.star}
+                        <br/>
+                        {$Think.lang.need} {$data.needCount} {$Think.lang.lots}
+                      </div>
+                    </neq>
+                  </div>
+                  <div data-v-e17e7db0="" class="getmoney"><span data-v-e17e7db0="">{$Think.lang.payable}（{$Think.lang.dollar}／{$Think.lang.lots})</span>
+                    <volist name="prirceData" id="vo">
+                      <br/><span data-v-e17e7db0="">${$vo['price']} /{$vo['name']}</span>
+                    </volist>
+                  </div>
+                </div>
+                <p data-v-e17e7db0="" class="moneytime">{$Think.lang.extension_des1}</p>
+                <div data-v-e17e7db0="" class="moneyrule"><p data-v-e17e7db0="">{$Think.lang.extension_des2}</p>
+                  <p data-v-e17e7db0="">{$Think.lang.extension_des3}=${$list.lowReceive}*{$Think.lang.extension_des4}=<span data-v-e17e7db0="">${$list.weekReceive}</span></p>
+                  <p data-v-e17e7db0="">{$Think.lang.extension_des5}=${$list.lowReceive}*{$Think.lang.extension_des6}=<span data-v-e17e7db0="">${$list.monthReceive}</span></p></div>
+                <p data-v-e17e7db0="" class="sharefirend">
+                  {$Think.lang.enjoy} <span data-v-e17e7db0="">{$Think.lang.permanent}</span></p>
+              </div>
+
+            </section>
+
+            <include file="Base:trueFooter" />
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="/Public/Home/js/jquery.qrcode.min.js"></script>
+
+<script type="text/javascript">
+/*qrcode生成*/
+function convertCanvasToImage(canvas) {
+    //新Image对象，可以理解为DOM
+    var image = new Image();
+    // canvas.toDataURL 返回的是一串Base64编码的URL
+    // 指定格式 PNG
+    image.src = canvas.toDataURL("image/png");
+    return image;
+}
+
+if($('.qrcode').val() != '')
+{
+    $('#canvas').qrcode($(".qrcode").val());
+
+    var mycanvas1=document.getElementsByTagName('canvas')[0];
+
+    var img=convertCanvasToImage(mycanvas1);
+
+    $('#code_img').append(img);
+}
+window.onload=function(){
+  //设置底部导航选中状态
+  $('.headertop .wapper > ul > li').last().find('a').addClass('active');
+  // $('.footer > ul > li').last().find('a').addClass('common3');
+  // $('.footer > ul > li').last().find('em').addClass('selected');
+
+  $('.userPublic .userMenu > ul > li').eq(7).find('a').addClass('active');
+}
+</script>

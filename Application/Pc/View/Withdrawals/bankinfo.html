@@ -1,0 +1,312 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.bind_bank}</title>
+    <link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="4cddb420:0 cf79f97a:0">
+        .li-main > span[data-v-adff73de] {
+            position: relative;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            justify-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding-left: .4rem
+        }
+
+        .li-main > span[data-v-adff73de]:before {
+            position: absolute;
+            left: 0;
+            width: .32rem;
+            height: .38rem;
+            margin-top: .08rem;
+            content: "";
+            background-repeat: no-repeat
+        }
+
+        .fl[data-v-adff73de] {
+            float: left
+        }
+
+        .fr[data-v-adff73de] {
+            float: right
+        }
+
+        .page-main[data-v-adff73de] {
+            padding: 0 0 .5rem
+        }
+
+        .showmsg[data-v-5719a4fa] {
+            color: #fff;
+            padding-top: .14rem
+        }
+
+        .showmsg p[data-v-5719a4fa]:first-of-type {
+            font-size: .17rem
+        }
+
+        .showmsg p[data-v-5719a4fa]:nth-of-type(2) {
+            font-size: .14rem;
+            margin-top: .1rem
+        }
+
+        .fl[data-v-5719a4fa] {
+            float: left
+        }
+
+        .fr[data-v-5719a4fa] {
+            float: right
+        }
+
+        .secti[data-v-5719a4fa] {
+            background-color: #171520;
+            overflow: hidden
+        }
+
+        #cardstatus[data-v-5719a4fa] {
+            position: relative;
+            height: .9rem;
+            margin: .15rem .14rem 0;
+            border-radius: .2rem .2rem 0 0;
+            background-image: url(__PUBLIC__/Qts/Home/img/public/bj_authentication.png);
+            background-size: cover
+        }
+
+        #cardstatus .sbg[data-v-5719a4fa] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
+            z-index: 2
+        }
+
+        .cardInfo[data-v-5719a4fa] {
+            overflow: hidden;
+            background-color: transparent;
+            z-index: 3
+        }
+
+        .perImg[data-v-5719a4fa] {
+            margin: .14rem .14rem .2rem;
+            width: .5rem;
+            height: .5rem;
+            border-radius: .25rem
+        }
+
+        .bank_p[data-v-5719a4fa] {
+            font-size: .15rem;
+            font-weight: bolder;
+            padding: .14rem .14rem 0;
+            color: #999;
+        }
+
+        .bank_p > strong[data-v-5719a4fa] {
+            display: inline-block;
+            width: .15rem;
+            height: .15rem;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAMhJREFUWAljYBhgwEiu/codPzz/M/yfBdLPyMCYdreCYzs5ZrGQowmkB2T5//8MMmD9jGCHyJJjFhM5mkB64JajsUk1j2wHkGoRLvWjDhgNgdEQGA2BAQ8BcGUEq1iQi1dcJRc1xBkZGZ7AKjBwCKBULNSwgYAZII/CatIBjwKwA0DBAQoWAg6nmjQsCkAGkt0gUWz//h/ZRfcrOckya3BEAbJP6M0eDYHREBgNgdEQIDsEkOsOZDapBRn5DoBWYMgVC6mWDwr1AL0lMEGHYCq0AAAAAElFTkSuQmCC) no-repeat 95% .15rem;
+
+        }
+
+        [data-v-5719a4fa]::-webkit-input-placeholder {
+            color: #ddd !important
+        }
+
+        .bank-bg[data-v-5719a4fa] {
+            padding: .14rem .15rem 0;
+            position: relative
+        }
+
+        .bank-bg-bg[data-v-5719a4fa] {
+            height: 1.19rem
+        }
+
+        .bank-bg-infor[data-v-5719a4fa] {
+            margin-left: .69rem;
+            color: #fff;
+            position: absolute;
+            top: .31rem
+        }
+
+        .bank-icon[data-v-5719a4fa] {
+            width: .4rem;
+            height: .4rem;
+            position: absolute;
+            top: .31rem
+        }
+
+        .bank-icon > img[data-v-5719a4fa] {
+            margin-left: .19rem
+        }
+
+        .bank-name[data-v-5719a4fa] {
+            font-size: .15rem;
+            margin-bottom: .25rem;
+            color: #ffbf23;
+            letter-spacing: 0
+        }
+
+        .bank-name p[data-v-5719a4fa] {
+            font-size: 12px;
+            color: #ddd;
+            letter-spacing: 0
+        }
+
+        .bank-num[data-v-5719a4fa] {
+            font-size: 17px;
+            color: #dddddd;
+            letter-spacing: 3.19px
+        }
+
+        .clearbank[data-v-5719a4fa] {
+            position: absolute;
+            top: .33rem;
+            right: .4rem;
+            font-size: 14px;
+            color: #dddddd;
+            z-index: 10
+        }
+
+        .btn-wrap[data-v-5719a4fa] {
+            width: 60%;
+            padding: .1rem .14rem;
+            position: fixed;
+            bottom: .1rem;
+            z-index: 15
+        }
+
+        .btn-wrap button[data-v-5719a4fa] {
+            width: 100%;
+            height: .4rem;
+            /*background-image: -o-linear-gradient(319deg, #1254a8 0, #0c62c1 100%);*/
+            /*background-image: -o-linear-gradient(319deg, #1254a8, #0c62c1);*/
+            /*background-image: linear-gradient(-229deg, #1254a8, #0c62c1);*/
+            border-radius: .1rem;
+            background: #ffbf23;
+            font-size: .17rem;
+            color: #000;
+            text-align: center
+        }
+
+        body {
+            background: #1c1a25;
+            height: auto;
+            padding-bottom: 0.44rem !important;
+        }</style>
+</head>
+<body>
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-5719a4fa="" class="content" style="width: 60%;margin: auto">
+        <div data-v-5719a4fa="" id="head" style="width: 60%">
+            <div class="head_content"><h3 class="product-name"><span style="color: #ffbf23">{$Think.lang.bind_bank}</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right"><b></b></div>
+            </div>
+        </div>
+        <section data-v-5719a4fa="" class="page-main">
+            <div data-v-5719a4fa="" class="secti">
+                <div data-v-5719a4fa="" id="cardstatus">
+                    <div data-v-5719a4fa="" class="cardInfo">
+                        <img data-v-5719a4fa="" src="{$personal.face}" class="fl perImg">
+                        <div data-v-5719a4fa="" class="fl showmsg">
+                            <p data-v-5719a4fa="">{$personal.real_name}</p>
+                            <p data-v-5719a4fa="">{$personal.card}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div data-v-5719a4fa="" class="bank">
+                <p data-v-5719a4fa="" class="bank_p">
+                    {$Think.lang.add_bank}
+                    <strong data-v-5719a4fa="" class="fr">
+                        <a href="{:U('User/BrokersOpen')}">
+                            <img data-v-5719a4fa="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyFpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyMjEyRUQyMzY3REExMUU4ODhFMjk1OTI0RTJDQTc4QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMjEyRUQyNDY3REExMUU4ODhFMjk1OTI0RTJDQTc4QSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjIyMTJFRDIxNjdEQTExRTg4OEUyOTU5MjRFMkNBNzhBIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjIyMTJFRDIyNjdEQTExRTg4OEUyOTU5MjRFMkNBNzhBIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+3l15WQAAAJJJREFUeNpi/P//P8NAAhaydR5Q8QSSs6C8NAaHO9vJMYaJAseDLJeB4lnkGkKJA2RwsOnmAKqAUQeMOmDUAaMOGHAHMIJrQ0TFIkMne5/AKjAmtIqFXgBegQ2aNJAGDRYGukYBPA2Q1yBB1ehwh3E0G446YNQBow4YdQC9HfAEB5tuDoBVYPCKhfwGyQACgAADAKU2IjOXXpfkAAAAAElFTkSuQmCC" alt="">
+                        </a>
+                    </strong>
+                </p>
+
+                <p data-v-5719a4fa=""></p>
+                <div data-v-5719a4fa="" class="" style="height: 5rem; overflow: auto;">
+                
+                <volist name="bank" id="vo">
+
+                    <div data-v-5719a4fa="" class="bank-bg">
+                        <div data-v-5719a4fa="" class="bank-bg-bg">
+                            <img data-v-5719a4fa="" src="__PUBLIC__/Qts/Home/img/public/bankcard_bg@3x.png" alt="">
+                        </div>
+           
+                        <p data-v-5719a4fa="" class="clearbank" onclick="Unbundling('{$vo.bid}')">{$Think.lang.untying}</p>
+                        
+                        <if condition="$vo['status'] eq '0'">
+                            <p data-v-5719a4fa="" class="clearbank" style="top: 0.93rem;color: #ffbf23">{$Think.lang.in_audit}</p>
+                        <else />
+                            <p data-v-5719a4fa="" class="clearbank" style="top: 0.93rem;color: #ffbf23">{$Think.lang.audited}</p>
+                        </if>
+                        
+                        
+                        <div data-v-5719a4fa="" class="bank-bg-infor">
+                            <div data-v-5719a4fa="">
+                                <div data-v-5719a4fa="" class="bank-name">{$vo.bankname}
+                                    <p data-v-5719a4fa="">{$vo.busername}</p>
+                                </div>
+                            </div>
+                            <div data-v-5719a4fa="">
+                                <span data-v-5719a4fa="" class="bank-num">{$vo.banknumber}</span>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+
+                </div>
+            </div>
+        </section>
+        <div data-v-5719a4fa="" class="btn-wrap">
+            <a href="{:U('Recharge/index')}">
+                <button data-v-5719a4fa="">{$Think.lang.to_recharge}</button>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__/Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+
+<script type="text/javascript">
+    function Unbundling(id)
+    {
+        layer.open({
+            content: '{$Think.lang.are_you_unbind}'
+            ,btn: ['{$Think.lang.bank_determine}', '{$Think.lang.cancel}']
+            ,shadeClose:false
+            ,yes: function(index){
+
+                var load   = layer.open({type: 2,shadeClose:false,content:'解绑中'});
+                $.ajax({
+                    url: "{:U('Unbundling')}",
+                    dataType: 'json',
+                    type: 'post',
+                    data: {'id': id},
+                    success: function (data) {
+                        layer.open({
+                            content: data.msg
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                        layer.close(load);
+                        if(data.code == 200)
+                            return window.location.reload();
+                    },
+                    error: function (res) {
+                        console.log(res);
+                    }
+                });
+            }
+        });
+    }
+</script>

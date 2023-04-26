@@ -1,0 +1,114 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>代理商登陆</title>
+	
+	<!-- basic styles -->
+	
+	<link href="/Public/Ucenter/css/assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="/Public/Ucenter/css/assets/css/font-awesome.min.css" />
+	
+	<link rel="stylesheet" href="/Public/Ucenter/css/assets/css/ace.min.css" />
+	<link rel="stylesheet" href="/Public/Ucenter/css/assets/css/ace-rtl.min.css" />
+
+</head>
+
+<style type="text/css">
+	.sms{cursor: pointer; display: block;}
+</style>
+
+<body class="login-layout">
+<div class="main-container">
+	<div class="main-content">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="login-container">
+					<div class="center">
+						<h1>
+							<i class="icon-leaf green"></i>
+							<span class="red"></span>
+							<span class="white">代理商登陆</span>
+						</h1>
+					</div>
+					
+					<div class="space-6"></div>
+					
+					<div class="position-relative">
+						<div id="login-box" class="login-box visible widget-box no-border">
+							<div class="widget-body">
+								<div class="toolbar clearfix">
+									<div>
+									
+									</div>
+									
+									<div>
+									</div>
+								</div>
+								<div class="widget-main">
+									<h4 class="header blue lighter bigger">
+										<i class="icon-coffee green"></i>
+										请输入用户名和密码
+									</h4>
+									
+									<div class="space-6"></div>
+									
+									<form method="post" action="<?php echo U('Login/login');?>">
+										<fieldset>
+											<label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="text" class="form-control" placeholder="用户名" name="username" value="<?php echo ($user["username"]); ?>" />
+                                                            <i class="icon-user"></i>
+                                                        </span>
+											</label>
+											
+											<label class="block clearfix">
+                                                        <span class="block input-icon input-icon-right">
+                                                            <input type="password" class="form-control" placeholder="密码" name="password" />
+                                                            <i class="icon-lock"></i>
+                                                        </span>
+											</label>
+											
+											<div class="space"></div>
+											
+											<div class="clearfix">
+												<label class="inline">
+													<input type="checkbox" style="display:block;" value="1" name="session" />
+													<span class="lbl" style=" position: absolute; left: 60px; bottom:  90px; font-size: 12px;">记住帐号</span>
+												</label>
+												<input type="submit" class="width-35 pull-right btn btn-sm btn-primary" value="登录">
+											</div>
+											
+											<div class="space-4"></div>
+										</fieldset>
+									</form>
+								
+								
+								</div><!-- /widget-main -->
+								
+								<div class="toolbar clearfix">
+									<div>
+									
+									</div>
+									
+									<div>
+										
+										<a href="#" class="user-signup-link">
+										</a>
+									
+									</div>
+								</div>
+							</div><!-- /widget-body -->
+						</div><!-- /login-box -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Layui</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+</head>
+<body>
+ 
+ <input type="hidden" value="{$option_id}" id="option_id"/>
+<textarea class="layui-textarea" id="LAY_demo1" style="display: none">
+  {$content.content}
+</textarea>
+ 
+<div class="site-demo-button" style="margin-top: 20px;">
+  <button class="layui-btn site-demo-layedit" data-type="content" >上传编辑器内容</button>
+<!--   <button class="layui-btn site-demo-layedit" data-type="text">上传</button> -->
+<!--   <button class="layui-btn site-demo-layedit" data-type="selection">获取编辑器选中内容</button> -->
+</div>
+ 
+ 
+<div style="margin-bottom: 20px; width: 500px;">
+  <textarea class="layui-textarea" id="LAY_demo2" style="display: none"></textarea>
+</div>
+          
+<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+<script>
+layui.use('layedit', function(){
+  var layedit = layui.layedit
+  ,$ = layui.jquery;
+  
+  //构建一个默认的编辑器
+  var index     =   layedit.build('LAY_demo1', {
+    tool: ['strong', 'italic', 'underline', 'del', '|', 'left', 'center', 'right', '|', 'link', 'unlink', 'image']
+    ,        
+    uploadImage: {
+            url: "{:U('upload')}",
+            type: "post"
+        }
+  });
+  
+  var option_id = $("#option_id").val();
+  var lang      = "{$lang}";
+
+  //编辑器外部操作
+  var active = {
+    content: function(){
+    //  alert(layedit.getContent(index)); //获取编辑器内容
+            $.ajax({
+                type: "post",
+                url: "{:U('take')}",
+                dataType:"json",
+                data:{'text' : layedit.getContent(index),'option_id' : option_id,'lang':lang},
+                success: function(data) {
+
+                    if(data.status == 1)
+                    {
+                          layer.msg(data.msg);
+                          top.location.reload();
+
+                    }
+                    else
+                    {
+                        layer.msg(data.msg);
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+        });
+    }
+    ,text: function(){
+      alert(layedit.getText(index)); //获取编辑器纯文本内容
+    }
+    ,selection: function(){
+      alert(layedit.getSelection(index));
+    }
+  };
+
+   //自定义工具栏
+
+
+
+  $('.site-demo-layedit').on('click', function(){
+    var type = $(this).data('type');
+    active[type] ? active[type].call(this) : '';
+  });
+  
+});
+</script>
+
+</body>
+</html>

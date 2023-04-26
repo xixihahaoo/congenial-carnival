@@ -1,0 +1,141 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.market}</title>
+
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+<style>
+  body, html {
+    height: 100%;
+    width: 100%;
+    background: #262b41 !important;
+  }
+  .page-main {
+    background: #212139;
+    min-height: 600px;
+    margin: 30px auto !important;
+    padding: 0 80px !important;
+  }
+  .page-main h3 {
+    line-height: 110px;
+    text-align: center;
+    position: relative;
+  }
+  .page-main h3 span {
+    color: #ddd;
+  }
+  .page-main h3 a {
+    position: absolute;
+    font-size: 14px;
+    color: #77abf4;
+    top: 0;
+    right: 160px;
+  }
+  .page-main .content {
+    padding: 40px 80px;
+    background: #262b41;
+  }
+  .ipt-group {
+    overflow: hidden;
+    border-radius: 5px;
+    line-height: .45rem;
+    font-size: .15rem;
+    position: relative;
+    width: 92%;
+    margin: .1rem auto 0
+  }
+
+  .ipt-group:last-child {
+    border-bottom: none
+  }
+  .ipt-before {
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: .8rem;
+    float: left;
+  }
+
+  .ipt-before em {
+    color: #acabb1;
+  }
+
+  .ipt-before em:first-of-type {
+    float: left
+  }
+
+  .ipt-before em:nth-of-type(2) {
+    float: right;
+    margin-right: .05rem;
+    color: #77abf4;
+  }
+
+  input {
+    float: left;
+    position: relative;
+    top: .1rem;
+    width: 90%;
+    height: 26px;
+    padding-left: 12px;
+    background: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+  }
+
+  .ipt-btn {
+  	display: block;
+    margin: 30px auto 0;
+    line-height: .4rem;
+    text-align: center;
+    font-size: .15rem;
+    width: 30%;
+    border-radius: .04rem;
+    background: #7baeed;
+    color: #fff;
+    cursor: pointer;
+  }
+
+</style>
+</head>
+<body style="background: #1c1a25">
+<div data-server-rendered="true" id="__nuxt">
+	<div class="progress"  style="width:0;height:2px;background-color:#012861;opacity:0"></div>
+	<div data-v-383e5a05="">
+		<!--引入导航条-->
+		<include file="Base:footer" />
+		<form id="base_form" action="index.html" name="form" method="post">
+			<section class="page-main">
+				<h3>
+					<span>充值</span>
+					<a href="javascript: void (0);" onclick="window.location.href='{:U('User/index')}'">{$Think.lang.back}</a>
+				</h3>
+				<div class="content">
+					<div class="ipt-group">
+						<label >
+							<div class="ipt-before" >
+								<em >充值金额</em>
+								<em >$</em>
+							</div>
+							<input  type="number" placeholder="{$Think.lang.input_amount}"  name="amount">
+						</label>
+					</div>
+				</div>
+				<button class="ipt-btn" type="submit" onclick="judge();return false;">确认充值</button>
+			</section>
+		</form>
+		<include file="Base:trueFooter" />
+	</div>
+</div>
+</body>
+</html>
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script>
+	function judge() {
+		if(form.amount.value==''){
+			layer.msg('金额不能为空！');
+			return false;
+		}
+		$('#base_form').submit()
+	}
+</script>

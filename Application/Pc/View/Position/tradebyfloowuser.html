@@ -1,0 +1,373 @@
+    <include file="Base:header" />
+    <title data-n-head="true">{$Think.lang.follow_orders}</title>
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="__PUBLIC__/Qts/Home/js/layerui/css/layui.css"  media="all">
+    <style>
+           
+        ul.lists[data-v-161fa528] {
+            width: 100%;
+            padding: .15rem
+        }
+
+        ul.lists li[data-v-161fa528] {
+            width: 100%;
+            padding: .1rem .15rem .1rem .25rem;
+            background: #1F222B;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            display: -webkit-flex;
+            position: relative;
+            /*-webkit-box-shadow: 0 2px 5px #ebeff3;*/
+            /*box-shadow: 0 2px 5px #ebeff3;*/
+            border-radius: .1rem;
+            margin-bottom: .2rem
+        }
+
+        ul.lists li > div.left[data-v-161fa528] {
+            -webkit-box-flex: 4;
+            -ms-flex: 4;
+            flex: 4;
+            -webkit-flex: 4;
+            border-right: .01rem solid #444;
+            padding-left: .05rem
+        }
+
+        ul.lists li > div.right[data-v-161fa528] {
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-flex: 1;
+            padding-left: .1rem
+        }
+
+        ul.lists li p[data-v-161fa528] {
+            line-height: .2rem
+        }
+
+        ul.lists li span.hands[data-v-161fa528], ul.lists li span.name[data-v-161fa528] {
+            font-size: .14rem;
+            color: #999
+        }
+
+        ul.lists li span.tag[data-v-161fa528] {
+            display: inline-block;
+            vertical-align: middle;
+            width: .16rem;
+            height: .16rem;
+            text-align: center;
+            line-height: .16rem;
+            color: #fff;
+            font-size: .1rem;
+            border-radius: .08rem;
+            margin: 0 .05rem
+        }
+
+        ul.lists li span.ask[data-v-161fa528], ul.lists li span.open[data-v-161fa528] {
+            font-size: 12px;
+            color: #999
+        }
+
+        ul.lists li span.ask[data-v-161fa528] {
+            padding-left: .1rem
+        }
+
+        .txt_red[data-v-161fa528] {
+            color: #f64e43 !important
+        }
+
+        .txt_green[data-v-161fa528] {
+            color: #00cf8c !important
+        }
+
+        .bg_red[data-v-161fa528] {
+            background: #f64e43 !important;
+            color: #fff
+        }
+
+        .bg_green[data-v-161fa528] {
+            background: #00cf8c !important;
+            color: #fff
+        }
+
+        ul.lists li div.right[data-v-161fa528] {
+            text-align: center
+        }
+
+        ul.lists li span.win[data-v-161fa528] {
+            font-size: .14rem
+        }
+
+        ul.lists li span.sale[data-v-161fa528] {
+            display: block;
+            margin: 0 auto;
+            width: .48rem;
+            height: .23rem;
+            text-align: center;
+            line-height: .23rem;
+            border: .01rem solid #ffbf23;
+            color: #ffbf23;
+            font-size: .14rem
+        }
+
+        .put[data-v-161fa528], ul.lists li.put span.sale[data-v-161fa528] {
+            margin-top: .15rem
+        }
+
+        .showimgtip[data-v-161fa528] {
+            width: .28rem;
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+
+        .float[data-v-161fa528] {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, .4);
+            z-index: 9999
+        }
+
+        .sift[data-v-161fa528] {
+            background: #fff;
+            border-radius: 5px;
+            padding: .1rem;
+            position: absolute;
+            top: .55rem;
+            right: .05rem
+        }
+
+        .sift ul[data-v-161fa528] {
+            width: 100%;
+            position: relative
+        }
+
+        .sift ul[data-v-161fa528]:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-left: .1rem solid transparent;
+            border-right: .1rem solid transparent;
+            border-bottom: .1rem solid #fff;
+            position: absolute;
+            top: -.2rem;
+            right: .06rem
+        }
+
+        .sift ul li[data-v-161fa528] {
+            line-height: 35px;
+            border-bottom: 1px solid #e5e5e5;
+            color: #333;
+            font-size: .14rem;
+            text-align: center;
+            width: .8rem
+        }
+
+        .sift ul li.on[data-v-161fa528] {
+            color: #ffbf23;
+        }
+
+        .sift ul li[data-v-161fa528]:last-child {
+            border: none
+        }
+
+        .lists li span.self[data-v-7ecec926] {
+            display: block;
+            margin: 0 auto;
+            width: .48rem;
+            height: .23rem;
+            text-align: center;
+            line-height: .23rem;
+            border: .01rem solid #ffbf23;
+            color: #ffbf23;
+            font-size: .14rem
+        }
+
+        .lists li.put span.self[data-v-7ecec926] {
+            margin-top: .15rem
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="hidden" name="orderType" value="0">
+
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-161fa528="" class="content">
+        <div data-v-161fa528="" id="head">
+            <div class="head_content"><h3 class="product-name"><span>{$user.nickname}-{$Think.lang.follow_orders}</span><em></em></h3>
+                <div class="left" onclick="window.history.back(-1);"><a class="arrow_left"></a></div>
+            </div>
+        </div>
+        <section data-v-161fa528="" class="page-main">
+            <div data-v-161fa528="">
+                <div data-v-161fa528="" class="trade-list">
+                    <div data-v-ecaca2b0="" data-v-161fa528="" id="outer-vhr7b" class="_v-container" snappingheight="50"
+                         style="top: 0.5rem;">
+                        <div data-v-ecaca2b0="" id="inner-3rvho" class="_v-content"
+                             style="transform: translate3d(0px, 0px, 0px) scale(1);">
+                            <ul data-v-161fa528="" data-v-ecaca2b0="" class="lists">
+
+                                    
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+<script src="__PUBLIC__/Qts/Home/js/template.js"></script>
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+
+<script id="template" type="text/html">
+
+    {{if followData != ''}}
+    {{each followData as vo}}
+        <li data-v-161fa528="" data-v-ecaca2b0="" class="list-hold">
+            <div data-v-161fa528="" data-v-ecaca2b0="" class="left">
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="name">{{vo.option_name}}</span>
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="tag {{vo.typeClass}}">{{vo.typeMsg}}</span>
+                    <em data-v-161fa528="" data-v-ecaca2b0="" class="hands"> x {{vo.onumber}} {$Think.lang.lots}</em>
+                </p>
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.opening_price}  {{vo.buyprice}}</span>
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="ask">{$Think.lang.current_price}  {{vo.sellprice}}</span>
+                </p>
+                <p data-v-161fa528="" data-v-ecaca2b0="">
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="open">{$Think.lang.target_profit}  {{vo.endprofit}}</span>
+                    <span data-v-161fa528="" data-v-ecaca2b0="" class="ask">{$Think.lang.stop_loss}   {{vo.endloss}}</span>
+                </p>
+            </div>
+            <div data-v-161fa528="" data-v-ecaca2b0="" class="right">
+                <div data-v-161fa528="" data-v-ecaca2b0="">
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span data-v-161fa528="" data-v-ecaca2b0="" class="win {{vo.plossClass}}">${{vo.ploss}}</span>
+                    </p>
+                    <p data-v-161fa528="" data-v-ecaca2b0="">
+                        <span  style="margin-top: .1rem;" data-v-7ecec926="" class="self" onclick="changeOrder('{{vo.oid}}')">{$Think.lang.self_hold}</span>
+                    </p>
+                </div>
+            </div>
+        </li>
+    {{/each}}
+    {{/if}}
+</script>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer_mobile/layer.js"></script>
+<script type="text/javascript">
+
+window.onload=function(){
+    var loading = "{$Think.lang.loading}";
+    var index = layer.open({type: 2,shadeClose:false,content:loading});
+    websocketByAcceptData(index)
+}
+
+/**
+ * [websocketByAcceptData 以websocket方式接受数据]
+ * @return {[type]} [description]
+*/
+
+var lang = "{$lang}";
+
+function websocketByAcceptData(index) {
+    // ws = new WebSocket("ws://47.244.175.58:2346");
+    ws = new WebSocket("ws://39.107.99.235:8026");
+    ws.onopen = function () {
+        ws.send('tom');
+    };
+    ws.onmessage = function (e) {
+
+        var data = eval("(" + e.data + ")");
+        var type = data.type || '';
+        switch (type) {
+            case 'init':
+                $.post('{:U("Bind/bindUid")}', {client_id: data.client_id}, function (data) {
+                }, 'json');
+                break;
+            default :
+                data = JSON.parse(e.data);
+
+                var uid = "{$user.uid}";
+
+                var arr = new Array();
+                arr['followData'] = new Array();
+
+                $.each(data.followData,function(key,val){
+                    if(val.follow_user_id == uid)
+                    {
+                        arr['followData'].push(val);
+                    }
+                });
+
+                $.each(arr.followData,function (key,val) {
+                    if(lang == 'en-us') {
+                        val.option_name = val.en_name;
+                    } else if(lang == 'zh-tw') {
+                        val.option_name = val.tw_name;
+                    }
+                    val.typeMsg = "{$Think.lang.api_buy}";
+                });
+                
+                
+
+                var followHtml = template('template', arr);
+                $('.lists').html(followHtml);
+                layer.close(index);
+        }
+    };
+}
+
+/**
+ * [changeOrder 跟随订单转自持]
+ * @author wang 990529346@qq.com
+ */
+function changeOrder(oid)
+{
+    layer.open({
+        content: '{$Think.lang.confirm_turn}'
+        ,btn: ['{$Think.lang.determine}', '{$Think.lang.cancel}']
+        ,shadeClose:false
+        ,yes: function(index){
+            var loading = "{$Think.lang.loading}";
+            var load    = layer.open({type: 2,shadeClose:false,content:loading});
+            $.ajax({
+                url: "{:U('changeOrder')}",
+                dataType: 'json',
+                type: 'post',
+                data: {'oid': oid},
+                success: function (data) {
+                    layer.open({
+                        content: data.msg
+                        ,skin: 'msg'
+                        ,time: 2 //2秒后自动关闭
+                    });
+                    return layer.close(load);
+                },
+                error: function (res) {
+                    console.log(res);
+                }
+            });
+        }
+    });
+}
+</script>

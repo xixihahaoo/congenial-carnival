@@ -1,0 +1,268 @@
+<extend name="Base/common"/>
+<block name="content">
+	
+	<!-- this page specific styles -->
+	<link href="__CSS__/lib/bootstrap-wysihtml5.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/uniform.default.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/select2.css" type="text/css" rel="stylesheet"/>
+	<link href="__CSS__/lib/bootstrap.datepicker.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" href="__CSS__/compiled/article-add.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+	<div class="container-fluid">
+		<div id="pad-wrapper" class="form-page">
+			<div class="row-fluid form-wrapper">
+				<!-- left column -->
+				<form action="{:U('News/newsadd')}" enctype="multipart/form-data" method="post" id='fr'>
+					<div class="span8 column">
+						<div class="field-box">
+							<label>文章标题：</label>
+							<input class="span8" type="text" data-toggle="tooltip" data-trigger="focus" title="请输入文章标题" data-placement="right" name="ntitle"/>
+						</div>
+						<div class="field-box">
+							<label>文章栏目:</label>
+							<div class="ui-select span5">
+								<select style="width: 100%;" name="ncategory">
+									<volist name="nclist" id="nl">
+										<option value="{$nl['fid']}" selected="">{$nl['fclass']}</option>
+									</volist>
+								</select>
+							</div>
+						</div>
+						
+						<div class="field-box">
+							<label>语言:</label>
+							<div class="ui-select span5">
+								<select style="width: 100%;" name="lang">
+									<option value="zh-cn">中文</option>
+									<option value="en-us">英文</option>
+									<option value="ar-ae">阿拉伯语</option>
+									<option value="ja-jp">日语</option>
+									<option value="th-th">泰语</option>
+									<option value="vi-vn">越语</option>
+									<option value="id-id">印尼语</option>
+									<option value="de-de">德语</option>
+									<option value="fr-fr">法语</option>
+									<option value="es-es">西班牙语</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="field-box">
+							<label>缩略图:</label>
+							<input class="span6 inline-input" type="text" name="ncover" value=""/>
+							<a href="javascript:;" class="pic-upload"><input id='file' ; onchange="c()" class="span2 inline-input" name="input-file" type="file" value=""/>点击上传图片</a>
+							<img src=""  id='show' style="width: 100px ;" />
+						</div>
+						<!--<div class="field-box">
+							<label>关键字:</label>
+							<input class="span8 inline-input" type="text" placeholder="输入的关键字以（' , '）号隔开"/>
+						</div>
+						<div class="field-box">
+							<label>文章摘要:</label>
+							<textarea class="span8" rows="4"></textarea>
+						</div>-->
+						<div class="field-box">
+							<label>更新时间:</label>
+							<input type="text" value="" class="input-large datepicker" name="ntime"/>
+						</div>
+						
+						<div class="field-box">
+							<label>文章类型:</label>
+							<div class="ui-select span3">
+								<select style="width: 100%;" name="n_type">
+									<option value="1" selected>文章</option>
+									<option value="2">链接</option>
+								</select>
+							</div>
+						</div>
+						
+						<div class="field-box">
+							<label>文章内容:</label>
+							<div class="wysi-column">
+								<textarea class="span8" rows="3" name="url" id="url" style="display: none"></textarea>
+								<!-- <textarea id="wysi" class="span10 wysihtml5" rows="20" name="ncontent">{$editnew.ncontent}</textarea> -->
+								<textarea class="layui-textarea" id="LAY_demo1" name="ncontent" style="display: none">
+							</textarea>
+							</div>
+						</div>
+						<div class="field-box actions">
+							<input id='sbtn' type="submit" class="btn-glow primary" value="提交"><span>或</span><input type="reset" value="重置" class="reset">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- scripts for this page -->
+	<script src="__JS__/wysihtml5-0.3.0.js"></script>
+	<script src="__JS__/jquery-latest.js"></script>
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/bootstrap-wysihtml5-0.0.2.js"></script>
+	<script src="__JS__/bootstrap.datepicker.js"></script>
+	<script src="__JS__/jquery.uniform.min.js"></script>
+	<script src="__JS__/select2.min.js"></script>
+	<script src="__JS__/theme.js"></script>
+	
+	
+	<script type="text/javascript">
+        function c() {
+            var r = new FileReader();
+            f = document.getElementById('file').files[0];
+            r.readAsDataURL(f);
+            r.onload = function (e) {
+                document.getElementById('show').src = this.result;
+            };
+
+
+        }
+	</script>
+	<!-- call this page plugins -->
+	<script type="text/javascript">
+        $("input[name=input-file]").change(function () {
+            $("input[name=ncover]").val($(this).val());
+        })
+
+        $(function () {
+
+            // add uniform plugin styles to html elements
+            $("input:checkbox, input:radio").uniform();
+
+            // select2 plugin for select elements
+            $(".select2").select2({
+                placeholder: "Select a State"
+            });
+
+            // datepicker plugin
+            $('.datepicker').datepicker().on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+
+            // wysihtml5 plugin on textarea
+            $(".wysihtml5").wysihtml5({
+                "font-styles": false
+            });
+        });
+	</script>
+	<script type="text/javascript">
+        $(document).ready(function () {
+
+            /**
+             * 时间对象的格式化;
+             */
+            Date.prototype.format = function (format) {
+                /*
+				 * eg:format="yyyy-MM-dd hh:mm:ss";
+				 */
+                var o = {
+                    "M+": this.getMonth() + 1, // month
+                    "d+": this.getDate(), // day
+                    "h+": this.getHours(), // hour
+                    "m+": this.getMinutes(), // minute
+                    "s+": this.getSeconds(), // second
+                    "q+": Math.floor((this.getMonth() + 3) / 3), // quarter
+                    "S": this.getMilliseconds()
+                    // millisecond
+                }
+
+                if (/(y+)/.test(format)) {
+                    format = format.replace(RegExp.$1, (this.getFullYear() + "").substr(4
+                        - RegExp.$1.length));
+                }
+
+                for (var k in o) {
+                    if (new RegExp("(" + k + ")").test(format)) {
+                        format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                            ? o[k]
+                            : ("00" + o[k]).substr(("" + o[k]).length));
+                    }
+                }
+                return format;
+            }
+
+            var now = new Date().format("MM/dd/yyyy");
+            $(".input-large").attr("value", now);
+        });
+	</script>
+	
+	<script type="text/javascript" src="__CSS__/layerui/layui.js"></script>
+	<script>
+
+        //加载编辑器
+        function loadEditor() {
+            layui.use('layedit', function () {
+                var layedit = layui.layedit
+                    , $ = layui.jquery;
+
+                //构建一个默认的编辑器
+                var index = layedit.build('LAY_demo1', {
+                    tool: ['strong', 'italic', 'underline', 'del', '|', 'left', 'center', 'right', '|', 'link', 'unlink', 'image']
+                    ,
+                    uploadImage: {
+                        url: "{:U('Goods/upload')}",
+                        type: "post"
+                    }
+                });
+
+                var option_id = $("#option_id").val();
+
+                //编辑器外部操作
+                var active = {
+                    content: function () {
+                        //  alert(layedit.getContent(index)); //获取编辑器内容
+                        $.ajax({
+                            type: "post",
+                            url: "{:U('take')}",
+                            dataType: "json",
+                            data: {'text': layedit.getContent(index), 'option_id': option_id},
+                            success: function (data) {
+
+                                if (data.status == 1) {
+                                    layer.msg(data.msg);
+                                    top.location.reload();
+
+                                }
+                                else {
+                                    layer.msg(data.msg);
+                                }
+                            },
+                            error: function (data) {
+                                console.log(data);
+                            }
+                        });
+                    }
+                    , text: function () {
+                        alert(layedit.getText(index)); //获取编辑器纯文本内容
+                    }
+                    , selection: function () {
+                        alert(layedit.getSelection(index));
+                    }
+                };
+
+                //自定义工具栏
+                $('.site-demo-layedit').on('click', function () {
+                    var type = $(this).data('type');
+                    active[type] ? active[type].call(this) : '';
+                });
+
+            });
+        }
+        
+        $(function () {
+            loadEditor();
+        });
+
+        $("select[name=n_type]").change(function () {
+            
+            var value = $(this).val();
+            
+            if(value == 1) {
+                $("#url").hide();
+	            $('.layui-layedit').show();
+            } else {
+                $("#url").show();
+                $('.layui-layedit').hide();
+            }
+        
+        });
+	</script>
+</block>

@@ -1,0 +1,263 @@
+<!--<script src="../../../../Public/Qts/Home/js/layerui/layui.js"></script>-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Qts/Home/css/user.css">
+<empty name="Think.session.user_id">
+  <!--未登录样式-->
+  <section class="userPublic">
+    <div class="userInfo">
+      <div class="headPortrait" style="background: url('__PUBLIC__Qts/Home/img/me/1499222434250.png'); background-size: 100% 100%">
+        <!--<img src="__PUBLIC__Qts/Home/img/me/1499222434250.png" alt="">-->
+      </div>
+      <div class="info">
+        <p>{$Think.lang.not_logged}</p>
+        <span style="cursor: pointer" onclick="window.location.href='{:U('Login/login')}'">{$Think.lang.login}</span>
+      </div>
+      <!--充值体现按钮-->
+      <div class="TW">
+        <a href="{:U('Login/login')}">{$Think.lang.recharge}</a>
+        <a href="{:U('Login/login')}">{$Think.lang.withdrawal}</a>
+      </div>
+    </div>
+    <!--导航条-->
+    <aside class="userMenu">
+      <ul>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.personal_center}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.statistics}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.following}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.meessage}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.about_us}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.help_center}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.risk_warning}</a>
+        </li>
+        <li>
+          <a href="{:U('Login/login')}">{$Think.lang.promotion}</a>
+        </li>
+      </ul>
+    </aside>
+  </section>
+<else/>
+  <!--登录后样式-->
+  <section class="userPublic">
+    <div class="userInfo">
+      <!--头像-->
+      <div class="headPortrait" style="background: url('{$user.face}'); background-size: 100% 100%">
+        <!--<img src="{$user.face}" alt="">-->
+      </div>
+      <!--昵称 金额-->
+      <div class="info">
+        <p>{$user.nickname}</p>
+        <eq name="user['now_trade_status']" value="1">
+        <span>{$Think.lang.account_balance}: ${$account.balance}</span>
+        <else />
+          <span>{$Think.lang.simulated_balance}: ${$account.gold}</span>
+        </eq>
+      </div>
+      <!--账户类型-->
+      <eq name="user['now_trade_status']" value="1">
+        <div class="info">
+          <p>{$Think.lang.firm_account}  <a class="switch" href="{:U('User/BrokersSwitch')}">{$Think.lang.switch}</a></p>
+        </div>
+      <else />
+        <div class="info">
+          <p>{$Think.lang.simulated_accounts}  <a class="switch" href="{:U('User/BrokersSwitch')}">{$Think.lang.switch}</a></p>
+        </div>
+      </eq>
+
+      <!--充值体现按钮-->
+      <eq name="user['now_trade_status']" value="1">
+        <div class="TW">
+          <a href="{:U('Recharge/index')}" target="_self">{$Think.lang.recharge}</a>
+          <a href="{:U('Withdrawals/index')}">{$Think.lang.withdrawal}</a>
+        </div>
+      <else />
+        <div class="TW">
+          <a href="javascript:void (0);" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.recharge}</a>
+          <a href="javascript:void (0);" onclick="MsgPrompt('{$Think.lang.please_switch}')">{$Think.lang.withdrawal}</a>
+        </div>
+      </eq>
+    </div>
+    <!--导航条-->
+    <aside class="userMenu">
+      <ul>
+        <li>
+          <a href="{:U('User/index')}">{$Think.lang.personal_center}</a>
+        </li>
+        <li>
+          <a href="{:U('Investment/index')}">{$Think.lang.statistics}</a>
+        </li>
+        <li>
+          <a href="{:U('Follow/index')}">{$Think.lang.following}</a>
+        </li>
+        <li>
+          <a href="{:U('Message/index')}">
+            {$Think.lang.meessage}
+            <!--<if condition="$NoreadCount egt '1'">-->
+              <!--<strong></strong>-->
+            <!--</if>-->
+          </a>
+        </li>
+        <li>
+          <a href="{:U('Setting/aboutwe')}">{$Think.lang.about_us}</a>
+        </li>
+        <li>
+          <a href="{:U('Help/help')}">{$Think.lang.help_center}</a>
+        </li>
+        <li>
+          <a href="{:U('Help/Risk')}">{$Think.lang.risk_warning}</a>
+        </li>
+  
+          <notempty name="user['code']">
+            <li>
+              <a href="{:U('Extension/index')}">{$Think.lang.promotion}</a>
+            </li>
+        <else />
+                <li data-v-adff73de="" onclick="applyAgent();">
+                  <a href="#">{$Think.lang.promotion}</a>
+                </li>
+        </notempty>
+        
+      </ul>
+    </aside>
+  </section>
+</empty>
+
+
+<script src="__PUBLIC__Qts/Home/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Home/css/layer/layer.js"></script>
+<script type="text/javascript">
+
+    //申请成为代理商
+    function applyAgent()
+    {
+        layer.open({
+            content: "{$Think.lang.confim_msg}"
+            ,btn: ["{$Think.lang.determine}", "{$Think.lang.do_not}"]
+            ,shadeClose:false
+            ,yes: function(index){
+
+                var please_wait = "{$Think.lang.please_wait}";
+                var load   = layer.open({type: 2,shadeClose:false,content:please_wait});
+                $.ajax({
+                    url: "{:U('Extension/applyAgent')}",
+                    dataType: 'json',
+                    type: 'post',
+                    success: function (data) {
+                        layer.open({
+                            content: data.msg
+                            ,skin: 'msg'
+                            ,time: 2 //2秒后自动关闭
+                        });
+                        layer.close(load);
+                        if(data.code == 200) return setTimeout(" window.location.href='{:U('Extension/index')}'",500);
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                });
+            }
+        });
+    }
+    
+  //信息提示
+  function MsgPrompt(msg)
+  {
+    layer.open({
+      content: msg
+      ,skin: 'msg'
+      ,time: 2000 //2秒后自动关闭
+    });
+  }
+</script>
+
+<style>
+  .userPublic {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  /*个人信息*/
+  .userPublic .userInfo {
+    width: 100%;
+    height: 117px;
+    background: #212139;
+    padding: 0 20px;
+    margin: 20px 0 6px;
+  }
+  .userPublic .userInfo .headPortrait{
+    float: left;
+    margin-top: 24px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+  /*.userPublic .userInfo .headPortrait img {*/
+    /*width: 64px;*/
+    /*border-radius: 50%;*/
+  /*}*/
+  .userPublic .userInfo .info {
+    float: left;
+    margin: 30px 30px 0;
+  }
+  .userPublic .userInfo .info span {
+    line-height: 50px;
+    color: #ddd;
+  }
+  .userPublic .userInfo .info p {
+    color: #fff;
+  }
+  .userPublic .userInfo .info p .switch {
+    color: #519ae9;
+  }
+  .userPublic .userInfo .TW {
+    float: right;
+    margin: 42px 10px 0 0;
+  }
+  .userPublic .userInfo .TW a {
+    display: inline-block;
+    width: 90px;
+    height: 33px;
+    background: #7aaeed;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 33px;
+    margin: 0 15px;
+    color: #fff;
+  }
+  /*菜单*/
+  .userPublic .userMenu {
+    width: 180px;
+    min-height: 720px;
+    background: #212139;
+    margin-right: 6px;
+    float: left;
+  }
+  .userPublic .userMenu ul {
+    padding-top: 50px;
+  }
+  .userPublic .userMenu ul li {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+  }
+  .userPublic .userMenu ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: #ddd;
+  }
+  .userPublic .userMenu ul li a.active,
+  .userPublic .userMenu ul li a:hover {
+    color: #7aaeed;
+  }
+</style>

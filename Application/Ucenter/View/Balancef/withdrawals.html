@@ -1,0 +1,159 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+
+
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            资金提现
+            <small>
+                <i class="icon-double-angle-right"></i>
+                提现申请
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <form class="form-horizontal" id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+                <input type="hidden" value="{$info.uid}" class="uid" name="uid">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 资金账户 </label>
+                    <div class="col-sm-9">
+                        <h4><b class="orange">{$info.balance}</b></h4>
+                    </div>
+                </div>
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 可提金额 </label>
+                    <div class="col-sm-9">
+                        <h4><b class="orange">{$info.gold_balance}</b></h4>
+                    </div>
+                </div>
+                <div class="space-4"></div>
+                
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 提取金额 </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="id_domain_name" value="" name="send_balance" placeholder="提取金额" onkeyup="value=value.replace(/[^\d\.]/g,'')" class="col-xs-10 col-sm-2 " />
+                    </div>
+                </div>
+                <div class="space-4"></div>
+            <div class="ps text-lesser" style="text-align:left">
+                <p class="text-highs">温馨提示:</p>
+<!--                 <p>1、消费用户提款免手续费，为防止恶意提款，每日提款申请次数最多为2次，超过次日处理；</p>
+                <p>2、为防止套现和洗钱，单笔充值无消费者提现时需提供身份证和银行卡给风控进行核实。如信息核实无误，将会在7-15个工作日内处理，银行收取2%的手续费自理，最低2元；</p> -->
+                <p>1、周一至周五09:00-17:00的提款申请当天处理，17:00以后的提款申请延至第二天处理。周五17:00后提款，延至下个工作日处理。提现到账时间最快2小时，最晚1个工作日，如遇节假日顺延。</p>
+                <p>2、周六周日提款延迟到周一处理，若节假日提款，一律节后第一个工作日处理。</p>
+            </div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a class="btn btn-success" href="#" id="form_submit">
+                            <i class="icon-ok"></i>
+                            确认提现
+                        </a>
+                        <a class="btn btn-success bank" href="#" >
+                            <i class="icon-ok"></i>
+                            绑定银行卡
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+            </form>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+<script type="text/javascript">
+
+
+
+    $('#form_submit').click(function(){
+        var index = layer.load(1, {
+            shade: [0.1,'#fff'] //0.1透明度的白色背景
+        });
+        
+        $.ajax({
+            type: "post",
+            url: "{:U('send_withdrawal')}",
+            data:$("#base_form").serialize(),
+            success: function(data) {
+                if(data.status == 1)
+                {
+                    layer.open({
+                        content: data.msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                            layer.close(index);
+                            top.location.reload();
+                        }
+                    });
+                }
+                if(data.status == 2)
+                {  
+                    layer.close(index);
+                    layer.open({
+                        content: data.msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                            layer.close(index);
+                        }
+                    });
+                }
+                if(data.status == 3)
+                {
+                    layer.close(index);
+                    layer.open({
+                        content: data.msg,
+                        btn: '确定',
+                        yes: function(index, layero){
+                            layer.close(index);
+                            $('.bank').click();
+                        }
+                    });
+                }
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+
+
+    $('.bank').click(function(){
+
+        layer.open({
+            type: 2,
+            area: ['780px', '75%'],
+            fixed: true, //不固定
+            maxmin: true,
+            title: "银行卡信息",
+            content: ["{:U('edit_bank')}?uid="+$('.uid').val(), 'no'],
+            end: function () {
+                top.location.reload();
+            }
+
+        });
+
+    });
+
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

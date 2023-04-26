@@ -1,0 +1,195 @@
+    <include file="Base:header" />
+    <title data-n-head="true">开设经纪商账户</title>
+    <link href="__PUBLIC__Qts/Home/css/common.css" rel="stylesheet">
+    <style data-vue-ssr-id="6c62b982:0 73881502:0">
+
+    #head2 {
+        width: 100%;
+        height: .5rem;
+        text-align: center;
+        background: #1c1a25;
+        -webkit-box-shadow: inset 0 0 0 0 #e5e5e5;
+        box-shadow: inset 0 0 0 0 #e5e5e5;
+        font-size: 17px;
+        color: #ffbf23;
+        letter-spacing: -.41px;
+        position: fixed;
+        z-index: 1000;
+        top: 0
+    }
+
+    #head2 h3 {
+        height: .5rem;
+        line-height: .5rem;
+        margin: 0;
+        font-size: .16rem;
+        font-weight: 400;
+        overflow: hidden
+    }
+
+    .product-name {
+        position: relative
+    }
+
+
+    .product-name em {
+        position: absolute;
+        top: .18rem;
+        font-size: .12rem;
+        left: 50%;
+        margin-left: -.32rem
+    }
+
+    #head2 .head_content .left {
+        position: absolute;
+        top: 0;
+        left: .2rem
+    }
+
+    #head2 .head_content .left a {
+        font-size: .2rem
+    }
+
+    #head1 .head_content .left a, #head2 .head_content .left a, #head2 .head_content .right a {
+        color: #fff;
+        line-height: .5rem
+    }
+
+    #head2 .arrow_left:after {
+        content: " ";
+        display: inline-block;
+        -webkit-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        transform: rotate(225deg);
+        height: 13px;
+        width: 13px;
+        border-width: 2px 2px 0 0;
+        border-color: #fff;
+        border-style: solid;
+        position: relative;
+        top: -2px;
+        position: absolute;
+        left: 0;
+        top: 19px
+    }
+
+    #head2 .arrow_right {
+        top: -.45rem
+    }
+
+    #head2 .arrow_right img {
+        width: .18rem
+    }
+    .brokerp[data-v-4cc41b2e] {
+        height: .35rem;
+        background: #171520;
+        line-height: .35rem;
+        padding: 0 .14rem;
+        position: relative;
+        font-size: 12px;
+        color: #ffbf23;
+    }
+
+
+    .brokerimg[data-v-4cc41b2e] {
+        width: .97rem;
+        margin: 1rem auto 0;
+        display: block
+    }
+
+    .brokercon[data-v-4cc41b2e] {
+        font-size: 16px;
+        margin: 0 auto
+    }
+
+    .broker[data-v-4cc41b2e], .brokercon[data-v-4cc41b2e] {
+        color: #FCFCFE;
+        letter-spacing: 0;
+        text-align: center;
+        width: 80%
+    }
+
+    .broker[data-v-4cc41b2e] {
+        font-size: 14px;
+        margin: .1rem auto
+    }
+
+    .brokercon2[data-v-4cc41b2e] {
+        font-size: 17px;
+        color: #333;
+        letter-spacing: 1px;
+        line-height: 22px;
+        text-align: center
+    }
+
+    .brokerimg2[data-v-4cc41b2e] {
+        width: .97rem;
+        margin: .5rem auto 0;
+        display: block
+    }
+
+    .onok[data-v-4cc41b2e] {
+        width: 90%;
+        margin: .4rem auto 0;
+        background: #ffc42f;
+        border-radius: 0.05rem;
+        height: 40px;
+        line-height: .4rem;
+        color: #000;
+        text-align: center;
+        display: block
+    }
+    </style>
+    <style type="text/css" data-n-head="true">body {
+        -webkit-overflow-scrolling: auto !important;
+    }</style>
+</head>
+<body class="" style="background: #1c1a25">
+<div id="__nuxt">
+    <div class="progress" data-v-4a8a9a01=""
+         style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+    <div data-v-4cc41b2e="" class="content">
+        <div data-v-d7866d92="" id="head2">
+            <div class="head_content"><h3 class="product-name"><span>开设经纪商账户</span><em></em></h3>
+                <div class="left" onclick="window.history.back();"><a class="arrow_left"></a></div>
+                <div class="right arrow_right">
+                <a href="{:U('index')}"><img style="width: 0.15rem" src="__PUBLIC__Qts/Home/img/user/exit.png"></a>
+                </div>
+            </div>
+        </div>
+        <section data-v-4cc41b2e="" class="page-main">
+            
+        <if condition="$status eq '0'">
+            <div data-v-4cc41b2e="">
+                <a href="http://tb.53kf.com/code/client/10173921/1"><p data-v-4cc41b2e="" class="brokerp">如有疑问,请联系客服</p></a>
+                <img data-v-4cc41b2e="" src="__PUBLIC__Qts/Home/img/user/audit_icon2.png" class="brokerimg">
+                <div data-v-4cc41b2e="" class="brokercon" style="margin-top: 0.2rem;">
+                    认证审核中
+                </div>
+                <div data-v-4cc41b2e="" class="broker">认证信息已提交审核，需等待1-2个工作日。<!-- ，如需快速交易，可前往westlake简单版开户。 --></div>
+            </div>
+        <elseif condition="$status eq '1'" />
+    
+            <div data-v-4cc41b2e="">
+                <img data-v-4cc41b2e="" src="__PUBLIC__Qts/Home/img/user/audit.png" class="brokerimg2">
+                <div data-v-4cc41b2e="" class="brokercon2" style="margin-top: 0.2rem;">
+                    恭喜您
+                </div>
+                <div data-v-4cc41b2e="" class="brokercon2">审核成功!</div>
+                <a data-v-4cc41b2e="" href="{:U('Recharge/index')}" class="onok">去充值</a>
+            </div>
+        <else />
+
+            <div data-v-4cc41b2e="">
+                <img data-v-4cc41b2e="" src="__PUBLIC__Qts/Home/img/user/fail.png" class="brokerimg2">
+                <div data-v-4cc41b2e="" class="brokercon2" style="margin-top: 0.2rem; color: rgb(136, 136, 136);">审核失败</div>
+                <a data-v-4cc41b2e="" href="{:U('standardOpen')}" class="onok">重新申请</a>
+            </div>
+        </if>
+
+        </section>
+    </div>
+</div>
+
+</body>
+</html>

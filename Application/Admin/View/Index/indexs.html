@@ -1,0 +1,35 @@
+<extend name="Base/common"/>
+<block name="content">
+<!-- this page specific styles -->
+<link rel="stylesheet" href="__CSS__/compiled/index.css" type="text/css" media="screen" />
+<div class="container-fluid">
+
+    <div id="pad-wrapper">
+
+        <div class="table-products" style="padding-top: 0;">
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4 style="font-style: normal;">欢迎您 <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$userinfo.username}</small></h4>
+                </div>
+            </div>
+    
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4 style="font-style: normal;">登录时间 <small>{$userinfo.lastlog}</small></h4>
+                </div>
+            </div>
+    
+            <div class="row-fluid head">
+                <div class="span12">
+                    <h4 style="font-style: normal;">登录IP <small>&nbsp;&nbsp;&nbsp;&nbsp;{$userinfo.last_login_ip}</small></h4>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/theme.js"></script>
+</block>

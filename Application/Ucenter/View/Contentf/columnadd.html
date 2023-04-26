@@ -1,0 +1,118 @@
+<include file="Common:header_f" />
+<include file="Common:main_container_header_f" />
+<style>
+    .uploadFileBox{
+        display: inline-block;
+        position: relative;
+        padding:0;
+    }
+    .uploadFileBox input{
+        width:100%;
+    }
+    .uploadFileBox #uploadFile{
+        position: absolute;
+        top:0;
+        left:0;
+        height:100%;
+        opacity: 0;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/Ucenter/css/layerui/css/layui.css">
+<div class="page-content">
+    <div class="page-header">
+        <h1>
+            内容管理
+            <small>
+                <i class="icon-double-angle-right"></i>
+                添加栏目
+            </small>
+        </h1>
+    </div><!-- /.page-header -->
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- PAGE CONTENT BEGINS -->
+
+            <form class="form-horizontal" id="base_form" action="" enctype="multipart/form-data" method="post" role="form">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for=""> 栏目名称 </label>
+                    <div class="col-sm-9">
+                        <input class="col-xs-10 col-sm-5" id="class" name="username" value=""  type="text">
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <a class="btn btn-success" href="#" id="form_submit">
+                            <i class="icon-ok"></i>
+                            确认提交
+                        </a>
+                    </div>
+                </div>
+                <div class="hr hr-24"></div>
+            </form>
+
+
+            <!-- PAGE CONTENT ENDS -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.page-content -->
+
+
+
+<include file="Common:main_container_footer" />
+<include file="Common:footer_basic_base" />
+
+<!-- basic scripts -->
+
+<!--[if !IE]> -->
+
+<!-- page specific plugin scripts -->
+
+<script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+
+
+<script>
+
+        $('#form_submit').click(function(){
+            var class_name = $('#class').val();
+            $.ajax({
+                type: "post",
+                url: "{:U('columnadd')}",
+                data:{'class':class_name},
+                success: function(data) {
+                    if(data.status == 1)
+                    {
+                        layer.open({
+                            content: data.info,
+                            btn: '确定',
+                            yes: function(index, layero){
+                                layer.close(index);
+                                top.location.href="{:U('column')}";
+                            }
+                        });
+                    }
+                    else
+                    {
+                        layer.open({
+                            content: data.info,
+                            btn: '确定',
+                            yes: function(index, layero){
+                                layer.close(index);
+                                //top.location.reload();
+                            }
+                        });
+                    }
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        });
+
+
+</script>
+
+<include file="Common:footer_ace_base" />
+<include file="Common:footer" />

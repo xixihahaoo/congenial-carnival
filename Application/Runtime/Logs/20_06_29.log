@@ -1,0 +1,38 @@
+[ 2020-06-29T11:11:02+08:00 ] 101.133.226.161 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000597s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002027s ]
+
+[ 2020-06-29T11:17:00+08:00 ] 101.133.226.161 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.001867s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000626s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002625s ]
+
+[ 2020-06-29T11:17:20+08:00 ] 101.133.226.161 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000402s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001891s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002413s ]
+
+[ 2020-06-29T11:17:20+08:00 ] 101.133.226.161 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000341s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001264s ]
+
+[ 2020-06-29T17:25:02+08:00 ] 120.55.13.109 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000419s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000886s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001435s ]
+

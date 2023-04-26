@@ -1,0 +1,303 @@
+<extend name="Base/common"/>
+<block name="content">
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="__CSS__/compiled/user-list.css" type="text/css" media="screen">
+    <link rel="stylesheet" type="text/css" href="__CSS__/layerui/css/layui.css">
+
+
+    <div class="container-fluid">
+        <div id="pad-wrapper" class="users-list">
+            <div class="row-fluid header" style="margin-bottom: 10px">
+                <form id="form1" action="__URL__/index" method="get">
+                    <h3 style="height: 40px; width: 100%;font-size: 24px;">销售商列表</h3>
+                    <div class="span10 pull-left">
+                        <div class="tpsearch" style="width: 20%">
+                            运营中心：<select name="uid" id="uid" class="span7">
+                            <option value="">默认不选</option>
+                            <foreach name="extends" item="vo">
+                                <php>
+                                    if($uid == $vo['uid']){
+                                </php>
+                                <option value="{$vo.uid}" selected>{$vo.username}</option>
+                                <php>}else{</php>
+                                <option value="{$vo.uid}">{$vo.username}</option>
+                                <php>}</php>
+                            </foreach>
+                        </select>
+                        </div>
+                        <div class="tpsearch" style="width: 20%">
+                            手机号：<input type="text" class="span6 search" value="{$phone}" placeholder="请输入手机号" name="phone" id="phone"/>
+                        </div>
+                        <div class="tpsearch"  style="width: 20%">
+                            用户名称：<input type="text" value="{$username}" class="span6 search" placeholder="请输入用户名称查找..." name="username" id="username"/>
+                        </div>
+
+                    </div>
+                    <div class="tpsearch" style="width:12%;float:right">
+                        <a href="javascript:void(0)" class="btn-flat info" id="submit">开始查找</a>
+                        <a href="javascript:void(0)" class="btn-flat info" id="daochu">查找导出</a>
+                    </div>
+                </form>
+            </div>
+            <!-- Users table -->
+            <div class="row-fluid table">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th class="span1 sortable">
+                            编号
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>用户名
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>昵称
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>手机号
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>注册时间
+                        </th>
+                        
+                        <th class="span2 sortable">
+                            <span class="line"></span>注册ip
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>登录时间
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>登录ip
+                        </th>
+
+                        <th class="span2 sortable">
+                            <span class="line"></span>所属运营中心
+                        </th>
+                        <th class="span2 sortable">
+                            <span class="line"></span>操作
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody id="ajaxback">
+                    <volist name="agent" id="ult">
+                        <!-- row -->
+                        <tr class="first">
+                            <td>
+                                {$ult['uid']}
+                            </td>
+
+                            <td>
+                                <a href="javascript:void(0)"  style="color: red;" onclick="showdetail({$ult['uid']})" title="查看资金详情">{$ult['username']}
+                                <eq name="ult['is_default']" value="1">
+                                    <span>(默认)</span>
+                                </eq>
+                                </a>
+                            </td>
+                            
+                            <td>
+                                {$ult['nickname']}
+                            </td>
+
+                            <td>
+                                {$ult['utel']}
+                            </td>
+
+                            <td>
+                                {$ult.utime|date='Y-m-d H:i:s',###}
+                            </td>
+                            
+                            <td>
+                                {$ult.reg_ip}
+                            </td>
+                            
+                            <td>
+                                <notempty name="ult['lastlog']">
+                                    {$ult.lastlog|date='Y-m-d H:i:s',###}
+                                <else />
+                                    尚未登录
+                                </notempty>
+                            </td>
+                            
+                            <td>
+                                <notempty name="ult['last_login_ip']">
+                                    {$ult.last_login_ip}
+                                <else />
+                                    尚未登录
+                                </notempty>
+                            </td>
+
+                            <td>
+                                {$user[$ult['parent_user_id']]['name']}
+                            </td>
+
+                            <td>
+                                <a href="{:U('user/resetpwd/',array('uid'=>$ult['uid']))}" class="layui-btn layui-btn-normal layui-btn-mini">重置密码</a>
+                                <a  class="del layui-btn layui-btn-mini layui-btn-danger"  data-id="{$ult['uid']}">删除</a>
+                            </td>
+
+                        </tr>
+                    </volist>
+                    </tbody>
+                </table>
+                <div class="qjcz">
+                    <span style="margin-right:30px;float:right">总销售商：<i style="color:red">{$count}个</i><br></span>
+                </div>
+            </div>
+            <div class="pagination pull-right">
+                <ul>
+                    {$page}
+                </ul>
+            </div>
+            <!-- end users table -->
+        </div>
+
+
+    <!--运营上详情界面 the template of the showdetail-->
+    <div style="display:none;" id="showdetail">
+        <div class="container-fluid">
+            <!-- PAGE CONTENT BEGINS -->
+            <div class="row"  style="margin-left:0;">
+                <div class="col-md-6">
+                    <h2>交易信息统计</h2>
+
+                    <table class="special_table_border table table-striped table-bordered" style="text-align:center;">
+                        <tbody>
+                        <tr>
+                            <td class="center hidden-xs specla_background_class">
+                                <h5>订单总数</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>订单总金额</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总盈亏</h5>
+                            </td>
+                            <td class="center specla_background_class">
+                                <h5>总手续费</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="show_order_total"></td>
+                            <td id="show_order_count"></td>
+                            <td id="show_order_money"></td>
+                            <td id="show_order_fee"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row"  style="margin-left:0;">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">用户信息统计</h3>
+
+                    <table class="special_table_border table table-striped table-bordered">
+
+                        <tbody>
+                        <tr>
+                            <td class="center specla_background_class">
+                                <h5>用户总数</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="show_user_total"></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PAGE CONTENT ENDS -->
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="__JS__/jquery-latest.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/bootstrap.datepicker.js"></script>
+    <script src="__JS__/theme.js"></script>
+    <script type="text/javascript" src="__PUBJS__/layer/layer.js"></script>
+    <script type="text/javascript">
+
+            $('#daochu').click(function(){
+                $('#form1').attr("action","__URL__/daochu");
+                $('#form1').submit();
+            });
+
+            $('#submit').click(function(){
+                $('#form1').attr("action","__URL__/index");
+                $('#form1').submit();
+            });
+
+
+        $(".del").click(function(){
+
+            var uid = $(this).attr('data-id');
+
+            //询问框
+            layer.open({
+                content: '您确定要删除吗？'
+                ,btn: ['确定', '不要']
+                ,yes: function(index){
+
+                    $.ajax({
+                        url:"{:U('agent_del')}",
+                        type:"post",
+                        dataType:"json",
+                        data:"uid="+uid+"",
+                        success:function(data){
+                            if(data.status === 0){
+
+                                layer.msg(data.msg);
+                                return false;
+                            } else {
+
+                                layer.msg(data.msg);
+                                top.location.reload();
+                                return false;
+                            }
+
+                        }
+                    });
+                    layer.close(index);
+                }
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        //展示指定销售商资金详情
+        function showdetail(uid){
+            if(uid == ''){
+                layer.msg('用户id不存在');
+            }else{
+                $.ajax({
+                    type: "post",
+                    url: "{:U('show')}",
+                    data: {'uid': uid},
+                    success: function(data){
+                        $("#show_account").html('<strong>&yen;'+data.data.account+'</strong>');
+                        $("#show_order_total").html('<strong>&yen;'+data.data.order_total+'</strong>');
+                        $("#show_order_count").html('<strong>&yen;'+data.data.total_count+'</strong>');
+                        $("#show_order_money").html('<strong>&yen;'+data.data.total_money+'</strong>');
+                        $("#show_order_fee").html('<strong>&yen;'+data.data.total_fee+'</strong>');
+                        $("#show_user_total").html('<strong>'+data.data.user_total+' 个</strong>');
+                        layer.open({
+                            type: 1,
+                            shadeClose: true,
+                            title: '<strong>'+data.data.username+'</strong> 的资金统计',
+                            area: ['800px', '300px'],
+                            content: $('#showdetail') //这里content是一个DOM，注意：最好该元素要存放在body最外层，否则可能被其它的相对元素所影响
+                        });
+                    }
+                });
+            }
+        }
+    </script>
+</block>

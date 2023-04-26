@@ -1,0 +1,30 @@
+[ 2020-06-16T07:03:59+08:00 ] 101.133.140.228 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000594s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002049s ]
+
+[ 2020-06-16T07:10:10+08:00 ] 101.133.140.228 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000582s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000604s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001311s ]
+
+[ 2020-06-16T07:10:41+08:00 ] 101.133.140.228 /
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 39 行.
+NOTIC: [8] Undefined index: HTTP_HOST /www/wwwroot/kmforex.com/ThinkPHP/Library/Think/Dispatcher.class.php 第 46 行.
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000336s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001079s ]
+
+[ 2020-06-16T07:10:41+08:00 ] 101.133.140.228 /
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000346s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000504s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001154s ]
+

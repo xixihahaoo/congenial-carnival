@@ -1,0 +1,98 @@
+<include file="Base:header" />
+<title data-n-head="true">{$Think.lang.select_country}</title>
+
+<link href="__PUBLIC__/Qts/Home/css/common.css" rel="stylesheet">
+<link href="__PUBLIC__/Qts/Home/css/pcPublic.css" rel="stylesheet">
+
+<style type="text/css">img[data-v-fb36fe64] {
+	width: 100%;
+	/*height: 100%*/
+}
+
+.help_list[data-v-fb36fe64] {
+	padding: .15rem
+}
+
+.help_list li[data-v-fb36fe64] {
+	/*height: .55rem;*/
+	width: 100%;
+	line-height: 0.65rem;
+	/*margin-bottom: .3rem*/
+    border-bottom: 1px solid #ddd;
+}
+
+/*.help_list li[data-v-fb36fe64]:first-child {*/
+	/*margin-top: .1rem*/
+/*}*/
+.help_list li:last-child {
+  border-bottom: none;
+}
+
+.help_list li img[data-v-fb36fe64] {
+	height: 0.35rem;
+	width: .45rem;
+	float: left;
+    margin-top: 0.15rem;
+}
+
+.help_list li a[data-v-fb36fe64] {
+	margin-left: .2rem;
+	font-size: 14px;
+	color: #ffbf23;
+}
+
+img[data-v-465fb361] {
+	width: 100%;
+	/*height: 100%*/
+}
+
+/*body {*/
+	/*background: #fbfbfb*/
+/*}*/
+/*新增css*/
+body, html {
+  height: 100%;
+  width: 100%;
+  background: #f5f9fe !important;
+}
+.page-main {
+  background: #fff;
+  min-height: 600px;
+  margin: 30px auto !important;
+  padding: 0 80px !important;
+}
+</style>
+</head>
+<body>
+<div id="__nuxt">
+	<div class="progress" data-v-4a8a9a01=""
+	     style="width: 0%; height: 2px; background-color: rgb(1, 40, 97); opacity: 0;"></div>
+	<div data-v-fb36fe64="" class="content">
+		<!--<div data-v-fb36fe64="" id="head">-->
+			<!--<div class="head_content"><h3 class="product-name"><span>{$Think.lang.select_country}</span><em></em></h3>-->
+				<!--<div class="left"><a class="arrow_left"  href="{:U('User/index')}"></a></div>-->
+				<!--<div class="right arrow_right"><b></b></div>-->
+			<!--</div>-->
+		<!--</div>-->
+        <!--引入导航条-->
+        <include file="Base:footer" />
+		<section data-v-fb36fe64="" class="page-main">
+			<ul data-v-fb36fe64="" class="help_list">
+				<volist name="country" id="vo">
+					<li data-v-fb36fe64="" onclick="jmpurl('{$vo['id']}')">
+						<img data-v-fb36fe64="" src="/Uploads/{$vo.logo}">
+						<a data-v-fb36fe64="" href="{:U('details',array('id' => $vo['id']))}">{$vo.name}</a>
+					</li>
+				</volist>
+			</ul>
+		</section>
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+	function jmpurl(id) {
+		window.location.href="details?id="+id+"";
+    }
+</script>
