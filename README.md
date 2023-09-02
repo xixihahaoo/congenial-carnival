@@ -24,8 +24,17 @@
 > 手机端普通用户账户：123456@qq.com/123456
 
 
+**注意事项：**
+
+> 1、修改根目录中的index.php，将域名更换为您实际的域名，否则系统登陆会失败  define('ADMIN_URL','test.com');
+>
+> 2、总后台登陆，使用了谷歌验证器，您需要下载谷歌【Authenticator】 App，将秘钥设置成功后，即可获得对应的登陆验证码。
+> 默认谷歌验证器秘钥为：YD2HX4K44VFVH7PO
+
+
 ## 以下共3个地方需要启动相关计划脚本
 
+## 1：数据源对接：
 > **数据源使用地址（备注）：http://39.107.99.235:1008/market/market.php**
 >
 > 行情接收启动命令： 启动前请确定ip已授权，行情对接完成
@@ -46,7 +55,7 @@
 > ![img.png](mdPng/img_1.png)
 
 
-## 宝塔计划任务：
+## 2：宝塔计划任务：
 
 > 1：每隔5分钟定时更新休市状态 	脚本内容：
 >     sh /www/wwwroot/www.28hxyct.xyz/job.sh 	www.28hxyct.xyz 换成你的项目实际目录 	job.sh在你的项目根目录下，如果需要更换新的项目需要进入修改该文件。
@@ -61,7 +70,7 @@
 
 
 
-## 宝塔Supervisor管理器
+## 3：宝塔Supervisor管理器
 
 > 跟随脚本：/www/server/php/56/bin/php cli.php Home/CrontabFollow/settlement
 > 点位平仓脚本：/www/server/php/56/bin/php cli.php Home/CrontabPosition/settlement
