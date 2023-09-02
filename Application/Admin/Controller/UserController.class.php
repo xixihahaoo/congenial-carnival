@@ -7,7 +7,7 @@ class UserController extends BaseController
 {
 
     private $secret = 'YD2HX4K44VFVH7PO'; //谷歌验证生成的唯一秘钥
-    private $time   = 1; //超时时间 1*30s
+    private $time   = 30; //超时时间 1*30s
 
     //管理员登陆
     public function signin()
@@ -167,7 +167,7 @@ class UserController extends BaseController
             //验证用户提交的验证码是否正确
             $checkResult = $ga->verifyCode($this->secret, $code, $this->time);
 
-            if (!$checkResult) {
+            if ($checkResult) {
 
                 $user = D("userinfo");
 
