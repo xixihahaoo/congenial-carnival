@@ -1,10 +1,10 @@
 # 期货、外汇、数字货币、行情交易php源码
 # 开源代码仅供参考学习，请勿用于非法用途！！！
 
-![img.png](mdPng/1.png)
-![img.png](mdPng/2.png)
-![img.png](mdPng/3.png)
-![img.png](mdPng/4.png)
+![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/1.png)
+![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/2.png)
+![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/3.png)
+![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/4.png)
 
 **环境要求：**
 
@@ -41,7 +41,7 @@
 > 行情接收启动命令： 启动前请确定ip已授权，行情对接完成
 >
 > 启动前需要修改：Events.php 将数据库信息改为自己的
-> ![img.png](mdPng/img.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img.png)
 >
 > 启动命令： /www/server/php/56/bin/php
 > /www/wwwroot/www.28hxyct.xyz/Workerman/GatewayWorker/start.php restart
@@ -53,7 +53,7 @@
 > 并在nginx配置代理即可
 >
 > 例如：
-> ![img.png](mdPng/img_1.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_1.png)
 
 
 ## 2：宝塔计划任务：
@@ -62,12 +62,12 @@
 >     sh /www/wwwroot/www.28hxyct.xyz/job.sh 	www.28hxyct.xyz 换成你的项目实际目录 	job.sh在你的项目根目录下，如果需要更换新的项目需要进入修改该文件。
 >     命令如下：
 >
-> ![img.png](mdPng/img_2.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_2.png)
 >
 > 2：每隔30分钟定时重载行情（这个最小30分钟，时间不要小于30分钟）
 > 	脚本内容：/www/server/php/56/bin/php
 > /www/wwwroot/www.28hxyct.xyz/Workerman/GatewayWorkerNew/start.php reload –d <br>www.28hxyct.xyz 换成你的项目实际目录
-> ![img.png](mdPng/img_3.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_3.png)
 
 
 
@@ -78,10 +78,10 @@
 > 时间平仓脚本：/www/server/php/56/bin/php cli.php Home/CrontabTimePosition/settlement
 > 挂单脚本：/www/server/php/56/bin/php cli.php Home/CrontabResting/settlement
 >
-> ![img.png](mdPng/img_4.png)
-> ![img.png](mdPng/img_5.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_4.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_5.png)
 > 
 > **添加计划步骤如下：**
-> ![img.png](mdPng/img_6.png)
+> ![img.png](https://raw.githubusercontent.com/xixihahaoo/congenial-carnival/main/mdPng/img_6.png)
 
 
